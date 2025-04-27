@@ -1,0 +1,25 @@
+{
+  "ReadOnly": true,
+  "Style": "CollLabel:",
+  "Categories": {
+    "ControlType": "Button"
+  },
+  "History": {
+    "ControlType": "Button"
+  },
+  "LifeRules": {
+    "ControlType": "Label"
+  },
+  "Report": {
+    "ControlType": "Button"
+  },
+  "Today": {
+    "ControlType": "Button"
+  },
+  "Yesterday": {
+    "ControlType": "Button"
+  },
+  "Think": {
+    "ControlType": "Button"
+  }
+}
