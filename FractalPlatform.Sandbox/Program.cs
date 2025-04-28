@@ -165,7 +165,7 @@ namespace FractalPlatform.Sandbox
                     workingFolder = @$"{solutionPath}\{assemblyName}\Databases";
                     dbName = appName.Replace("Application", "");
                     dbPath = @$"{workingFolder}\{dbName}";
-                    Context.BasePath = @$"{solutionPath}\{assemblyName}";
+                    Context.WebRootPath = @$"{solutionPath}\{assemblyName}";
                 }
                 else //Projects folder
                 {
@@ -173,7 +173,7 @@ namespace FractalPlatform.Sandbox
                     workingFolder = @$"{solutionPath}\Projects\{assemblyName}";
                     dbName = "Database";
 					dbPath = @$"{workingFolder}\Database";
-                    Context.BasePath = @$"{solutionPath}\Projects\{assemblyName}";
+                    Context.WebRootPath = @$"{solutionPath}\Projects\{assemblyName}";
                 }
 
                 while (true)
