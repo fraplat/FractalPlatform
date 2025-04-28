@@ -574,7 +574,7 @@ namespace FractalPlatform.CreateLayout
 
             MessageBoxInfo("Choose a 0000000001.json document in a database collection");
 
-            openJsonFileDialog.InitialDirectory = @"C:\FractalPlatform\FractalPlatform.Examples\Databases";
+            openJsonFileDialog.InitialDirectory = @"c:\fraplat\FractalPlatform\FractalPlatform.Examples\Databases";
 
             if (openJsonFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -1455,7 +1455,7 @@ namespace FractalPlatform.CreateLayout
         {
             MessageBox.Show("Choose a html file");
 
-            openHtmlFileDialog.InitialDirectory = @"C:\BigDoc\Design";
+            openHtmlFileDialog.InitialDirectory = @"c:\fraplat\BigDoc\Design";
 
             if (openHtmlFileDialog.ShowDialog() == DialogResult.OK)
             {
