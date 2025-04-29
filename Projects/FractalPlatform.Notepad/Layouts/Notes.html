@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    @Styles
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notepad</title>
+    <style>
+        /* Стили для черной темы */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #181818;
+            color: #f1f1f1;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        textarea {
+            width: 99%;
+            height: 97vh;
+            background-color: #181818;
+            color: #f1f1f1;
+            border: none;
+            font-size: 16px;
+            resize: none;
+            outline: none;
+            overflow: hidden; /* Скрываем скроллбар по умолчанию */
+            white-space: pre-wrap; /* Перенос строк, если нужно */
+        }
+        
+        /* Позволяем появляться скроллу только при переполнении */
+        textarea:focus {
+            overflow: auto;
+        }
+        
+        .button-container {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px; /* Расстояние между кнопками */
+        }
+        
+        .name-textbox,
+        .save-button,
+        .cancel-button {
+            background-color: #000000;
+            color: #181818;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        .name-textbox:hover,
+        .save-button:hover,
+        .cancel-button:hover {
+            background-color: #00cc00;
+        }
+        
+    </style>
+</head>
+
+<body>
+    @StartForm
+    <control attr="Text">
+        <textarea @RichTextBox>@Value</textarea>
+    </control>
+
+    <div class="button-container">
+        <control attr="Name">
+            <input class="name-textbox" @TextBox />
+        </control>
+        <button class="save-button" @SavePageButton>Сохранить</button>
+        <button class="cancel-button" @CancelPageButton>Закрыть</button>
+    </div>
+
+    @EndForm
+</body>
+
+</html>
