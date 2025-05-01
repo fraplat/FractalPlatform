@@ -189,6 +189,50 @@
       "Image": ""
     },
     {
+      "App Name": "Uezjunyka",
+      "DB Entities (Tables)": 1,
+      "Classic Lines of Code": 540,
+      "FP Lines Of Code": 18,
+      "Open Application": "https://fraplat.tech/jupiter/Uezjunyka",
+      "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/Uezjunyka",
+      "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=Uezjunyka+template",
+      "Description": "Landing page for a social network",
+      "Image": ""
+    },
+    {
+      "App Name": "Chat",
+      "DB Entities (Tables)": 2,
+      "Classic Lines of Code": 900,
+      "FP Lines Of Code": 30,
+      "Open Application": "https://fraplat.tech/jupiter/Chat",
+      "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/Chat",
+      "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=Chat+template",
+      "Description": "Web chat",
+      "Image": ""
+    },
+    {
+      "App Name": "Login",
+      "DB Entities (Tables)": 2,
+      "Classic Lines of Code": 540,
+      "FP Lines Of Code": 18,
+      "Open Application": "https://fraplat.tech/jupiter/Login",
+      "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/Login",
+      "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=Login+template",
+      "Description": "User login",
+      "Image": ""
+    },
+    {
+      "App Name": "ManagePasswords",
+      "DB Entities (Tables)": 2,
+      "Classic Lines of Code": 1950,
+      "FP Lines Of Code": 65,
+      "Open Application": "https://fraplat.tech/jupiter/ManagePasswords",
+      "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/ManagePasswords",
+      "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=ManagePasswords+template",
+      "Description": "Encrypted password storage",
+      "Image": ""
+    },
+    {
       "App Name": "SiteScanner",
       "DB Entities (Tables)": 2,
       "Classic Lines of Code": 4860,
@@ -384,6 +428,116 @@
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/Supermarket",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=Supermarket+template",
       "Description": "Basic functionality of a shopping cart",
+      "Image": ""
+    },
+    {
+      "App Name": "RealWorld",
+      "DB Entities (Tables)": 13,
+      "Classic Lines of Code": 3310,
+      "FP Lines Of Code": 331,
+      "Open Application": "https://fraplat.tech/jupiter/RealWorld",
+      "Open Sources": "https://github.com/LearnFractal/FractalPlatform.RealWorld",
+      "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=RealWorld+template",
+      "Description": "RealWorld (conduit) demo app",
+      "Image": ""
+    },
+    {
+      "App Name": "ControlsGallery",
+      "DB Entities (Tables)": 16,
+      "Classic Lines of Code": 1440,
+      "FP Lines Of Code": 48,
+      "Open Application": "https://fraplat.tech/jupiter/ControlsGallery",
+      "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/ControlsGallery",
+      "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=ControlsGallery+template",
+      "Description": "Gallery of controls available in FP",
+      "Image": ""
+    },
+    {
+      "App Name": "FreelanceResponse",
+      "DB Entities (Tables)": 16,
+      "Classic Lines of Code": 11730,
+      "FP Lines Of Code": 391,
+      "Open Application": "https://fraplat.tech/jupiter/FreelanceResponse",
+      "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/FreelanceResponse",
+      "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=FreelanceResponse+template",
+      "Description": "Freelance marketplace prototype",
+      "Image": ""
+    },
+    {
+      "App Name": "Seasons",
+      "DB Entities (Tables)": 17,
+      "Classic Lines of Code": 14190,
+      "FP Lines Of Code": 473,
+      "Open Application": "https://fraplat.tech/jupiter/Seasons",
+      "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/Projects/FractalPlatform.Seasons",
+      "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=Seasons+template",
+      "Description": "Online cinema and social network with design",
+      "Image": ""
+    },
+    {
+      "App Name": "Forum",
+      "DB Entities (Tables)": 19,
+      "Classic Lines of Code": 9270,
+      "FP Lines Of Code": 309,
+      "Open Application": "https://fraplat.tech/jupiter/Forum",
+      "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/Projects/FractalPlatform.Forum",
+      "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=Forum+template",
+      "Description": "Forum with UI design",
+      "Image": ""
+    },
+    {
+      "App Name": "UTube",
+      "DB Entities (Tables)": 20,
+      "Classic Lines of Code": 13290,
+      "FP Lines Of Code": 443,
+      "Open Application": "https://fraplat.tech/jupiter/UTube",
+      "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/Projects/FractalPlatform.UTube",
+      "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=UTube+template",
+      "Description": "Youtube prototype with UI design",
+      "Image": ""
+    },
+    {
+      "App Name": "CoffeePoints",
+      "DB Entities (Tables)": 24,
+      "Classic Lines of Code": 4260,
+      "FP Lines Of Code": 142,
+      "Open Application": "https://fraplat.tech/jupiter/CoffeePoints",
+      "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/Projects/FractalPlatform.CoffeePoints",
+      "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=CoffeePoints+template",
+      "Description": "Website for offline meetings with UI design",
+      "Image": ""
+    },
+    {
+      "App Name": "ToDoIntro",
+      "DB Entities (Tables)": 29,
+      "Classic Lines of Code": 1680,
+      "FP Lines Of Code": 56,
+      "Open Application": "https://fraplat.tech/jupiter/ToDoIntro",
+      "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/ToDoIntro",
+      "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=ToDoIntro+template",
+      "Description": "Multi-page presentation with feedback form",
+      "Image": ""
+    },
+    {
+      "App Name": "FractalStudio",
+      "DB Entities (Tables)": 8,
+      "Classic Lines of Code": 15500,
+      "FP Lines Of Code": 3500,
+      "Open Application": "https://fraplat.tech/mars/FractalStudio",
+      "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/FractalStudio",
+      "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=FractalStudio+template",
+      "Description": "Online studio for developing/debugging/deploying FP apps",
+      "Image": ""
+    },
+    {
+      "App Name": "FractalPortal",
+      "DB Entities (Tables)": 200,
+      "Classic Lines of Code": 135000,
+      "FP Lines Of Code": 4500,
+      "Open Application": "https://fraplat.tech/jupiter/FractalPortal",
+      "Open Sources": "https://github.com/LearnFractal/FractalPortal/tree/main/FractalPlatform.Examples/Applications/FractalPortal",
+      "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=FractalPortal+template",
+      "Description": "Prototype: Jira + Teams + Education + Cloud Portal",
       "Image": ""
     }
   ]
