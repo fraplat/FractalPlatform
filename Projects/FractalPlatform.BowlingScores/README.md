@@ -16,7 +16,7 @@ Track your personal bowling scores with photos and reports.
 | Code Part  | Volume |
 | ------------- | ------------- |
 | C# code  | 110 code lines  |
-| Database  | 2 document collection  |
+| Database  | 4 document collection  |
 | Designed Screens  | 0 designed screen  |
 | Standard Screens  | 5 standard screen  |
 
