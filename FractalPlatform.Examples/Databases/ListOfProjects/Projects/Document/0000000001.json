@@ -9,7 +9,7 @@
       "Open Application": "https://fraplat.tech/jupiter/BTCRate",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/BTCRate",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=BTCRate+template",
-      "Description": "Мониторинг цены биткоина",
+      "Description": "Bitcoin price monitoring",
       "Image": ""
     },
     {
@@ -20,7 +20,7 @@
       "Open Application": "https://fraplat.tech/jupiter/BTCRateStopLoss",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/BTCRateStopLoss",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=BTCRateStopLoss+template",
-      "Description": "Мониторинг цены биткоина",
+      "Description": "Bitcoin price monitoring",
       "Image": ""
     },
     {
@@ -31,7 +31,7 @@
       "Open Application": "https://fraplat.tech/jupiter/FuelCalc",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/FuelCalc",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=FuelCalc+template",
-      "Description": "Расчет количества топлива",
+      "Description": "Fuel quantity calculation",
       "Image": ""
     },
     {
@@ -42,7 +42,7 @@
       "Open Application": "https://fraplat.tech/jupiter/HelloWorld",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/HelloWorld",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=HelloWorld+template",
-      "Description": "Простейшее приложение",
+      "Description": "Simple example application",
       "Image": ""
     },
     {
@@ -53,7 +53,7 @@
       "Open Application": "https://fraplat.tech/jupiter/Shelest",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/Shelest",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=Shelest+template",
-      "Description": "Список свободных номеров в отеле Shelest.ua + погода",
+      "Description": "List of available hotel rooms on Shelest.ua + weather",
       "Image": ""
     },
     {
@@ -64,7 +64,7 @@
       "Open Application": "https://fraplat.tech/jupiter/MyElectro",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/MyElctro",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=MyElectro+template",
-      "Description": "Прогноз наличия электричества 1й группы с сайте ДТЕК",
+      "Description": "Electricity availability forecast (Group 1) from DTEK website",
       "Image": ""
     },
     {
@@ -75,7 +75,7 @@
       "Open Application": "https://fraplat.tech/jupiter/RealWorldComparator",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/RealWorldComparator",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=RealWorldComparator+template",
-      "Description": "Сравнение BE/FE/Fullstack репозиториев RealWorld (conduit) приложения",
+      "Description": "Comparison of BE/FE/Fullstack RealWorld (conduit) repositories",
       "Image": ""
     },
     {
@@ -86,7 +86,7 @@
       "Open Application": "https://fraplat.tech/jupiter/TableToJson",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/TableToJson",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=TableToJson+template",
-      "Description": "Конвертация таблицы в джисон",
+      "Description": "Convert table to JSON",
       "Image": ""
     },
     {
@@ -97,7 +97,7 @@
       "Open Application": "https://fraplat.tech/jupiter/JsonToWebApp",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/JsonToWebApp",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=JsonToWebApp+template",
-      "Description": "Конвертация джисона в веб апп",
+      "Description": "Convert JSON to web app",
       "Image": ""
     },
     {
@@ -108,7 +108,7 @@
       "Open Application": "https://fraplat.tech/jupiter/AIToWebApp",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/AIToWebApp",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=AIToWebApp+template",
-      "Description": "Конструктор простых веб апп + список созданных веб апп",
+      "Description": "Simple web app constructor + list of created web apps",
       "Image": ""
     },
     {
@@ -119,7 +119,7 @@
       "Open Application": "https://fraplat.tech/jupiter/AIWhatYouSee",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/AIWhatYouSee",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=AIWhatYouSee+template",
-      "Description": "Определение что находится на изображении через LLM",
+      "Description": "Image content recognition using LLM",
       "Image": ""
     },
     {
@@ -130,7 +130,7 @@
       "Open Application": "https://fraplat.tech/jupiter/HowOldAreYou",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/HowOldAreYou",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=HowOldAreYou+template",
-      "Description": "Определение возраста по фото через LLM",
+      "Description": "Age estimation from photo using LLM",
       "Image": ""
     },
     {
@@ -141,7 +141,7 @@
       "Open Application": "https://fraplat.tech/jupiter/ListOfProjects",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/ListOfProjects",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=ListOfProjects+template",
-      "Description": "Список примеров проектов на FP",
+      "Description": "List of example projects on FP",
       "Image": ""
     },
     {
@@ -152,7 +152,7 @@
       "Open Application": "https://fraplat.tech/jupiter/MultTable",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/MultTable",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=MultTable+template",
-      "Description": "Тренажер для детей по таблице умножения",
+      "Description": "Multiplication table trainer for kids",
       "Image": ""
     },
     {
@@ -163,7 +163,7 @@
       "Open Application": "https://fraplat.tech/jupiter/PressureCalc",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/PressureCalc",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=PressureCalc+template",
-      "Description": "Расчет максимального артериального давления",
+      "Description": "Maximum blood pressure calculator",
       "Image": ""
     },
     {
@@ -174,7 +174,7 @@
       "Open Application": "https://fraplat.tech/jupiter/SendTextMessage",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/SendTextMessage",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=SendTextMessage+template",
-      "Description": "Отправка сообщения в телеграмм",
+      "Description": "Send Telegram message",
       "Image": ""
     },
     {
@@ -185,51 +185,7 @@
       "Open Application": "https://fraplat.tech/jupiter/TextToQRCode",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/TextToQRCode",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=TextToQRCode+template",
-      "Description": "Конвертация текста в QR код",
-      "Image": ""
-    },
-    {
-      "App Name": "Uezjunyka",
-      "DB Entities (Tables)": 1,
-      "Classic Lines of Code": 540,
-      "FP Lines Of Code": 18,
-      "Open Application": "https://fraplat.tech/jupiter/Uezjunyka",
-      "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/Uezjunyka",
-      "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=Uezjunyka+template",
-      "Description": "Лендинг страница для социальной сети",
-      "Image": ""
-    },
-    {
-      "App Name": "Chat",
-      "DB Entities (Tables)": 2,
-      "Classic Lines of Code": 900,
-      "FP Lines Of Code": 30,
-      "Open Application": "https://fraplat.tech/jupiter/Chat",
-      "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/Chat",
-      "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=Chat+template",
-      "Description": "Веб чат",
-      "Image": ""
-    },
-    {
-      "App Name": "Login",
-      "DB Entities (Tables)": 2,
-      "Classic Lines of Code": 540,
-      "FP Lines Of Code": 18,
-      "Open Application": "https://fraplat.tech/jupiter/Login",
-      "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/Login",
-      "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=Login+template",
-      "Description": "Логин пользователя",
-      "Image": ""
-    },
-    {
-      "App Name": "ManagePasswords",
-      "DB Entities (Tables)": 2,
-      "Classic Lines of Code": 1950,
-      "FP Lines Of Code": 65,
-      "Open Application": "https://fraplat.tech/jupiter/ManagePasswords",
-      "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/ManagePasswords",
-      "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=ManagePasswords+template",
-      "Description": "Хранение зашифрованных паролей",
+      "Description": "Convert text to QR code",
       "Image": ""
     },
     {
@@ -240,7 +196,7 @@
       "Open Application": "https://fraplat.tech/jupiter/SiteScanner",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/SiteScanner",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=SiteScanner+template",
-      "Description": "Сканирование сайтов и оповещение в телеграмм",
+      "Description": "Website scanning and Telegram notifications",
       "Image": ""
     },
     {
@@ -251,7 +207,7 @@
       "Open Application": "https://fraplat.tech/jupiter/ToDo",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/ToDo",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=ToDo+template",
-      "Description": "ToDo список",
+      "Description": "ToDo list",
       "Image": ""
     },
     {
@@ -262,7 +218,7 @@
       "Open Application": "https://fraplat.tech/jupiter/WorkOutTracker",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/WorkOutTracker",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=WorkOutTracker+template",
-      "Description": "Журнал спортивніх результатов + отчет",
+      "Description": "Workout journal with reports",
       "Image": ""
     },
     {
@@ -273,7 +229,7 @@
       "Open Application": "https://fraplat.tech/jupiter/ImageHosting",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/ImageHosting",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=ImageHosting+template",
-      "Description": "Хостинг для картинок",
+      "Description": "Image hosting platform",
       "Image": ""
     },
     {
@@ -284,7 +240,7 @@
       "Open Application": "https://fraplat.tech/jupiter/Movies",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/Movies",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=Movies+template",
-      "Description": "Онлайн кинотеатр фильмов в простом дизайне",
+      "Description": "Online movie streaming with simple design",
       "Image": ""
     },
     {
@@ -295,7 +251,7 @@
       "Open Application": "https://fraplat.tech/jupiter/VideoLibrary",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/VideoLibrary",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=VideoLibrary+template",
-      "Description": "Библиотека видео",
+      "Description": "Video library",
       "Image": ""
     },
     {
@@ -306,7 +262,7 @@
       "Open Application": "https://fraplat.tech/jupiter/PhotoAlbum",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/PhotoAlbum",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=PhotoAlbum+template",
-      "Description": "Фото альбом",
+      "Description": "Photo album",
       "Image": ""
     },
     {
@@ -317,7 +273,7 @@
       "Open Application": "https://fraplat.tech/jupiter/ToDoWithCategories",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/ToDoWithCategories",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=ToDoWithCategories+template",
-      "Description": "ToDo список с категориями",
+      "Description": "ToDo list with categories",
       "Image": ""
     },
     {
@@ -328,7 +284,7 @@
       "Open Application": "https://fraplat.tech/jupiter/Weather",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/Projects/FractalPlatform.Weather",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=Weather+template",
-      "Description": "Сайт с погодой",
+      "Description": "Weather website",
       "Image": ""
     },
     {
@@ -339,7 +295,7 @@
       "Open Application": "https://fraplat.tech/jupiter/Vote",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/Vote",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=Vote+template",
-      "Description": "Голосование пользователей на веб сайте",
+      "Description": "User voting on a website",
       "Image": ""
     },
     {
@@ -350,7 +306,7 @@
       "Open Application": "https://fraplat.tech/jupiter/LoginOrRegister",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/LoginOrRegister",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=LoginOrRegister+template",
-      "Description": "Логин пользователя или регистрация",
+      "Description": "User login or registration",
       "Image": ""
     },
     {
@@ -361,7 +317,7 @@
       "Open Application": "https://fraplat.tech/jupiter/BigTable",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/BigTable",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=BigTable+template",
-      "Description": "Большая таблица на 250 тыс документов",
+      "Description": "Large table with 250K documents",
       "Image": ""
     },
     {
@@ -372,7 +328,7 @@
       "Open Application": "https://fraplat.tech/jupiter/DatingGame",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/DatingGame",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=DatingGame+template",
-      "Description": "Прототип веб игры",
+      "Description": "Web game prototype",
       "Image": ""
     },
     {
@@ -383,7 +339,7 @@
       "Open Application": "https://fraplat.tech/jupiter/Electricity",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/Electricity",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=Electricity+template",
-      "Description": "Мониторинг электричества на карте",
+      "Description": "Electricity monitoring on a map",
       "Image": ""
     },
     {
@@ -394,7 +350,7 @@
       "Open Application": "https://fraplat.tech/jupiter/Taxi",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/Taxi",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=Taxi+template",
-      "Description": "Прототип базовой функциональности заказа такси",
+      "Description": "Basic functionality of taxi booking",
       "Image": ""
     },
     {
@@ -405,7 +361,7 @@
       "Open Application": "https://fraplat.tech/jupiter/SocialNetwork",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/SocialNetwork",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=SocialNetwork+template",
-      "Description": "Прототип социальной сети",
+      "Description": "Social network prototype",
       "Image": ""
     },
     {
@@ -416,7 +372,7 @@
       "Open Application": "https://fraplat.tech/jupiter/OnlineShop",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/OnlineShop",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=OnlineShop+template",
-      "Description": "Прототип базовой функциональности онлайн магазина",
+      "Description": "Basic functionality of an online store",
       "Image": ""
     },
     {
@@ -427,117 +383,7 @@
       "Open Application": "https://fraplat.tech/jupiter/Supermarket",
       "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/Supermarket",
       "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=Supermarket+template",
-      "Description": "Прототип базовой функциональности корзины заказа",
-      "Image": ""
-    },
-    {
-      "App Name": "RealWorld",
-      "DB Entities (Tables)": 13,
-      "Classic Lines of Code": 3310,
-      "FP Lines Of Code": 331,
-      "Open Application": "https://fraplat.tech/jupiter/RealWorld",
-      "Open Sources": "https://github.com/LearnFractal/FractalPlatform.RealWorld",
-      "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=RealWorld+template",
-      "Description": "RealWorld (conduit) demo app",
-      "Image": ""
-    },
-    {
-      "App Name": "ControlsGallery",
-      "DB Entities (Tables)": 16,
-      "Classic Lines of Code": 1440,
-      "FP Lines Of Code": 48,
-      "Open Application": "https://fraplat.tech/jupiter/ControlsGallery",
-      "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/ControlsGallery",
-      "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=ControlsGallery+template",
-      "Description": "Галерея контролов доступных в ФП",
-      "Image": ""
-    },
-    {
-      "App Name": "FreelanceResponse",
-      "DB Entities (Tables)": 16,
-      "Classic Lines of Code": 11730,
-      "FP Lines Of Code": 391,
-      "Open Application": "https://fraplat.tech/jupiter/FreelanceResponse",
-      "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/FreelanceResponse",
-      "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=FreelanceResponse+template",
-      "Description": "Прототип фриланс биржи",
-      "Image": ""
-    },
-    {
-      "App Name": "Seasons",
-      "DB Entities (Tables)": 17,
-      "Classic Lines of Code": 14190,
-      "FP Lines Of Code": 473,
-      "Open Application": "https://fraplat.tech/jupiter/Seasons",
-      "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/Projects/FractalPlatform.Seasons",
-      "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=Seasons+template",
-      "Description": "Онлайн кинотеатр и соц сеть с дизайном",
-      "Image": ""
-    },
-    {
-      "App Name": "Forum",
-      "DB Entities (Tables)": 19,
-      "Classic Lines of Code": 9270,
-      "FP Lines Of Code": 309,
-      "Open Application": "https://fraplat.tech/jupiter/Forum",
-      "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/Projects/FractalPlatform.Forum",
-      "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=Forum+template",
-      "Description": "Форум с дизайном",
-      "Image": ""
-    },
-    {
-      "App Name": "UTube",
-      "DB Entities (Tables)": 20,
-      "Classic Lines of Code": 13290,
-      "FP Lines Of Code": 443,
-      "Open Application": "https://fraplat.tech/jupiter/UTube",
-      "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/Projects/FractalPlatform.UTube",
-      "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=UTube+template",
-      "Description": "Прототип Youtube с дизайном",
-      "Image": ""
-    },
-    {
-      "App Name": "CoffeePoints",
-      "DB Entities (Tables)": 24,
-      "Classic Lines of Code": 4260,
-      "FP Lines Of Code": 142,
-      "Open Application": "https://fraplat.tech/jupiter/CoffeePoints",
-      "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/Projects/FractalPlatform.CoffeePoints",
-      "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=CoffeePoints+template",
-      "Description": "Сайт для офлайн встреч с дизайном",
-      "Image": ""
-    },
-    {
-      "App Name": "ToDoIntro",
-      "DB Entities (Tables)": 29,
-      "Classic Lines of Code": 1680,
-      "FP Lines Of Code": 56,
-      "Open Application": "https://fraplat.tech/jupiter/ToDoIntro",
-      "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/ToDoIntro",
-      "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=ToDoIntro+template",
-      "Description": "Многостраничная презентация с формой обратной связи",
-      "Image": ""
-    },
-    {
-      "App Name": "FractalStudio",
-      "DB Entities (Tables)": 8,
-      "Classic Lines of Code": 15500,
-      "FP Lines Of Code": 3500,
-      "Open Application": "https://fraplat.tech/mars/FractalStudio",
-      "Open Sources": "https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/FractalStudio",
-      "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=FractalStudio+template",
-      "Description": "Online студия для разработки/отладки/деплоя приложений на FP",
-      "Image": ""
-    },
-    {
-      "App Name": "FractalPortal",
-      "DB Entities (Tables)": 200,
-      "Classic Lines of Code": 135000,
-      "FP Lines Of Code": 4500,
-      "Open Application": "https://fraplat.tech/jupiter/FractalPortal",
-      "Open Sources": "https://github.com/LearnFractal/FractalPortal/tree/main/FractalPlatform.Examples/Applications/FractalPortal",
-      "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=FractalPortal+template",
-      "Description": "Прототип: Jira+Teams+Educations+Cloud Portal",
+      "Description": "Basic functionality of a shopping cart",
       "Image": ""
     }
   ]
