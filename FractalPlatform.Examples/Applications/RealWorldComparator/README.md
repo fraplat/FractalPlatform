@@ -2,8 +2,8 @@
 
 ## Sources
 
-- [Application](https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/RealWorldComparator/RealWorldComparatorApplication.cs)
-- [Database](https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Databases/RealWorldComparator)
+- [Application](https://github.com/fraplat/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/RealWorldComparator/RealWorldComparatorApplication.cs)
+- [Database](https://github.com/fraplat/FractalPlatform/tree/main/FractalPlatform.Examples/Databases/RealWorldComparator)
 
 ## Functionality
 

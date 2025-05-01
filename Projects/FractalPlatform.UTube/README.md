@@ -55,17 +55,17 @@ For Guest, User and Admin
 
 ## Screenshots
 
-![Dashboard](https://github.com/LearnFractal/FractalPlatform/blob/main/Projects/FractalPlatform.UTube/Screenshots/Dashboard.png?raw=true)
+![Dashboard](https://github.com/fraplat/FractalPlatform/blob/main/Projects/FractalPlatform.UTube/Screenshots/Dashboard.png?raw=true)
 
-![Video](https://github.com/LearnFractal/FractalPlatform/blob/main/Projects/FractalPlatform.UTube/Screenshots/Video.png?raw=true)
+![Video](https://github.com/fraplat/FractalPlatform/blob/main/Projects/FractalPlatform.UTube/Screenshots/Video.png?raw=true)
 
-![Video Comments](https://github.com/LearnFractal/FractalPlatform/blob/main/Projects/FractalPlatform.UTube/Screenshots/VideoComments.png?raw=true)
+![Video Comments](https://github.com/fraplat/FractalPlatform/blob/main/Projects/FractalPlatform.UTube/Screenshots/VideoComments.png?raw=true)
 
-![New Channel](https://github.com/LearnFractal/FractalPlatform/blob/main/Projects/FractalPlatform.UTube/Screenshots/NewChannel.png?raw=true)
+![New Channel](https://github.com/fraplat/FractalPlatform/blob/main/Projects/FractalPlatform.UTube/Screenshots/NewChannel.png?raw=true)
 
-![My User](https://github.com/LearnFractal/FractalPlatform/blob/main/Projects/FractalPlatform.UTube/Screenshots/MyUser.png?raw=true)
+![My User](https://github.com/fraplat/FractalPlatform/blob/main/Projects/FractalPlatform.UTube/Screenshots/MyUser.png?raw=true)
 
-![My Channel](https://github.com/LearnFractal/FractalPlatform/blob/main/Projects/FractalPlatform.UTube/Screenshots/MyChannel.png?raw=true)
+![My Channel](https://github.com/fraplat/FractalPlatform/blob/main/Projects/FractalPlatform.UTube/Screenshots/MyChannel.png?raw=true)
 
 ## Contacts
 

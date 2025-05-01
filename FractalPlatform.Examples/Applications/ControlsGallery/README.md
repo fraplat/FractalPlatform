@@ -2,8 +2,8 @@
 
 ## Sources
 
-- [Application](https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/ControlsGallery/ControlsGalleryApplication.cs)
-- [Database](https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Databases/ControlsGallery)
+- [Application](https://github.com/fraplat/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/ControlsGallery/ControlsGalleryApplication.cs)
+- [Database](https://github.com/fraplat/FractalPlatform/tree/main/FractalPlatform.Examples/Databases/ControlsGallery)
 
 ## Functionality
 

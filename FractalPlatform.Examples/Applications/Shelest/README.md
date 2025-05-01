@@ -2,8 +2,8 @@
 
 ## Sources
 
-- [Application](https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/Shelest/ShelestApplication.cs)
-- [Database](https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Databases/Shelest)
+- [Application](https://github.com/fraplat/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/Shelest/ShelestApplication.cs)
+- [Database](https://github.com/fraplat/FractalPlatform/tree/main/FractalPlatform.Examples/Databases/Shelest)
 
 ## Functionality
 

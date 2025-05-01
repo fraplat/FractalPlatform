@@ -2,8 +2,8 @@
 
 ## Sources
 
-- [Application](https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/FuelCalc/FuelCalcApplication.cs)
-- [Database](https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Databases/FuelCalc)
+- [Application](https://github.com/fraplat/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/FuelCalc/FuelCalcApplication.cs)
+- [Database](https://github.com/fraplat/FractalPlatform/tree/main/FractalPlatform.Examples/Databases/FuelCalc)
 
 ## Functionality
 

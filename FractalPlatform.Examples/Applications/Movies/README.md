@@ -2,9 +2,9 @@
 
 ## Sources
 
-- [Application](https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/Movies/MoviesApplication.cs)
-- [Files](https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Files/Movies)
-- [Database](https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Databases/Movies)
+- [Application](https://github.com/fraplat/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/Movies/MoviesApplication.cs)
+- [Files](https://github.com/fraplat/FractalPlatform/tree/main/FractalPlatform.Examples/Files/Movies)
+- [Database](https://github.com/fraplat/FractalPlatform/tree/main/FractalPlatform.Examples/Databases/Movies)
 
 ## Functionality
 

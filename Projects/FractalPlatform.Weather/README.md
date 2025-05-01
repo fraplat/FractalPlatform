@@ -25,9 +25,9 @@ GPS coordianates can be selected on the map.
 
 ## Screenshots
 
-![Dashboard](https://github.com/LearnFractal/FractalPlatform/blob/main/Projects/FractalPlatform.Weather/Screenshots/Dashboard.png?raw=true)
+![Dashboard](https://github.com/fraplat/FractalPlatform/blob/main/Projects/FractalPlatform.Weather/Screenshots/Dashboard.png?raw=true)
 
-![Choose Location](https://github.com/LearnFractal/FractalPlatform/blob/main/Projects/FractalPlatform.Weather/Screenshots/ChooseLocation.png?raw=true)
+![Choose Location](https://github.com/fraplat/FractalPlatform/blob/main/Projects/FractalPlatform.Weather/Screenshots/ChooseLocation.png?raw=true)
 
 ## Contacts
 

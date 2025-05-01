@@ -2,9 +2,9 @@
 
 ## Sources
 
-- [Application](https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/ToDoIntro/ToDoIntroApplication.cs)
-- [Files](https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Files/ToDoIntro)
-- [Database](https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Databases/ToDoIntro)
+- [Application](https://github.com/fraplat/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/ToDoIntro/ToDoIntroApplication.cs)
+- [Files](https://github.com/fraplat/FractalPlatform/tree/main/FractalPlatform.Examples/Files/ToDoIntro)
+- [Database](https://github.com/fraplat/FractalPlatform/tree/main/FractalPlatform.Examples/Databases/ToDoIntro)
 
 ## Functionality
 

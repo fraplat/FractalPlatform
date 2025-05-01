@@ -2,9 +2,9 @@
 
 ## Sources
 
-- [Application](https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/VideoLibrary/VideoLibraryApplication.cs)
-- [Files](https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Files/VideoLibrary)
-- [Database](https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Databases/VideoLibrary)
+- [Application](https://github.com/fraplat/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/VideoLibrary/VideoLibraryApplication.cs)
+- [Files](https://github.com/fraplat/FractalPlatform/tree/main/FractalPlatform.Examples/Files/VideoLibrary)
+- [Database](https://github.com/fraplat/FractalPlatform/tree/main/FractalPlatform.Examples/Databases/VideoLibrary)
 
 ## Functionality
 

@@ -2,9 +2,9 @@
 
 ## Sources
 
-- [Application](https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/SiteScanner/SiteScannerApplication.cs)
-- [Layouts](https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Layouts/SiteScanner)
-- [Database](https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Databases/SiteScanner)
+- [Application](https://github.com/fraplat/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/SiteScanner/SiteScannerApplication.cs)
+- [Layouts](https://github.com/fraplat/FractalPlatform/tree/main/FractalPlatform.Examples/Layouts/SiteScanner)
+- [Database](https://github.com/fraplat/FractalPlatform/tree/main/FractalPlatform.Examples/Databases/SiteScanner)
 
 ## Functionality
 

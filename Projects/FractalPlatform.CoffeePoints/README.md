@@ -26,17 +26,17 @@ Application helps strangers to meet each other on the map for short meetings wit
 
 ## Screenshots
 
-![Dashboard](https://github.com/LearnFractal/FractalPlatform/blob/main/Projects/FractalPlatform.CoffeePoints/Screenshots/Dashboard.png?raw=true)
+![Dashboard](https://github.com/fraplat/FractalPlatform/blob/main/Projects/FractalPlatform.CoffeePoints/Screenshots/Dashboard.png?raw=true)
 
-![Propose](https://github.com/LearnFractal/FractalPlatform/blob/main/Projects/FractalPlatform.CoffeePoints/Screenshots/Propose1.png?raw=true)
+![Propose](https://github.com/fraplat/FractalPlatform/blob/main/Projects/FractalPlatform.CoffeePoints/Screenshots/Propose1.png?raw=true)
 
-![Propose](https://github.com/LearnFractal/FractalPlatform/blob/main/Projects/FractalPlatform.CoffeePoints/Screenshots/Propose2.png?raw=true)
+![Propose](https://github.com/fraplat/FractalPlatform/blob/main/Projects/FractalPlatform.CoffeePoints/Screenshots/Propose2.png?raw=true)
 
-![Find](https://github.com/LearnFractal/FractalPlatform/blob/main/Projects/FractalPlatform.CoffeePoints/Screenshots/Find.png?raw=true)
+![Find](https://github.com/fraplat/FractalPlatform/blob/main/Projects/FractalPlatform.CoffeePoints/Screenshots/Find.png?raw=true)
 
-![FindResult](https://github.com/LearnFractal/FractalPlatform/blob/main/Projects/FractalPlatform.CoffeePoints/Screenshots/FindResult.png?raw=true)
+![FindResult](https://github.com/fraplat/FractalPlatform/blob/main/Projects/FractalPlatform.CoffeePoints/Screenshots/FindResult.png?raw=true)
 
-![FindResult](https://github.com/LearnFractal/FractalPlatform/blob/main/Projects/FractalPlatform.CoffeePoints/Screenshots/User.png?raw=true)
+![FindResult](https://github.com/fraplat/FractalPlatform/blob/main/Projects/FractalPlatform.CoffeePoints/Screenshots/User.png?raw=true)
 
 ## Contacts
 

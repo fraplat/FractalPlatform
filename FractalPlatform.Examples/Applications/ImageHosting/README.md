@@ -2,7 +2,7 @@
 
 ## Sources
 
-- [Application](https://github.com/LearnFractal/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/ImageHosting/ImageHostingApplication.cs)
+- [Application](https://github.com/fraplat/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/ImageHosting/ImageHostingApplication.cs)
 
 ## Functionality
 
