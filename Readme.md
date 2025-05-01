@@ -6,7 +6,7 @@ With designed screens
 - [UTube](https://github.com/fraplat/FractalPlatform/tree/main/Projects/FractalPlatform.UTube)
 - [Forum](https://github.com/fraplat/FractalPlatform/tree/main/Projects/FractalPlatform.Forum)
 - [Weather](https://github.com/fraplat/FractalPlatform/tree/main/Projects/FractalPlatform.Weather)
-- [CorpChat](https://github.com/fraplat/FractalPlatform/tree/main/Projects/FractalPlatform.CorpChat)
+- [BowlingScores](https://github.com/fraplat/FractalPlatform/tree/main/Projects/FractalPlatform.BowlingScores)
   
 With standard screens
 - [Hello World](https://github.com/fraplat/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/HelloWorld)
