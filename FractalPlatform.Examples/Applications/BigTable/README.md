@@ -15,10 +15,10 @@ Small app to create/review/filter orders with 250 000 documents
 
 ## Web Link
 
-[BigTable](https://fraplat.com/jupiter/BigTable)
+[BigTable](https://fraplat.tech/jupiter/BigTable)
 
 ## Open app in Fractal Studio
 
-[Play with BigTable in sandbox](https://fraplat.com/mars/FractalStudio/?tag=BigTable+template)
+[Play with BigTable in sandbox](https://fraplat.tech/mars/FractalStudio/?tag=BigTable+template)
 
 

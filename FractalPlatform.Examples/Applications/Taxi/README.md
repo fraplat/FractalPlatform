@@ -18,15 +18,15 @@ Application demonstrates the simple platform for Taxi company with next function
 
 ## How it implemented
 
-- [EN UTube Video](https://fraplat.com/jupiter/UTube?tag=119)
-- [UA UTube Video](https://fraplat.com/jupiter/UTube?tag=219)
+- [EN UTube Video](https://fraplat.tech/jupiter/UTube?tag=119)
+- [UA UTube Video](https://fraplat.tech/jupiter/UTube?tag=219)
 
 ## Web Link
 
-[Taxi](https://fraplat.com/jupiter/Taxi)
+[Taxi](https://fraplat.tech/jupiter/Taxi)
 
 ## Open app in Fractal Studio
 
-[Play with Taxi in sandbox](https://fraplat.com/mars/FractalStudio/?tag=Taxi+template)
+[Play with Taxi in sandbox](https://fraplat.tech/mars/FractalStudio/?tag=Taxi+template)
 
 

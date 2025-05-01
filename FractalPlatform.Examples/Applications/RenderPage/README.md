@@ -24,5 +24,5 @@ Send text message:
 
 ## Web Link
 
-[SendTextMessage](https://fraplat.com/jupiter/SendTextMessage)
+[SendTextMessage](https://fraplat.tech/jupiter/SendTextMessage)
 

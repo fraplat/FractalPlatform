@@ -15,8 +15,8 @@ Build CRUD Web Application based on any question to AI
 
 ## Web Link
 
-[AIToWebApp](https://fraplat.com/jupiter/AIToWebApp)
+[AIToWebApp](https://fraplat.tech/jupiter/AIToWebApp)
 
 ## Open app in Fractal Studio
 
-[Play with AIToWebApp in sandbox](https://fraplat.com/mars/FractalStudio/?tag=AIToWebApp+template)
+[Play with AIToWebApp in sandbox](https://fraplat.tech/mars/FractalStudio/?tag=AIToWebApp+template)

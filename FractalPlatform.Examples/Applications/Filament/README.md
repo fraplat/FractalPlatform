@@ -18,10 +18,10 @@ Filaments application
 
 ## Web Link
 
-[Filament](https://fraplat.com/jupiter/Filament)
+[Filament](https://fraplat.tech/jupiter/Filament)
 
 ## Open app in Fractal Studio
 
-[Play with Filament in sandbox](https://fraplat.com/mars/FractalStudio/?tag=Filament+template)
+[Play with Filament in sandbox](https://fraplat.tech/mars/FractalStudio/?tag=Filament+template)
 
 

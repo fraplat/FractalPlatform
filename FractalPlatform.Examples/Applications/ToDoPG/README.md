@@ -16,15 +16,15 @@ Application demonstrates the simplest ToDo list with next functionality:
 
 ## How it implemented
 
-- [EN UTube Video](https://fraplat.com/jupiter/UTube?tag=102)
-- [UA UTube Video](https://fraplat.com/jupiter/UTube?tag=202)
+- [EN UTube Video](https://fraplat.tech/jupiter/UTube?tag=102)
+- [UA UTube Video](https://fraplat.tech/jupiter/UTube?tag=202)
 
 ## Web Link
 
-[ToDo](https://fraplat.com/jupiter/ToDo)
+[ToDo](https://fraplat.tech/jupiter/ToDo)
 
 ## Open app in Fractal Studio
 
-[Play with ToDo in sandbox](https://fraplat.com/mars/FractalStudio/?tag=ToDoPG+template)
+[Play with ToDo in sandbox](https://fraplat.tech/mars/FractalStudio/?tag=ToDoPG+template)
 
 

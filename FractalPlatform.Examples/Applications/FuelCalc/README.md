@@ -15,10 +15,10 @@ Sandbox application for test purposes
 
 ## Web Link
 
-[FuelCalc](https://fraplat.com/jupiter/FuelCalc)
+[FuelCalc](https://fraplat.tech/jupiter/FuelCalc)
 
 ## Open app in Fractal Studio
 
-[Play with FuelCalc in sandbox](https://fraplat.com/mars/FractalStudio/?tag=FuelCalc+template)
+[Play with FuelCalc in sandbox](https://fraplat.tech/mars/FractalStudio/?tag=FuelCalc+template)
 
 

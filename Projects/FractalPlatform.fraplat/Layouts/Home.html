@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @Styles
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fractal Platform - Next-generation Low-Code Solution</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="@BaseFilesUrl/styles.css">
+</head>
+
+<body>
+    @StartForm
+    <header>
+        <div class="container">
+            <div class="hero">
+                <h1>Fractal Platform</h1>
+                <p>Build powerful applications faster, without limits.</p>
+            </div>
+        </div>
+    </header>
+
+    <section id="description">
+        <div class="container">
+            <div class="section-header">
+                <h2>Next-Generation Low-Code Solution</h2>
+                <p>Designed for developers who need speed without sacrificing flexibility.</p>
+            </div>
+
+            <p>Unlike traditional low-code tools that box you into rigid templates, Fractal Platform offers full customization, deep logic control, and seamless scalability—all while keeping development ultra-fast.</p>
+
+            <div class="feature-list">
+                <div class="feature-item">No rigid templates – design your own data models and workflows.</div>
+                <div class="feature-item">No vendor lock-in – extend functionality with C# when needed and deploy in external clouds.</div>
+                <div class="feature-item">Enterprise-grade scalability – start small and grow without limits.</div>
+            </div>
+
+            <p>Half of Fractal Platform was developed using Fractal Platform itself, showcasing its power and architectural flexibility.</p>
+            <p>In the ongoing competition between low-code platforms and AI-generated code, we are betting on a symbiosis—</p>
+            <p>where artificial intelligence produces compact, human-readable code with aspect oriented and extensible architecture.</p>
+            <p>Join the evolution of software development. Start building today.</p>
+        </div>
+    </section>
+
+    <section id="product-niches">
+        <div class="container">
+            <div class="section-header">
+                <h2>Product Niches</h2>
+                <p>From simple tasks to enterprise-level applications, Fractal Platform scales with your needs.</p>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Level</th>
+                            <th>Target Niche</th>
+                            <th>Competitors</th>
+                            <th>Products</th>
+                            <th>Fractal Development</th>
+                            <th>Fractal Advantages</th>
+                            <th>Examples</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a href="@BaseAppUrl/?tag=entry" class="btn">Entry</a>
+                            </td>
+                            <td>Small tasks for processing or accounting data</td>
+                            <td>Excel, Google Forms, Notepad, etc.</td>
+                            <td>Spreadsheets, Notes, Forms</td>
+                            <td>Creating a data model in JSON. FP automatically generates UI and CRUD operations.</td>
+                            <td>Instead of using Excel, you can create a website in a comparable amount of time. If necessary, it can be further developed into a more complex product.</td>
+                            <td>
+                                <a href="https://github.com/fraplat/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/ToDo">ToDo</a>,
+                                <br><a href="https://github.com/fraplat/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/Vote">Vote</a>,
+                                <br><a href="https://github.com/fraplat/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/PressureCalc">PressureCalc</a>,
+                                <br><a href="https://github.com/fraplat/FractalPlatform/tree/main/Projects/FractalPlatform.BowlingScores">BowlingScores</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="@BaseAppUrl/?tag=basic" class="btn">Basic</a>
+                            </td>
+                            <td>Typical websites by template with low customization of business logic</td>
+                            <td>Wix, Weebly, Tilda, Webflow, etc.</td>
+                            <td>Landing pages, Blogs, Simple web shops</td>
+                            <td>Creating a data model in JSON. Business logic is implemented in C# based on typical solutions. Freedom to create a unique design for your website using Figma or generate html by AI.</td>
+                            <td>Instead of a template-based website, you can create a website with a unique, non-template UI and much deeper customization of business logic in a comparable amount of time.</td>
+                            <td>
+                                <a href="https://github.com/fraplat/FractalPlatform/tree/main/Projects/FractalPlatform.Weather">Weather</a>
+                                <br><a href="https://github.com/fraplat/FractalPlatform/tree/main/Projects/FractalPlatform.Forum">Forum</a>
+                                <br><a href="https://github.com/fraplat/FractalPlatform/tree/main/Projects/FractalPlatform.ToDoIntro">ToDoIntro</a>
+                                <br><a href="https://github.com/fraplat/FractalPlatform/tree/main/Projects/FractalPlatform.CoffeePoints">CoffeePoints</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="@BaseAppUrl/?tag=advanced" class="btn">Advanced</a>
+                            </td>
+                            <td>Simple websites with high customization of business logic</td>
+                            <td>WordPress, Bubble, Django, Laravel</td>
+                            <td>Unique web sites for small and middle-size companies</td>
+                            <td>Creating a data model in a document-based or relational database. Business logic is implemented in C# with full flexibility. User web interfaces are divided into internal and external ones. Creating a unique design for external interfaces. Automatic UI generation for internal interfaces (CRM). User role separation.</td>
+                            <td>Fast and flexible development depending on requirements. No vendor lock-in. Ability to create a more compact, simple, and flexible software solution by reducing the number of integrations with third-party systems. Using Git for version control of source code. Implementing automated tests. No hosting restrictions—websites can be hosted on cheap t2.micro instances.</td>
+                            <td>
+                                <a href="https://github.com/fraplat/FractalPlatform/tree/main/Projects/FractalPlatform.RealWorld">RealWorld</a>
+                                <br><a href="https://github.com/fraplat/FractalPlatform/tree/main/Projects/FractalPlatform.Seasons">Seasons</a>
+                                <br><a href="https://github.com/fraplat/FractalPlatform/tree/main/Projects/FractalPlatform.UTube">UTube</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="@BaseAppUrl/?tag=enterprise" class="btn">Enterprise</a>
+                            </td>
+                            <td>Complex websites with high customization of business logic</td>
+                            <td>C#, Java, Python, etc.</td>
+                            <td>A complex software product consisting of a large number of services with unique requirements.</td>
+                            <td>Creating a data model in a document-based or relational database. Business logic is implemented in C# with full flexibility. Web interfaces are divided into internal and external ones. Creating unique custom JS components for specific UI places. Creating a unique design for external web UI. User role separation.</td>
+                            <td>Fast and flexible development depending on requirements. The ability to introduce data caching layers. The ability to deeply tune data storage depending on the nature and volume of the data.</td>
+                            <td>
+                                <a href="https://fraplat.com/FractalPortal">Fractal Portal</a>,
+                                <br><a href="https://fraplat.tech/mars/FractalStudio">Fractal Studio</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="technologies">
+        <div class="container">
+            <div class="section-header">
+                <h2>Technologies</h2>
+                <p>Our comprehensive technology stack powers your applications from front-end to back-end.</p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h3>Web UI</h3>
+                    <ul class="tech-list">
+                        <li>Autogenerated UI based on JSON</li>
+                        <li>Customize autogenerated UI with 100 standard UI controls and components</li>
+                        <li>Create your custom UI components with JS logic</li>
+                        <li>Full redesigned layouts based on HTML</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <h3>Database Servers</h3>
+                    <ul class="tech-list">
+                        <li>Storage - integrated document oriented database</li>
+                        <li>MS SQL - external RDBMS storage</li>
+                        <li>PostgreSQL - external RDBMS storage</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <h3>Programming Languages</h3>
+                    <ul class="tech-list">
+                        <li>C# for business logic</li>
+                        <li>JavaScript for UI components</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <h3>Developer Tools</h3>
+                    <ul class="tech-list">
+                        <li><a href="https://fraplat.tech/mars/FractalStudio">Fractal Studio</a> - full cycle of developing your website in web browser</li>
+                        <li><a href="https://visualstudio.microsoft.com/vs/community/">Visual Studio .NET</a> - desktop application to develop and debug complex websites</li>
+                        <li><a href="https://fraplat.com/FractalPortal">Fractal Portal</a> - project hub for story tracking, documentation, and managing deployed web applications</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <h3>Hosting Options</h3>
+                    <ul class="tech-list">
+                        <li>In our sandbox servers</li>
+                        <li>Dedicated instance on AWS or Azure clouds in docker containers</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card">
+                    <h3>Documentation</h3>
+                    <ul class="tech-list">
+                        <li><a href="https://github.com/fraplat">GitHub source code</a></li>
+                        <li><a href="https://t.me/fraplat">Telegram channel</a></li>
+                        <li><a href="https://fraplat.tech/Wiki">Wiki pages</a></li>
+                        <li><a href="https://youtube.com/@fraplat">Youtube channel</a></li>
+                        <li><a href="mailto:support@fraplat.com">Contact our team</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="advantages">
+        <div class="container">
+            <div class="section-header">
+                <h2>Advantages</h2>
+                <p>Experience the best of both worlds: the speed of low-code and the flexibility of traditional development.</p>
+            </div>
+
+            <div class="advantages">
+                <div class="advantage-card">
+                    <h3>Better than Typical Low-Code</h3>
+                    <ul class="advantage-list">
+                        <li>Both possibilities: Full cycle of development in web browser with Fractal Studio or full development cycle in desktop tool with Visual Studio .NET</li>
+                        <li>Possibility to debug your code with "break points" and "quick watch" with Visual Studio .NET</li>
+                        <li>Using GIT source control to store everything: C# code, HTML code, files, database schema</li>
+                        <li>No Drag-n-Drop needed for UI. Generate forms just by database data model in seconds</li>
+                        <li>Full freedom with HTML and JavaScript development. Using AI or Figma or other tools to create your own HTML design</li>
+                        <li>Possibility to deploy your website on your own VMs in AWS/Azure or other clouds with docker</li>
+                        <li>Support for key-value, document, and relational models at the database level. Ability to tune database operation algorithms at the Storage abstraction layer</li>
+                        <li>Fast working with .NET runtime</li>
+                    </ul>
+                </div>
+
+                <div class="advantage-card">
+                    <h3>Better than Typical Web Framework</h3>
+                    <ul class="advantage-list">
+                        <li>Development much faster than other frameworks, typically 10-100 times faster. See RealWorld example and other comparisons</li>
+                        <li>Highly flexible architecture thanks to AOP (Aspect-Oriented Programming)</li>
+                        <li>End-to-end tool for development. We cover database/business logic/web design development and debug/testing/deployment in all-in-one platform</li>
+                        <li>Lots of ready-to-go templates. In many cases you can take and modify existing applications to your own requirements</li>
+                        <li>The ability to easily copy and combine functionality from different existing applications</li>
+                        <li>The frontend and backend operate as a unified system and share a common reactive cache.
+                            Page generation response times can reach as low as 14–18 ms, even for non-static pages.</li>
+                        <li>Integrated auto-testing framework to cover your web application by test scenarios</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-main">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <h2>Fractal Platform</h2>
+                    <p>Build powerful applications faster, without limits. Next-generation low-code solution designed for developers who need speed without sacrificing flexibility.</p>
+                    <div class="social-links">
+                        <a href="https://github.com/fraplat" aria-label="GitHub">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                            </svg>
+                        </a>
+                        <a href="javascript:alert('Sorry. We dont have X.com account yet.')" aria-label="Twitter">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+                            </svg>
+                        </a>
+                        <a href="javascript:alert('Sorry. We dont have Linkedin account yet.')" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <a href="https://t.me/fraplat" aria-label="Telegram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-16.5 7.5a2.25 2.25 0 0 0 .126 4.266l3.9 1.299v3.037c0 1.247 1.514 1.871 2.4 1.016l2.125-2.053 4.16 3.055c.685.498 1.656.032 1.82-.833l3.28-16.5a2.25 2.25 0 0 0-1.138-2.402 2.242 2.242 0 0 0-1.15-.6z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-menu">
+                    <h3 class="footer-heading">Products</h3>
+                    <ul class="footer-links">
+                        <li><a href="@BaseAppUrl/?tag=entry">Entry Level</a></li>
+                        <li><a href="@BaseAppUrl/?tag=basic">Basic</a></li>
+                        <li><a href="@BaseAppUrl/?tag=advanced">Advanced</a></li>
+                        <li><a href="@BaseAppUrl/?tag=enterprise">Enterprise</a></li>
+                        <li><a href="@BaseAppUrl/?tag=pricing">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-menu">
+                    <h3 class="footer-heading">Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://fraplat.tech/jupiter/Wiki">Documentation</a></li>
+                        <li><a href="https://github.com/fraplat">GitHub</a></li>
+                        <li><a href="https://youtube.com/@fraplat">YouTube Channel</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-menu">
+                    <h3 class="footer-heading">Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+
+                    <div class="contact-info">
+                        <p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            +1 (888) 123-4567
+                        </p>
+                        <p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <a href="mailto:admin@fraplat.com" class="contact-email">support<span>@</span>fraplat.com</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>© 2025 Fractal Platform. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    @EndForm
+</body>
+
+</html>

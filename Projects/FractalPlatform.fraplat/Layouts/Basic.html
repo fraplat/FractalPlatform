@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fractal Platform - Basic Level</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #5C6BC0;
+            --primary-light: #8E99F3;
+            --primary-dark: #3949AB;
+            --secondary: #26A69A;
+            --dark: #263238;
+            --gray: #B0BEC5;
+            --light: #ECEFF1;
+            --white: #FFFFFF;
+            --code-bg: #1E1E1E;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 3rem 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        section:nth-child(even) {
+            background-color: var(--white);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--dark);
+        }
+        
+        .feature-list {
+            margin: 2rem 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-item:before {
+            content: "✅";
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .how-it-works {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+        
+        .workflow-steps {
+            margin-top: 2rem;
+        }
+        
+        .workflow-step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .workflow-step:before {
+            content: "-";
+            color: var(--secondary);
+            position: absolute;
+            left: 10px;
+            font-weight: bold;
+        }
+        
+        .workflow-step p {
+            margin: 0;
+        }
+        
+        .workflow-level {
+            color: var(--primary);
+            font-weight: 500;
+            margin-left: 5px;
+        }
+        
+        .code-block {
+            font-family: 'JetBrains Mono', monospace;
+            background-color: var(--code-bg);
+            color: var(--white);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+        
+        .get-started {
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .example-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .example-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .example-img {
+            height: 200px;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .example-img:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0));
+            z-index: 1;
+        }
+        
+        .example-img span {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .example-content {
+            padding: 1.5rem;
+        }
+        
+        .example-content h3 {
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .example-detail {
+            display: flex;
+            margin-bottom: 0.5rem;
+        }
+        
+        .example-detail strong {
+            width: 150px;
+            color: var(--dark);
+        }
+        
+        .next-level {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: var(--white);
+            text-align: center;
+            padding: 3rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .next-level h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .next-level p {
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+        }
+        
+        .next-level .btn {
+            background-color: var(--white);
+            color: var(--primary-dark);
+        }
+        
+        .next-level .btn:hover {
+            background-color: var(--light);
+        }
+        
+        .tech-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(38, 166, 154, 0.1);
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .footer-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-content p {
+            margin-bottom: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            .examples {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="hero">
+                <h1>Fractal Platform - Basic Level</h1>
+                <p>Create beautiful websites with smart business logic</p>
+            </div>
+        </div>
+    </header>
+
+    <section id="description">
+        <div class="container">
+            <div class="section-header">
+                <h2>Build Full Websites With Smart Business Logic — Effortlessly</h2>
+            </div>
+
+            <p>Fractal Platform empowers you to create landing pages, simple web apps, and beautiful designs with AI assistance and lightweight coding.</p>
+
+            <p>You're stepping beyond templates. With intuitive tools, smart C# snippets, and AI-driven design support, you can build polished, functional websites without getting overwhelmed.</p>
+
+            <div class="feature-list">
+                <div class="feature-item">Design pages quickly with AI suggestions</div>
+                <div class="feature-item">Add simple business logic using ready-to-go code blocks</div>
+                <div class="feature-item">Create landing pages, client forms, and interactive elements</div>
+                <div class="feature-item">Ideal for small businesses, portfolios, and first commercial projects</div>
+            </div>
+
+            <p>Whether you're launching a product or creating your first professional site, Fractal Platform gives you the power — without the complexity.</p>
+        </div>
+    </section>
+
+    <section id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>From concept to fully functional website in hours, not weeks</p>
+            </div>
+
+            <div class="how-it-works">
+                <div class="workflow-steps">
+                    <div class="workflow-step">
+                        <p>Create JSON collections of your data model <span class="workflow-level">(database level)</span></p>
+                    </div>
+                    <div class="workflow-step">
+                        <p>Fractal automatically creates CRUD business logic <span class="workflow-level">(business logic level)</span></p>
+                    </div>
+                    <div class="workflow-step">
+                        <p>Customize your business logic to your purposes <span class="workflow-level">(business logic level)</span></p>
+                    </div>
+                    <div class="workflow-step">
+                        <p>Fractal automatically creates UI around data model and provides possibility to customize UI <span class="workflow-level">(user interface level)</span></p>
+                    </div>
+                    <div class="workflow-step">
+                        <p>Customize your UI by AI where important unique design is needed <span class="workflow-level">(user interface level)</span></p>
+                    </div>
+                    <div class="workflow-step">
+                        <p>Keep open door to extend your project on more complex scenarios</p>
+                    </div>
+                </div>
+
+                <div class="code-block">
+                    <pre>{
+  "User": {
+    "fields": {
+      "name": "string",
+      "email": "string",
+      "profileImage": "file"
+    }
+  },
+  "Product": {
+    "fields": {
+      "title": "string",
+      "description": "text",
+      "price": "decimal",
+      "image": "file"
+    }
+  }
+}</pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="get-started">
+        <div class="container">
+            <div class="section-header">
+                <h2>Where to Start</h2>
+                <p>Begin your website journey with our powerful tools</p>
+            </div>
+
+            <p>Use any of the ready-made projects on our platform as a starting point and customize it to fit your needs.</p>
+
+            <div class="get-started">
+                <p>Use our web development tool:</p>
+                <a href="https://fraplat.tech/FractalStudio" class="btn">Open Fractal Studio</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="examples">
+        <div class="container">
+            <div class="section-header">
+                <h2>Example Projects</h2>
+                <p>See what you can build at the Basic level</p>
+            </div>
+
+            <div class="examples">
+                <div class="example-card">
+                    <div class="example-img">
+                        <span>Weather</span>
+                    </div>
+                    <div class="example-content">
+                        <h3>Weather</h3>
+                        <div class="example-detail">
+                            <strong>Development time:</strong>
+                            <span>2-3 hours</span>
+                        </div>
+                        <div class="example-detail">
+                            <strong>Highlight features:</strong>
+                            <span>Using REST service, using Map standard component</span>
+                        </div>
+                        <p>A simple website that retrieves weather information from any point of the world. Users can interact with the map component to select locations and view current weather data pulled from external APIs.</p>
+                    </div>
+                </div>
+
+                <div class="example-card">
+                    <div class="example-img">
+                        <span>ToDoIntro</span>
+                    </div>
+                    <div class="example-content">
+                        <h3>ToDoIntro</h3>
+                        <div class="example-detail">
+                            <strong>Development time:</strong>
+                            <span>3-4 hours</span>
+                        </div>
+                        <div class="example-detail">
+                            <strong>Highlight features:</strong>
+                            <span>Integrated constructor of ToDo list application into education wizard. Localization UI in multiple languages.</span>
+                        </div>
+                        <p>A simple education wizard with interactive elements and feedback form. This project demonstrates how to build a multi-step process with user input validation and localization support.</p>
+                    </div>
+                </div>
+
+                <div class="example-card">
+                    <div class="example-img">
+                        <span>Coffee Points</span>
+                    </div>
+                    <div class="example-content">
+                        <h3>Coffee Points</h3>
+                        <div class="example-detail">
+                            <strong>Development time:</strong>
+                            <span>3-4 hours</span>
+                        </div>
+                        <div class="example-detail">
+                            <strong>Highlight features:</strong>
+                            <span>Search strangers by facet filter, using Map standard component</span>
+                        </div>
+                        <p>Organize short conversations between strangers who are located near each other on the map. This application demonstrates location-based services and filtering capabilities to connect people with similar interests.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="next-level">
+        <div class="container">
+            <div class="next-level">
+                <h2>Need Something More Complex?</h2>
+                <p>Ready to take your projects to the next level?</p>
+                <a href="#" class="btn">Explore Advanced Level</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>Start Your Website Journey Today</h3>
+                <p>Fractal Platform - powered by AI</p>
+                <a href="https://fraplat.tech/FractalStudio" class="btn">Open Fractal Studio</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -9,7 +9,7 @@ namespace FractalPlatform.Notepad
         
         public override void OnStart()
         {
-            var password = "123";
+            var password = "777";
             
             if(Context.UrlTag == password)
             {

@@ -37,7 +37,7 @@ namespace FractalPlatform.Examples.Applications.ImageHosting
                     new
                     {
                         Title = "Your image has been uploaded",
-                        URL = $"https://fraplat.com/jupiter/ImageHosting/?tag={Context.UrlTag}",
+                        URL = $"https://fraplat.tech/jupiter/ImageHosting/?tag={Context.UrlTag}",
                         Image = Context.UrlTag
                     }
                     .ToCollection(string.Empty)

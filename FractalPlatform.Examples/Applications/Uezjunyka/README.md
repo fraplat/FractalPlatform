@@ -15,10 +15,10 @@ Fun application
 
 ## Web Link
 
-[Uezjunyka](https://fraplat.com/jupiter/Uezjunyka)
+[Uezjunyka](https://fraplat.tech/jupiter/Uezjunyka)
 
 ## Open app in Fractal Studio
 
-[Play with Uezjunyka in sandbox](https://fraplat.com/mars/FractalStudio/?tag=Uezjunyka+template)
+[Play with Uezjunyka in sandbox](https://fraplat.tech/mars/FractalStudio/?tag=Uezjunyka+template)
 
 

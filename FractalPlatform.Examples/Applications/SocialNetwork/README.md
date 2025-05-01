@@ -26,15 +26,15 @@ Application moderates a simple social network with next functionality:
 
 ## How it implemented
 
-- [EN UTube Video](https://fraplat.com/jupiter/UTube?tag=117)
-- [UA UTube Video](https://fraplat.com/jupiter/UTube?tag=217)
+- [EN UTube Video](https://fraplat.tech/jupiter/UTube?tag=117)
+- [UA UTube Video](https://fraplat.tech/jupiter/UTube?tag=217)
 
 ## Web Link
 
-[SocialNetwork](https://fraplat.com/jupiter/SocialNetwork)
+[SocialNetwork](https://fraplat.tech/jupiter/SocialNetwork)
 
 ## Open app in Fractal Studio
 
-[Play with SocialNetwork in sandbox](https://fraplat.com/mars/FractalStudio/?tag=SocialNetwork+template)
+[Play with SocialNetwork in sandbox](https://fraplat.tech/mars/FractalStudio/?tag=SocialNetwork+template)
 
 

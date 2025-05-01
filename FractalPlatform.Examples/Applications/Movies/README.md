@@ -22,10 +22,10 @@ Application demonstrates online theatre with series and episodes with next funct
 
 ## Web Link
 
-[Movies](https://fraplat.com/jupiter/Movies)
+[Movies](https://fraplat.tech/jupiter/Movies)
 
 ## Open app in Fractal Studio
 
-[Play with Movies in sandbox](https://fraplat.com/mars/FractalStudio/?tag=Movies+template)
+[Play with Movies in sandbox](https://fraplat.tech/mars/FractalStudio/?tag=Movies+template)
 
 

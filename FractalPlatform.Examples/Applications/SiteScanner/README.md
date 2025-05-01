@@ -17,10 +17,10 @@ then send user notification via telegram
 
 ## Web Link
 
-[SiteScanner](https://fraplat.com/jupiter/SiteScanner)
+[SiteScanner](https://fraplat.tech/jupiter/SiteScanner)
 
 ## Open app in Fractal Studio
 
-[Play with SiteScanner in sandbox](https://fraplat.com/mars/FractalStudio/?tag=SiteScanner+template)
+[Play with SiteScanner in sandbox](https://fraplat.tech/mars/FractalStudio/?tag=SiteScanner+template)
 
 

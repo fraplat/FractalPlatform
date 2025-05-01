@@ -56,7 +56,7 @@ For User and Admin
 
 ## Web Link
 
-[Seasons](https://fraplat.com/jupiter/Seasons)
+[Seasons](https://fraplat.tech/jupiter/Seasons)
 
 ## Screenshots
 

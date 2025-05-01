@@ -22,10 +22,10 @@ for new users with next functionality:
 
 ## Web Link
 
-[ToDoIntro](https://fraplat.com/jupiter/ToDoIntro)
+[ToDoIntro](https://fraplat.tech/jupiter/ToDoIntro)
 
 ## Open app in Fractal Studio
 
-[Play with ToDoIntro in sandbox](https://fraplat.com/mars/FractalStudio/?tag=ToDoIntro+template)
+[Play with ToDoIntro in sandbox](https://fraplat.tech/mars/FractalStudio/?tag=ToDoIntro+template)
 
 

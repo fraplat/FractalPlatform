@@ -419,7 +419,7 @@ namespace FractalPlatform.Seasons
 
                         new
                         {
-                            Link = "https://fraplat.com/jupiter/Seasons/?tag=Movie:" + movie
+                            Link = "https://fraplat.tech/jupiter/Seasons/?tag=Movie:" + movie
                         }
                         .ToCollection("Share link")
                         .SetUIDimension("{'ControlType':'Link','ReadOnly':true}")

@@ -17,15 +17,15 @@ Admin can change the stock: Add new products, remove products, change price, cha
 
 ## How it implemented
 
-- [EN UTube Video](https://fraplat.com/jupiter/UTube?tag=118)
-- [UA UTube Video](https://fraplat.com/jupiter/UTube?tag=218)
+- [EN UTube Video](https://fraplat.tech/jupiter/UTube?tag=118)
+- [UA UTube Video](https://fraplat.tech/jupiter/UTube?tag=218)
 
 ## Web Link
 
-[Supermarket](https://fraplat.com/jupiter/Supermarket)
+[Supermarket](https://fraplat.tech/jupiter/Supermarket)
 
 ## Open app in Fractal Studio
 
-[Play with Supermarket in sandbox](https://fraplat.com/mars/FractalStudio/?tag=Supermarket+template)
+[Play with Supermarket in sandbox](https://fraplat.tech/mars/FractalStudio/?tag=Supermarket+template)
 
 

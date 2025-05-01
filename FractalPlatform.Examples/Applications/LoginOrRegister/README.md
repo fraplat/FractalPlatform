@@ -11,15 +11,15 @@ Application demonstrates how to works with user credentials
 
 ## How it implemented
 
-- [EN UTube Video](https://fraplat.com/jupiter/UTube?tag=114)
-- [UA UTube Video](https://fraplat.com/jupiter/UTube?tag=214)
+- [EN UTube Video](https://fraplat.tech/jupiter/UTube?tag=114)
+- [UA UTube Video](https://fraplat.tech/jupiter/UTube?tag=214)
 
 ## Web Link
 
-[LoginOrRegister](https://fraplat.com/jupiter/LoginOrRegister)
+[LoginOrRegister](https://fraplat.tech/jupiter/LoginOrRegister)
 
 ## Open app in Fractal Studio
 
-[Play with LoginOrRegister in sandbox](https://fraplat.com/mars/FractalStudio/?tag=LoginOrRegister+template)
+[Play with LoginOrRegister in sandbox](https://fraplat.tech/mars/FractalStudio/?tag=LoginOrRegister+template)
 
 
