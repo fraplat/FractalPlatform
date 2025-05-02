@@ -646,6 +646,7 @@
     display: flex;
     gap: 1rem;
     padding: 1.5rem 1.5rem 0 1.5rem;
+    position: relative;
     }
     
     .screenshot {
@@ -654,6 +655,8 @@
     overflow: hidden;
     box-shadow: var(--shadow-sm);
     border: 1px solid var(--light);
+    position: relative;
+    cursor: zoom-in;
     }
     
     .screenshot img {
@@ -665,6 +668,83 @@
     
     .screenshot:hover img {
     transform: scale(1.05);
+    }
+    
+    /* Popup preview styles */
+    .screenshot::after {
+    content: "🔍";
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 4px;
+    border-radius: 4px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    }
+    
+    .screenshot:hover::after {
+    opacity: 1;
+    }
+    
+    .screenshot .enlarged-view {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+    }
+    
+    .screenshot:hover .enlarged-view {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0s linear;
+    }
+    
+    .screenshot .enlarged-view img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 5px 35px rgba(0, 0, 0, 0.5);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+    }
+    
+    .screenshot:hover .enlarged-view img {
+    transform: scale(1);
+    }
+    
+    .enlarged-view-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    }
+    
+    .enlarged-view-close:hover {
+    background-color: rgba(255, 255, 255, 0.4);
     }
     
     .project-btn {
