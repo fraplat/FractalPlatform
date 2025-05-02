@@ -2,318 +2,31 @@
 <html lang="en">
 
 <head>
+    @Styles
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fractal Platform - Entry Level</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #5C6BC0;
-            --primary-light: #8E99F3;
-            --primary-dark: #3949AB;
-            --secondary: #26A69A;
-            --dark: #263238;
-            --gray: #B0BEC5;
-            --light: #ECEFF1;
-            --white: #FFFFFF;
-            --code-bg: #1E1E1E;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background-color: var(--light);
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-            color: var(--white);
-            padding: 2rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        header::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
-            opacity: 0.3;
-        }
-        
-        .hero {
-            text-align: center;
-            padding: 3rem 0;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-        }
-        
-        section {
-            padding: 5rem 0;
-        }
-        
-        section:nth-child(even) {
-            background-color: var(--white);
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .section-header h2 {
-            font-size: 2.5rem;
-            color: var(--primary-dark);
-            margin-bottom: 1rem;
-        }
-        
-        .section-header p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
-            color: var(--dark);
-        }
-        
-        .feature-list {
-            margin: 2rem 0;
-        }
-        
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-        }
-        
-        .feature-item:before {
-            content: "✅";
-            margin-right: 0.5rem;
-            font-size: 1.2rem;
-        }
-        
-        .how-it-works {
-            background-color: var(--white);
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin: 2rem 0;
-        }
-        
-        .how-it-works-steps {
-            margin-top: 1.5rem;
-        }
-        
-        .how-it-works-steps li {
-            padding: 0.5rem 0;
-            position: relative;
-            padding-left: 1.5rem;
-            list-style-type: none;
-        }
-        
-        .how-it-works-steps li:before {
-            content: "-";
-            color: var(--secondary);
-            position: absolute;
-            left: 0;
-        }
-        
-        .code-block {
-            font-family: 'JetBrains Mono', monospace;
-            background-color: var(--code-bg);
-            color: var(--white);
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-            overflow-x: auto;
-        }
-        
-        .get-started {
-            text-align: center;
-            margin: 2rem 0;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--secondary);
-            color: var(--white);
-            padding: 0.75rem 1.5rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-        
-        .examples {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .example-card {
-            background-color: var(--white);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .example-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .example-img {
-            height: 180px;
-            background-color: var(--primary-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-weight: 600;
-        }
-        
-        .example-content {
-            padding: 1.5rem;
-        }
-        
-        .example-content h3 {
-            color: var(--primary-dark);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-        
-        .example-detail {
-            display: flex;
-            margin-bottom: 0.5rem;
-        }
-        
-        .example-detail strong {
-            width: 150px;
-            color: var(--dark);
-        }
-        
-        .next-level {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: var(--white);
-            text-align: center;
-            padding: 3rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-        }
-        
-        .next-level h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .next-level p {
-            margin-bottom: 2rem;
-            font-size: 1.2rem;
-        }
-        
-        .next-level .btn {
-            background-color: var(--white);
-            color: var(--primary-dark);
-        }
-        
-        .next-level .btn:hover {
-            background-color: var(--light);
-        }
-        
-        footer {
-            background-color: var(--dark);
-            color: var(--white);
-            padding: 3rem 0;
-            text-align: center;
-        }
-        
-        .footer-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .footer-content h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .footer-content p {
-            margin-bottom: 2rem;
-        }
-        
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .section-header h2 {
-                font-size: 2rem;
-            }
-            
-            section {
-                padding: 3rem 0;
-            }
-            
-            .examples {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="@BaseFilesUrl/styles.css">
 </head>
 
 <body>
+    @StartForm
     <header>
         <div class="container">
             <div class="hero">
                 <h1>Fractal Platform - Entry Level</h1>
-                <p>Simple solutions for your first applications</p>
+                <p>Build useful mini-apps with just a little code</p>
             </div>
         </div>
     </header>
 
     <section id="description">
         <div class="container">
-            <div class="section-header">
-                <h2>Build Useful Mini-Apps With Just a Little Code</h2>
-            </div>
-
-            <p>Fractal Platform helps you create simple, smart tools—like budget trackers, task lists, and data tables—without getting stuck in complexity.</p>
-
-            <p>You don't need to be a developer. With ready-made templates and just a few lines of code, you'll get things working fast.</p>
+            <p>Fractal Platform helps you create simple, smart tools—like budget trackers, task lists, and data tables—without getting stuck in complexity.
+                You don’t need to be a developer. With ready-made templates and just a few lines of code, you’ll get things working fast.</p>
 
             <div class="feature-list">
                 <div class="feature-item">Start from templates – customize only what you need</div>
@@ -329,134 +42,232 @@
         <div class="container">
             <div class="section-header">
                 <h2>How It Works</h2>
-                <p>From data model to working application in minutes</p>
+                <p>Straightforward process, powerful results</p>
             </div>
 
             <div class="how-it-works">
-                <p>Just create a JSON of your data model and Fractal Platform:</p>
-
-                <ul class="how-it-works-steps">
-                    <li>Creates documented or relational database around JSON (your database level)</li>
-                    <li>Automatically creates CRUD business logic (your business logic level)</li>
-                    <li>Automatically creates UI around data model and provides possibility to customize UI (user interface level)</li>
+                <h3>Just create a JSON of your data model and Fractal Platform:</h3>
+                <ul>
+                    <li>Creates document or relational database around JSON - <strong>your database level</strong></li>
+                    <li>Automatically creates CRUD business logic - <strong>your business logic level</strong></li>
+                    <li>Automatically creates UI around data model - <strong>your user interface level</strong></li>
                     <li>Keeps the door open to extend your project for more complex scenarios</li>
+                    <a href="@BaseAppUrl/?tag=basic" target="_blank" class="btn">See next Basic level >>></a>
                 </ul>
-
-                <div class="code-block">
-                    <pre>{
-  "Todo": {
-    "fields": {
-      "title": "string",
-      "completed": "boolean",
-      "dueDate": "datetime"
-    }
-  }
-}</pre>
-                </div>
             </div>
         </div>
     </section>
 
-    <section id="get-started">
+    <section id="how-it-works">
         <div class="container">
             <div class="section-header">
-                <h2>Where to Start</h2>
-                <p>Begin your journey with easy-to-use templates</p>
+                <h2>How to Get Started</h2>
+                <p>Create your first app in minutes, on your own</p>
             </div>
 
-            <p>Not sure where to start? Use any of the ready-made projects on our platform as a starting point and customize it to fit your needs.</p>
-
-            <div class="get-started">
-                <p>Use our web development tool:</p>
-                <a href="https://fraplat.tech/FractalStudio" class="btn">Open Fractal Studio</a>
+            <div class="how-it-works">
+                <h3>Follow these simple steps to get started:</h3>
+                <ul>
+                    <li>Open Fractal Studio in web browser</li>
+                    <li>Select a template for your first app, such as HelloWorld or ToDoList</li>
+                    <li>Review and customize your app’s code. See our <a href="https://fraplat.tech/jupiter/ToDoIntro" target="_blank">interactive tutorial</a> for beginners</li>
+                    <li>Click the Deploy button and see your web project live</li>
+                </ul>
+                <a href="https://fraplat.tech/mars/FractalStudio" target="_blank" class="btn">Open Fractal Studio</a>
             </div>
         </div>
     </section>
 
-    <section id="examples">
+    <section id="entry-projects">
         <div class="container">
             <div class="section-header">
-                <h2>Example Projects</h2>
-                <p>See what you can build at the Entry level</p>
+                <h2>Examples of Entry Level Projects</h2>
+                <p>Explore these beginner-friendly projects to kickstart your development journey. Each project is designed to build your skills while creating practical applications.</p>
             </div>
 
-            <div class="examples">
-                <div class="example-card">
-                    <div class="example-img">
-                        ToDo List Application
-                    </div>
-                    <div class="example-content">
+            <div class="projects-grid">
+                <!-- Project Card: ToDo List -->
+                <div class="project-card">
+                    <div class="project-header">
                         <h3>ToDo List</h3>
-                        <div class="example-detail">
-                            <strong>Development time:</strong>
-                            <span>3-4 minutes</span>
+                        <span class="project-badge">Entry</span>
+                    </div>
+                    <div class="project-screenshots">
+                        <div class="screenshot">
+                            <img src="/api/placeholder/400/300" alt="ToDo List Screenshot 1" />
                         </div>
-                        <div class="example-detail">
-                            <strong>Highlight features:</strong>
-                            <span>CRUD operations</span>
+                        <div class="screenshot">
+                            <img src="/api/placeholder/400/300" alt="ToDo List Screenshot 2" />
                         </div>
-                        <p>A simple but effective task manager that helps you keep track of your daily activities with basic create, read, update, and delete operations.</p>
+                    </div>
+                    <div class="project-details">
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Development time:</span>
+                                <span class="meta-value">3~4 minutes</span>
+                            </div>
+                        </div>
+                        <h4>Highlight Features:</h4>
+                        <ul class="feature-list project-features">
+                            <li class="feature-item">Standard web UI</li>
+                            <li class="feature-item">CRUD operations with task list</li>
+                        </ul>
+                        <a href="https://github.com/fraplat/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/ToDo" _target="blank" class="btn project-btn">View Project on GitHub</a>
                     </div>
                 </div>
 
-                <div class="example-card">
-                    <div class="example-img">
-                        Pressure Calculator
-                    </div>
-                    <div class="example-content">
+                <!-- Project Card: Pressure Calculator -->
+                <div class="project-card">
+                    <div class="project-header">
                         <h3>Pressure Calculator</h3>
-                        <div class="example-detail">
-                            <strong>Development time:</strong>
-                            <span>5-7 minutes</span>
+                        <span class="project-badge">Entry</span>
+                    </div>
+                    <div class="project-screenshots">
+                        <div class="screenshot">
+                            <img src="/api/placeholder/400/300" alt="Pressure Calculator Screenshot 1" />
                         </div>
-                        <div class="example-detail">
-                            <strong>Highlight features:</strong>
-                            <span>Show result screen based on input data</span>
+                        <div class="screenshot">
+                            <img src="/api/placeholder/400/300" alt="Pressure Calculator Screenshot 2" />
                         </div>
-                        <p>A practical tool that calculates pressure based on user inputs and displays results in a clear, easy-to-understand format.</p>
+                    </div>
+                    <div class="project-details">
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Development time:</span>
+                                <span class="meta-value">5~7 minutes</span>
+                            </div>
+                        </div>
+                        <h4>Highlight Features:</h4>
+                        <ul class="feature-list project-features">
+                            <li class="feature-item">Standard web UI</li>
+                            <li class="feature-item">Calculate blood pressure based on age and weight</li>
+                        </ul>
+                        <a href="https://github.com/fraplat/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/PressureCalc" _target="blank" class="btn project-btn">View Project on GitHub</a>
                     </div>
                 </div>
 
-                <div class="example-card">
-                    <div class="example-img">
-                        Bowling Scores Tracker
+                <!-- Project Card: Bowling Scores Tracker -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Bowling Scores</h3>
+                        <span class="project-badge">Beginner</span>
                     </div>
-                    <div class="example-content">
-                        <h3>Bowling Scores Tracker</h3>
-                        <div class="example-detail">
-                            <strong>Development time:</strong>
-                            <span>1-2 hours</span>
+                    <div class="project-screenshots">
+                        <div class="screenshot">
+                            <img src="/api/placeholder/400/300" alt="Bowling Scores Tracker Screenshot 1" />
                         </div>
-                        <div class="example-detail">
-                            <strong>Highlight features:</strong>
-                            <span>Upload picture of scores, add bowling results, view and edit existing results, view achievement report</span>
+                        <div class="screenshot">
+                            <img src="/api/placeholder/400/300" alt="Bowling Scores Tracker Screenshot 2" />
                         </div>
-                        <p>A more advanced app that lets bowling enthusiasts track their scores, upload pictures from bowling clubs, and monitor their progress over time.</p>
+                    </div>
+                    <div class="project-details">
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Development time:</span>
+                                <span class="meta-value">1~2 hours</span>
+                            </div>
+                        </div>
+                        <h4>Highlight Features:</h4>
+                        <ul class="feature-list project-features">
+                            <li class="feature-item">Upload picture of scores in bowling club</li>
+                            <li class="feature-item">Add bowling results</li>
+                            <li class="feature-item">View and edit existing results</li>
+                            <li class="feature-item">View achievement report</li>
+                        </ul>
+                        <a href="https://github.com/fraplat/FractalPlatform/tree/main/Projects/FractalPlatform.BowlingScores" _target="blank" class="btn project-btn">View Project on GitHub</a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="next-level">
-        <div class="container">
-            <div class="next-level">
-                <h2>Need Something More Complex?</h2>
-                <p>Ready to take your projects to the next level?</p>
-                <a href="#" class="btn">Explore Basic Level</a>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <h3>Get Started Today</h3>
-                <p>Fractal Platform - powered by AI</p>
-                <a href="https://fraplat.tech/FractalStudio" class="btn">Start Building Now</a>
+        <div class="footer-main">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <h2>Fractal Platform</h2>
+                    <p>Build powerful applications faster, without limits. Next-generation low-code solution designed for developers who need speed without sacrificing flexibility.</p>
+                    <div class="social-links">
+                        <a href="https://github.com/fraplat" aria-label="GitHub">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                            </svg>
+                        </a>
+                        <a href="javascript:alert('Sorry. We dont have X.com account yet.')" aria-label="Twitter">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+                            </svg>
+                        </a>
+                        <a href="javascript:alert('Sorry. We dont have Linkedin account yet.')" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <a href="https://t.me/fraplat" aria-label="Telegram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-16.5 7.5a2.25 2.25 0 0 0 .126 4.266l3.9 1.299v3.037c0 1.247 1.514 1.871 2.4 1.016l2.125-2.053 4.16 3.055c.685.498 1.656.032 1.82-.833l3.28-16.5a2.25 2.25 0 0 0-1.138-2.402 2.242 2.242 0 0 0-1.15-.6z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-menu">
+                    <h3 class="footer-heading">Products</h3>
+                    <ul class="footer-links">
+                        <li><a href="@BaseAppUrl/?tag=entry">Entry Level</a></li>
+                        <li><a href="@BaseAppUrl/?tag=basic">Basic</a></li>
+                        <li><a href="@BaseAppUrl/?tag=advanced">Advanced</a></li>
+                        <li><a href="@BaseAppUrl/?tag=enterprise">Enterprise</a></li>
+                        <li><a href="@BaseAppUrl/?tag=pricing">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-menu">
+                    <h3 class="footer-heading">Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://fraplat.tech/jupiter/Wiki">Documentation</a></li>
+                        <li><a href="https://github.com/fraplat">GitHub</a></li>
+                        <li><a href="https://youtube.com/@fraplat">YouTube Channel</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-menu">
+                    <h3 class="footer-heading">Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+
+                    <div class="contact-info">
+                        <p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            +1 (888) 123-4567
+                        </p>
+                        <p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <a href="mailto:admin@fraplat.com" class="contact-email">support<span>@</span>fraplat.com</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>© 2025 Fractal Platform. All rights reserved.</p>
             </div>
         </div>
     </footer>
+    @EndForm
 </body>
 
 </html>
