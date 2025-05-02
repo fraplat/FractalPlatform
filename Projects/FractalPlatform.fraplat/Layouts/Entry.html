@@ -10,6 +10,42 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="@BaseFilesUrl/styles.css">
+    <script>
+        // Add JavaScript to close enlarged view when clicking the close button
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all close buttons
+            const closeButtons = document.querySelectorAll('.enlarged-view-close');
+
+            // Add click event to each close button
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.stopPropagation(); // Prevent event bubbling
+                    const enlargedView = this.parentElement;
+                    enlargedView.style.opacity = '0';
+                    enlargedView.style.visibility = 'hidden';
+                });
+            });
+
+            // Add event listener to allow clicking anywhere on the overlay to close it
+            const enlargedViews = document.querySelectorAll('.enlarged-view');
+            enlargedViews.forEach(view => {
+                view.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        this.style.opacity = '0';
+                        this.style.visibility = 'hidden';
+                    }
+                });
+            });
+
+            // Prevent clicked images from closing the enlarged view
+            const enlargedImages = document.querySelectorAll('.enlarged-view img');
+            enlargedImages.forEach(img => {
+                img.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+            });
+        });
+    </script><!-- Entry Level Projects Section -->
 </head>
 
 <body>
@@ -52,7 +88,7 @@
                     <li>Automatically creates CRUD business logic - <strong>your business logic level</strong></li>
                     <li>Automatically creates UI around data model - <strong>your user interface level</strong></li>
                     <li>Keeps the door open to extend your project for more complex scenarios</li>
-                    <a href="@BaseAppUrl/?tag=basic" target="_blank" class="btn">See next Basic level >>></a>
+                    <a href="https://fraplat.tech/jupiter/ToDoIntro" target="_blank" class="btn">Explore our Interactive tutorial</a>
                 </ul>
             </div>
         </div>
@@ -68,9 +104,9 @@
             <div class="how-it-works">
                 <h3>Follow these simple steps to get started:</h3>
                 <ul>
-                    <li>Open Fractal Studio in web browser</li>
+                    <li>Open <a href="https://fraplat.tech/mars/FractalStudio" target="_blank">Fractal Studio</a> in web browser</li>
                     <li>Select a template for your first app, such as HelloWorld or ToDoList</li>
-                    <li>Review and customize your app’s code. See our <a href="https://fraplat.tech/jupiter/ToDoIntro" target="_blank">interactive tutorial</a> for beginners</li>
+                    <li>Review and customize your app’s code</li>
                     <li>Click the Deploy button and see your web project live</li>
                 </ul>
                 <a href="https://fraplat.tech/mars/FractalStudio" target="_blank" class="btn">Open Fractal Studio</a>
@@ -78,42 +114,6 @@
         </div>
     </section>
 
-    <script>
-        // Add JavaScript to close enlarged view when clicking the close button
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get all close buttons
-            const closeButtons = document.querySelectorAll('.enlarged-view-close');
-
-            // Add click event to each close button
-            closeButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.stopPropagation(); // Prevent event bubbling
-                    const enlargedView = this.parentElement;
-                    enlargedView.style.opacity = '0';
-                    enlargedView.style.visibility = 'hidden';
-                });
-            });
-
-            // Add event listener to allow clicking anywhere on the overlay to close it
-            const enlargedViews = document.querySelectorAll('.enlarged-view');
-            enlargedViews.forEach(view => {
-                view.addEventListener('click', function(e) {
-                    if (e.target === this) {
-                        this.style.opacity = '0';
-                        this.style.visibility = 'hidden';
-                    }
-                });
-            });
-
-            // Prevent clicked images from closing the enlarged view
-            const enlargedImages = document.querySelectorAll('.enlarged-view img');
-            enlargedImages.forEach(img => {
-                img.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                });
-            });
-        });
-    </script><!-- Entry Level Projects Section -->
     <section id="entry-projects">
         <div class="container">
             <div class="section-header">
@@ -125,8 +125,8 @@
                 <!-- Project Card: ToDo List -->
                 <div class="project-card">
                     <div class="project-header">
-                        <h3>ToDo List</h3>
-                        <span class="project-badge">Beginner</span>
+                        <h3>To Do List</h3>
+                        <span class="project-badge">Entry</span>
                     </div>
                     <div class="project-screenshots">
                         <div class="screenshot">
@@ -153,9 +153,10 @@
                         </div>
                         <h4>Highlight Features:</h4>
                         <ul class="feature-list project-features">
-                            <li class="feature-item">CRUD operations</li>
+                            <li class="feature-item">Standard web UI</li>
+                            <li class="feature-item">CRUD operations for task list</li>
                         </ul>
-                        <a href="#" class="btn project-btn">View Project</a>
+                        <a href="#" class="btn project-btn">View Project on GitHub</a>
                     </div>
                 </div>
 
@@ -163,7 +164,7 @@
                 <div class="project-card">
                     <div class="project-header">
                         <h3>Pressure Calculator</h3>
-                        <span class="project-badge">Beginner</span>
+                        <span class="project-badge">Entry</span>
                     </div>
                     <div class="project-screenshots">
                         <div class="screenshot">
@@ -190,17 +191,18 @@
                         </div>
                         <h4>Highlight Features:</h4>
                         <ul class="feature-list project-features">
-                            <li class="feature-item">Show result screen based on input data</li>
+                            <li class="feature-item">Standard web UI</li>
+                            <li class="feature-item">Calculate blood pressure based on age and weight</li>
                         </ul>
-                        <a href="#" class="btn project-btn">View Project</a>
+                        <a href="#" class="btn project-btn">View Project on GitHub</a>
                     </div>
                 </div>
 
                 <!-- Project Card: Bowling Scores Tracker -->
                 <div class="project-card">
                     <div class="project-header">
-                        <h3>Bowling Scores Tracker</h3>
-                        <span class="project-badge">Intermediate</span>
+                        <h3>Bowling Scores</h3>
+                        <span class="project-badge">Beginner</span>
                     </div>
                     <div class="project-screenshots">
                         <div class="screenshot">
@@ -232,10 +234,41 @@
                             <li class="feature-item">View and edit existing results</li>
                             <li class="feature-item">View achievement report</li>
                         </ul>
-                        <a href="#" class="btn project-btn">View Project</a>
+                        <a href="#" class="btn project-btn">View Project on GitHub</a>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="next-level-cta">
+        <div class="container">
+            <h2>Ready to build more complex projects?</h2>
+            <p>Take your skills to the next level with our intermediate projects and tutorials designed to expand your knowledge and capabilities.</p>
+
+            <div class="skill-level-indicator">
+                <div class="level-item">
+                    <div class="level-dot active"></div>
+                    <div class="level-label">Entry</div>
+                </div>
+                <div class="level-line"></div>
+                <div class="level-item">
+                    <div class="level-dot"></div>
+                    <div class="level-label">Basic</div>
+                </div>
+                <div class="level-line"></div>
+                <div class="level-item">
+                    <div class="level-dot"></div>
+                    <div class="level-label">Advanced</div>
+                </div>
+                <div class="level-line"></div>
+                <div class="level-item">
+                    <div class="level-dot"></div>
+                    <div class="level-label">Enterprise</div>
+                </div>
+            </div>
+
+            <a href="#basic-level" class="next-level-btn">Explore Basic Level Projects</a>
         </div>
     </section>
 
