@@ -10,13 +10,9 @@ namespace FractalPlatform.fraplat
     {
         public override void OnStart()
         {
-            if(!Context.HasUrlTag)
-            {
-                FirstDocOf("Home").OpenForm();
-            }
-            else
-            {
-                if(Context.UrlTag == "entry") 
+            if(!Context.HasUrlTag || Context.UrlTag == "home")
+                    FirstDocOf("Home").OpenForm();
+                else if(Context.UrlTag == "entry") 
                     FirstDocOf("Entry").OpenForm();
                 else if(Context.UrlTag == "basic") 
                     FirstDocOf("Basic").OpenForm();
@@ -28,8 +24,7 @@ namespace FractalPlatform.fraplat
                     FirstDocOf("Pricing").OpenForm();
                 else if(Context.UrlTag == "about") 
                     FirstDocOf("About").OpenForm();
-                else NotImplementedMessageBox();   
-            }   
+                else NotImplementedMessageBox(); 
         }
     }
 }
