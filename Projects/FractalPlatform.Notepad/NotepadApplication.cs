@@ -6,6 +6,6 @@ namespace FractalPlatform.Notepad
     public class NotepadApplication : BaseApplication
     {
         public override void OnStart() =>
-            UsePasword("mypass", _ => ModifyFirstDocOf("Notes").OpenForm(result => SaveForm()));
+            UsePassword("mypass", () => ModifyFirstDocOf("Notes").OpenForm(result => SaveForm()));
     }
 }
