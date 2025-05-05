@@ -4,33 +4,14 @@ using FractalPlatform.Client.UI.DOM;
 using FractalPlatform.Database.Engine;
 using FractalPlatform.Database.Engine.Info;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 
 namespace FractalPlatform.BowlingScores {
     public class BowlingScoresApplication: BaseApplication {
-        private void Dashboard() => FirstDocOf("Dashboard").OpenForm();
-        
-        public override void OnStart() {
-            var password = "123";
 
-            if (Context.UrlTag == password) {
-                Dashboard();
-            } else {
-                InputBox("Password", "Enter password", result => {
-                    if (result.Result) {
-                        var firstValue = result.FindFirstValue("Password");
-                        if (firstValue == password) {
-                            Context.UrlTag = firstValue;
-                            Dashboard();
-                        } else {
-                            MessageBox("Wrong credentials.");
-                        }
-                    }
-                });
-            }
-        }
+        public override void OnStart() =>
+            UsePassword("123", () => FirstDocOf("Dashboard").OpenForm());
 
         public override bool OnEventDimension(EventInfo info) {
             switch (info.AttrPath.ToString()) {
@@ -71,21 +52,21 @@ namespace FractalPlatform.BowlingScores {
         
         private void Report(string type)
         {
-            var juliaScores = DocsOf("Scores")
-                                .SelectValues("{'OnDate':$,'Julia':{@Type:$}}", type)
+            var janeScores = DocsOf("Scores")
+                                .SelectValues("{'OnDate':$,'Jane':{@Type:$}}", type)
                                 .Select(vals => new
                                 {
-                                    Name = "Julia",
+                                    Name = "Jane",
                                     Value = double.Parse(vals[1]),
                                     Group = DateTime.Parse(vals[0], CultureInfo.InvariantCulture).ToString("yyyyMMdd")
                                 })
                                 .ToList();
 
-            var viacheslavScores = DocsOf("Scores")
-                                    .SelectValues("{'OnDate':$,'Viacheslav':{@Type:$}}", type)
+            var bobScores = DocsOf("Scores")
+                                    .SelectValues("{'OnDate':$,'Bob':{@Type:$}}", type)
                                     .Select(vals => new
                                     {
-                                        Name = "Viacheslav",
+                                        Name = "Bob",
                                         Value = double.Parse(vals[1]),
                                         Group = DateTime.Parse(vals[0], CultureInfo.InvariantCulture).ToString("yyyyMMdd")
                                     })
@@ -96,7 +77,7 @@ namespace FractalPlatform.BowlingScores {
                 Control = new
                 {
                     Title = new { Name = type, X = "OnDate", Y = type },
-                    Columns = juliaScores.Union(viacheslavScores).ToList()
+                    Columns = janeScores.Union(bobScores).ToList()
                 }
             };
             
@@ -105,6 +86,6 @@ namespace FractalPlatform.BowlingScores {
                      .OpenForm();
         }
     
-        public override BaseRenderForm CreateRenderForm(DOMForm form) => new ExtendedRenderForm((BaseApplication) this, form);
+        public override BaseRenderForm CreateRenderForm(DOMForm form) => new ExtendedRenderForm(this, form);
     }
 }
