@@ -21,6 +21,8 @@ namespace FractalPlatform.fraplat {
                 FirstDocOf("Pricing").OpenForm();
             else if (Context.UrlTag == "about")
                 FirstDocOf("About").OpenForm();
+            else if (Context.UrlTag == "realworld")
+                FirstDocOf("RealWorld").OpenForm();
             else NotImplementedMessageBox();
         }
     }

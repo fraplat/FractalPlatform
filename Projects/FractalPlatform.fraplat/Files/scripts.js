@@ -7,6 +7,7 @@
         // Add click event to each close button
         closeButtons.forEach(button => {
             button.addEventListener('click', function(e) {
+                e.preventDefault();
                 e.stopPropagation(); // Prevent event bubbling
                 const enlargedView = this.parentElement;
                 enlargedView.style.opacity = '0';
@@ -32,5 +33,4 @@
                 e.stopPropagation();
             });
         });
-    }); <
-    !--Entry Level Projects Section-- >
+    });
