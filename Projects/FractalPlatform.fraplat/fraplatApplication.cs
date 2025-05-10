@@ -43,6 +43,9 @@ namespace FractalPlatform.fraplat {
                 case "storage":
                     FirstDocOf("Storage").OpenForm();
                     break;
+                case "autotesting":
+                    FirstDocOf("AutoTesting").OpenForm();
+                    break;
                 default:
                     NotImplementedMessageBox();
                     break;
