@@ -7,23 +7,46 @@ using FractalPlatform.Client.UI;
 namespace FractalPlatform.fraplat {
     public class fraplatApplication: BaseApplication {
         public override void OnStart() {
-            if (!Context.HasUrlTag || Context.UrlTag == "home")
+            if (!Context.HasUrlTag || Context.UrlTag == "home") {
                 FirstDocOf("Home").OpenForm();
-            else if (Context.UrlTag == "entry")
-                FirstDocOf("Entry").OpenForm();
-            else if (Context.UrlTag == "basic")
-                FirstDocOf("Basic").OpenForm();
-            else if (Context.UrlTag == "advanced")
-                FirstDocOf("Advanced").OpenForm();
-            else if (Context.UrlTag == "enterprise")
-                FirstDocOf("Enterprise").OpenForm();
-            else if (Context.UrlTag == "pricing")
-                FirstDocOf("Pricing").OpenForm();
-            else if (Context.UrlTag == "about")
-                FirstDocOf("About").OpenForm();
-            else if (Context.UrlTag == "realworld")
-                FirstDocOf("RealWorld").OpenForm();
-            else NotImplementedMessageBox();
+                return;
+            }
+
+            switch (Context.UrlTag) {
+                case "entry":
+                    FirstDocOf("Entry").OpenForm();
+                    break;
+                case "basic":
+                    FirstDocOf("Basic").OpenForm();
+                    break;
+                case "advanced":
+                    FirstDocOf("Advanced").OpenForm();
+                    break;
+                case "enterprise":
+                    FirstDocOf("Enterprise").OpenForm();
+                    break;
+                case "pricing":
+                    FirstDocOf("Pricing").OpenForm();
+                    break;
+                case "about":
+                    FirstDocOf("About").OpenForm();
+                    break;
+                case "realworld":
+                    FirstDocOf("RealWorld").OpenForm();
+                    break;
+                case "performance":
+                    FirstDocOf("Performance").OpenForm();
+                    break;
+                case "hosting":
+                    FirstDocOf("Hosting").OpenForm();
+                    break;
+                case "storage":
+                    FirstDocOf("Storage").OpenForm();
+                    break;
+                default:
+                    NotImplementedMessageBox();
+                    break;
+            }
         }
     }
 }
