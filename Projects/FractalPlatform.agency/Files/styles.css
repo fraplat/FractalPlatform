@@ -82,7 +82,7 @@
         }
         
         .header {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/api/placeholder/1400/800") center/cover no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/mars/files/agency/background.jpg") center/cover no-repeat;
             color: var(--white);
             min-height: 100vh;
             display: flex;
