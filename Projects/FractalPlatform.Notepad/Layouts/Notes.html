@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
     @Styles
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notepad</title>
@@ -46,7 +44,7 @@
         .save-button,
         .cancel-button {
             background-color: #000000;
-            color: #181818;
+            color: #f1f1f1;
             border: none;
             padding: 10px 20px;
             font-size: 16px;
@@ -60,15 +58,54 @@
             background-color: #00cc00;
         }
         
+        .font-size-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .font-size-dropdown {
+            background-color: #000000;
+            color: #f1f1f1;
+            border: none;
+            padding: 8px 12px;
+            font-size: 14px;
+            cursor: pointer;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        .font-size-dropdown:hover {
+            background-color: #333333;
+        }
+        
+        .font-size-label {
+            font-size: 14px;
+        }
     </style>
 </head>
-
 <body>
     @StartForm
     <control attr="Text">
-        <textarea @RichTextBox>@Value</textarea>
+        <textarea id="main-textarea" @RichTextBox>@Value</textarea>
     </control>
-
+    
+    <div class="font-size-container">
+        <span class="font-size-label">Размер шрифта:</span>
+        <select id="font-size-selector" class="font-size-dropdown">
+            <option value="12px">12px</option>
+            <option value="14px">14px</option>
+            <option value="16px" selected>16px</option>
+            <option value="18px">18px</option>
+            <option value="20px">20px</option>
+            <option value="24px">24px</option>
+            <option value="28px">28px</option>
+            <option value="32px">32px</option>
+        </select>
+    </div>
+    
     <div class="button-container">
         <control attr="Name">
             <input class="name-textbox" @TextBox />
@@ -76,8 +113,14 @@
         <button class="save-button" @SavePageButton>Сохранить</button>
         <button class="cancel-button" @CancelPageButton>Закрыть</button>
     </div>
-
     @EndForm
+    
+    <script>
+        // Функция изменения размера шрифта
+        document.getElementById('font-size-selector').addEventListener('change', function() {
+            const selectedFontSize = this.value;
+            document.getElementById('main-textarea').style.fontSize = selectedFontSize;
+        });
+    </script>
 </body>
-
 </html>
