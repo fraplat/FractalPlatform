@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notepad</title>
     <style>
-        /* Стили для черной темы */
         body {
             margin: 0;
             padding: 0;
@@ -25,12 +24,11 @@
             font-size: 16px;
             resize: none;
             outline: none;
-            overflow: hidden; /* Скрываем скроллбар по умолчанию */
-            white-space: pre-wrap; /* Перенос строк, если нужно */
+            overflow: hidden;
+            white-space: pre-wrap;
             font-size: 20px;
         }
 
-            /* Позволяем появляться скроллу только при переполнении */
             textarea:focus {
                 overflow: auto;
             }
@@ -40,7 +38,7 @@
             bottom: 20px;
             right: 20px;
             display: flex;
-            gap: 10px; /* Расстояние между кнопками */
+            gap: 10px;
         }
 
         .name-textbox,
@@ -118,7 +116,6 @@
     @EndForm
 
     <script>
-        // Функция изменения размера шрифта
         document.getElementById('font-size-selector').addEventListener('change', function () {
             const selectedFontSize = this.value;
             document.getElementById('main-textarea').style.fontSize = selectedFontSize;
