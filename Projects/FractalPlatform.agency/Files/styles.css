@@ -452,15 +452,16 @@
         position: relative;
     }
     
-    .timeline::before {
-        content: '';
-        position: absolute;
-        height: 100%;
-        width: 2px;
-        background: linear-gradient(to bottom, var(--primary), transparent);
-        left: 50%;
-        transform: translateX(-50%);
-    }
+   .timeline::before {
+    content: '';
+    position: absolute;
+    height: calc(100% - 25px); /* Уменьшаем высоту */
+    width: 2px;
+    background: linear-gradient(to bottom, var(--primary), transparent);
+    left: 50%;
+    transform: translateX(-50%);
+    top: 45px; /* Начинаем линию ниже первого кружка */
+}
     
     .timeline-item {
         display: flex;
@@ -494,11 +495,11 @@
     }
     
     .timeline-item:nth-child(odd) .timeline-content::before {
-        right: -10px;
+        left: -10px;
     }
     
     .timeline-item:nth-child(even) .timeline-content::before {
-        left: -10px;
+        right: -10px;
     }
     
     .timeline-content:hover {
@@ -943,28 +944,29 @@
         }
         
         .timeline::before {
-            left: 30px;
-        }
+        left: 30px;
+        height: calc(100% - 25px);
+        top: 45px; /* Начинаем линию ниже первого кружка */
+    }
         
         .timeline-item, .timeline-item:nth-child(odd) {
-            flex-direction: column;
-            margin-left: 30px;
-        }
-        
-        .timeline-content {
-            width: 100%;
-            margin-bottom: 20px;
-        }
-        
-        .timeline-number {
-            left: 30px;
-            transform: translateX(-50%);
-        }
-        
-        .timeline-item:nth-child(odd) .timeline-content::before,
-        .timeline-item:nth-child(even) .timeline-content::before {
-            display: none;
-        }
+        flex-direction: column;
+        margin-left: 60px; /* Увеличено с 30px для создания отступа */
+        position: relative;
+        padding-top: 30px; /* Добавлен отступ сверху */
+    }
+    
+    .timeline-content {
+        width: 100%;
+        margin-bottom: 20px;
+        margin-top: 20px; /* Добавлен отступ сверху */
+    }
+    
+    .timeline-number {
+        left: -30px; /* Изменено с 30px для корректного позиционирования */
+        top: 0; /* Изменено с 20px для размещения круга выше контента */
+        transform: translateX(0); /* Убрано смещение по X */
+    }
     }
     
     @media (max-width: 768px) {
