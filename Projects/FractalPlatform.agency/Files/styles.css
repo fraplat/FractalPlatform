@@ -452,7 +452,7 @@
         position: relative;
     }
     
-   .timeline::before {
+       .timeline::before {
     content: '';
     position: absolute;
     height: calc(100% - 25px); /* Уменьшаем высоту */
@@ -461,7 +461,7 @@
     left: 50%;
     transform: translateX(-50%);
     top: 45px; /* Начинаем линию ниже первого кружка */
-}
+    }
     
     .timeline-item {
         display: flex;
@@ -993,4 +993,53 @@
         .pricing-card.featured:hover {
             transform: translateY(-15px);
         }
+    }
+    
+    /* Базовый стиль для всех карточек */
+    .pricing-card {
+    background-color: var(--medium-gray);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 40px 30px;
+    transition: var(--transition);
+    text-align: center;
+    border: 1px solid var(--light-gray);
+    position: relative;
+    overflow: hidden;
+    transform: scale(1); /* Явно указываем начальный масштаб */
+    }
+    
+    /* Специальный стиль для выделенной карточки */
+    .pricing-card.featured {
+    transform: scale(1);
+    border-color: var(--primary);
+    z-index: 2;
+    }
+    
+    /* Эффект при наведении для всех карточек включает увеличение */
+    .pricing-card:hover {
+    transform: translateY(-15px) scale(1.05);
+    z-index: 3; /* Приоритет над featured при наведении */
+    border-color: var(--primary-light); /* Подсветка границы */
+    box-shadow: var(--glow); /* Добавляем светящийся эффект */
+    }
+    
+    /* Специальный эффект для featured остаётся, но с большим значением */
+    .pricing-card.featured:hover {
+    transform: translateY(-15px) scale(1.08); /* Чуть больше увеличение */
+    }
+    
+    /* Для мобильных устройств сбрасываем эффект масштабирования на исходное значение */
+    @media (max-width: 768px) {
+    .pricing-card.featured {
+        transform: none;
+    }
+    
+    .pricing-card:hover {
+        transform: translateY(-15px) scale(1.05);
+    }
+    
+    .pricing-card.featured:hover {
+        transform: translateY(-15px) scale(1.05);
+    }
     }
