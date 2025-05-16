@@ -257,7 +257,7 @@
         <div class="container">
             <h2 class="text-center">Frequently Asked Questions</h2>
             <div class="faq-list">
-                <div class="faq-item" data-aos="fade-up">
+                <div class="faq-item">
                     <div class="faq-question">
                         What benefits will I get from using the Fractal Platform?
                         <span>+</span>
@@ -267,7 +267,7 @@
                             It's optimized for different use cases, from entry level projects to enterprise level projects we have many examples.</p>
                     </div>
                 </div>
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="faq-item">
                     <div class="faq-question">
                         How is Fractal better than traditional development?
                         <span>+</span>
@@ -279,7 +279,7 @@
                         <p>- Code is still written in C#, giving you full flexibility.</p>
                     </div>
                 </div>
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="faq-item">
                     <div class="faq-question">
                         Can I just use AI tools (like ChatGPT or GitHub Copilot) instead of Fractal?
                         <span>+</span>
@@ -290,7 +290,7 @@
                             You can use AI within Fractal (we do this too), but AI alone won't deliver a working product in few days.</p>
                     </div>
                 </div>
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="faq-item">
                     <div class="faq-question">
                         What guarantees do I have? How is a project maintained on Fractal?
                         <span>+</span>
@@ -302,7 +302,7 @@
                             Optional SLA or support subscription available if you want end-to-end coverage.</p>
                     </div>
                 </div>
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                <div class="faq-item">
                     <div class="faq-question">
                         Will Fractal lock me into one team?
                         <span>+</span>
@@ -350,11 +350,19 @@
         // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
-                question.classList.toggle('active');
+                const answer = question.nextElementSibling;
+                const isActive = question.classList.toggle('active');
 
-                // Update the plus/minus indicator
                 const indicator = question.querySelector('span');
-                indicator.textContent = question.classList.contains('active') ? '-' : '+';
+                indicator.textContent = isActive ? '-' : '+';
+
+                if (isActive) {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    answer.style.paddingBottom = '0px';
+                } else {
+                    answer.style.maxHeight = '0';
+                    answer.style.paddingBottom = '0';
+                }
             });
         });
 
