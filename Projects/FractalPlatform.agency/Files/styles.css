@@ -696,10 +696,10 @@
     }
     
     .pricing-features {
-        margin: 2rem 0;
+       list-style: none;
+        padding-left: 0;
+        margin: 0;
         text-align: left;
-        position: relative;
-        z-index: 1;
     }
     
     .pricing-feature {
