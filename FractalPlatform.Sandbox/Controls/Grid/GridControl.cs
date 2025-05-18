@@ -90,7 +90,9 @@ namespace FractalPlatform.Sandbox.Controls.Grid
         {
             var domControl = (GridDOMControl)DOMControl;
 
-            domControl.OnAddClick(ParentForm.DomForm.Context.FormFactory);
+            var formFactory = ParentForm.DomForm.Context.FormFactory;
+
+            domControl.OnAddClick(formFactory, formFactory.ActiveHandleResult);
 
             ParentForm.DomForm.RefreshForm();
 
@@ -110,7 +112,9 @@ namespace FractalPlatform.Sandbox.Controls.Grid
                     selectedIndexes.Add(_lvGrid.SelectedItems[i].Index);
                 }
 
-                domControl.OnDeleteClick(selectedIndexes);
+                var formFactory = ParentForm.DomForm.Context.FormFactory;
+
+                domControl.OnDeleteClick(selectedIndexes, formFactory.ActiveHandleResult);
 
                 ParentForm.RefreshForm();
 

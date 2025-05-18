@@ -17,6 +17,8 @@ namespace FractalPlatform.Sandbox
 
         public bool IsWinForms => true;
 
+        public bool IsWebForms => false;
+
         private bool _isFormOpening = false;
 
         private List<MainForm> ActiveMainForms { get; } = new List<MainForm>();
@@ -26,6 +28,8 @@ namespace FractalPlatform.Sandbox
         private MainForm ActiveMainForm => HasForms ? ActiveMainForms[ActiveMainForms.Count - 1] : null;
 
         private DOMForm ActiveForm => ActiveMainForm?.DomForm;
+
+        public Action<FormResult> ActiveHandleResult => ActiveMainForm.HandleResult;
 
         public Collection ActiveCollection => ActiveForm?.Collection;
 
@@ -98,7 +102,7 @@ namespace FractalPlatform.Sandbox
                                           docID,
                                           filter);
 
-                var form = new MainForm(domForm);
+                var form = new MainForm(domForm, handleResult);
 
                 var prevActiveForm = ActiveForm;
 
