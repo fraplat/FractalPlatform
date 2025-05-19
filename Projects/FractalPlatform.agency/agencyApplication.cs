@@ -11,7 +11,8 @@ namespace FractalPlatform.agency
     {
         public override void OnStart()
         {
-            if(!Context.HasUrlTag)
+            if(!Context.HasUrlTag ||
+                Context.UrlTag == "home")
             {
                 FirstDocOf("Home").OpenForm();
             }
