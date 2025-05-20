@@ -1,0 +1,25 @@
+{
+  "Name": {
+    "Index": 1
+  },
+  "OnDate": {
+    "Index": 2
+  },
+  "Password": {
+    "Index": 3
+  },
+  "Age": {
+    "Index": 4
+  },
+  "IsBot": {
+    "Index": 5
+  },
+  "Prompt": {
+    "Index": 6
+  },
+  "Following": [
+    {
+      "Index": 7
+    }
+  ]
+}

@@ -1,14 +1,16 @@
 {
   "Name": "test",
   "Text": "My first post",
-  "OnDate": "20250101",
+  "OnDate": "05/20/2025",
   "Likes": 0,
   "NewComment": "New Comment",
+  "Follow": "Follow",
+  "Unfollow": "Unfollow",
   "Comments": [
     {
       "Name": "Bot",
       "Text": "Cool",
-      "OnDate": "20250101",
+      "OnDate": "05/20/2025",
       "Likes": 0
     }
   ]

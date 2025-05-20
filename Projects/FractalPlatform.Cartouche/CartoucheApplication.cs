@@ -1,9 +1,9 @@
+using FractalPlatform.Client.UI.DOM;
 using System;
 using System.Linq;
 using System.Collections.Generic;
 using FractalPlatform.Database.Engine.Info;
 using FractalPlatform.Database.Engine;
-using FractalPlatform.Client.UI.DOM;
 using FractalPlatform.Client.App;
 using FractalPlatform.Client.UI;
 
@@ -52,19 +52,27 @@ namespace FractalPlatform.Cartouche {
             }
         }
 
-        private void Dashboard(string name) {
+        private void Dashboard() {
+            CloseIfOpenedForm("Dashboard");
+            
             var following = DocsWhere("Users", "{'Name':@UserName}")
-                .Values("{'Following:[$]'}");
+                .Values("{'Following':[$]}");
 
-            var posts = DocsWhere("Posts", "{'Name':[Any,@Following]}", following)
-                .Select<Post>();
+            following.Add(Context.User.Name);
+
+            var posts = DocsWhere("Posts", "{'Name':Any(@Following)}", following)
+                .Select<Post>()
+                .OrderByDescending(x => x.OnDate)
+                .ToList();
 
             FirstDocOf("Dashboard")
                 .ToCollection()
                 .DeleteByParent("Posts")
-                .MergeToArrayPath(posts, "Posts")
+                .MergeToArrayPath(posts, "Posts", Constants.FIRST_DOC_ID, true)
                 .OpenForm();
         }
+        
+        
 
         private void Login() {
             FirstDocOf("Login")
@@ -77,7 +85,7 @@ namespace FractalPlatform.Cartouche {
                             .GetWhere("{'Name':@Name,'Password':@Password}", name, password)
                             .Any()) {
                             Context.User.Name = name;
-                            Dashboard(name);
+                            Dashboard();
                         } else {
                             MessageBox("Wrong credentials.");
                         }
@@ -113,13 +121,13 @@ namespace FractalPlatform.Cartouche {
                     break;
                 }
                 case @"NewPost": {
-                    CreateNewDocFor("NewUser", "Users")
-                        .OpenForm();
+                    CreateNewDocFor("NewPost", "Posts")
+                        .OpenForm(result => Dashboard());
 
                     break;
                 }
                 case @"EditBots": {
-                    ModifyDocsWhere("Bots", "{'IsBot':true}")
+                    ModifyDocsWhere("Users", "{'IsBot':true}")
                         .OpenForm();
 
                     break;
@@ -131,14 +139,20 @@ namespace FractalPlatform.Cartouche {
                     break;
                 }
                 case @"Follow": {
-                    ModifyDocsOf("Users")
-                        .Update("{'Following':[Add,@UserName]}");
+                    var name = DocsWhere("Posts",info.AttrPath)
+                                    .Value("{'Name':$}");
+                        
+                    DocsWhere("Users", "{'Name':@UserName}")        
+                        .Update("{'Following':[Add,@Name]}", name);
 
                     break;
                 }
                 case @"Unfollow": {
-                    ModifyDocsOf("Users")
-                        .Delete("{'Following':[@UserName]}");
+                    var name = DocsWhere("Posts",info.AttrPath)
+                                    .Value("{'Name':$}");
+                        
+                    DocsWhere("Users", "{'Name':@UserName}")        
+                        .Delete("{'Following':[Add,@Name]}", name);
 
                     break;
                 }
@@ -148,6 +162,60 @@ namespace FractalPlatform.Cartouche {
             }
 
             return true;
+        }
+    
+        public override bool OnOpenForm(FormInfo info)
+        {
+            if (info.Collection.Name == "Dashboard" &&
+                info.DocID != Constants.ANY_DOC_ID &&
+                info.AttrPath.FirstPath == "Posts")
+            {
+                var docID = info.Collection
+                                .GetWhere(info.AttrPath)
+                                .UIntValue("{'Posts':[{'DocID':$}]}");
+                                
+                DocsWhere("Posts", docID).OpenForm();
+                
+                return false;
+            }
+
+            return true;
+        }
+    
+        public override bool OnSecurityDimension(SecurityInfo info)
+        {
+            var result = false;
+
+            switch(info.Variable)
+            {
+                case @"Follow":
+                {
+                    var name = DocsWhere("Posts",info.AttrPath)
+                                    .Value("{'Name':$}");
+                        
+                    result = DocsWhere("Users", "{'Name':@UserName}")        
+                                .AndWhere("{'Following':[Any,@Name]}", name)
+                                .Any();
+                    break;
+                }
+                case @"Unfollow":
+                {
+                    var name = DocsWhere("Posts",info.AttrPath)
+                                    .Value("{'Name':$}");
+                        
+                    result = !DocsWhere("Users", "{'Name':@UserName}")        
+                                .AndWhere("{'Following':[Any,@Name]}", name)
+                                .Any();
+
+                    break;
+                }
+                default:
+                {
+                    return base.OnSecurityDimension(info);
+                }
+            }
+
+            return result;
         }
     }
 }

@@ -1,8 +1,12 @@
 {
-  "Follow": {
-    "ControlType": "Button"
+  "Style": "Hide:Follow,Unfollow,Prompt,IsBot,Following",
+  "Name": {
+    "ReadOnly": true
   },
-  "Unfollow": {
-    "ControlType": "Button"
+  "OnDate": {
+    "ReadOnly": true
+  },
+  "Password": {
+    "Style": "Type:Password"
   }
 }

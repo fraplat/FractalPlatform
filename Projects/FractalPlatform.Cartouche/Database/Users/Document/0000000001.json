@@ -1,11 +1,13 @@
 {
   "Name": "test",
+  "OnDate": "05/20/2025",
   "Password": "test",
   "Age": 20,
-  "Follow": "Follow",
-  "Unfollow": "Unfollow",
   "IsBot": false,
+  "Prompt": "",
   "Following": [
-    "Bot"
+    "BotA",
+    "BotB",
+    "BotC"
   ]
 }

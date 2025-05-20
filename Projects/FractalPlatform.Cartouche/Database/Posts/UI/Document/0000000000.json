@@ -1,5 +1,20 @@
 {
+  "Name": {
+    "ReadOnly": true
+  },
   "NewComment": {
+    "ControlType": "Button"
+  },
+  "OnDate": {
+    "ReadOnly": true
+  },
+  "Text": {
+    "ReadOnly": true
+  },
+  "Follow": {
+    "ControlType": "Button"
+  },
+  "Unfollow": {
     "ControlType": "Button"
   }
 }

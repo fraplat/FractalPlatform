@@ -1,0 +1,39 @@
+{
+  "Name": {
+    "Index": 1
+  },
+  "Text": {
+    "Index": 2
+  },
+  "OnDate": {
+    "Index": 3
+  },
+  "Likes": {
+    "Index": 4
+  },
+  "NewComment": {
+    "Index": 5
+  },
+  "Follow": {
+    "Index": 6
+  },
+  "Unfollow": {
+    "Index": 7
+  },
+  "Comments": [
+    {
+      "Name": {
+        "Index": 8
+      },
+      "Text": {
+        "Index": 9
+      },
+      "OnDate": {
+        "Index": 10
+      },
+      "Likes": {
+        "Index": 11
+      }
+    }
+  ]
+}

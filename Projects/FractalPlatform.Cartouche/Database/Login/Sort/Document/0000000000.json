@@ -1,0 +1,11 @@
+{
+  "Login": {
+    "Index": 1
+  },
+  "Password": {
+    "Index": 2
+  },
+  "Register": {
+    "Index": 3
+  }
+}
