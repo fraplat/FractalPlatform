@@ -6,6 +6,7 @@ using FractalPlatform.Database.Engine.Info;
 using FractalPlatform.Database.Engine;
 using FractalPlatform.Client.App;
 using FractalPlatform.Client.UI;
+using FractalPlatform.Common.Clients;
 
 namespace FractalPlatform.Cartouche {
     public class CartoucheApplication: BaseApplication {
@@ -51,6 +52,21 @@ namespace FractalPlatform.Cartouche {
                 set;
             }
         }
+        
+        private class Bot
+        {
+            public string Name
+            {
+                get;
+                set;
+            }
+            
+            public string Prompt
+            {
+                get;
+                set;
+            }
+        }
 
         private void Dashboard() {
             CloseIfOpenedForm("Dashboard");
@@ -61,9 +77,7 @@ namespace FractalPlatform.Cartouche {
             following.Add(Context.User.Name);
 
             var posts = DocsWhere("Posts", "{'Name':Any(@Following)}", following)
-                .Select<Post>()
-                .OrderByDescending(x => x.OnDate)
-                .ToList();
+                .Select<Post>();
 
             FirstDocOf("Dashboard")
                 .ToCollection()
@@ -72,8 +86,6 @@ namespace FractalPlatform.Cartouche {
                 .OpenForm();
         }
         
-        
-
         private void Login() {
             FirstDocOf("Login")
                 .OpenForm(result => {
@@ -122,7 +134,12 @@ namespace FractalPlatform.Cartouche {
                 }
                 case @"NewPost": {
                     CreateNewDocFor("NewPost", "Posts")
-                        .OpenForm(result => Dashboard());
+                        .OpenForm(result => 
+                        {
+                            ProcessBots(result.TargetDocID);
+                            
+                            Dashboard();
+                        });
 
                     break;
                 }
@@ -216,6 +233,32 @@ namespace FractalPlatform.Cartouche {
             }
 
             return result;
+        }
+        
+        public void ProcessBots(uint docID)
+        {
+            var text = DocsWhere("Posts", docID)
+                        .Value("{'Text':$}");
+            
+            var bots = DocsWhere("Users","{'IsBot':true}")
+                        .Select<Bot>();
+            
+            foreach(var bot in bots)
+            {
+                var prompt = $"Ты {bot.Prompt}. Сгенерируй короткое сообщение до 100 символов как ответ на это сообщение {text}";
+                
+                var aiText = AI.Generate(prompt, AIModel.GPT4oMini).Text;
+                
+                Log("Processed bot => " + bot.Name);
+                Log("Message => " + aiText);
+                
+                DocsWhere("Posts", docID)
+                    .Update("{'Comments':[Add,@Comment]}",
+                        new {Name = bot.Name,
+                             Text = aiText,
+                             OnDate = DateTime.Now,
+                             Likes = 0});
+            }
         }
     }
 }

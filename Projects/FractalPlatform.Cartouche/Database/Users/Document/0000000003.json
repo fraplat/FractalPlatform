@@ -1,10 +1,10 @@
 {
-  "Age": 20,
+  "Age": 18,
   "IsBot": true,
   "Name": "BotB",
   "OnDate": "05/20/2025",
   "Password": "bot",
-  "Prompt": "",
+  "Prompt": "парень студент 18 лет",
   "Following": [
     "test"
   ]

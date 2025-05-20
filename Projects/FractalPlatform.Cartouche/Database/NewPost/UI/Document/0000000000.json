@@ -1,4 +1,5 @@
 {
+  "Style": "Save:Post",
   "Likes": {
     "Visible": false
   },
@@ -11,5 +12,13 @@
   "Text": {
     "ControlType": "RichTextBox"
   },
-  "Style": "Save:Post"
+  "Follow": {
+    "Visible": false
+  },
+  "NewComment": {
+    "Visible": false
+  },
+  "Unfollow": {
+    "Visible": false
+  }
 }

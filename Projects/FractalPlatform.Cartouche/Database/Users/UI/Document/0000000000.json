@@ -8,5 +8,8 @@
   },
   "Password": {
     "Style": "Type:Password"
+  },
+  "IsBot": {
+    "ReadOnly": true
   }
 }

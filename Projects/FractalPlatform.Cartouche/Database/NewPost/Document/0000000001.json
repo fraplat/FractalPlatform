@@ -2,5 +2,8 @@
   "Name": "",
   "Text": "",
   "OnDate": "",
-  "Likes": 0
+  "Likes": 0,
+  "NewComment": "New Comment",
+  "Follow": "Follow",
+  "Unfollow": "Unfollow"
 }
