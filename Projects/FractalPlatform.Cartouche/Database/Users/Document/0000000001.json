@@ -1,0 +1,11 @@
+{
+  "Name": "test",
+  "Password": "test",
+  "Age": 20,
+  "Follow": "Follow",
+  "Unfollow": "Unfollow",
+  "IsBot": false,
+  "Following": [
+    "Bot"
+  ]
+}

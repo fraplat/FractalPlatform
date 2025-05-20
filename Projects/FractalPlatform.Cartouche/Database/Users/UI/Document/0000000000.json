@@ -1,0 +1,8 @@
+{
+  "Follow": {
+    "ControlType": "Button"
+  },
+  "Unfollow": {
+    "ControlType": "Button"
+  }
+}

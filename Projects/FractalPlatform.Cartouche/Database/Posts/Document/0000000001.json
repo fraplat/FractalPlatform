@@ -1,0 +1,15 @@
+{
+  "Name": "test",
+  "Text": "My first post",
+  "OnDate": "20250101",
+  "Likes": 0,
+  "NewComment": "New Comment",
+  "Comments": [
+    {
+      "Name": "Bot",
+      "Text": "Cool",
+      "OnDate": "20250101",
+      "Likes": 0
+    }
+  ]
+}
