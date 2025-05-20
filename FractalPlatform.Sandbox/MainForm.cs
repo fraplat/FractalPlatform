@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using FractalPlatform.Sandbox.Controls.Grid;
-using FractalPlatform.Sandbox.Controls;
-using FractalPlatform.Client.UI.DOM;
+﻿using FractalPlatform.Client.UI.DOM;
 using FractalPlatform.Client.UI.DOM.Controls;
 using FractalPlatform.Client.UI.DOM.Controls.Grid;
+using FractalPlatform.Database.Engine;
+using FractalPlatform.Sandbox.Controls;
+using FractalPlatform.Sandbox.Controls.Grid;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace FractalPlatform.Sandbox
 {
@@ -14,13 +15,17 @@ namespace FractalPlatform.Sandbox
     {
         public DOMForm DomForm { get; }
 
-        public MainForm(DOMForm domForm)
+        public Action<FormResult> HandleResult { get; }
+
+        public MainForm(DOMForm domForm, Action<FormResult> handleResult)
         {
             InitializeComponent();
 
             this.Text = $"{domForm.Name} form. Use sandbox only for local debug purposes. Ctrl + D deploy web application.";
 
             DomForm = domForm;
+
+            HandleResult = handleResult;
 
             Program.NeedRestartApp = false;
         }

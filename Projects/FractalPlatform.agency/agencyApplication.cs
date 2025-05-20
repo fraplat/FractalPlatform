@@ -1,3 +1,4 @@
+using System.Linq;
 using FractalPlatform.Database.Engine.Info;
 using FractalPlatform.Database.Engine;
 using FractalPlatform.Client.UI.DOM;
@@ -8,6 +9,18 @@ namespace FractalPlatform.agency
 {
     public class agencyApplication : BaseApplication
     {
-        public override void OnStart() => FirstDocOf("Home").OpenForm();
+        public override void OnStart()
+        {
+            if(!Context.HasUrlTag ||
+                Context.UrlTag == "home")
+            {
+                FirstDocOf("Home").OpenForm();
+            }
+            else if(Context.UrlTag == "audit")
+            {
+                CreateNewDocFor("NewAudit","Audits")
+                    .OpenForm();
+            }
+        }
     }
 }
