@@ -1,0 +1,10 @@
+{
+  "Password": {
+    "Style": "Type:Password"
+  },
+  "Register": {
+    "ControlType": "Button",
+    "Style": "Type:Link"
+  },
+  "Style": "Save:Login"
+}
