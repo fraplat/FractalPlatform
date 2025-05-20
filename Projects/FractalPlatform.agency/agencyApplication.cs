@@ -18,8 +18,7 @@ namespace FractalPlatform.agency
             }
             else if(Context.UrlTag == "audit")
             {
-                CreateNewDocFor("NewAudit","Audits")
-                    .OpenForm();
+                CreateNewDocFor("NewAudit","Audits").OpenForm();
             }
         }
     }
