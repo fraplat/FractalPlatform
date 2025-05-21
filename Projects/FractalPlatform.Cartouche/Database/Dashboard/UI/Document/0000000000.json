@@ -7,5 +7,7 @@
   },
   "NewPost": {
     "ControlType": "Button"
-  }
+  },
+  "Layout": "Dashboard",
+  "IsRawPage": true
 }

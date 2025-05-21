@@ -24,7 +24,7 @@ namespace FractalPlatform.Cartouche {
                 get;
                 set;
             }
-            public int Likes {
+            public List<string> Likes {
                 get;
                 set;
             }
@@ -32,6 +32,10 @@ namespace FractalPlatform.Cartouche {
 
         public class Post {
             public string Name {
+                get;
+                set;
+            }
+            public string Avatar{
                 get;
                 set;
             }
@@ -43,7 +47,7 @@ namespace FractalPlatform.Cartouche {
                 get;
                 set;
             }
-            public int Likes {
+            public List<string> Likes {
                 get;
                 set;
             }
@@ -76,8 +80,22 @@ namespace FractalPlatform.Cartouche {
 
             following.Add(Context.User.Name);
 
+            var docID = 0;
+
             var posts = DocsWhere("Posts", "{'Name':Any(@Following)}", following)
-                .Select<Post>();
+                .Select<Post>()
+                .Select(x => new 
+                {
+                    DocID = ++docID,
+                    Name = x.Name,
+                    Text = x.Text,
+                    Avatar = x.Avatar,
+                    OnDate = x.OnDate,
+                    Likes = x.Likes.Count,
+                    Comments = x.Comments.Count
+                })
+                .OrderByDescending(x => x.OnDate)
+                .ToList();
 
             FirstDocOf("Dashboard")
                 .ToCollection()
@@ -169,7 +187,19 @@ namespace FractalPlatform.Cartouche {
                                     .Value("{'Name':$}");
                         
                     DocsWhere("Users", "{'Name':@UserName}")        
-                        .Delete("{'Following':[Add,@Name]}", name);
+                        .Delete("{'Following':[@Name]}", name);
+
+                    break;
+                }
+                 case @"Like": {
+                    DocsWhere("Posts", info.AttrPath)        
+                        .Update("{'Likes':[Add,@UserName]}");
+
+                    break;
+                }
+                case @"Unlike": {
+                    DocsWhere("Posts", info.AttrPath)        
+                        .Delete("{'Likes':[@UserName]}");
 
                     break;
                 }

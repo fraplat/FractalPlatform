@@ -1,9 +1,11 @@
 {
   "Name": "",
+  "Avatar": "",
   "Text": "",
   "OnDate": "",
-  "Likes": 0,
   "NewComment": "New Comment",
+  "Like": "Like",
+  "Unlike": "Unlike",
   "Follow": "Follow",
   "Unfollow": "Unfollow"
 }

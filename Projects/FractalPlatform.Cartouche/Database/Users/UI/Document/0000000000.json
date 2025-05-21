@@ -1,5 +1,8 @@
 {
   "Style": "Hide:Follow,Unfollow,Prompt,IsBot,Following",
+  "IsBot": {
+    "ReadOnly": true
+  },
   "Name": {
     "ReadOnly": true
   },
@@ -8,8 +11,5 @@
   },
   "Password": {
     "Style": "Type:Password"
-  },
-  "IsBot": {
-    "ReadOnly": true
   }
 }

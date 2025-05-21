@@ -1,17 +1,25 @@
 {
   "Name": "test",
+  "Avatar": "guest.jpg",
   "Text": "My first post",
   "OnDate": "05/20/2025",
-  "Likes": 0,
   "NewComment": "New Comment",
+  "Like": "Like",
+  "Unlike": "Unlike",
   "Follow": "Follow",
   "Unfollow": "Unfollow",
+  "Likes": [
+    "BotA"
+  ],
   "Comments": [
     {
-      "Name": "Bot",
+      "Name": "BotA",
+      "Avatar": "BotA.jpg",
       "Text": "Cool",
       "OnDate": "05/20/2025",
-      "Likes": 0
+      "Likes": [
+        "BotB"
+      ]
     }
   ]
 }

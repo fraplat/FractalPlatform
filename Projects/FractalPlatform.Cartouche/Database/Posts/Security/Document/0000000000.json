@@ -4,5 +4,11 @@
   },
   "Unfollow": {
     "Formula": "Unfollow"
+  },
+  "Like": {
+    "Formula": "Like"
+  },
+  "Unlike": {
+    "Formula": "Unlike"
   }
 }

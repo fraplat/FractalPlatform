@@ -1,4 +1,7 @@
 {
+  "Follow": {
+    "ControlType": "Button"
+  },
   "Name": {
     "ReadOnly": true
   },
@@ -10,9 +13,6 @@
   },
   "Text": {
     "ReadOnly": true
-  },
-  "Follow": {
-    "ControlType": "Button"
   },
   "Unfollow": {
     "ControlType": "Button"

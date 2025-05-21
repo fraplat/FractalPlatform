@@ -1,9 +1,12 @@
 {
   "Style": "Save:Post",
-  "Likes": {
+  "Follow": {
     "Visible": false
   },
   "Name": {
+    "Visible": false
+  },
+  "NewComment": {
     "Visible": false
   },
   "OnDate": {
@@ -11,12 +14,6 @@
   },
   "Text": {
     "ControlType": "RichTextBox"
-  },
-  "Follow": {
-    "Visible": false
-  },
-  "NewComment": {
-    "Visible": false
   },
   "Unfollow": {
     "Visible": false
