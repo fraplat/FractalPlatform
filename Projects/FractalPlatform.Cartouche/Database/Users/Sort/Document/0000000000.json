@@ -2,27 +2,30 @@
   "Name": {
     "Index": 1
   },
-  "Avatar": {
+  "FullName": {
     "Index": 2
   },
-  "OnDate": {
+  "Avatar": {
     "Index": 3
   },
-  "Password": {
+  "OnDate": {
     "Index": 4
   },
-  "Age": {
+  "Password": {
     "Index": 5
   },
-  "IsBot": {
+  "Age": {
     "Index": 6
   },
-  "Prompt": {
+  "IsBot": {
     "Index": 7
+  },
+  "Prompt": {
+    "Index": 8
   },
   "Following": [
     {
-      "Index": 8
+      "Index": 9
     }
   ]
 }

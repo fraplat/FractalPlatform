@@ -1,6 +1,7 @@
 {
   "Age": 20,
   "Avatar": "guest.jpg",
+  "FullName": "",
   "IsBot": true,
   "Name": "BotA",
   "OnDate": "05/20/2025",

@@ -2,52 +2,58 @@
   "Name": {
     "Index": 1
   },
-  "Avatar": {
+  "FullName": {
     "Index": 2
   },
-  "Text": {
+  "Avatar": {
     "Index": 3
   },
-  "OnDate": {
+  "Text": {
     "Index": 4
   },
-  "NewComment": {
+  "OnDate": {
     "Index": 5
   },
-  "Like": {
+  "NewComment": {
     "Index": 6
   },
-  "Unlike": {
+  "Like": {
     "Index": 7
   },
-  "Follow": {
+  "Unlike": {
     "Index": 8
   },
-  "Unfollow": {
+  "Follow": {
     "Index": 9
+  },
+  "Unfollow": {
+    "Index": 10
   },
   "Likes": [
     {
-      "Index": 10
+      "Index": 11
     }
   ],
   "Comments": [
     {
       "Name": {
-        "Index": 11
-      },
-      "Avatar": {
         "Index": 12
       },
-      "Text": {
+      "FullName": {
         "Index": 13
       },
-      "OnDate": {
+      "Avatar": {
         "Index": 14
+      },
+      "Text": {
+        "Index": 15
+      },
+      "OnDate": {
+        "Index": 16
       },
       "Likes": [
         {
-          "Index": 15
+          "Index": 17
         }
       ]
     }

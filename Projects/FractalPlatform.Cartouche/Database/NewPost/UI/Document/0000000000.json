@@ -1,6 +1,12 @@
 {
   "Style": "Save:Post",
+  "Avatar": {
+    "Visible": false
+  },
   "Follow": {
+    "Visible": false
+  },
+  "Like": {
     "Visible": false
   },
   "Name": {
@@ -16,6 +22,12 @@
     "ControlType": "RichTextBox"
   },
   "Unfollow": {
+    "Visible": false
+  },
+  "Unlike": {
+    "Visible": false
+  },
+  "FullName": {
     "Visible": false
   }
 }

@@ -35,6 +35,10 @@ namespace FractalPlatform.Cartouche {
                 get;
                 set;
             }
+            public string FullName {
+                get;
+                set;
+            }
             public string Avatar{
                 get;
                 set;
@@ -88,6 +92,7 @@ namespace FractalPlatform.Cartouche {
                 {
                     DocID = ++docID,
                     Name = x.Name,
+                    FullName = x.FullName,
                     Text = x.Text,
                     Avatar = x.Avatar,
                     OnDate = x.OnDate,
@@ -154,7 +159,10 @@ namespace FractalPlatform.Cartouche {
                     CreateNewDocFor("NewPost", "Posts")
                         .OpenForm(result => 
                         {
-                            ProcessBots(result.TargetDocID);
+                            if(result.Result)
+                            {
+                                ProcessBots(result.TargetDocID);
+                            }
                             
                             Dashboard();
                         });

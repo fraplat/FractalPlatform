@@ -1,4 +1,7 @@
 {
+  "Avatar": {
+    "Formula": "@UserAvatar"
+  },
   "Name": {
     "Formula": "@UserName"
   },
