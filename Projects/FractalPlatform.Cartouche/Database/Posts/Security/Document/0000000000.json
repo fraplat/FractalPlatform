@@ -2,13 +2,7 @@
   "Follow": {
     "Formula": "Follow"
   },
-  "Like": {
-    "Formula": "Like"
-  },
   "Unfollow": {
     "Formula": "Unfollow"
-  },
-  "Unlike": {
-    "Formula": "Unlike"
   }
 }

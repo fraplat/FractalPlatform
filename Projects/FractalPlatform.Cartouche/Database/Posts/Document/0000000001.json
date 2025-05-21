@@ -5,8 +5,6 @@
   "Text": "My first post",
   "OnDate": "2025-05-20T00:00:00",
   "NewComment": "New Comment",
-  "Like": "Like",
-  "Unlike": "Unlike",
   "Follow": "Follow",
   "Unfollow": "Unfollow",
   "Likes": [
@@ -19,6 +17,7 @@
       "Avatar": "guest.jpg",
       "Text": "Cool",
       "OnDate": "2025-05-20T00:00:00",
+      "Like": "Like",
       "Likes": [
         "BotB"
       ]

@@ -70,6 +70,18 @@ namespace FractalPlatform.Cartouche {
                 set;
             }
             
+            public string FullName
+            {
+                get;
+                set;
+            }
+            
+            public string Avatar
+            {
+                get;
+                set;
+            }
+            
             public string Prompt
             {
                 get;
@@ -192,16 +204,25 @@ namespace FractalPlatform.Cartouche {
 
                     break;
                 }
-                 case @"Like": {
-                    DocsWhere("Posts", info.AttrPath)        
-                        .Update("{'Likes':[Add,@UserName]}");
-
-                    break;
-                }
-                case @"Unlike": {
-                    DocsWhere("Posts", info.AttrPath)        
-                        .Delete("{'Likes':[@UserName]}");
-
+                case @"Like": {
+                    
+                    var query = DocsWhere("Posts", info.AttrPath)
+                                    .AndWhere("{'Comments':[{'Likes':[Any,@UserName]}]}");
+                                    
+                    if(!query.Any())
+                    {
+                        DocsWhere("Posts", info.AttrPath)
+                            .Update("{'Comments':[{'Likes':[Add,@UserName]}]}");
+                    }
+                    else
+                    {
+                        DocsWhere("Posts", info.AttrPath)
+                            .Delete("{'Comments':[{'Likes':[@UserName]}]}");
+                    }
+                    
+                    DocsWhere("Posts", info.DocID)
+                        .OpenForm(result => Dashboard());
+                    
                     break;
                 }
                 case @"Likes": {
@@ -308,13 +329,15 @@ namespace FractalPlatform.Cartouche {
         
         public void ProcessBots(uint docID)
         {
-            return;
-            
             var text = DocsWhere("Posts", docID)
                         .Value("{'Text':$}");
             
+            var random = new Random();
+            int count = random.Next(0, 4); // 0, 1, 2 или 3
+            
             var bots = DocsWhere("Users","{'IsBot':true}")
-                        .Select<Bot>();
+                        .Select<Bot>()
+                        .Take(count);
             
             foreach(var bot in bots)
             {
@@ -328,9 +351,12 @@ namespace FractalPlatform.Cartouche {
                 DocsWhere("Posts", docID)
                     .Update("{'Comments':[Add,@Comment]}",
                         new {Name = bot.Name,
+                             Avatar = bot.Avatar,
+                             FullName = bot.FullName,
                              Text = aiText,
                              OnDate = DateTime.Now,
-                             Likes = 0});
+                            Like = "Like"
+                        });
             }
         }
     

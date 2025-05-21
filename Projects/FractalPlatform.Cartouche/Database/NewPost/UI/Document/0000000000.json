@@ -6,7 +6,7 @@
   "Follow": {
     "Visible": false
   },
-  "Like": {
+  "FullName": {
     "Visible": false
   },
   "Name": {
@@ -22,12 +22,6 @@
     "ControlType": "RichTextBox"
   },
   "Unfollow": {
-    "Visible": false
-  },
-  "Unlike": {
-    "Visible": false
-  },
-  "FullName": {
     "Visible": false
   }
 }

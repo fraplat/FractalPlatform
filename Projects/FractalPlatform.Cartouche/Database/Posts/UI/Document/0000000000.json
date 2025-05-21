@@ -1,4 +1,6 @@
 {
+  "IsRawPage": true,
+  "Layout": "Posts",
   "Follow": {
     "ControlType": "Button"
   },
@@ -16,7 +18,5 @@
   },
   "Unfollow": {
     "ControlType": "Button"
-  },
-  "Layout": "Posts",
-  "IsRawPage": true
+  }
 }

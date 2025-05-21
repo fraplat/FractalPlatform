@@ -12,6 +12,9 @@
   "OnDate": {
     "Visible": false
   },
+  "Like": {
+    "Visible": false
+  },
   "Text": {
     "ControlType": "RichTextBox"
   }

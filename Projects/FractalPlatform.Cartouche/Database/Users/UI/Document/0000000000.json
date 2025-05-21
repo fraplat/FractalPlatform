@@ -1,5 +1,5 @@
 {
-  "Style": "Hide:Follow,Unfollow,Prompt,IsBot,Following",
+  "Style": "Hide:Follow,Unfollow,Prompt,IsBot,Following,Avatar",
   "Avatar": {
     "ControlType": "UploadFile"
   },
