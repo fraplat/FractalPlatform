@@ -1,6 +1,7 @@
 using FractalPlatform.Client.UI.DOM;
 using System;
 using System.Linq;
+using System.Globalization;
 using System.Collections.Generic;
 using FractalPlatform.Database.Engine.Info;
 using FractalPlatform.Database.Engine;
@@ -9,7 +10,7 @@ using FractalPlatform.Client.UI;
 using FractalPlatform.Common.Clients;
 
 namespace FractalPlatform.Cartouche {
-    public class CartoucheApplication: BaseApplication {
+    public class CartoucheApplication: DashboardApplication {
         
         public class Comment {
             public string Name {
@@ -100,43 +101,29 @@ namespace FractalPlatform.Cartouche {
                     Comments = x.Comments.Count
                 })
                 .OrderByDescending(x => x.OnDate)
+                .Take(20)
                 .ToList();
+                
+            var values = DocsWhere("Users","{'Name':@UserName}")
+                            .Values("{'FullName':$,'Avatar':$}");
 
             FirstDocOf("Dashboard")
                 .ToCollection()
                 .DeleteByParent("Posts")
+                .ExtendDocument(DQL("{'FullName':@FullName,'Avatar':@Avatar}", values[0],values[1]))
                 .MergeToArrayPath(posts, "Posts", Constants.FIRST_DOC_ID, true)
                 .OpenForm();
         }
         
-        private void Login() {
-            FirstDocOf("Login")
-                .OpenForm(result => {
-                    if (result.Result) {
-                        var name = result.FindFirstValue("Login");
-                        var password = result.FindFirstValue("Password");
-
-                        if (DocsOf("Users")
-                            .GetWhere("{'Name':@Name,'Password':@Password}", name, password)
-                            .Any()) {
-                            Context.User.Name = name;
-                            Dashboard();
-                        } else {
-                            MessageBox("Wrong credentials.");
-                        }
-                    }
-                });
-        }
-
-        public override void OnStart() {
-            Login();
-        }
-
+        public override void OnRegister(FormResult result) => Dashboard();
+ 
+        public override void OnLogin(FormResult result) => Dashboard();
+    
         public override bool OnEventDimension(EventInfo info) {
 
-            var path = info.AttrPath.ToString();
+            var action = info.Action;
 
-            switch (path) {
+            switch (action) {
                 case @"Register": {
                     CreateNewDocFor("NewUser", "Users")
                         .OpenForm(result => {
@@ -151,7 +138,13 @@ namespace FractalPlatform.Cartouche {
                 }
                 case @"EditUser": {
                     DocsWhere("Users", "{'Name':@UserName}")
-                        .OpenForm();
+                        .OpenForm(result => 
+                        {
+                            if(result.Result)
+                            {
+                                Context.User.Avatar = result.FindFirstValue("Avatar");
+                            }
+                        });
 
                     break;
                 }
@@ -211,27 +204,65 @@ namespace FractalPlatform.Cartouche {
 
                     break;
                 }
-                default: {
-                    return base.OnEventDimension(info);
+                case @"Likes": {
+                    
+                    if(info.Collection.Name == "Dashboard")
+                    {
+                        var docID = info.Collection
+                                    .GetWhere(info.AttrPath)
+                                    .UIntValue("{'Posts':[{'DocID':$}]}");
+                    
+                        var query = DocsWhere("Posts", docID)
+                                    .AndWhere("{'Likes':[Any,@UserName]}");
+                                    
+                        if(!query.Any())
+                        {
+                            DocsWhere("Posts", docID)
+                                .Update("{'Likes':[Add,@UserName]}");
+                        }
+                        else
+                        {
+                            DocsWhere("Posts", docID)
+                                .Delete("{'Likes':[@UserName]}");
+                        }
+                    
+                        Dashboard();
+                    }
+                    else
+                    {
+                        var query = DocsWhere("Posts", info.DocID)
+                                    .AndWhere("{'Likes':[Any,@UserName]}");
+                                    
+                        if(!query.Any())
+                        {
+                            DocsWhere("Posts", info.DocID)
+                                .Update("{'Likes':[Add,@UserName]}");
+                        }
+                        else
+                        {
+                            DocsWhere("Posts", info.DocID)
+                                .Delete("{'Likes':[@UserName]}");
+                        }
+                        
+                        DocsWhere("Posts", info.DocID)
+                            .OpenForm(result => Dashboard());
+                    }
+                    
+                    break;
                 }
-            }
-
-            return true;
-        }
-    
-        public override bool OnOpenForm(FormInfo info)
-        {
-            if (info.Collection.Name == "Dashboard" &&
-                info.DocID != Constants.ANY_DOC_ID &&
-                info.AttrPath.FirstPath == "Posts")
-            {
-                var docID = info.Collection
+                case @"Comments": {
+                    var docID = info.Collection
                                 .GetWhere(info.AttrPath)
                                 .UIntValue("{'Posts':[{'DocID':$}]}");
                                 
-                DocsWhere("Posts", docID).OpenForm();
-                
-                return false;
+                    DocsWhere("Posts", docID)
+                        .OpenForm(result => Dashboard());
+                        
+                    break;
+                }
+                default: {
+                    return base.OnEventDimension(info);
+                }
             }
 
             return true;
@@ -248,9 +279,9 @@ namespace FractalPlatform.Cartouche {
                     var name = DocsWhere("Posts",info.AttrPath)
                                     .Value("{'Name':$}");
                         
-                    result = DocsWhere("Users", "{'Name':@UserName}")        
+                    result = (!DocsWhere("Users", "{'Name':@UserName}")        
                                 .AndWhere("{'Following':[Any,@Name]}", name)
-                                .Any();
+                                .Any()) && Context.User.Name != name;
                     break;
                 }
                 case @"Unfollow":
@@ -258,9 +289,9 @@ namespace FractalPlatform.Cartouche {
                     var name = DocsWhere("Posts",info.AttrPath)
                                     .Value("{'Name':$}");
                         
-                    result = !DocsWhere("Users", "{'Name':@UserName}")        
+                    result = DocsWhere("Users", "{'Name':@UserName}")        
                                 .AndWhere("{'Following':[Any,@Name]}", name)
-                                .Any();
+                                .Any() && Context.User.Name != name;;
 
                     break;
                 }
@@ -273,8 +304,12 @@ namespace FractalPlatform.Cartouche {
             return result;
         }
         
+        
+        
         public void ProcessBots(uint docID)
         {
+            return;
+            
             var text = DocsWhere("Posts", docID)
                         .Value("{'Text':$}");
             
@@ -297,6 +332,61 @@ namespace FractalPlatform.Cartouche {
                              OnDate = DateTime.Now,
                              Likes = 0});
             }
+        }
+    
+        public override object OnComputedDimension(ComputedInfo info)
+        {
+            object result = null;
+
+            switch(info.Variable)
+            {
+                case @"FullNameVariable":
+                {
+                    result = DocsWhere("Users","{'Name':@UserName}")
+                                .Value("{'FullName':$}");
+
+                    break;
+                }
+                case @"OnDate":
+                {
+                    var dt = info.AttrValue.ToString();
+                    
+                    var culture = CultureInfo.InvariantCulture;
+                    var ts = DateTime.Now.Subtract(DateTime.Parse(dt,culture));
+                    
+                    if((int)ts.TotalDays/365 > 0)
+                    {
+                        result = "год назад";
+                    }
+                    else if((int)ts.TotalDays/30 > 0)
+                    {
+                        result = $"{(int)ts.TotalDays/30} месяцев назад";
+                    }
+                    else if((int)ts.TotalDays > 0)
+                    {
+                        result = $"{(int)ts.TotalDays} дней назад";
+                    }
+                    else if((int)ts.TotalHours > 0)
+                    {
+                        result = $"{(int)ts.TotalHours} часов назад";
+                    }
+                    else if((int)ts.TotalMinutes > 0)
+                    {
+                        result = $"{(int)ts.TotalMinutes} минут назад";
+                    }
+                    else
+                    {
+                        result = $"{(int)ts.TotalSeconds} секунд назад";
+                    }
+                    break;
+                }
+                default:
+                {
+                    return base.OnComputedDimension(info);
+                }
+            }
+
+             return result;
         }
     }
 }

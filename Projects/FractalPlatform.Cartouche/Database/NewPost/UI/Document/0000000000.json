@@ -1,5 +1,5 @@
 {
-  "Style": "Save:Post",
+  "Style": "Save:Post;CollLabel:Новый пост",
   "Avatar": {
     "Visible": false
   },

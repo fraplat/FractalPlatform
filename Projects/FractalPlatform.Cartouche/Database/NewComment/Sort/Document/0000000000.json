@@ -2,13 +2,16 @@
   "Name": {
     "Index": 1
   },
-  "Text": {
+  "FullName": {
     "Index": 2
   },
-  "OnDate": {
+  "Avatar": {
     "Index": 3
   },
-  "Likes": {
+  "Text": {
     "Index": 4
+  },
+  "OnDate": {
+    "Index": 5
   }
 }

@@ -8,7 +8,10 @@
   "Age": {
     "Index": 3
   },
-  "OnDate": {
+  "Gender": {
     "Index": 4
+  },
+  "OnDate": {
+    "Index": 5
   }
 }

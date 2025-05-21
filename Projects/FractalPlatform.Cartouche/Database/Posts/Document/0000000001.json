@@ -3,7 +3,7 @@
   "FullName": "Тестовый",
   "Avatar": "guest.jpg",
   "Text": "My first post",
-  "OnDate": "05/20/2025",
+  "OnDate": "2025-05-20T00:00:00",
   "NewComment": "New Comment",
   "Like": "Like",
   "Unlike": "Unlike",
@@ -16,9 +16,9 @@
     {
       "Name": "BotA",
       "FullName": "Бот А",
-      "Avatar": "BotA.jpg",
+      "Avatar": "guest.jpg",
       "Text": "Cool",
-      "OnDate": "05/20/2025",
+      "OnDate": "2025-05-20T00:00:00",
       "Likes": [
         "BotB"
       ]

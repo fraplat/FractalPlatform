@@ -2,6 +2,7 @@
   "Age": 20,
   "Avatar": "guest.jpg",
   "FullName": "",
+  "Gender": "Male",
   "IsBot": true,
   "Name": "BotC",
   "OnDate": "05/20/2025",

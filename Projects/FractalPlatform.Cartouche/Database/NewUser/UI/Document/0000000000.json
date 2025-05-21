@@ -1,9 +1,9 @@
 {
   "Style": "Save:Register",
-  "Password": {
-    "Style": "Type:Password"
-  },
   "OnDate": {
     "Visible": false
+  },
+  "Password": {
+    "Style": "Type:Password"
   }
 }

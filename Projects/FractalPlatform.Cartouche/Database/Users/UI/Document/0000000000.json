@@ -1,7 +1,13 @@
 {
   "Style": "Hide:Follow,Unfollow,Prompt,IsBot,Following",
+  "Avatar": {
+    "ControlType": "UploadFile"
+  },
+  "Following": {
+    "Visible": false
+  },
   "IsBot": {
-    "ReadOnly": true
+    "Visible": false
   },
   "Name": {
     "ReadOnly": true
@@ -11,5 +17,8 @@
   },
   "Password": {
     "Style": "Type:Password"
+  },
+  "Prompt": {
+    "Visible": false
   }
 }

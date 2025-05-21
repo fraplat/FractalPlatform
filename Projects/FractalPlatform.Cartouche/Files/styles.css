@@ -173,3 +173,52 @@
             right: 20px;
         }
     }
+    
+    .user-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .user-profile {
+        display: flex;
+        align-items: center;
+    }
+    
+    .user-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        margin-right: 10px;
+        background-color: #192734;
+        overflow: hidden;
+    }
+    
+    .user-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .user-name {
+        font-weight: bold;
+        font-size: 15px;
+    }
+    
+    .edit-profile {
+        color: #1D9BF0;
+        background: none;
+        border: none;
+        cursor: pointer;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.2s;
+    }
+    
+    .edit-profile:hover {
+        background-color: rgba(29, 155, 240, 0.1);
+    }

@@ -17,15 +17,18 @@
   "Age": {
     "Index": 6
   },
-  "IsBot": {
+  "Gender": {
     "Index": 7
   },
-  "Prompt": {
+  "IsBot": {
     "Index": 8
+  },
+  "Prompt": {
+    "Index": 9
   },
   "Following": [
     {
-      "Index": 9
+      "Index": 10
     }
   ]
 }

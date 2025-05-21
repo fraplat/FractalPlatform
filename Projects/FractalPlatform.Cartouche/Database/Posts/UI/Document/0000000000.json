@@ -16,5 +16,7 @@
   },
   "Unfollow": {
     "ControlType": "Button"
-  }
+  },
+  "Layout": "Posts",
+  "IsRawPage": true
 }

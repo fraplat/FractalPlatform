@@ -5,6 +5,7 @@
   "OnDate": "05/20/2025",
   "Password": "test",
   "Age": 20,
+  "Gender": "Male",
   "IsBot": false,
   "Prompt": "",
   "Following": [

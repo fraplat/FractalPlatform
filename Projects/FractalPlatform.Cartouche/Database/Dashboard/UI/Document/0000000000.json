@@ -1,4 +1,6 @@
 {
+  "IsRawPage": true,
+  "Layout": "Dashboard",
   "EditBots": {
     "ControlType": "Button"
   },
@@ -7,7 +9,5 @@
   },
   "NewPost": {
     "ControlType": "Button"
-  },
-  "Layout": "Dashboard",
-  "IsRawPage": true
+  }
 }
