@@ -226,6 +226,17 @@ namespace FractalPlatform.Cartouche {
                     
                     break;
                 }
+                case @"Reply": {
+                    
+                    var name = "@" + DocsWhere("Posts", info.AttrPath)
+                                        .Value("{'Comments':[{'Name':$}]}");
+                    
+                    CreateNewDocForArray("NewComment", "Posts", "{'Comments':[$]}", info.DocID)
+                        .ExtendDocument(DQL("{'Text':@Text}",name))
+                        .OpenForm();
+                    
+                    break;
+                }
                 case @"LikePost": {
                     
                     if(info.Collection.Name == "Dashboard")
@@ -356,7 +367,8 @@ namespace FractalPlatform.Cartouche {
                              FullName = bot.FullName,
                              Text = aiText,
                              OnDate = DateTime.Now,
-                            Like = "Like"
+                             LikeComment = "LikeComment",
+                            Reply = "Reply"   
                         });
             }
         }

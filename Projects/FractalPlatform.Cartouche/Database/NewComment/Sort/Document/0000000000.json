@@ -16,5 +16,8 @@
   },
   "LikeComment": {
     "Index": 6
+  },
+  "Reply": {
+    "Index": 7
   }
 }

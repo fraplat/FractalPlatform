@@ -6,7 +6,13 @@
   "FullName": {
     "Visible": false
   },
+  "LikeComment": {
+    "Visible": false
+  },
   "Name": {
+    "Visible": false
+  },
+  "Reply": {
     "Visible": false
   },
   "OnDate": {
@@ -14,8 +20,5 @@
   },
   "Text": {
     "ControlType": "RichTextBox"
-  },
-  "LikeComment": {
-    "Visible": false
   }
 }
