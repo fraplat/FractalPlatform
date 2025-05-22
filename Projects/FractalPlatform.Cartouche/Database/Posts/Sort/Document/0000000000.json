@@ -23,34 +23,37 @@
   "Unfollow": {
     "Index": 8
   },
+  "LikePost": {
+    "Index": 9
+  },
   "Likes": [
     {
-      "Index": 9
+      "Index": 10
     }
   ],
   "Comments": [
     {
       "Name": {
-        "Index": 10
-      },
-      "FullName": {
         "Index": 11
       },
-      "Avatar": {
+      "FullName": {
         "Index": 12
       },
-      "Text": {
+      "Avatar": {
         "Index": 13
       },
-      "OnDate": {
+      "Text": {
         "Index": 14
       },
-      "Like": {
+      "OnDate": {
         "Index": 15
+      },
+      "LikeComment": {
+        "Index": 16
       },
       "Likes": [
         {
-          "Index": 16
+          "Index": 17
         }
       ]
     }

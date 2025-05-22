@@ -6,5 +6,8 @@
   "OnDate": "",
   "NewComment": "New Comment",
   "Follow": "Follow",
-  "Unfollow": "Unfollow"
+  "Unfollow": "Unfollow",
+  "Likes": [
+    "test"
+  ]
 }

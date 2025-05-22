@@ -7,6 +7,7 @@
   "NewComment": "New Comment",
   "Follow": "Follow",
   "Unfollow": "Unfollow",
+  "LikePost": "LikePost",
   "Likes": [
     "BotA"
   ],
@@ -17,7 +18,7 @@
       "Avatar": "guest.jpg",
       "Text": "Cool",
       "OnDate": "2025-05-20T00:00:00",
-      "Like": "Like",
+      "LikeComment": "LikeComment",
       "Likes": [
         "BotB"
       ]

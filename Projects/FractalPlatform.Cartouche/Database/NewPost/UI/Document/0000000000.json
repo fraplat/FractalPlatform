@@ -23,5 +23,8 @@
   },
   "Unfollow": {
     "Visible": false
+  },
+  "Likes": {
+    "Visible": false
   }
 }
