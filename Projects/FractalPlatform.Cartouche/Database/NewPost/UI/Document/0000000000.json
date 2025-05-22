@@ -9,6 +9,12 @@
   "FullName": {
     "Visible": false
   },
+  "LikePost": {
+    "Visible": false
+  },
+  "Likes": {
+    "Visible": false
+  },
   "Name": {
     "Visible": false
   },
@@ -22,9 +28,6 @@
     "ControlType": "RichTextBox"
   },
   "Unfollow": {
-    "Visible": false
-  },
-  "Likes": {
     "Visible": false
   }
 }

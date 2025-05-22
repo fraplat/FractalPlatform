@@ -1,0 +1,20 @@
+{
+  "Age": {
+    "IsRequired": true,
+    "MaxValue": 100,
+    "MinValue": 1,
+    "Type": "int"
+  },
+  "Name": {
+    "IsRequired": true,
+    "MaxLen": 10,
+    "MinLen": 3,
+    "Type": "string"
+  },
+  "Password": {
+    "IsRequired": true,
+    "MaxLen": 20,
+    "MinLen": 3,
+    "Type": "string"
+  }
+}

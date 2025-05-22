@@ -109,6 +109,7 @@ namespace FractalPlatform.Cartouche {
                     Text = x.Text,
                     Avatar = x.Avatar,
                     OnDate = x.OnDate,
+                    LikePost = "LikePost",
                     Likes = x.Likes.Count,
                     Comments = x.Comments.Count
                 })
@@ -204,7 +205,7 @@ namespace FractalPlatform.Cartouche {
 
                     break;
                 }
-                case @"Like": {
+                case @"LikeComment": {
                     
                     var query = DocsWhere("Posts", info.AttrPath)
                                     .AndWhere("{'Comments':[{'Likes':[Any,@UserName]}]}");
@@ -225,7 +226,7 @@ namespace FractalPlatform.Cartouche {
                     
                     break;
                 }
-                case @"Likes": {
+                case @"LikePost": {
                     
                     if(info.Collection.Name == "Dashboard")
                     {

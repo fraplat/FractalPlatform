@@ -14,5 +14,8 @@
   },
   "Text": {
     "ControlType": "RichTextBox"
+  },
+  "LikeComment": {
+    "Visible": false
   }
 }

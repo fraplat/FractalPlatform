@@ -7,7 +7,5 @@
   "NewComment": "New Comment",
   "Follow": "Follow",
   "Unfollow": "Unfollow",
-  "Likes": [
-    "test"
-  ]
+  "LikePost": "LikePost"
 }
