@@ -873,15 +873,17 @@
     text-align: center;
     }
     
-     .section-image {
+    .section-image {
         flex: 1;
         text-align: center;
     }
     
     .section-image img {
-        max-width: 100%;
+        width: 100%;
+        height: auto;
         border-radius: 8px;
         box-shadow: var(--shadow-md);
+        display: block;
     }
     
     @media (max-width: 768px) {
