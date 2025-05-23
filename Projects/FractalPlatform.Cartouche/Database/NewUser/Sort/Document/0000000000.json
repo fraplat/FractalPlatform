@@ -11,13 +11,19 @@
   "Age": {
     "Index": 4
   },
-  "Gender": {
+  "IsActive": {
     "Index": 5
   },
-  "OnDate": {
+  "IsBot": {
     "Index": 6
   },
-  "Avatar": {
+  "Gender": {
     "Index": 7
+  },
+  "OnDate": {
+    "Index": 8
+  },
+  "Avatar": {
+    "Index": 9
   }
 }

@@ -1,9 +1,11 @@
 {
   "Age": 20,
-  "Avatar": "guest.jpg",
+  "Avatar": "Bazist.jpg",
   "FullName": "Viacheslav",
   "Gender": "Male",
   "Name": "bazist",
   "OnDate": "05/23/2025 14:06:21",
-  "Password": "test"
+  "Password": "test",
+  "IsActive": true,
+  "IsBot": false
 }

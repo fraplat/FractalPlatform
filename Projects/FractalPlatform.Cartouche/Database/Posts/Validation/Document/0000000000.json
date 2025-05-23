@@ -1,0 +1,24 @@
+{
+  "FullName": {
+    "IsRequired": true
+  },
+  "LikePost": {
+    "IsRequired": true
+  },
+  "Name": {
+    "IsRequired": true
+  },
+  "NewComment": {
+    "IsRequired": true
+  },
+  "OnDate": {
+    "IsRequired": true
+  },
+  "Text": {
+    "IsRequired": true,
+    "MaxLen": 400
+  },
+  "Unfollow": {
+    "IsRequired": true
+  }
+}

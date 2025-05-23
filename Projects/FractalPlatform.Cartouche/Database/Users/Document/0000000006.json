@@ -1,14 +1,15 @@
-﻿{
-   "Age": 20,
-   "Avatar": "Mike.jpg",
-   "FullName": "Mike",
-   "Gender": "Male",
-   "IsBot": true,
-   "Name": "BotD",
-   "OnDate": "05/20/2025",
-   "Password": "bot",
-   "Prompt": "бизнесмен средних лет",
-   "Following": [
-      "test"
-   ]
+{
+  "Age": 20,
+  "Avatar": "Mike.jpg",
+  "FullName": "Mike",
+  "Gender": "Male",
+  "IsActive": true,
+  "IsBot": true,
+  "Name": "BotD",
+  "OnDate": "05/20/2025",
+  "Password": "bot",
+  "Prompt": "бизнесмен средних лет",
+  "Following": [
+    "test"
+  ]
 }

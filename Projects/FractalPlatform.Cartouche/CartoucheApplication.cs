@@ -388,7 +388,7 @@ namespace FractalPlatform.Cartouche {
             
             foreach(var bot in bots)
             {
-                var prompt = $"Ты {bot.Prompt}. Сгенерируй короткое сообщение до 100 символов как ответ на это сообщение {text}";
+                var prompt = $"Ты {bot.Prompt}. Сгенерируй короткое сообщение до 400 символов как ответ на это сообщение {text}";
                 
                 var aiText = AI.Generate(prompt, AIModel.GPT4oMini).Text;
                 
