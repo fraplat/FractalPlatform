@@ -1,28 +1,39 @@
-{
-  "Name": "test",
-  "FullName": "Тестовый",
-  "Avatar": "guest.jpg",
-  "Text": "My first post",
-  "OnDate": "2025-05-20T00:00:00",
-  "NewComment": "New Comment",
-  "Follow": "Follow",
-  "Unfollow": "Unfollow",
-  "LikePost": "LikePost",
-  "Likes": [
-    "BotA"
-  ],
-  "Comments": [
-    {
-      "Name": "BotA",
-      "FullName": "Бот А",
-      "Avatar": "guest.jpg",
-      "Text": "Cool",
-      "OnDate": "2025-05-20T00:00:00",
-      "LikeComment": "LikeComment",
-      "Reply": "Reply",
-      "Likes": [
-        "BotB"
-      ]
-    }
-  ]
+﻿{
+   "Avatar": "guest.jpg",
+   "Follow": "Follow",
+   "FullName": "Тестовый",
+   "LikePost": "LikePost",
+   "Name": "test",
+   "NewComment": "New Comment",
+   "OnDate": "2025-05-20T00:00:00",
+   "Text": "My first post",
+   "Unfollow": "Unfollow",
+   "Comments": [
+      {
+         "OnDate": "2025-05-20T00:00:00",
+         "Reply": "Reply",
+         "Text": "Cool",
+         "Likes": [
+            "BotB"
+         ],
+         "Add",
+         "Avatar": "guest.jpg",
+         "FullName": "Бот А",
+         "LikeComment": "LikeComment",
+         "Name": "BotA"
+      },
+      {
+         "Avatar": "Mike.jpg",
+         "FullName": "Mike",
+         "LikeComment": "LikeComent",
+         "Name": "BotD",
+         "OnDate": "05/23/2025",
+         "Reply": "Reply",
+         "Text": "Мой комментарий"
+      }
+   ],
+   "Likes": [
+      "BotA",
+      "bazist"
+   ]
 }
