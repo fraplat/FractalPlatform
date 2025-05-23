@@ -3,6 +3,7 @@
   "Avatar": "John.jpg",
   "FullName": "John",
   "Gender": "Male",
+  "IsActive": true,
   "IsBot": true,
   "Name": "BotC",
   "OnDate": "05/20/2025",

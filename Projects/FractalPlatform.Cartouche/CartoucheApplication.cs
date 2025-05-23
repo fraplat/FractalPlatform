@@ -345,10 +345,11 @@ namespace FractalPlatform.Cartouche {
                         .Value("{'Text':$}");
             
             var random = new Random();
-            int count = random.Next(0, 4); // 0, 1, 2 или 3
+            int count = random.Next(2, 4); 
             
-            var bots = DocsWhere("Users","{'IsBot':true}")
+            var bots = DocsWhere("Users","{'IsBot':true,'IsActive':true}")
                         .Select<Bot>()
+                        .OrderBy(x => Guid.NewGuid())
                         .Take(count);
             
             foreach(var bot in bots)

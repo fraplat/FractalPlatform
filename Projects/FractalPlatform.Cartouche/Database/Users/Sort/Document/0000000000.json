@@ -23,12 +23,15 @@
   "IsBot": {
     "Index": 8
   },
-  "Prompt": {
+  "IsActive": {
     "Index": 9
+  },
+  "Prompt": {
+    "Index": 10
   },
   "Following": [
     {
-      "Index": 10
+      "Index": 11
     }
   ]
 }

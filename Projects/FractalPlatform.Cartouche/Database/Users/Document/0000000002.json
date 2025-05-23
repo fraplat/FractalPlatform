@@ -3,6 +3,7 @@
   "Avatar": "Rebeca.jpg",
   "FullName": "Rebeca",
   "Gender": "Female",
+  "IsActive": true,
   "IsBot": true,
   "Name": "BotA",
   "OnDate": "05/20/2025",
