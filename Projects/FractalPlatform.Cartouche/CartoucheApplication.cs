@@ -111,13 +111,10 @@ namespace FractalPlatform.Cartouche {
 
             following.Add(Context.User.Name);
 
-            var docID = 0;
-
             var posts = DocsWhere("Posts", "{'Name':Any(@Following)}", following)
                 .Select<Post>()
                 .Select(x => new 
                 {
-                    DocID = ++docID,
                     Name = x.Name,
                     FullName = x.FullName,
                     Text = x.Text,
@@ -272,12 +269,15 @@ namespace FractalPlatform.Cartouche {
                     
                     if(info.Collection.Name == "Dashboard")
                     {
-                        var docID = info.Collection
-                                    .GetWhere(info.AttrPath)
-                                    .UIntValue("{'Posts':[{'DocID':$}]}");
-                    
+                        var nameAndOnDate = info.Collection
+                                                .GetWhere(info.AttrPath)
+                                                .Values("{'Posts':[{'Name':$,'OnDate':$}]}");
+
+                        var docID = DocsWhere("Posts", "{'Name':@Name,'OnDate':@OnDate}", nameAndOnDate[0], nameAndOnDate[1])
+                                        .GetFirstID();
+
                         var query = DocsWhere("Posts", docID)
-                                    .AndWhere("{'Likes':[Any,@UserName]}");
+                                        .AndWhere("{'Likes':[Any,@UserName]}");
                                     
                         if(!query.Any())
                         {
@@ -315,9 +315,12 @@ namespace FractalPlatform.Cartouche {
                     break;
                 }
                 case @"Comments": {
-                    var docID = info.Collection
-                                .GetWhere(info.AttrPath)
-                                .UIntValue("{'Posts':[{'DocID':$}]}");
+                    var nameAndOnDate = info.Collection
+                                            .GetWhere(info.AttrPath)
+                                            .Values("{'Posts':[{'Name':$,'OnDate':$}]}");
+
+                    var docID = DocsWhere("Posts", "{'Name':@Name,'OnDate':@OnDate}", nameAndOnDate[0], nameAndOnDate[1])
+                                    .GetFirstID();
                                 
                     DocsWhere("Posts", docID)
                         .OpenForm(result => Dashboard());
