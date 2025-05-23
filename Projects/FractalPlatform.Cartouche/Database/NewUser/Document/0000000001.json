@@ -1,7 +1,9 @@
 {
   "Name": "",
+  "FullName": "",
   "Password": "",
   "Age": 20,
   "Gender": "Male",
-  "OnDate": "05/20/2025"
+  "OnDate": "05/20/2025",
+  "Avatar": "guest.jpg"
 }

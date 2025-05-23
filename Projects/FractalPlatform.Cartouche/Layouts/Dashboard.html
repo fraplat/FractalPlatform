@@ -13,9 +13,19 @@
     @StartForm
     <div class="container">
         <div class="header">
-            <h1>Cartouche</h1>
-            <div class="user-info">
-                <control attr="">
+            <control attr="">
+                <div class="header-container">
+                    <h1>Cartouche</h1>
+                    <svg class="signout-icon" viewBox="0 0 30 30" width="25" height="25" onclick="@SignOut.ClickSubmit">
+                        <!-- Door/Box outline -->
+                        <rect x="4" y="6" width="14" height="18" fill="none" stroke="currentColor" stroke-width="2" rx="2" />
+                        <!-- Arrow pointing right (exit direction) -->
+                        <path d="M15 15 L24 15 M21 12 L24 15 L21 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <!-- Vertical line representing door opening -->
+                        <line x1="18" y1="8" x2="18" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </div>
+                <div class="user-info">
                     <div class="user-profile">
                         <div class="user-avatar">
                             <img src="@BaseFilesUrl/@Avatar.Value" alt="My Avatar">
@@ -32,8 +42,9 @@
                             <path fill="currentColor" d="M10.5 4.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zm3.75 13.5H6.75c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h7.5c.41 0 .75.34.75.75s-.34.75-.75.75zm-4.5-3h-3c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h3c.41 0 .75.34.75.75s-.34.75-.75.75zm0-3h-3c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h3c.41 0 .75.34.75.75s-.34.75-.75.75zm0-3h-3c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h3c.41 0 .75.34.75.75s-.34.75-.75.75zm10.04 5.71l-1.31 1.32c-.2.2-.51.2-.71 0L13.66 12c-.29.12-.61.18-.95.18-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5c0 .34-.06.66-.18.95l2.13 2.12c.2.2.2.51 0 .71zm-2.13-6.06c.2-.2.51-.2.71 0l1.31 1.31c.2.2.2.51 0 .71l-.71.71-2.02-2.02.71-.71z"></path>
                         </svg>
                     </button>
-                </control>
-            </div>
+
+                </div>
+            </control>
         </div>
 
         <div class="feed">

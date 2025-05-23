@@ -88,6 +88,20 @@ namespace FractalPlatform.Cartouche {
                 set;
             }
         }
+        
+        private void NewPost()
+        {
+            CreateNewDocFor("NewPost", "Posts")
+                        .OpenForm(result => 
+                        {
+                            if(result.Result)
+                            {
+                                ProcessBots(result.TargetDocID);
+                            }
+                            
+                            Dashboard();
+                        });
+        }
 
         private void Dashboard() {
             CloseIfOpenedForm("Dashboard");
@@ -117,6 +131,13 @@ namespace FractalPlatform.Cartouche {
                 .Take(20)
                 .ToList();
                 
+            if(!posts.Any())
+            {
+                NewPost();
+                
+                return;
+            }
+                
             var values = DocsWhere("Users","{'Name':@UserName}")
                             .Values("{'FullName':$,'Avatar':$}");
 
@@ -126,6 +147,19 @@ namespace FractalPlatform.Cartouche {
                 .ExtendDocument(DQL("{'FullName':@FullName,'Avatar':@Avatar}", values[0],values[1]))
                 .MergeToArrayPath(posts, "Posts", Constants.FIRST_DOC_ID, true)
                 .OpenForm();
+        }
+        
+        public override void OnStart()
+        {
+            if(Context.UrlTag == "settings")
+            {
+                ModifyFirstDocOf("Settings")
+                    .OpenForm();
+            }
+            else
+            {
+                base.OnStart();
+            }
         }
         
         public override void OnRegister(FormResult result) => Dashboard();
@@ -161,17 +195,14 @@ namespace FractalPlatform.Cartouche {
 
                     break;
                 }
+                case @"SignOut": {
+                    
+                    Logout();
+
+                    break;
+                }
                 case @"NewPost": {
-                    CreateNewDocFor("NewPost", "Posts")
-                        .OpenForm(result => 
-                        {
-                            if(result.Result)
-                            {
-                                ProcessBots(result.TargetDocID);
-                            }
-                            
-                            Dashboard();
-                        });
+                    NewPost();
 
                     break;
                 }

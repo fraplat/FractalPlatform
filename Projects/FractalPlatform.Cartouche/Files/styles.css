@@ -222,3 +222,24 @@
     .edit-profile:hover {
         background-color: rgba(29, 155, 240, 0.1);
     }
+    
+    .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 100%;
+        }
+        
+        .header-container h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+        
+        .signout-icon {
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        
+        .signout-icon:hover {
+            color: #e74c3c;
+        }

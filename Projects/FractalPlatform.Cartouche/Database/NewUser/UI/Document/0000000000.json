@@ -5,5 +5,8 @@
   },
   "Password": {
     "Style": "Type:Password"
+  },
+  "Avatar": {
+    "Visible": false
   }
 }

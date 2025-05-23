@@ -5,6 +5,12 @@
     "MinValue": 1,
     "Type": "int"
   },
+  "FullName": {
+    "IsRequired": true,
+    "MaxLen": 10,
+    "MinLen": 3,
+    "Type": "string"
+  },
   "Name": {
     "IsRequired": true,
     "MaxLen": 10,
