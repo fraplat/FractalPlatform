@@ -1,1 +1,8 @@
-{}
+{
+  "Follow": {
+    "Formula": "Follow"
+  },
+  "Unfollow": {
+    "Formula": "Unfollow"
+  }
+}

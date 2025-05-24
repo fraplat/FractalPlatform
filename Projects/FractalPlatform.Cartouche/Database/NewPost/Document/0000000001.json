@@ -3,5 +3,9 @@
   "FullName": "",
   "Avatar": "",
   "Text": "",
-  "OnDate": ""
+  "OnDate": "",
+  "NewComment": "New Comment",
+  "Follow": "Follow",
+  "Unfollow": "Unfollow",
+  "LikePost": "LikePost"
 }

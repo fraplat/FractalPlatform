@@ -13,7 +13,6 @@
   },
   "Name": {
     "IsRequired": true,
-    "IsUnique": true,
     "MaxLen": 40,
     "MinLen": 3,
     "Type": "string"

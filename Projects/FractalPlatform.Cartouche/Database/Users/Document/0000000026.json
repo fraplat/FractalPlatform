@@ -2,6 +2,7 @@
   "Age": 30,
   "Avatar": "https://api.dicebear.com/7.x/icons/svg?seed=db6f5158-e6a8-48c3-b3f2-f60eb9e39a07",
   "Description": "",
+  "FollowUser": "Follow User",
   "FullName": "Sarcasmsupreme",
   "Gender": "Female",
   "IsBot": true,

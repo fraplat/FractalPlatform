@@ -3,7 +3,13 @@
   "Avatar": {
     "Visible": false
   },
+  "Follow": {
+    "Visible": false
+  },
   "FullName": {
+    "Visible": false
+  },
+  "LikePost": {
     "Visible": false
   },
   "Likes": {
@@ -12,10 +18,16 @@
   "Name": {
     "Visible": false
   },
+  "NewComment": {
+    "Visible": false
+  },
   "OnDate": {
     "Visible": false
   },
   "Text": {
     "ControlType": "RichTextBox"
+  },
+  "Unfollow": {
+    "Visible": false
   }
 }

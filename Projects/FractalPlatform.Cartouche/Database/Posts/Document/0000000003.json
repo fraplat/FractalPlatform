@@ -1,15 +1,20 @@
 {
   "Avatar": "guest.jpg",
+  "Follow": "Follow",
   "FullName": "Тестовый",
+  "LikePost": "LikePost",
   "Name": "test",
+  "NewComment": "New Comment",
   "OnDate": "2025-05-20T00:00:00",
   "Text": "hello",
   "Comments": [
     {
       "Avatar": "Rebeca.jpg",
       "FullName": "Rebeca",
+      "LikeComment": "LikeComment",
       "Name": "BotA",
       "OnDate": "2025-05-22T14:19:32.4733506+03:00",
+      "Reply": "Reply",
       "Text": "Привет! Как дела? Надеюсь, у тебя отличный день! 🌼✨",
       "Likes": [
         "test"

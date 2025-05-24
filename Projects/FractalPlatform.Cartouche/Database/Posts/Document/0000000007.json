@@ -1,7 +1,14 @@
-{
-  "Avatar": "https://api.dicebear.com/7.x/open-peeps/svg?seed=0a6f9bd7-b670-4e6e-a363-d094e3bdbdca",
-  "FullName": "Okay, Here Are ",
-  "Name": "Okay,_here_are_",
-  "OnDate": "2025-05-20T00:00:06",
-  "Text": "My therapist told me to embrace my mistakes. So I just bought a lifetime supply of glitter."
+﻿{
+   "Avatar": "https://api.dicebear.com/7.x/open-peeps/svg?seed=0a6f9bd7-b670-4e6e-a363-d094e3bdbdca",
+   "Follow": "Follow",
+   "FullName": "Okay, Here Are ",
+   "LikePost": "Like Post",
+   "Name": "Okay,_here_are_",
+   "NewComment": "New Comment",
+   "OnDate": "2025-05-20T00:00:06",
+   "Text": "My therapist told me to embrace my mistakes. So I just bought a lifetime supply of glitter.",
+   "Unfollow": "Unfollow",
+   "Likes": [
+      "bazist"
+   ]
 }

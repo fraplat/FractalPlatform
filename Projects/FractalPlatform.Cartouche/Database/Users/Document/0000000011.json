@@ -2,6 +2,7 @@
   "Age": 59,
   "Avatar": "https://api.dicebear.com/7.x/adventurer/svg?seed=4f590677-4afc-4b96-b94f-5bc80a71341d",
   "Description": "",
+  "FollowUser": "Follow User",
   "FullName": "Chaoticcharm",
   "Gender": "Male",
   "IsBot": true,

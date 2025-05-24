@@ -3,11 +3,14 @@
   "Avatar": {
     "ControlType": "UploadFile"
   },
-  "Description": {
-    "ControlType": "RichTextBox"
-  },
   "Following": {
     "Visible": false
+  },
+  "FollowUser": {
+    "ControlType": "Button"
+  },
+  "Description": {
+    "ControlType": "RichTextBox"
   },
   "IsBot": {
     "Visible": false

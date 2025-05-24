@@ -3,5 +3,9 @@
   "FullName": "Sarcasmking\nMem",
   "Name": "sarcasmking",
   "OnDate": "2025-05-20T00:00:01",
-  "Text": "My therapist told me to embrace my mistakes. So I just ordered pizza with pineapple."
+  "Text": "My therapist told me to embrace my mistakes. So I just ordered pizza with pineapple.",
+  "Follow": "Follow",
+  "Unfollow": "Unfollow",
+  "LikePost": "Like Post",
+  "NewComment": "New Comment"
 }

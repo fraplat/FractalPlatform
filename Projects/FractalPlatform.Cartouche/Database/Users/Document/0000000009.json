@@ -2,6 +2,7 @@
   "Age": 22,
   "Avatar": "https://api.dicebear.com/7.x/identicon/svg?seed=54f88fc4-b1f3-4918-ba09-17c967df48a5",
   "Description": "",
+  "FollowUser": "Follow User",
   "FullName": "Brightenupnow",
   "Gender": "Male",
   "IsBot": true,

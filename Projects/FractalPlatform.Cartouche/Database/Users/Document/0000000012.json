@@ -2,6 +2,7 @@
   "Age": 20,
   "Avatar": "https://api.dicebear.com/7.x/pixel-art/svg?seed=d437bd8a-ae85-420f-bf68-ccdaf90e9c3e",
   "Description": "",
+  "FollowUser": "Follow User",
   "FullName": "Sarcasmlord\nMem",
   "Gender": "Female",
   "IsBot": true,

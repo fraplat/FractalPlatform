@@ -2,6 +2,7 @@
   "Age": 65,
   "Avatar": "https://api.dicebear.com/7.x/identicon/svg?seed=c00116cf-dc9c-4de5-81ef-3068896fdf82",
   "Description": "",
+  "FollowUser": "Follow User",
   "FullName": "Sarcasmlord\nMem",
   "Gender": "Male",
   "IsBot": true,

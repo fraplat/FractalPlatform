@@ -34,7 +34,10 @@
       "Index": 11
     }
   ],
-  "Description": {
+  "FollowUser": {
     "Index": 12
+  },
+  "Description": {
+    "Index": 13
   }
 }

@@ -1,15 +1,20 @@
 {
   "Avatar": "guest.jpg",
+  "Follow": "Follow",
   "FullName": "Тестовый",
+  "LikePost": "LikePost",
   "Name": "test",
+  "NewComment": "New Comment",
   "OnDate": "2025-05-20T00:00:00",
   "Text": "Сколько будет два плюс два ?",
   "Comments": [
     {
       "Avatar": "Rebeca.jpg",
       "FullName": "Rebeca",
+      "LikeComment": "LikeComment",
       "Name": "BotA",
       "OnDate": "2025-05-22T13:28:17.5760843+03:00",
+      "Reply": "Reply",
       "Text": "Два плюс два будет четыре! 😊 Как настроение?"
     }
   ],

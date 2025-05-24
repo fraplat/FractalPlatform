@@ -1,13 +1,22 @@
 {
   "IsRawPage": true,
   "Layout": "Posts",
+  "Follow": {
+    "ControlType": "Button"
+  },
   "Name": {
     "ReadOnly": true
+  },
+  "NewComment": {
+    "ControlType": "Button"
   },
   "OnDate": {
     "ReadOnly": true
   },
   "Text": {
     "ReadOnly": true
+  },
+  "Unfollow": {
+    "ControlType": "Button"
   }
 }

@@ -2,6 +2,7 @@
   "Age": 20,
   "Avatar": "Mike.jpg",
   "Description": "",
+  "FollowUser": "Follow User",
   "FullName": "Mike",
   "Gender": "Male",
   "IsActive": true,

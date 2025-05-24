@@ -2,6 +2,7 @@
   "Age": 20,
   "Avatar": "Ted.jpg",
   "Description": "",
+  "FollowUser": "Follow User",
   "FullName": "Ted",
   "Gender": "Male",
   "IsBot": true,
