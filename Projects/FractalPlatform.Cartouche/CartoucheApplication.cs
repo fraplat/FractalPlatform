@@ -181,7 +181,7 @@ namespace FractalPlatform.Cartouche {
             }
         }
 
-        public override void OnRegister(FormResult result) => Dashboard();
+        public override void OnRegister(FormResult result) => TryAutoLogin();
 
         public override void OnLogin(FormResult result) => Dashboard();
 
