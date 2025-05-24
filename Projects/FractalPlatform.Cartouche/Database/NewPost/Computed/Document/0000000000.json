@@ -1,10 +1,4 @@
 {
-  "Avatar": {
-    "Formula": "@UserAvatar"
-  },
-  "FullName": {
-    "Formula": "@FullNameVariable"
-  },
   "Name": {
     "Formula": "@UserName"
   },

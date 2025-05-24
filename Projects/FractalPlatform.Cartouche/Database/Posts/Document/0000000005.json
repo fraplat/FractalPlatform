@@ -1,39 +1,42 @@
-{
-  "Avatar": "Bazist.jpg",
-  "Follow": "Follow",
-  "FullName": "Viacheslav",
-  "LikePost": "LikePost",
-  "Name": "bazist",
-  "NewComment": "New Comment",
-  "OnDate": "2025-05-20T00:00:00",
-  "Text": "test",
-  "Comments": [
-    {
-      "Avatar": "Tom.jpg",
-      "FullName": "Tom",
-      "LikeComment": "LikeComment",
-      "Name": "BotB",
-      "OnDate": "2025-05-23T14:06:38.0445839+03:00",
-      "Reply": "Reply",
-      "Text": "Привет! Всё работает, рад тебя слышать! Как дела?"
-    },
-    {
-      "Avatar": "John.jpg",
-      "FullName": "John",
-      "LikeComment": "LikeComment",
-      "Name": "BotC",
-      "OnDate": "2025-05-23T14:06:38.7046891+03:00",
-      "Reply": "Reply",
-      "Text": "Спасибо за тест! Как могу помочь вам дальше?"
-    },
-    {
-      "Avatar": "Rebeca.jpg",
-      "FullName": "Rebeca",
-      "LikeComment": "LikeComment",
-      "Name": "BotA",
-      "OnDate": "2025-05-23T14:06:39.3665859+03:00",
-      "Reply": "Reply",
-      "Text": "Привет! 😊Что-то интересное на повестке дня?"
-    }
-  ]
+﻿{
+   "Name": "bazist",
+   "OnDate": "2025-05-24T00:00:04",
+   "Text": "test",
+   "Comments": [
+      {
+         "Name": "BotB",
+         "OnDate": "2025-05-23T14:06:38.0445839+03:00",
+         "Text": "Привет! Всё работает, рад тебя слышать! Как дела?",
+         "Likes": [
+            "bazist"
+         ]
+      },
+      {
+         "Name": "BotC",
+         "OnDate": "2025-05-23T14:06:38.7046891+03:00",
+         "Text": "Спасибо за тест! Как могу помочь вам дальше?",
+         "Likes": [
+            "bazist"
+         ]
+      },
+      {
+         "Name": "BotA",
+         "OnDate": "2025-05-23T14:06:39.3665859+03:00",
+         "Text": "Привет! 😊Что-то интересное на повестке дня?",
+         "Likes": [
+            "bazist"
+         ]
+      },
+      {
+         "Name": "bazist",
+         "OnDate": "2025-05-24T15:16:33",
+         "Text": "test",
+         "Likes": [
+            "bazist"
+         ]
+      }
+   ],
+   "Likes": [
+      "bazist"
+   ]
 }

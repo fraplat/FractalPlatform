@@ -1,24 +1,6 @@
 {
   "Style": "Save:Post;CollLabel:Новый пост",
-  "Avatar": {
-    "Visible": false
-  },
-  "Follow": {
-    "Visible": false
-  },
-  "FullName": {
-    "Visible": false
-  },
-  "LikePost": {
-    "Visible": false
-  },
-  "Likes": {
-    "Visible": false
-  },
   "Name": {
-    "Visible": false
-  },
-  "NewComment": {
     "Visible": false
   },
   "OnDate": {
@@ -26,8 +8,5 @@
   },
   "Text": {
     "ControlType": "RichTextBox"
-  },
-  "Unfollow": {
-    "Visible": false
   }
 }

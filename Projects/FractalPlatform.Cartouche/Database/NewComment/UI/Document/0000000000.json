@@ -1,18 +1,6 @@
 {
   "Style": "Save:Post;CollLabel:Новый комментарий",
-  "Avatar": {
-    "Visible": false
-  },
-  "FullName": {
-    "Visible": false
-  },
-  "LikeComment": {
-    "Visible": false
-  },
   "Name": {
-    "Visible": false
-  },
-  "Reply": {
     "Visible": false
   },
   "OnDate": {

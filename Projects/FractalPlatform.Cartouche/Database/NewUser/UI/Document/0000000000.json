@@ -3,13 +3,13 @@
   "Avatar": {
     "Visible": false
   },
-  "OnDate": {
-    "Visible": false
-  },
   "IsActive": {
     "Visible": false
   },
   "IsBot": {
+    "Visible": false
+  },
+  "OnDate": {
     "Visible": false
   },
   "Password": {

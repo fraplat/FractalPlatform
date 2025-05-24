@@ -2,22 +2,10 @@
   "Name": {
     "Index": 1
   },
-  "FullName": {
+  "Text": {
     "Index": 2
   },
-  "Avatar": {
-    "Index": 3
-  },
-  "Text": {
-    "Index": 4
-  },
   "OnDate": {
-    "Index": 5
-  },
-  "LikeComment": {
-    "Index": 6
-  },
-  "Reply": {
-    "Index": 7
+    "Index": 3
   }
 }
