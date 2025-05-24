@@ -28,7 +28,7 @@
                 <div class="user-info">
                     <div class="user-profile">
                         <div class="user-avatar">
-                            <img src="@BaseFilesUrl/@Avatar.Value" alt="My Avatar">
+                            <img src="@Avatar.FileUrl" alt="My Avatar">
                         </div>
                         <span class="user-name">@FullName.Value</span>
                         <button class="edit-profile" @EditUser.Button>
@@ -60,7 +60,7 @@
             <control attr="Posts" repeatable="true">
                 <div class="post">
                     <div class="avatar">
-                        <img src="@BaseFilesUrl/@Avatar.Value" alt="User Avatar">
+                        <img src="@Avatar.FileUrl" alt="User Avatar">
                     </div>
                     <div class="post-content">
                         <div class="post-header">

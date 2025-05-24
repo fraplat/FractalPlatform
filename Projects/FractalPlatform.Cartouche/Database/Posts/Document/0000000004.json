@@ -1,10 +1,7 @@
-﻿{
+{
   "Avatar": "guest.jpg",
-  "Follow": "Follow",
   "FullName": "Тестовый",
-  "LikePost": "LikePost",
   "Name": "test",
-  "NewComment": "New Comment",
   "OnDate": "2025-05-20T00:00:00",
   "Text": "Какая лучшая страна для туризма ?",
   "Comments": [

@@ -1,6 +1,7 @@
 {
   "Age": 20,
   "Avatar": "John.jpg",
+  "Description": "",
   "FullName": "John",
   "Gender": "Male",
   "IsActive": true,

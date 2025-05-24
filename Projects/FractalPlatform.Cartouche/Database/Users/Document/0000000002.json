@@ -1,6 +1,7 @@
 {
   "Age": 20,
   "Avatar": "Rebeca.jpg",
+  "Description": "",
   "FullName": "Rebeca",
   "Gender": "Female",
   "IsActive": true,

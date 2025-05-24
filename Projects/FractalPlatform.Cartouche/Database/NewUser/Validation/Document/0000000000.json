@@ -7,13 +7,14 @@
   },
   "FullName": {
     "IsRequired": true,
-    "MaxLen": 10,
+    "MaxLen": 40,
     "MinLen": 3,
     "Type": "string"
   },
   "Name": {
     "IsRequired": true,
-    "MaxLen": 10,
+    "IsUnique": true,
+    "MaxLen": 40,
     "MinLen": 3,
     "Type": "string"
   },

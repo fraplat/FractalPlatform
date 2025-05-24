@@ -1,7 +1,10 @@
 {
-  "Style": "Hide:Follow,Unfollow,Prompt,IsBot,Following,Avatar",
+  "Style": "Hide:Follow,Unfollow,Prompt,IsBot,Following,Avatar,FollowUser,Description",
   "Avatar": {
     "ControlType": "UploadFile"
+  },
+  "Description": {
+    "ControlType": "RichTextBox"
   },
   "Following": {
     "Visible": false

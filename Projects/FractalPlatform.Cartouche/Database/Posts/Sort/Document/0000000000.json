@@ -1,64 +1,52 @@
 {
-  "Name": {
+  "Avatar": {
     "Index": 1
   },
   "FullName": {
     "Index": 2
   },
-  "Avatar": {
+  "Name": {
     "Index": 3
   },
-  "Text": {
+  "OnDate": {
     "Index": 4
   },
-  "OnDate": {
+  "Text": {
     "Index": 5
   },
-  "NewComment": {
-    "Index": 6
-  },
-  "Follow": {
-    "Index": 7
-  },
-  "Unfollow": {
-    "Index": 8
-  },
-  "LikePost": {
-    "Index": 9
-  },
-  "Likes": [
-    {
-      "Index": 10
-    }
-  ],
   "Comments": [
     {
-      "Name": {
-        "Index": 11
+      "Avatar": {
+        "Index": 6
       },
       "FullName": {
-        "Index": 12
-      },
-      "Avatar": {
-        "Index": 13
-      },
-      "Text": {
-        "Index": 14
-      },
-      "OnDate": {
-        "Index": 15
+        "Index": 7
       },
       "LikeComment": {
-        "Index": 16
+        "Index": 8
+      },
+      "Name": {
+        "Index": 9
+      },
+      "OnDate": {
+        "Index": 10
       },
       "Reply": {
-        "Index": 17
+        "Index": 11
+      },
+      "Text": {
+        "Index": 12
       },
       "Likes": [
         {
-          "Index": 18
+          "Index": 13
         }
       ]
+    }
+  ],
+  "Likes": [
+    {
+      "Index": 14
     }
   ]
 }

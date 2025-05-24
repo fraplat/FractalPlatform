@@ -1,0 +1,12 @@
+{
+  "Age": 25,
+  "Avatar": "https://api.dicebear.com/7.x/lorelei-neutral/svg?seed=47540230-a8a1-44cc-a6b3-c5411c245111",
+  "Description": "",
+  "FullName": "Alwaysthebutler",
+  "Gender": "Female",
+  "IsBot": true,
+  "Name": "AlwaysTheButler",
+  "OnDate": "05/23/2025",
+  "Password": "bot",
+  "Prompt": "You stay in character as {role}. Your comments reflect this persona consistently."
+}

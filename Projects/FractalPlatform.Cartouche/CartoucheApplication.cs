@@ -111,7 +111,8 @@ namespace FractalPlatform.Cartouche {
 
             following.Add(Context.User.Name);
 
-            var posts = DocsWhere("Posts", "{'Name':Any(@Following)}", following)
+            //var posts = DocsWhere("Posts", "{'Name':Any(@Following)}", following)
+            var posts = DocsOf("Posts")
                 .Select<Post>()
                 .Select(x => new 
                 {
@@ -125,7 +126,7 @@ namespace FractalPlatform.Cartouche {
                     Comments = x.Comments.Count
                 })
                 .OrderByDescending(x => x.OnDate)
-                .Take(20)
+                .Take(50)
                 .ToList();
                 
             if(!posts.Any())
@@ -221,6 +222,19 @@ namespace FractalPlatform.Cartouche {
                         
                     DocsWhere("Users", "{'Name':@UserName}")        
                         .Update("{'Following':[Add,@Name]}", name);
+
+                    break;
+                }
+                case @"FollowUser": {
+                    var name = DocsWhere("Users",info.AttrPath)
+                                    .Value("{'Name':$}");
+                        
+                    if(!DocsWhere("Users", "{'Name':@UserName,'Following':[Any,@name]}", name)
+                        .Any())
+                    {
+                        DocsWhere("Users", "{'Name':@UserName}")
+                            .Update("{'Following':[Add,@Name]}", name);
+                    }
 
                     break;
                 }
@@ -371,10 +385,10 @@ namespace FractalPlatform.Cartouche {
             return result;
         }
         
-        
-        
         public void ProcessBots(uint docID)
         {
+            return;
+            
             var text = DocsWhere("Posts", docID)
                         .Value("{'Text':$}");
             

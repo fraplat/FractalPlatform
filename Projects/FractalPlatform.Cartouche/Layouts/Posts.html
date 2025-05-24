@@ -25,19 +25,15 @@
                 <div class="post-header">
                     <div class="user-info">
                         <div class="avatar">
-                            <img src="@BaseFilesUrl/@Avatar.Value" alt="User Avatar">
+                            <img src="@Avatar.FileUrl" alt="User Avatar">
                         </div>
                         <div class="user-details">
                             <span class="user-name">@FullName.Value</span>
                             <span class="user-handle"><span>@</span>@Name.Value</span>
                         </div>
                     </div>
-                    <control attr="Follow">
-                        <button class="follow-button" onclick="@ClickSubmit">Подписаться</button>
-                    </control>
-                    <control attr="Unfollow">
-                        <button class="follow-button" onclick="@ClickSubmit">Отписатся</button>
-                    </control>
+                    
+                    
                 </div>
 
                 <div class="post-content">
@@ -99,7 +95,7 @@
                 <control attr="Comments" repeatable="true">
                     <div class="comment">
                         <div class="avatar">
-                            <img src="@BaseFilesUrl/@Avatar.Value" alt="User Avatar">
+                            <img src="@Avatar.FileUrl" alt="User Avatar">
                         </div>
                         <div class="comment-content">
                             <div class="comment-header">

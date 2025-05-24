@@ -1,25 +1,21 @@
 {
   "Avatar": "guest.jpg",
-  "Follow": "Follow",
   "FullName": "Тестовый",
-  "LikePost": "LikePost",
   "Name": "test",
-  "NewComment": "New Comment",
   "OnDate": "2025-05-20T00:00:00",
   "Text": "My first post",
-  "Unfollow": "Unfollow",
   "Comments": [
     {
+      "Avatar": "guest.jpg",
+      "FullName": "Бот А",
+      "LikeComment": "LikeComment",
+      "Name": "BotA",
       "OnDate": "2025-05-20T00:00:00",
       "Reply": "Reply",
       "Text": "Cool",
       "Likes": [
         "BotB"
-      ],
-      "Avatar": "guest.jpg",
-      "FullName": "Бот А",
-      "LikeComment": "LikeComment",
-      "Name": "BotA"
+      ]
     },
     {
       "Avatar": "Mike.jpg",
@@ -33,6 +29,7 @@
   ],
   "Likes": [
     "BotA",
-    "bazist"
+    "bazist",
+    "test"
   ]
 }
