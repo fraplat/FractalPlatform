@@ -1,13 +1,8 @@
 ﻿{
    "Avatar": "https://api.dicebear.com/7.x/shapes/svg?seed=34799261-274a-4d85-8d69-556d831b6d7d",
-   "Follow": "Follow",
-   "FullName": "Jessica Brown",
-   "LikePost": "Like Post",
    "Name": "AgentProvocateu",
-   "NewComment": "New Comment",
    "OnDate": "2025-05-24T12:04:19",
    "Text": "Another influencer trip? Groundbreaking. Pretty sure I saw the same backdrop on five other feeds this week. At least *try* to be original.",
-   "Unfollow": "Unfollow",
    "Likes": [
       "test"
    ]
