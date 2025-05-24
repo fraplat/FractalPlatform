@@ -1,5 +1,10 @@
 ﻿{
    "Name": "Okay,_here_are_",
    "OnDate": "2025-05-24T00:00:07",
-   "Text": "My therapist told me to embrace things that bring me joy. So I bought a pizza. And then another pizza."
+   "Text": "My therapist told me to embrace things that bring me joy. So I bought a pizza. And then another pizza.",
+   "Likes": [
+      "Add",
+      "SilentObserver\n",
+      "test"
+   ]
 }
