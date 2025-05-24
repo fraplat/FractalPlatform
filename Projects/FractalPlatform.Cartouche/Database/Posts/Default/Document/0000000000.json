@@ -2,5 +2,11 @@
   "NewComment": "New Comment",
   "Follow": "Follow",
   "Unfollow": "Unfollow",
-  "LikePost": "LikePost"
+  "LikePost": "LikePost",
+  "Comments": [
+    {
+      "LikeComment": "LikeComent",
+      "Reply": "Reply"
+    }
+  ]
 }

@@ -13,11 +13,5 @@
   },
   "OnDate": {
     "Index": 5
-  },
-  "LikeComment": {
-    "Index": 6
-  },
-  "Reply": {
-    "Index": 7
   }
 }
