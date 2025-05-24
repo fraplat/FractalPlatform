@@ -1,0 +1,188 @@
+{
+  "Imagine": [
+    {
+      "Image": "",
+      "What": "My company",
+      "When": "This year"
+    },
+    {
+      "Image": "",
+      "What": "Live near sea",
+      "When": "This year"
+    },
+    {
+      "Image": "",
+      "What": "House near sea",
+      "When": "Next 3 years"
+    }
+  ],
+  "Future": [
+    {
+      "What": "Finish Agency site",
+      "When": "This week"
+    },
+    {
+      "What": "Register on Upwork",
+      "When": "Next week"
+    },
+    {
+      "What": "Boost my English",
+      "When": "Next week"
+    },
+    {
+      "What": "First Sale",
+      "When": "Next month"
+    },
+    {
+      "What": "Preparation to EVI",
+      "When": "Next month"
+    },
+    {
+      "What": "Passed EVI",
+      "When": "Next month"
+    }
+  ],
+  "Equity": {
+    "Bank": [
+      {
+        "Name": "USD",
+        "Sum": 6000
+      }
+    ],
+    "Cache": [
+      {
+        "Name": "USD",
+        "Sum": 40000
+      },
+      {
+        "Name": "EUR",
+        "Sum": 50000
+      },
+      {
+        "Name": "Safe",
+        "Sum": 1600
+      },
+      {
+        "Name": "DriverLicense",
+        "Sum": 1250
+      }
+    ],
+    "Crypto": [
+      {
+        "Name": "USDT",
+        "Sum": 36600
+      },
+      {
+        "Name": "BTC",
+        "Sum": 11000
+      }
+    ],
+    "RealEstate": [
+      {
+        "Name": "Chavdar",
+        "Sum": 100000
+      },
+      {
+        "Name": "Dacha",
+        "Sum": 40000
+      },
+      {
+        "Name": "PostVolynska",
+        "Sum": 20000
+      },
+      {
+        "Name": "Avto",
+        "Sum": 20000
+      }
+    ],
+    "Total": {
+      "Bank": 0,
+      "Cache": 0,
+      "Crypto": 0,
+      "RealEstate": 0,
+      "TotalSum": 0
+    }
+  },
+  "Girl": {
+    "Advantages": [
+      "Beauty",
+      "Manners",
+      "NoSmoking",
+      "NoChildrens",
+      "NoDrinking",
+      "Smart",
+      "Religion",
+      "Cats",
+      "Love",
+      "Influence"
+    ],
+    "Disadvantages": [
+      "Сharacter",
+      "39yo",
+      "Donetsk",
+      "NoWorking",
+      "NoMoney",
+      "Distance"
+    ]
+  },
+  "What I have": [
+    {
+      "What": "Childs",
+      "Description": ""
+    },
+    {
+      "What": "Girl",
+      "Description": ""
+    },
+    {
+      "What": "Big flat",
+      "Description": ""
+    },
+    {
+      "What": "Car",
+      "Description": ""
+    },
+    {
+      "What": "Dacha",
+      "Description": ""
+    },
+    {
+      "What": "Work",
+      "Description": ""
+    },
+    {
+      "What": "Girl",
+      "Description": ""
+    },
+    {
+      "What": "Health",
+      "Description": ""
+    },
+    {
+      "What": "Savings",
+      "Description": ""
+    },
+    {
+      "What": "Project",
+      "Description": ""
+    }
+  ],
+  "What I dont have": [
+    {
+      "What": "Family",
+      "Description": "InProgress ?"
+    },
+    {
+      "What": "Military deferment",
+      "Description": "InProgress - Aspirantura"
+    },
+    {
+      "What": "Business",
+      "Description": "InProgress - Agency"
+    },
+    {
+      "What": "Imigration",
+      "Description": "InProgress - 3d children ?"
+    }
+  ]
+}

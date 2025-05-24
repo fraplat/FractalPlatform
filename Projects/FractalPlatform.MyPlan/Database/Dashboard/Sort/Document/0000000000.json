@@ -1,0 +1,23 @@
+{
+  "LifeRules": {
+    "Index": 1
+  },
+  "Today": {
+    "Index": 2
+  },
+  "Yesterday": {
+    "Index": 3
+  },
+  "Categories": {
+    "Index": 4
+  },
+  "History": {
+    "Index": 5
+  },
+  "Report": {
+    "Index": 6
+  },
+  "Think": {
+    "Index": 7
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "Equity": {
+    "Total": {
+      "Bank": {
+        "Formula": "@TotalBankVariable"
+      },
+      "Cache": {
+        "Formula": "@TotalCacheVariable"
+      },
+      "Crypto": {
+        "Formula": "@TotalCryptoVariable"
+      },
+      "RealEstate": {
+        "Formula": "@TotalRealEstateVariable"
+      },
+      "TotalSum": {
+        "Formula": "@TotalSumVariable"
+      }
+    }
+  }
+}
