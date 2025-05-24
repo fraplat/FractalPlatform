@@ -1,0 +1,20 @@
+{
+    "Follow": {
+        "Value": "Follow"
+    },
+    "Unfollow": {
+        "Value": "Unfollow"
+    },
+    "LikePost": {
+        "Value": "Like Post"
+    },
+    "NewComment": {
+        "Value": "New Comment"
+    },
+    "Comments": [
+        {
+            "LikeComment": "Like Comment",
+            "Reply": "Reply"
+        }
+    ]
+}
