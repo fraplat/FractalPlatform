@@ -1,24 +1,24 @@
-﻿{
-   "Name": "test",
-   "OnDate": "2025-05-24T00:00:00",
-   "Text": "My first post",
-   "Comments": [
-      {
-         "Name": "BotA",
-         "OnDate": "2025-05-20T00:00:00",
-         "Text": "Cool",
-         "Likes": [
-            "BotB"
-         ]
-      },
-      {
-         "Name": "BotD",
-         "OnDate": "05/23/2025",
-         "Text": "Мой комментарий"
-      }
-   ],
-   "Likes": [
-      "BotA",
-      "test"
-   ]
+{
+  "Name": "test",
+  "OnDate": "2025-05-24T00:00:00",
+  "Text": "My first post",
+  "Comments": [
+    {
+      "Name": "BotA",
+      "OnDate": "2025-05-20T00:00:00",
+      "Text": "Cool",
+      "Likes": [
+        "BotB"
+      ]
+    },
+    {
+      "Name": "BotD",
+      "OnDate": "05/23/2025",
+      "Text": "Мой комментарий"
+    }
+  ],
+  "Likes": [
+    "BotA",
+    "test"
+  ]
 }

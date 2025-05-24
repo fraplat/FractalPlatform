@@ -9,5 +9,11 @@
   },
   "Text": {
     "ReadOnly": true
+  },
+  "Follow": {
+    "Visible": false
+  },
+  "Unfollow": {
+    "Visible": false
   }
 }
