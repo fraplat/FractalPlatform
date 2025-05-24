@@ -22,31 +22,25 @@
       "FullName": {
         "Index": 7
       },
-      "LikeComment": {
+      "Name": {
         "Index": 8
       },
-      "Name": {
+      "OnDate": {
         "Index": 9
       },
-      "OnDate": {
-        "Index": 10
-      },
-      "Reply": {
-        "Index": 11
-      },
       "Text": {
-        "Index": 12
+        "Index": 10
       },
       "Likes": [
         {
-          "Index": 13
+          "Index": 11
         }
       ]
     }
   ],
   "Likes": [
     {
-      "Index": 14
+      "Index": 12
     }
   ]
 }
