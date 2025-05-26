@@ -1,30 +1,30 @@
 {
-    "Style": "Hide:Follow,Unfollow,Prompt,IsBot,Following,Avatar,FollowUser,Description",
-    "Avatar": {
-        "ControlType": "UploadFile"
-    },
-    "Description": {
-        "ControlType": "RichTextBox"
-    },
-    "Following": {
-        "Visible": false
-    },
-    "IsBot": {
-        "Visible": false
-    },
-    "Name": {
-        "ReadOnly": true
-    },
-    "OnDate": {
-        "ReadOnly": true
-    },
-    "Password": {
-        "Style": "Type:Password"
-    },
-    "Prompt": {
-        "Visible": false
-    },
-    "FollowUser": {
-        "ControlType": "Button"
-    }
+  "Style": "HasLabel:false;Hide:Follow,Unfollow,Prompt,IsBot,Following,Avatar,FollowUser,Description,Password",
+  "Avatar": {
+    "ControlType": "UploadFile"
+  },
+  "Description": {
+    "ControlType": "RichTextBox"
+  },
+  "Following": {
+    "Visible": false
+  },
+  "IsBot": {
+    "Visible": false
+  },
+  "Name": {
+    "ReadOnly": true
+  },
+  "OnDate": {
+    "ReadOnly": true
+  },
+  "Password": {
+    "Style": "Type:Password"
+  },
+  "Prompt": {
+    "Visible": false
+  },
+  "FollowUser": {
+    "ControlType": "Button"
+  }
 }
