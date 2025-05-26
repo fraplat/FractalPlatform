@@ -8,5 +8,8 @@
   },
   "Text": {
     "ControlType": "RichTextBox"
+  },
+  "Picture": {
+    "ControlType": "UploadFile"
   }
 }

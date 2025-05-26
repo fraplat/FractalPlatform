@@ -58,6 +58,11 @@ namespace FractalPlatform.Cartouche {
                 get;
                 set;
             }
+            public string Picture
+            {
+                get;
+                set;
+            }
             public DateTime OnDate
             {
                 get;
@@ -140,6 +145,7 @@ namespace FractalPlatform.Cartouche {
                     Name = x.Name,
                     FullName = x.FullName,
                     Text = x.Text,
+                    Picture = x.Picture,
                     Avatar = x.Avatar,
                     OnDate = x.OnDate,
                     LikePost = x.LikePost,
@@ -469,6 +475,42 @@ namespace FractalPlatform.Cartouche {
 
             switch (info.Variable)
             {
+                case @"Text":
+                    {
+                        var text = info.AttrValue.ToString();
+                        
+                        Log(text);
+                        
+                        string picture;
+                        
+                        if(info.Collection.Name == "Dashboard")
+                        {
+                            picture = info.Collection
+                                          .GetWhere(info.AttrPath)
+                                          .Value("{'Posts':[{'Picture':$}]}");
+                        }
+                        else if(info.AttrPath.FirstPath != "Comments")
+                        {
+                            picture = info.Collection
+                                          .GetWhere(info.AttrPath)
+                                          .Value("{'Picture':$}");
+                        }
+                        else
+                        {
+                            picture = info.Collection
+                                          .GetWhere(info.AttrPath)
+                                          .Value("{'Comments':[{'Picture':$}]}");
+                        }
+                        
+                        if (!string.IsNullOrEmpty(picture) && picture != "null")
+                        {
+                            text += $"<br><br><img style='max-width:300px; max-height:200px' src='{GetFileUrl(picture)}'/>";
+                        }
+
+                        result = text;
+                        
+                        break;
+                    }
                 case @"OnDate":
                     {
                         var dt = info.AttrValue.ToString();
