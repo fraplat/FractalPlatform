@@ -1,15 +1,32 @@
 {
-  "FullName": {
-    "IsRequired": true
-  },
   "Name": {
-    "IsRequired": true
+    "IsRequired": true,
+    "MaxLen": 40,
+    "MinLen": 3
   },
   "OnDate": {
-    "IsRequired": true
+    "IsRequired": true,
+    "Type": "date"
   },
   "Text": {
     "IsRequired": true,
     "MaxLen": 400
-  }
+  },
+  "Comments": [
+    {
+      "Name": {
+        "IsRequired": true,
+        "MaxLen": 40,
+        "MinLen": 3
+      },
+      "OnDate": {
+        "IsRequired": true,
+        "Type": "date"
+      },
+      "Text": {
+        "IsRequired": true,
+        "MaxLen": 400
+      }
+    }
+  ]
 }

@@ -18,6 +18,10 @@
     "MinLen": 3,
     "Type": "string"
   },
+  "OnDate": {
+    "IsRequired": true,
+    "Type": "date"
+  },
   "Password": {
     "IsRequired": true,
     "MaxLen": 20,
