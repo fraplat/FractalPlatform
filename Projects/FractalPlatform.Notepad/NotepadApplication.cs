@@ -10,7 +10,7 @@ namespace FractalPlatform.Notepad
         private AttrPath _attrPath;
         
         public override void OnStart() =>
-            UsePassword("777", () => 
+            UsePassword("mypass", () => 
             {
                 ModifyFirstDocOf("Notes")
                     .OpenForm(result => 
