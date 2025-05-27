@@ -477,9 +477,7 @@ namespace FractalPlatform.Cartouche {
             {
                 case @"Text":
                     {
-                        var text = info.AttrValue.ToString();
-                        
-                        Log(text);
+                        var text = System.Net.WebUtility.HtmlEncode(info.AttrValue.ToString());
                         
                         string picture;
                         
@@ -504,7 +502,7 @@ namespace FractalPlatform.Cartouche {
                         
                         if (!string.IsNullOrEmpty(picture) && picture != "null")
                         {
-                            text += $"<br><br><img style='max-width:300px; max-height:200px' src='{GetFileUrl(picture)}'/>";
+                            text += $"<br><br><img style='max-width:400px; max-height:300px' src='{GetFileUrl(picture)}'/>";
                         }
 
                         result = text;
