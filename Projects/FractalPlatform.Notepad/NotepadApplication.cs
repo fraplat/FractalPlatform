@@ -29,8 +29,7 @@ namespace FractalPlatform.Notepad
                 }
                 case @"Save":
                 {
-                    MessageBox("Test");
-                    //SaveForm();
+                    SaveForm();
 
                     break;
                 }

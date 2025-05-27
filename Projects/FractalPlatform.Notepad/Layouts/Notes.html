@@ -108,8 +108,8 @@
     <div class="button-container">
         <control attr="">
             <input class="name-textbox" @Name.TextBox />
-            <button class="save-button" @Save.Button>Сохранить</button>
-            <button class="cancel-button" @Cancel.Button>Закрыть</button>
+            <button class="save-button" onclick='@Save.ClickSubmit'>Сохранить</button>
+            <button class="cancel-button" onclick='@Cancel.ClickSubmit'>Закрыть</button>
         </control>
     </div>
     @EndForm
