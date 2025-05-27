@@ -1,3 +1,4 @@
+using FractalPlatform.Client.UI.DOM;
 using FractalPlatform.Client.App;
 using FractalPlatform.Client.UI;
 using FractalPlatform.Database.Engine;
@@ -7,27 +8,37 @@ namespace FractalPlatform.Notepad
 {
     public class NotepadApplication : BaseApplication
     {
-        private AttrPath _attrPath;
-        
         public override void OnStart() =>
-            UsePassword("mypass", () => 
-            {
-                ModifyFirstDocOf("Notes")
-                    .OpenForm(result => 
-                    {
-                        SaveForm();
-                        
-                        if(result.Result)
-                        {
-                            ModifyDocsWhere("Notes", _attrPath)
-                                .OpenForm(result => SaveForm());
-                        }
-                    });
-            });
-
-        public override bool OnCloseForm(FormInfo info)
+            UsePassword("mypass",
+                        () => ModifyFirstDocOf("Notes")
+                                .OpenForm());
+    
+        public override bool OnEventDimension(EventInfo info)
         {
-            _attrPath = info.AttrPath;
+            var path = info.Action;
+
+            switch(path)
+            {
+                case @"Cancel":
+                {
+                    SaveForm();
+                    
+                    CloseForm();
+
+                    break;
+                }
+                case @"Save":
+                {
+                    MessageBox("Test");
+                    //SaveForm();
+
+                    break;
+                }
+                default:
+                {
+                    return base.OnEventDimension(info);
+                }
+            }
 
             return true;
         }

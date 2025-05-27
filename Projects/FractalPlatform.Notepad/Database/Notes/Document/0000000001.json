@@ -2,7 +2,9 @@
   "Notes": [
     {
       "Name": "Main",
-      "Text": ""
+      "Text": "",
+      "Save": "Save",
+      "Cancel": "Cancel"
     }
   ]
 }

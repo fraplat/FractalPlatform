@@ -14,7 +14,7 @@
             color: #f1f1f1;
             font-family: 'Courier New', Courier, monospace;
         }
-
+        
         textarea {
             width: 99%;
             height: 97vh;
@@ -28,11 +28,11 @@
             white-space: pre-wrap;
             font-size: 20px;
         }
-
+        
             textarea:focus {
                 overflow: auto;
             }
-
+        
         .button-container {
             position: absolute;
             bottom: 20px;
@@ -40,7 +40,7 @@
             display: flex;
             gap: 10px;
         }
-
+        
         .name-textbox,
         .save-button,
         .cancel-button {
@@ -52,13 +52,13 @@
             cursor: pointer;
             font-family: 'Courier New', Courier, monospace;
         }
-
+        
             .name-textbox:hover,
             .save-button:hover,
             .cancel-button:hover {
                 background-color: #00cc00;
             }
-
+        
         .font-size-container {
             position: absolute;
             top: 20px;
@@ -67,7 +67,7 @@
             align-items: center;
             gap: 10px;
         }
-
+        
         .font-size-dropdown {
             background-color: #000000;
             color: #f1f1f1;
@@ -77,11 +77,11 @@
             cursor: pointer;
             font-family: 'Courier New', Courier, monospace;
         }
-
+        
             .font-size-dropdown:hover {
                 background-color: #333333;
             }
-
+        
         .font-size-label {
             font-size: 14px;
         }
@@ -93,7 +93,6 @@
     <control attr="Text">
         <textarea id="main-textarea" @RichTextBox>@Value</textarea>
     </control>
-
     <div class="font-size-container">
         <span class="font-size-label">Размер шрифта:</span>
         <select id="font-size-selector" class="font-size-dropdown">
@@ -107,16 +106,16 @@
     </div>
 
     <div class="button-container">
-        <control attr="Name">
-            <input class="name-textbox" @TextBox />
+        <control attr="">
+            <input class="name-textbox" @Name.TextBox />
+            <button class="save-button" @Save.Button>Сохранить</button>
+            <button class="cancel-button" @Cancel.Button>Закрыть</button>
         </control>
-        <button class="save-button" @SavePageButton>Сохранить</button>
-        <button class="cancel-button" @CancelPageButton>Закрыть</button>
     </div>
     @EndForm
 
     <script>
-        document.getElementById('font-size-selector').addEventListener('change', function () {
+        document.getElementById('font-size-selector').addEventListener('change', function() {
             const selectedFontSize = this.value;
             document.getElementById('main-textarea').style.fontSize = selectedFontSize;
         });
