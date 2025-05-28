@@ -15,9 +15,7 @@
   "Comments": [
     {
       "Name": {
-        "IsRequired": true,
-        "MaxLen": 40,
-        "MinLen": 3
+        "Formula": "@ValidateCommentName"
       },
       "OnDate": {
         "IsRequired": true,

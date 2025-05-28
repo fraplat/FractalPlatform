@@ -8,6 +8,7 @@ using FractalPlatform.Database.Engine;
 using FractalPlatform.Client.App;
 using FractalPlatform.Client.UI;
 using FractalPlatform.Common.Clients;
+using FractalPlatform.Common.Enums;
 
 namespace FractalPlatform.Cartouche {
     public class CartoucheApplication : DashboardApplication
@@ -244,6 +245,7 @@ namespace FractalPlatform.Cartouche {
                 case @"EditBots":
                     {
                         ModifyDocsWhere("Users", "{'IsBot':true}")
+                            .SetDimension(DimensionType.Filter, "{}")
                             .OpenForm();
 
                         break;
@@ -475,6 +477,31 @@ namespace FractalPlatform.Cartouche {
 
             switch (info.Variable)
             {
+                case @"ValidateCommentName":
+                {
+                    result = DocsWhere("Users", "{'Name':@Name}", info.AttrValue)
+                                .Any();
+            
+                    break;
+                }
+                case @"ValidateLikePost":
+                {
+                    result = DocsWhere("Users", "{'Name':@Name}", info.AttrValue).Any() &&
+                            !DocsWhere("Posts", info.AttrPath.DocID)
+                                .AndWhere("{'Likes':[Any,@Name]}", info.AttrValue)
+                                .Any();
+
+                    break;
+                }
+                case @"ValidateFollowUser":
+                {
+                    result = DocsWhere("Users", "{'Name':@Name}", info.AttrValue).Any() &&
+                            !DocsWhere("Users", info.AttrPath.DocID)
+                            .AndWhere("{'Following':[Any,@Name]}", info.AttrValue)
+                            .Any();
+
+                    break;
+                }
                 case @"Text":
                     {
                         var text = System.Net.WebUtility.HtmlEncode(info.AttrValue.ToString());
