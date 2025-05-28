@@ -27,5 +27,10 @@
     "MaxLen": 20,
     "MinLen": 3,
     "Type": "string"
-  }
+  },
+  "Following": [
+    {
+      "Formula": "@ValidateFollowUser"
+    }
+  ]
 }

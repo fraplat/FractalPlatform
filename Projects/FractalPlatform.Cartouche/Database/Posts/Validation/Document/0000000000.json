@@ -12,6 +12,11 @@
     "IsRequired": true,
     "MaxLen": 400
   },
+  "Likes": [
+    {
+      "Formula": "@ValidateLikePost"
+    }
+  ],
   "Comments": [
     {
       "Name": {
