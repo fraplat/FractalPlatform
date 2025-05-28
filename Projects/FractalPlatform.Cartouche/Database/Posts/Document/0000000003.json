@@ -1,26 +1,26 @@
-﻿{
-   "Name": "test",
-   "OnDate": "2025-05-27T09:07:46",
-   "Picture": "6a7c47fdd75e4829a803f75fe21b533f.jpg",
-   "Text": "Тест экранированного хтмл <b>test</b>",
-   "Comments": [
-      {
-         "Name": "test",
-         "OnDate": "2025-05-27T09:08:38",
-         "Picture": "be90479563bf4769bc274fdd1844d91a.jpg",
-         "Text": "Тест комментария"
-      },
-      {
-         "Name": "test",
-         "OnDate": "2025-05-27T19:52:29",
-         "Picture": "",
-         "Text": "New test"
-      },
-      {
-         "Name": "test",
-         "OnDate": "2025-05-27T21:34:45",
-         "Picture": "",
-         "Text": "Next test"
-      }
-   ]
+{
+  "Name": "test",
+  "OnDate": "2025-05-27T09:07:46",
+  "Picture": "6a7c47fdd75e4829a803f75fe21b533f.jpg",
+  "Text": "Тест экранированного хтмл test",
+  "Comments": [
+    {
+      "Name": "test",
+      "OnDate": "2025-05-27T09:08:38",
+      "Picture": "be90479563bf4769bc274fdd1844d91a.jpg",
+      "Text": "Тест комментария"
+    },
+    {
+      "Name": "test",
+      "OnDate": "2025-05-27T19:52:29",
+      "Picture": "",
+      "Text": "New test"
+    },
+    {
+      "Name": "test",
+      "OnDate": "2025-05-27T21:34:45",
+      "Picture": "",
+      "Text": "Next test"
+    }
+  ]
 }
