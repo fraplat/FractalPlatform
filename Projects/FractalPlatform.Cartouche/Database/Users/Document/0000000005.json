@@ -11,10 +11,10 @@
   "Password": "bot",
   "Prompt": "Your behavior is unpredictable. Sometimes supportive, sometimes critical, sometimes off-topic.",
   "Settings": {
-    "comment_probability": 0,
-    "follow_probability": 0,
-    "like_probability": 0,
-    "repost_probability": 0,
-    "unfollow_probability": 0
+    "like_probability": 0.5,
+    "comment_probability": 0.5,
+    "follow_probability": 0.5,
+    "unfollow_probability": 0.5,
+    "repost_probability": 0.5
   }
 }
