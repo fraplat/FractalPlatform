@@ -1,10 +1,10 @@
 {
   "Style": "HasLabel:false;Hide:Follow,Unfollow,Prompt,Settings,IsBot,Following,Avatar,FollowUser,Description,Password",
+  "Gender": {
+    "Style": "HasLabel:true"
+  },
   "Avatar": {
     "ControlType": "UploadFile"
-  },
-  "Description": {
-    "ControlType": "RichTextBox"
   },
   "Following": {
     "Visible": false
