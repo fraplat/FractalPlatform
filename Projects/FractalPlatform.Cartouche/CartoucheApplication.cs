@@ -478,6 +478,13 @@ namespace FractalPlatform.Cartouche {
 
             switch (info.Variable)
             {
+                case @"ValidatePostName":
+                {
+                    result = DocsWhere("Users", "{'Name':@Name}", info.AttrValue)
+                                .Any();
+            
+                    break;
+                }
                 case @"ValidateCommentName":
                 {
                     result = DocsWhere("Users", "{'Name':@Name}", info.AttrValue)
@@ -491,7 +498,7 @@ namespace FractalPlatform.Cartouche {
                             !DocsWhere("Posts", info.AttrPath.DocID)
                                 .AndWhere("{'Likes':[Any,@Name]}", info.AttrValue)
                                 .Any();
-
+                    
                     break;
                 }
                 case @"ValidateFollowUser":
