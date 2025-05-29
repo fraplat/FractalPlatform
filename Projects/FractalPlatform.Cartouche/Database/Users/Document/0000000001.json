@@ -14,5 +14,13 @@
     "BotB",
     "BotC"
   ],
-  "Description": ""
+  "Category": "",
+  "Description": "",
+  "Settings": {
+    "like_probability": 0,
+    "comment_probability": 0,
+    "follow_probability": 0,
+    "unfollow_probability": 0,
+    "repost_probability": 0
+  }
 }

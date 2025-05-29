@@ -1,6 +1,7 @@
 {
   "Age": 20,
   "Avatar": "Rebeca.jpg",
+  "Category": "",
   "Description": "",
   "FullName": "Rebeca",
   "Gender": "Female",
@@ -12,5 +13,12 @@
   "Prompt": "девушка 20 лет в хорошем настроении",
   "Following": [
     "test"
-  ]
+  ],
+  "Settings": {
+    "comment_probability": 0,
+    "follow_probability": 0,
+    "like_probability": 0,
+    "repost_probability": 0,
+    "unfollow_probability": 0
+  }
 }

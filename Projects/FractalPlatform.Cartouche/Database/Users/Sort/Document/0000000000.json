@@ -34,7 +34,27 @@
       "Index": 11
     }
   ],
-  "Description": {
+  "Category": {
     "Index": 12
+  },
+  "Description": {
+    "Index": 13
+  },
+  "Settings": {
+    "like_probability": {
+      "Index": 14
+    },
+    "comment_probability": {
+      "Index": 15
+    },
+    "follow_probability": {
+      "Index": 16
+    },
+    "unfollow_probability": {
+      "Index": 17
+    },
+    "repost_probability": {
+      "Index": 18
+    }
   }
 }

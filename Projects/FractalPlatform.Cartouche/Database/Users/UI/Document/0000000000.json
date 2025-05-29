@@ -9,6 +9,9 @@
   "Following": {
     "Visible": false
   },
+  "FollowUser": {
+    "ControlType": "Button"
+  },
   "IsBot": {
     "Visible": false
   },
@@ -24,7 +27,7 @@
   "Prompt": {
     "Visible": false
   },
-  "FollowUser": {
-    "ControlType": "Button"
+  "Settings": {
+    "Visible": false
   }
 }

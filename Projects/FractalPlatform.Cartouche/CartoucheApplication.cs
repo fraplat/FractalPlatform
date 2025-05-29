@@ -246,6 +246,7 @@ namespace FractalPlatform.Cartouche {
                     {
                         ModifyDocsWhere("Users", "{'IsBot':true}")
                             .SetDimension(DimensionType.Filter, "{}")
+                            .ExtendUIDimension("{'Settings':{'Visible':true}}")
                             .OpenForm();
 
                         break;
