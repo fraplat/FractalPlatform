@@ -486,6 +486,15 @@ namespace FractalPlatform.Cartouche {
 
                         break;
                     }
+                case @"EditPost":
+                    {
+                        var name = DocsWhere("Posts", info.AttrPath)
+                                        .Value("{'Name':$}");
+                                        
+                        result = (name == Context.User.Name);
+                        
+                        break;
+                    }
                 default:
                     {
                         return base.OnSecurityDimension(info);
