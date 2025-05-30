@@ -406,7 +406,6 @@ namespace FractalPlatform.Cartouche {
                     }
                 case @"EditPost":
                     {
-
                         if (info.Collection.Name == "Dashboard")
                         {
                             var nameAndOnDate = info.Collection
@@ -414,15 +413,18 @@ namespace FractalPlatform.Cartouche {
                                                     .Values("{'Posts':[{'Name':$,'OnDate':$}]}");
 
                             var docID = DocsWhere("Posts", "{'Name':@Name,'OnDate':@OnDate}", nameAndOnDate[0], nameAndOnDate[1])
-                                            .GetFirstID();
-
+                                    .GetFirstID();
+                                    
                             ModifyDocsWhere("Posts", docID)
                                 .ExtendUIDimension("{'Style':'Save:Update','IsRawPage':false,'Layout':'','Visible':false,'Text':{'Visible':true},'Picture':{'Visible':true}}")
                                 .OpenForm(result => Dashboard());
+
                         }
                         else
                         {
-                            //todo
+                            ModifyDocsWhere("Posts", info.DocID)
+                                .ExtendUIDimension("{'Style':'Save:Update','IsRawPage':false,'Layout':'','Visible':false,'Text':{'Visible':true},'Picture':{'Visible':true}}")
+                                .OpenForm();
                         }
 
                         break;

@@ -1,36 +1,39 @@
 {
-    "Avatar": {
+  "Avatar": {
+    "Formula": "@Avatar"
+  },
+  "FullName": {
+    "Formula": "@FullName"
+  },
+  "Follow": {
+    "Value": "Follow"
+  },
+  "Unfollow": {
+    "Value": "Unfollow"
+  },
+  "LikePost": {
+    "Value": "Like Post"
+  },
+  "NewComment": {
+    "Value": "New Comment"
+  },
+  "Comments": [
+    {
+      "Avatar": {
         "Formula": "@Avatar"
-    },
-    "FullName": {
+      },
+      "FullName": {
         "Formula": "@FullName"
-    },
-    "Follow": {
-        "Value": "Follow"
-    },
-    "Unfollow": {
-        "Value": "Unfollow"
-    },
-    "LikePost": {
-        "Value": "Like Post"
-    },
-    "NewComment": {
-        "Value": "New Comment"
-    },
-    "Comments": [
-        {
-            "Avatar": {
-                "Formula": "@Avatar"
-            },
-            "FullName": {
-                "Formula": "@FullName"
-            },
-            "LikeComment": {
-                "Value": "Like Comment"
-            },
-            "Reply": {
-                "Value": "Reply"
-            }
-        }
-    ]
+      },
+      "LikeComment": {
+        "Value": "Like Comment"
+      },
+      "Reply": {
+        "Value": "Reply"
+      }
+    }
+  ],
+  "EditPost": {
+    "Value": "Edit Post"
+  }
 }

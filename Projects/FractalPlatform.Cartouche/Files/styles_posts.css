@@ -75,18 +75,24 @@
     
     .user-details {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px; /* регулируй по вкусу */
+        flex-wrap: nowrap; /* важно: чтобы не переносились */
     }
     
     .user-name {
         font-weight: bold;
         font-size: 15px;
+        display: flex;
+        align-items: center;
     }
     
     .user-handle {
         color: #8899A6;
         font-size: 14px;
+        display: flex;
+        align-items: center;
     }
     
     .follow-button {
@@ -239,4 +245,18 @@
     
     .comment-action span {
         font-size: 13px;
+    }
+    
+    .edit-profile {
+        color: #1D9BF0;
+        background: none;
+        border: none;
+        cursor: pointer;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.2s;
     }
