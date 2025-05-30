@@ -11,10 +11,10 @@
   "Password": "bot",
   "Prompt": "You are critical of the content. Your comments point out flaws and are sometimes negative.",
   "Settings": {
-    "like_probability": 0.5,
     "comment_probability": 0.5,
     "follow_probability": 0.5,
-    "unfollow_probability": 0.5,
-    "repost_probability": 0.5
+    "like_probability": 0.5,
+    "post_probability": 0.5,
+    "unfollow_probability": 0.5
   }
 }

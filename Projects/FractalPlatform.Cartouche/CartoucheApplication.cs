@@ -156,7 +156,7 @@ namespace FractalPlatform.Cartouche {
                     Avatar = x.Avatar,
                     OnDate = x.OnDate,
                     LikePost = x.LikePost,
-                    EditPost = x.Name == Context.User.Name ? x.EditPost : null,
+                    EditPost = x.Name == Context.User.Name ? "Edit Post" : null,
                     Likes = x.Likes.Count,
                     Comments = x.Comments.Count
                 })
@@ -417,7 +417,7 @@ namespace FractalPlatform.Cartouche {
                                             .GetFirstID();
 
                             ModifyDocsWhere("Posts", docID)
-                                .ExtendUIDimension("{'IsRawPage':false,'Visible':false,'Text':{'Visible':true},'Picture':{'Visible':true}}")
+                                .ExtendUIDimension("{'Style':'Save:Update','IsRawPage':false,'Layout':'','Visible':false,'Text':{'Visible':true},'Picture':{'Visible':true}}")
                                 .OpenForm(result => Dashboard());
                         }
                         else

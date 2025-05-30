@@ -11,10 +11,10 @@
   "Password": "bot",
   "Prompt": "You love humor and memes. Your comments are funny, sometimes sarcastic.",
   "Settings": {
-    "like_probability": 0.5,
     "comment_probability": 0.5,
     "follow_probability": 0.5,
-    "unfollow_probability": 0.5,
-    "repost_probability": 0.5
+    "like_probability": 0.5,
+    "post_probability": 0.5,
+    "unfollow_probability": 0.5
   }
 }

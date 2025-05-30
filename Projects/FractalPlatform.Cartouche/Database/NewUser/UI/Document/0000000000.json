@@ -3,6 +3,9 @@
   "Avatar": {
     "Visible": false
   },
+  "Category": {
+    "Visible": false
+  },
   "IsActive": {
     "Visible": false
   },
@@ -16,9 +19,6 @@
     "Style": "Type:Password"
   },
   "Prompt": {
-    "Visible": false
-  },
-  "Category": {
     "Visible": false
   },
   "Settings": {

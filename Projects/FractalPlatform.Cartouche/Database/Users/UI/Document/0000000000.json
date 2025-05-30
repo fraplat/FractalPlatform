@@ -1,8 +1,5 @@
 {
   "Style": "HasLabel:false;Hide:Follow,Unfollow,Prompt,Settings,IsBot,Following,Avatar,FollowUser,Description,Password",
-  "Gender": {
-    "Style": "HasLabel:true"
-  },
   "Avatar": {
     "ControlType": "UploadFile"
   },
@@ -11,6 +8,9 @@
   },
   "FollowUser": {
     "ControlType": "Button"
+  },
+  "Gender": {
+    "Style": "HasLabel:true"
   },
   "IsBot": {
     "Visible": false

@@ -7,13 +7,16 @@
   "OnDate": {
     "ReadOnly": true
   },
-  "Text": {
-    "ReadOnly": true
-  },
   "Follow": {
     "Visible": false
   },
   "Unfollow": {
     "Visible": false
+  },
+  "Text": {
+    "ControlType": "RichTextBox"
+  },
+  "Picture": {
+    "ControlType": "UploadFile"
   }
 }

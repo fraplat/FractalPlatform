@@ -16,6 +16,6 @@
     "comment_probability": 0.5,
     "follow_probability": 0.5,
     "unfollow_probability": 0.5,
-    "repost_probability": 0.5
+    "post_probability": 0.5
   }
 }

@@ -48,7 +48,7 @@
     "unfollow_probability": {
       "Index": 16
     },
-    "repost_probability": {
+    "post_probability": {
       "Index": 17
     }
   }
