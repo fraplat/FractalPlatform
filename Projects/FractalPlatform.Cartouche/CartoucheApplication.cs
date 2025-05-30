@@ -439,20 +439,30 @@ namespace FractalPlatform.Cartouche {
                 case @"EditComment":
                     {
                         var text = DocsWhere("Posts", info.AttrPath)
-                                        .Values("{'Comments':[{'Text':$}]}");
+                                    .Values("{'Comments':[{'Text':$}]}");
 
                         FirstDocOf("NewComment")
                             .ExtendDocument(DQL("{'Text':@Text}", text))
-                            .SetUIDimension("{'Style':'CollLabel:Update comment;Save:Update'}")
+                            .ExtendUIDimension("{'Style':'CollLabel:Update comment;Save:Update'}")
                             .OpenForm(result => 
                             {
                                 if(result.Result) 
                                 {
                                     var text = result.FindFirstValue("Text");
                                     var picture = result.FindFirstValue("Picture");
-                                    
-                                    DocsWhere("Posts", info.AttrPath)
-                                        .Update("{'Comments':[{'Name':@Text,'Picture':@Picture}]}", text, picture);
+
+                                    if (string.IsNullOrEmpty(picture))
+                                    {
+                                        DocsWhere("Posts", info.AttrPath)
+                                            .Update("{'Comments':[{'Text':@Text}]}", text);
+                                    }
+                                    else
+                                    {
+                                        DocsWhere("Posts", info.AttrPath)
+                                            .Update("{'Comments':[{'Text':@Text,'Picture':@Picture}]}", text, picture);
+                                    }
+
+                                    result.NeedReloadData = true;
                                 }
                             });
 
