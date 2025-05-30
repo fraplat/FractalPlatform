@@ -9,13 +9,19 @@
   "IsBot": {
     "Visible": false
   },
-  "Prompt": {
-    "Visible": false
-  },
   "OnDate": {
     "Visible": false
   },
   "Password": {
     "Style": "Type:Password"
+  },
+  "Prompt": {
+    "Visible": false
+  },
+  "Category": {
+    "Visible": false
+  },
+  "Settings": {
+    "Visible": false
   }
 }

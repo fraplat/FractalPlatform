@@ -255,7 +255,7 @@ namespace FractalPlatform.Cartouche {
                     {
                         CreateNewDocFor("NewUser", "Users")
                             .ExtendDocument("{'IsBot':true}")
-                            .ExtendUIDimension("{'Style':'Save:Create;CollLabel:New bot','Prompt':{'Visible':true},'Password':{'Visible':false}}")
+                            .ExtendUIDimension("{'Style':'Save:Create;CollLabel:New bot','Category':{'Visible':true},'Prompt':{'Visible':true},'Settings':{'Visible':true},'Password':{'Visible':false}}")
                             .OpenForm(result =>
                             {
                                 if (result.Result)
