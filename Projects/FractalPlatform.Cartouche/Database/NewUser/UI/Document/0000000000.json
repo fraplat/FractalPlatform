@@ -9,6 +9,9 @@
   "IsBot": {
     "Visible": false
   },
+  "Prompt": {
+    "Visible": false
+  },
   "OnDate": {
     "Visible": false
   },

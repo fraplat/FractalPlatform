@@ -251,6 +251,25 @@ namespace FractalPlatform.Cartouche {
 
                         break;
                     }
+                case @"NewBot":
+                    {
+                        CreateNewDocFor("NewUser", "Users")
+                            .ExtendDocument("{'IsBot':true}")
+                            .ExtendUIDimension("{'Style':'Save:Create;CollLabel:New bot','Prompt':{'Visible':true},'Password':{'Visible':false}}")
+                            .OpenForm(result =>
+                            {
+                                if (result.Result)
+                                {
+                                    MessageBox("You are added new bot !", MessageBoxButtonType.Ok, result => Dashboard());
+                                }
+                                else
+                                {
+                                    Dashboard();
+                                }
+                            });
+
+                        break;
+                    }
                 case @"NewComment":
                     {
                         CreateNewDocForArray("NewComment", "Posts", "{'Comments':[$]}", info.DocID)

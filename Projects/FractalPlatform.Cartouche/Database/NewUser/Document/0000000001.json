@@ -5,6 +5,7 @@
   "Age": 20,
   "IsActive": true,
   "IsBot": false,
+  "Prompt": "",
   "Gender": "Male",
   "OnDate": "05/20/2025",
   "Avatar": "guest.jpg",

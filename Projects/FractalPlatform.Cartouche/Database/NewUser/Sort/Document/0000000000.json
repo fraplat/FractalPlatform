@@ -17,16 +17,19 @@
   "IsBot": {
     "Index": 6
   },
-  "Gender": {
+  "Prompt": {
     "Index": 7
   },
-  "OnDate": {
+  "Gender": {
     "Index": 8
   },
-  "Avatar": {
+  "OnDate": {
     "Index": 9
   },
-  "Description": {
+  "Avatar": {
     "Index": 10
+  },
+  "Description": {
+    "Index": 11
   }
 }
