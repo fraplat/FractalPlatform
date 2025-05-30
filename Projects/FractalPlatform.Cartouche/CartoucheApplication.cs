@@ -75,6 +75,12 @@ namespace FractalPlatform.Cartouche {
                 get;
                 set;
             }
+            
+            public string EditPost
+            {
+                get;
+                set;
+            }
 
             public List<string> Likes
             {
@@ -150,6 +156,7 @@ namespace FractalPlatform.Cartouche {
                     Avatar = x.Avatar,
                     OnDate = x.OnDate,
                     LikePost = x.LikePost,
+                    EditPost = x.Name == Context.User.Name ? x.EditPost : null,
                     Likes = x.Likes.Count,
                     Comments = x.Comments.Count
                 })
@@ -260,7 +267,9 @@ namespace FractalPlatform.Cartouche {
                             {
                                 if (result.Result)
                                 {
-                                    MessageBox("You are added new bot !", MessageBoxButtonType.Ok, result => Dashboard());
+                                    MessageBox("You are added new bot !",
+                                               MessageBoxButtonType.Ok,
+                                               result => Dashboard());
                                 }
                                 else
                                 {
@@ -391,6 +400,29 @@ namespace FractalPlatform.Cartouche {
 
                             DocsWhere("Posts", info.DocID)
                                 .OpenForm(result => Dashboard());
+                        }
+
+                        break;
+                    }
+                case @"EditPost":
+                    {
+
+                        if (info.Collection.Name == "Dashboard")
+                        {
+                            var nameAndOnDate = info.Collection
+                                                    .GetWhere(info.AttrPath)
+                                                    .Values("{'Posts':[{'Name':$,'OnDate':$}]}");
+
+                            var docID = DocsWhere("Posts", "{'Name':@Name,'OnDate':@OnDate}", nameAndOnDate[0], nameAndOnDate[1])
+                                            .GetFirstID();
+
+                            ModifyDocsWhere("Posts", docID)
+                                .ExtendUIDimension("{'IsRawPage':false,'Visible':false,'Text':{'Visible':true},'Picture':{'Visible':true}}")
+                                .OpenForm(result => Dashboard());
+                        }
+                        else
+                        {
+                            //todo
                         }
 
                         break;
