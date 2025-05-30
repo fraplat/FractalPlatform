@@ -436,6 +436,25 @@ namespace FractalPlatform.Cartouche {
 
                         break;
                     }
+                case @"EditComment":
+                    {
+                        var values = DocsWhere("Posts", info.AttrPath)
+                                              .Values("{'Comments':[{'Name':$,'OnDate':$,'Text':$,'Picture':$}]}");
+
+                        FirstDocOf("NewComment")
+                            .ExtendDocument(DQL("{'Text':@Text}", values[2]))
+                            .OpenForm(result => 
+                            {
+                                if(result.Result) 
+                                {
+                                    var text = result.FindFirstValue("Text");
+                                    
+                                    MessageBox(text);
+                                }
+                            });
+
+                        break;
+                    }
                 case @"Comments":
                     {
                         var nameAndOnDate = info.Collection
@@ -663,6 +682,22 @@ namespace FractalPlatform.Cartouche {
 
                         result = DocsWhere("Users", "{'Name':@Name}", name)
                                     .Value("{'Avatar':$}");
+
+                        break;
+                    }
+                case @"EditComment":
+                    {
+                        var name = DocsWhere("Posts", info.AttrPath)
+                                       .Value("{'Comments':[{'Name':$}]}");
+
+                        if(name == User.Name)
+                        {
+                            result = "Edit Comment";    
+                        }
+                        else 
+                        {
+                            result = null;
+                        }
 
                         break;
                     }

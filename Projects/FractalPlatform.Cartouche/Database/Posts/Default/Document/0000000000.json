@@ -30,6 +30,9 @@
       },
       "Reply": {
         "Value": "Reply"
+      },
+      "EditComment": {
+        "Formula": "@EditComment"
       }
     }
   ],
