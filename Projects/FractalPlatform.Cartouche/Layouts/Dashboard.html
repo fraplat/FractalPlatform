@@ -32,13 +32,12 @@
                         </div>
                         <span class="user-name">@FullName.Value</span>
                         <button class="edit-profile" @EditUser.Button>
-                            <svg viewBox="0 0 24 24" width="18" height="18">
+                            <svg viewBox="0 0 24 24" width="20" height="20">
                                 <path fill="currentColor" d="M14.7307 5.25279C15.1225 4.86161 15.736 4.86262 16.1268 5.25523L18.7439 7.88601C19.1338 8.27766 19.1348 8.89248 18.7468 9.28563L9.5321 18.6232C9.37801 18.779 9.18068 18.8879 8.96588 18.9329L5.03489 19.764C4.49938 19.8642 4.01966 19.3876 4.11545 18.8517L4.92392 14.911C4.96816 14.6966 5.0755 14.4982 5.22877 14.3427L14.7307 5.25279ZM16.5571 8.25372L15.428 7.11976L6.67563 15.464L6.14966 17.8372L8.52723 17.3158L16.5571 8.25372Z"></path>
                             </svg>
                         </button>
-                    </div>
-                    <button class="edit-profile" @NewBot.Button>
-                        <svg viewBox="0 0 30 30" width="25" height="25" xmlns="http://www.w3.org/2000/svg">
+                        <button class="edit-profile" @NewBot.Button>
+                        <svg viewBox="0 0 30 30" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
                             <!-- Иконка пользователя (центральная часть) -->
                             <!-- Голова пользователя -->
                             <circle cx="15" cy="10" r="4" stroke="currentColor" stroke-width="2" fill="none" />
@@ -51,6 +50,7 @@
                             <line x1="22" y1="5.5" x2="22" y2="10.5" stroke="white" stroke-width="2" stroke-linecap="round" />
                         </svg>
                     </button>
+                    </div>
                     <button class="edit-profile" @EditBots.Button>
                         <svg viewBox="0 0 30 30" width="25" height="25" xmlns="http://www.w3.org/2000/svg">
                             <!-- Список (левая часть) -->
@@ -113,11 +113,6 @@
             </svg>
         </div>
     </control>
-    <control attr="NewBot">
-        <!-- NewBot: New Bot -->
-        <p><input @TextBox />
-    </control>
-
     @EndForm
 </body>
 
