@@ -102,6 +102,10 @@ namespace FractalPlatform.Sandbox
                                           docID,
                                           filter);
 
+                domForm.NeedRefreshForm = true;
+
+                domForm.RefreshForm();
+
                 var form = new MainForm(domForm, handleResult);
 
                 var prevActiveForm = ActiveForm;
