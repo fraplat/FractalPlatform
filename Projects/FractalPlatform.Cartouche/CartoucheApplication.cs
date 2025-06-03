@@ -137,49 +137,61 @@ namespace FractalPlatform.Cartouche {
 
         private void Dashboard()
         {
-            CloseIfOpenedForm("Dashboard");
+	        CloseIfOpenedForm("Dashboard");
 
-            var following = DocsWhere("Users", "{'Name':@UserName}")
-                .Values("{'Following':[$]}");
+	        //var following = DocsWhere("Users", "{'Name':@UserName}")
+	        //    .Values("{'Following':[$]}");
 
-            following.Add(Context.User.Name);
+	        //following.Add(Context.User.Name);
 
-            //var posts = DocsWhere("Posts", "{'Name':Any(@Following)}", following)
-            var posts = DocsOf("Posts")
-                .Select<Post>()
-                .Select(x => new
-                {
-                    Name = x.Name,
-                    FullName = x.FullName,
-                    Text = x.Text,
-                    Picture = x.Picture,
-                    Avatar = x.Avatar,
-                    OnDate = x.OnDate,
-                    LikePost = x.LikePost,
-                    EditPost = x.Name == Context.User.Name ? "Edit Post" : null,
-                    Likes = x.Likes.Count,
-                    Comments = x.Comments.Count
-                })
-                .OrderByDescending(x => x.OnDate)
-                .Take(50)
-                .ToList();
+	        var top = 30U;
 
-            if (!posts.Any())
-            {
-                NewPost();
+	        var lastDocID = DocsOf("Posts").GetLastID();
 
-                return;
-            }
+	        var skip = 0U;
 
-            var values = DocsWhere("Users", "{'Name':@UserName}")
-                            .Values("{'FullName':$,'Avatar':$}");
+	        if (lastDocID > top)
+	        {
+		        skip = lastDocID - 30;
+	        }
 
-            FirstDocOf("Dashboard")
-                .ToCollection()
-                .DeleteByParent("Posts")
-                .ExtendDocument(DQL("{'FullName':@FullName,'Avatar':@Avatar}", values[0], values[1]))
-                .MergeToArrayPath(posts, "Posts", Constants.FIRST_DOC_ID, true)
-                .OpenForm();
+	        //var posts = DocsWhere("Posts", "{'Name':Any(@Following)}", following)
+	        var posts = DocsOf("Posts")
+		        .Skip(skip)
+		        .Take(top)
+		        .Select<Post>()
+		        .Select(x => new
+		        {
+			        Name = x.Name,
+			        FullName = x.FullName,
+			        Text = x.Text,
+			        Picture = x.Picture,
+			        Avatar = x.Avatar,
+			        OnDate = x.OnDate,
+			        LikePost = x.LikePost,
+			        EditPost = x.Name == Context.User.Name ? "Edit Post" : null,
+			        Likes = x.Likes.Count,
+			        Comments = x.Comments.Count
+		        })
+		        .Reverse()
+		        .ToList();
+
+	        if (!posts.Any())
+	        {
+		        NewPost();
+
+		        return;
+	        }
+
+	        var values = DocsWhere("Users", "{'Name':@UserName}")
+			        		.Values("{'FullName':$,'Avatar':$}");
+
+	        FirstDocOf("Dashboard")
+		        .ToCollection()
+		        .DeleteByParent("Posts")
+		        .ExtendDocument(DQL("{'FullName':@FullName,'Avatar':@Avatar}", values[0], values[1]))
+		        .MergeToArrayPath(posts, "Posts", Constants.FIRST_DOC_ID, true)
+		        .OpenForm();
         }
 
         public override void OnStart()
@@ -439,20 +451,30 @@ namespace FractalPlatform.Cartouche {
                 case @"EditComment":
                     {
                         var text = DocsWhere("Posts", info.AttrPath)
-                                        .Values("{'Comments':[{'Text':$}]}");
+                                    .Values("{'Comments':[{'Text':$}]}");
 
                         FirstDocOf("NewComment")
                             .ExtendDocument(DQL("{'Text':@Text}", text))
-                            .SetUIDimension("{'Style':'CollLabel:Update comment;Save:Update'}")
+                            .ExtendUIDimension("{'Style':'CollLabel:Update comment;Save:Update'}")
                             .OpenForm(result => 
                             {
                                 if(result.Result) 
                                 {
                                     var text = result.FindFirstValue("Text");
                                     var picture = result.FindFirstValue("Picture");
-                                    
-                                    DocsWhere("Posts", info.AttrPath)
-                                        .Update("{'Comments':[{'Name':@Text,'Picture':@Picture}]}", text, picture);
+
+                                    if (string.IsNullOrEmpty(picture))
+                                    {
+                                        DocsWhere("Posts", info.AttrPath)
+                                            .Update("{'Comments':[{'Text':@Text}]}", text);
+                                    }
+                                    else
+                                    {
+                                        DocsWhere("Posts", info.AttrPath)
+                                            .Update("{'Comments':[{'Text':@Text,'Picture':@Picture}]}", text, picture);
+                                    }
+
+                                    result.NeedReloadData = true;
                                 }
                             });
 
