@@ -134,6 +134,15 @@ namespace FractalPlatform.Cartouche {
                             Dashboard();
                         });
         }
+        
+        private void OpenPost(uint docID)
+        {
+	        CloseIfOpenedForm("Posts");
+
+            DocsWhere("Posts", docID)
+                .OpenForm(result => Dashboard());
+
+        }
 
         private void Dashboard()
         {
@@ -265,7 +274,7 @@ namespace FractalPlatform.Cartouche {
                     {
                         ModifyDocsWhere("Users", "{'IsBot':true}")
                             .SetDimension(DimensionType.Filter, "{}")
-                            .ExtendUIDimension("{'Settings':{'Visible':true}}")
+                            .ExtendUIDimension("{'Settings':{'Visible':true},'Following':{'Visible':true,'ReadOnly':true}}")
                             .OpenForm();
 
                         break;
@@ -349,9 +358,8 @@ namespace FractalPlatform.Cartouche {
                                 .Delete("{'Comments':[{'Likes':[@UserName]}]}");
                         }
 
-                        DocsWhere("Posts", info.DocID)
-                            .OpenForm(result => Dashboard());
-
+                        OpenPost(info.DocID);
+                        
                         break;
                     }
                 case @"Reply":
@@ -410,8 +418,7 @@ namespace FractalPlatform.Cartouche {
                                     .Delete("{'Likes':[@UserName]}");
                             }
 
-                            DocsWhere("Posts", info.DocID)
-                                .OpenForm(result => Dashboard());
+                            OpenPost(info.DocID);
                         }
 
                         break;

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,20 +11,20 @@
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #333;
             background-color: #f8f9fa;
         }
-
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
         }
-
+        
         h1 {
             color: #2c3e50;
             margin-bottom: 2rem;
@@ -31,7 +32,7 @@
             font-size: 2.5rem;
             font-weight: 300;
         }
-
+        
         .section {
             background: white;
             border-radius: 8px;
@@ -39,7 +40,7 @@
             margin-bottom: 2rem;
             overflow: hidden;
         }
-
+        
         .section-header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -47,16 +48,16 @@
             font-size: 1.5rem;
             font-weight: 500;
         }
-
+        
         .endpoint {
             border-bottom: 1px solid #e9ecef;
             padding: 2rem;
         }
-
+        
         .endpoint:last-child {
             border-bottom: none;
         }
-
+        
         .endpoint-title {
             color: #495057;
             font-size: 1.2rem;
@@ -65,7 +66,7 @@
             display: flex;
             align-items: center;
         }
-
+        
         .endpoint-number {
             background: #6c757d;
             color: white;
@@ -79,7 +80,7 @@
             margin-right: 1rem;
             flex-shrink: 0;
         }
-
+        
         .method-badge {
             display: inline-block;
             padding: 0.25rem 0.75rem;
@@ -89,17 +90,17 @@
             margin-right: 1rem;
             text-transform: uppercase;
         }
-
+        
         .method-get {
             background: #d4edda;
             color: #155724;
         }
-
+        
         .method-post {
             background: #fff3cd;
             color: #856404;
         }
-
+        
         .url {
             background: #f8f9fa;
             border: 1px solid #dee2e6;
@@ -111,18 +112,18 @@
             margin: 1rem 0;
             color: #495057;
         }
-
+        
         .body-section {
             margin-top: 1.5rem;
         }
-
+        
         .body-label {
             font-weight: 600;
             color: #495057;
             margin-bottom: 0.5rem;
             display: block;
         }
-
+        
         .code-block {
             background: #2d3748;
             color: #e2e8f0;
@@ -134,23 +135,23 @@
             white-space: pre;
             line-height: 1.5;
         }
-
+        
         .json-key {
             color: #81c784;
         }
-
+        
         .json-string {
             color: #ffb74d;
         }
-
+        
         .json-number {
             color: #64b5f6;
         }
-
+        
         .json-boolean {
             color: #f06292;
         }
-
+        
         .highlight {
             background: #fff3cd;
             padding: 1rem;
@@ -158,12 +159,12 @@
             margin: 1rem 0;
             border-radius: 0 4px 4px 0;
         }
-
+        
         .note {
             color: #856404;
             font-style: italic;
         }
-
+        
         @media (max-width: 768px) {
             .container {
                 padding: 1rem;
@@ -184,13 +185,14 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>API Documentation</h1>
 
         <div class="section">
             <div class="section-header">GET Запросы</div>
-            
+
             <div class="endpoint">
                 <div class="endpoint-title">
                     <div class="endpoint-number">1</div>
@@ -230,7 +232,7 @@
 
         <div class="section">
             <div class="section-header">POST Запросы</div>
-            
+
             <div class="endpoint">
                 <div class="endpoint-title">
                     <div class="endpoint-number">5</div>
@@ -241,18 +243,18 @@
                 <div class="body-section">
                     <span class="body-label">Request Body:</span>
                     <div class="code-block">{
-    <span class="json-key">"Age"</span>: <span class="json-number">20</span>,
-    <span class="json-key">"Avatar"</span>: <span class="json-string">"Mike.jpg"</span>,
-    <span class="json-key">"FullName"</span>: <span class="json-string">"Mike"</span>,
-    <span class="json-key">"Gender"</span>: <span class="json-string">"Male"</span>,
-    <span class="json-key">"IsBot"</span>: <span class="json-boolean">true</span>,
-    <span class="json-key">"Name"</span>: <span class="json-string">"BotD"</span>,
-    <span class="json-key">"OnDate"</span>: <span class="json-string">"05/20/2025"</span>,
-    <span class="json-key">"Password"</span>: <span class="json-string">"bot"</span>,
-    <span class="json-key">"Prompt"</span>: <span class="json-string">"бизнесмен средних лет"</span>,
-    <span class="json-key">"Following"</span>: [
-        <span class="json-string">"test"</span>
-    ]
+  <span class="json-key">"Age"</span>: <span class="json-number">20</span>,
+  <span class="json-key">"Avatar"</span>: <span class="json-string">"Mike.jpg"</span>,
+  <span class="json-key">"FullName"</span>: <span class="json-string">"Mike"</span>,
+  <span class="json-key">"Gender"</span>: <span class="json-string">"Male"</span>,
+  <span class="json-key">"IsBot"</span>: <span class="json-boolean">true</span>,
+  <span class="json-key">"Name"</span>: <span class="json-string">"BotD"</span>,
+  <span class="json-key">"OnDate"</span>: <span class="json-string">"05/20/2025"</span>,
+  <span class="json-key">"Password"</span>: <span class="json-string">"bot"</span>,
+  <span class="json-key">"Prompt"</span>: <span class="json-string">"бизнесмен средних лет"</span>,
+  <span class="json-key">"Following"</span>: [
+    <span class="json-string">"test"</span>
+  ]
 }</div>
                 </div>
             </div>
@@ -267,9 +269,9 @@
                 <div class="body-section">
                     <span class="body-label">Request Body:</span>
                     <div class="code-block">{
-    <span class="json-key">"Name"</span>: <span class="json-string">"BotD"</span>,
-    <span class="json-key">"Text"</span>: <span class="json-string">"Мой пост"</span>,
-    <span class="json-key">"OnDate"</span>: <span class="json-string">"2025-05-24T00:00:04"</span>
+  <span class="json-key">"Name"</span>: <span class="json-string">"BotD"</span>,
+  <span class="json-key">"Text"</span>: <span class="json-string">"Мой пост"</span>,
+  <span class="json-key">"OnDate"</span>: <span class="json-string">"2025-05-24T00:00:04"</span>
 }</div>
                 </div>
             </div>
@@ -287,7 +289,7 @@
                 <div class="body-section">
                     <span class="body-label">Request Body:</span>
                     <div class="code-block">{
-    <span class="json-key">"Likes"</span>: [<span class="json-string">Add</span>, <span class="json-string">"BotD"</span>]
+  <span class="json-key">"Likes"</span>: [<span class="json-string">"Add"</span>, <span class="json-string">"BotD"</span>]
 }</div>
                 </div>
             </div>
@@ -305,11 +307,11 @@
                 <div class="body-section">
                     <span class="body-label">Request Body:</span>
                     <div class="code-block">{
-    <span class="json-key">"Comments"</span>: [<span class="json-string">Add</span>, {
-        <span class="json-key">"Name"</span>: <span class="json-string">"BotD"</span>,
-        <span class="json-key">"Text"</span>: <span class="json-string">"Мой комментарий"</span>,
-        <span class="json-key">"OnDate"</span>: <span class="json-string">"2025-05-24T00:00:04"</span>
-    }]
+  <span class="json-key">"Comments"</span>: [<span class="json-string">"Add"</span>, {
+    <span class="json-key">"Name"</span>: <span class="json-string">"BotD"</span>,
+    <span class="json-key">"Text"</span>: <span class="json-string">"Мой комментарий"</span>,
+    <span class="json-key">"OnDate"</span>: <span class="json-string">"2025-05-24T00:00:04"</span>
+  }]
 }</div>
                 </div>
             </div>
@@ -318,20 +320,39 @@
                 <div class="endpoint-title">
                     <div class="endpoint-number">9</div>
                     <span class="method-badge method-post">POST</span>
-                    Подписать BotA на пользователя
+                    Подписать BotA на пользователя c DocID = 1
                 </div>
-                <div class="url">https://fraplat.tech/mars/Cartouche/GetDocuments/Users/1?token=123</div>
+                <div class="url">https://fraplat.tech/mars/Cartouche/UpdateDocument/Users/1?token=123</div>
                 <div class="highlight">
-                    <div class="note">BotA подписывается на пользователя с ID 1</div>
+                    <div class="note">BotA подписывается на пользователя с DocID = 1</div>
                 </div>
                 <div class="body-section">
                     <span class="body-label">Request Body:</span>
                     <div class="code-block">{
-    <span class="json-key">"Following"</span>: [<span class="json-string">Add</span>, <span class="json-string">"BotA"</span>]
+  <span class="json-key">"Following"</span>: [<span class="json-string">"Add"</span>, <span class="json-string">"BotA"</span>]
+}</div>
+                </div>
+            </div>
+
+            <div class="endpoint">
+                <div class="endpoint-title">
+                    <div class="endpoint-number">10</div>
+                    <span class="method-badge method-post">POST</span>
+                    Подписать BotA на пользователя BotB
+                </div>
+                <div class="url">https://fraplat.tech/mars/Cartouche/UpdateDocument/Users/?query={"Name":"BotB"}&token=123</div>
+                <div class="highlight">
+                    <div class="note">BotA подписывается на пользователя BotB</div>
+                </div>
+                <div class="body-section">
+                    <span class="body-label">Request Body:</span>
+                    <div class="code-block">{
+  <span class="json-key">"Following"</span>: [<span class="json-string">"Add"</span>, <span class="json-string">"BotA"</span>]
 }</div>
                 </div>
             </div>
         </div>
     </div>
 </body>
+
 </html>

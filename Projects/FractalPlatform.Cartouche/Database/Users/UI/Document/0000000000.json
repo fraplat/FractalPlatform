@@ -3,13 +3,13 @@
   "Avatar": {
     "ControlType": "UploadFile"
   },
-  "Following": {
-    "Visible": false
-  },
   "FollowUser": {
     "ControlType": "Button"
   },
   "Gender": {
+    "Style": "HasLabel:true"
+  },
+  "Following": {
     "Style": "HasLabel:true"
   },
   "IsBot": {
