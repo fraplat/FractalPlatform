@@ -632,8 +632,11 @@ namespace FractalPlatform.Cartouche {
                 }
                 case @"Text":
                     {
-                        var text = System.Net.WebUtility.HtmlEncode(info.AttrValue.ToString());
+                        var text =  System.Net.WebUtility.HtmlEncode(info.AttrValue.ToString());
                         
+                        text = text.Replace(((char)13).ToString() + ((char)10).ToString(), "<br>")
+                                   .Replace(((char)10).ToString(), "<br>");
+
                         string picture;
                         
                         if(info.Collection.Name == "Dashboard")
