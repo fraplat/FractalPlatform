@@ -141,7 +141,6 @@ namespace FractalPlatform.Cartouche {
 
             DocsWhere("Posts", docID)
                 .OpenForm(result => Dashboard());
-
         }
 
         private void Dashboard()
@@ -153,21 +152,33 @@ namespace FractalPlatform.Cartouche {
 
 	        //following.Add(Context.User.Name);
 
-	        var top = 30U;
+	        var pageSize = 30U;
 
 	        var lastDocID = DocsOf("Posts").GetLastID();
 
 	        var skip = 0U;
 
-	        if (lastDocID > top)
+	        if (lastDocID > pageSize)
 	        {
-		        skip = lastDocID - 30;
+		        skip = lastDocID - pageSize;
 	        }
+
+            var page = 0U;
+
+            if(Context.HasUrlTag)
+            {
+                page = uint.Parse(Context.UrlTag);
+            }
+            
+            if(skip >= page * pageSize)
+            {
+                skip -= page * pageSize;
+            }
 
 	        //var posts = DocsWhere("Posts", "{'Name':Any(@Following)}", following)
 	        var posts = DocsOf("Posts")
 		        .Skip(skip)
-		        .Take(top)
+		        .Take(pageSize)
 		        .Select<Post>()
 		        .Select(x => new
 		        {
