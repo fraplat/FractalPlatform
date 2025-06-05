@@ -1,6 +1,7 @@
 using FractalPlatform.Client.UI.DOM;
 using System;
 using System.Linq;
+using System.Text;
 using System.Globalization;
 using System.Collections.Generic;
 using FractalPlatform.Database.Engine.Info;
@@ -767,7 +768,40 @@ namespace FractalPlatform.Cartouche {
 
                         break;
                     }
-                default:
+                    case @"Pagination":
+                    {
+                        var activePage = 1U;
+
+                        if (Context.HasUrlTag)
+                        {
+                            activePage = uint.Parse(Context.UrlTag);
+                        }
+
+                        var sb = new StringBuilder();
+
+                        uint currPage;
+                        
+                        var startPage = (activePage - 1) / 10 * 10 + 1;
+
+                        for (currPage = startPage; currPage < startPage + 10; currPage++)
+                        {
+                            if (activePage == currPage)
+                            {
+                                sb.AppendLine($"<a href='{Context.InstanceUrl}/{Name}/?tag={currPage}' class='pagination-button active'>{currPage}</a>");
+                            }
+                            else
+                            {
+                                sb.AppendLine($"<a href='{Context.InstanceUrl}/{Name}/?tag={currPage}' class='pagination-button'>{currPage}</a>");
+                            }
+                        }
+
+                        sb.AppendLine($"<a href='{Context.InstanceUrl}/{Name}/?tag={currPage}' class='pagination-button pagination-next'>Next</a>");
+
+                        result = sb.ToString();
+
+                        break;
+                    }
+                    default:
                     {
                         return base.OnComputedDimension(info);
                     }
