@@ -783,6 +783,11 @@ namespace FractalPlatform.Cartouche {
                         
                         var startPage = (activePage - 1) / 10 * 10 + 1;
 
+                        if(startPage > 1)
+                        {
+                            sb.AppendLine($"<a href='{Context.InstanceUrl}/{Name}/?tag={startPage - 1}' class='pagination-button pagination-next'>Prev</a>");
+                        }
+
                         for (currPage = startPage; currPage < startPage + 10; currPage++)
                         {
                             if (activePage == currPage)
