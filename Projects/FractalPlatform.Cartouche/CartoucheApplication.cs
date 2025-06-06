@@ -168,7 +168,7 @@ namespace FractalPlatform.Cartouche {
 
             if(Context.HasUrlTag)
             {
-                page = uint.Parse(Context.UrlTag);
+                page = uint.Parse(Context.UrlTag) - 1;
             }
             
             if(skip >= page * pageSize)
