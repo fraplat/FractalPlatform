@@ -105,14 +105,15 @@ namespace FractalPlatform.Examples.Applications.Movies
     						  .GetWhere(info.AttrPath)
 							  .Value("{'Seasons':[{'Episodes':[{'Episode':$}]}]}");
 
-            if (Context.FormFactory
+            if (!Context.FormFactory.HasForms ||
+                Context.FormFactory
                        .ActiveFormParentAttrPath
                        .HasPath("Episodes"))
             {
                 return null; //hide Viewed control
             }
 
-			if (DocsWhere("Viewed", "{'Viewed':[{'Episode':@Episode}]}", episode)
+            if (DocsWhere("Viewed", "{'Viewed':[{'Episode':@Episode}]}", episode)
                    .Any())
             {
                 return "Yes";
