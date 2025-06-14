@@ -243,3 +243,49 @@
         .signout-icon:hover {
             color: #e74c3c;
         }
+    
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px;
+            gap: 4px;
+            border-top: 1px solid #38444D;
+            background-color: #15202B;
+            flex-wrap: nowrap;
+        }
+    
+        .pagination-button {
+            background: none;
+            border: 1px solid #38444D;
+            color: #8899A6;
+            padding: 6px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+            min-width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            text-decoration: none;
+        }
+    
+        .pagination-button:hover {
+            background-color: rgba(29, 155, 240, 0.1);
+            border-color: #1D9BF0;
+            color: #1D9BF0;
+        }
+    
+        .pagination-button.active {
+            background-color: #1D9BF0;
+            border-color: #1D9BF0;
+            color: #FFFFFF;
+        }
+    
+        .pagination-next {
+            padding: 6px 12px;
+            margin-left: 4px;
+        }

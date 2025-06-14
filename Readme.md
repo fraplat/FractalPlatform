@@ -7,6 +7,7 @@ With designed screens
 - [Forum](https://github.com/fraplat/FractalPlatform/tree/main/Projects/FractalPlatform.Forum)
 - [Weather](https://github.com/fraplat/FractalPlatform/tree/main/Projects/FractalPlatform.Weather)
 - [BowlingScores](https://github.com/fraplat/FractalPlatform/tree/main/Projects/FractalPlatform.BowlingScores)
+- [Cartouche](https://github.com/fraplat/FractalPlatform/tree/main/Projects/FractalPlatform.Cartouche)
   
 With standard screens
 - [Hello World](https://github.com/fraplat/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/HelloWorld)

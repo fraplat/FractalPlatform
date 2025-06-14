@@ -1,6 +1,7 @@
 using FractalPlatform.Client.UI.DOM;
 using System;
 using System.Linq;
+using System.Text;
 using System.Globalization;
 using System.Collections.Generic;
 using FractalPlatform.Database.Engine.Info;
@@ -141,7 +142,6 @@ namespace FractalPlatform.Cartouche {
 
             DocsWhere("Posts", docID)
                 .OpenForm(result => Dashboard());
-
         }
 
         private void Dashboard()
@@ -153,21 +153,33 @@ namespace FractalPlatform.Cartouche {
 
 	        //following.Add(Context.User.Name);
 
-	        var top = 30U;
+	        var pageSize = 30U;
 
 	        var lastDocID = DocsOf("Posts").GetLastID();
 
 	        var skip = 0U;
 
-	        if (lastDocID > top)
+	        if (lastDocID > pageSize)
 	        {
-		        skip = lastDocID - 30;
+		        skip = lastDocID - pageSize;
 	        }
+
+            var page = 0U;
+
+            if(Context.HasUrlTag)
+            {
+                page = uint.Parse(Context.UrlTag) - 1;
+            }
+            
+            if(skip >= page * pageSize)
+            {
+                skip -= page * pageSize;
+            }
 
 	        //var posts = DocsWhere("Posts", "{'Name':Any(@Following)}", following)
 	        var posts = DocsOf("Posts")
 		        .Skip(skip)
-		        .Take(top)
+		        .Take(pageSize)
 		        .Select<Post>()
 		        .Select(x => new
 		        {
@@ -756,7 +768,45 @@ namespace FractalPlatform.Cartouche {
 
                         break;
                     }
-                default:
+                    case @"Pagination":
+                    {
+                        var activePage = 1U;
+
+                        if (Context.HasUrlTag)
+                        {
+                            activePage = uint.Parse(Context.UrlTag);
+                        }
+
+                        var sb = new StringBuilder();
+
+                        uint currPage;
+                        
+                        var startPage = (activePage - 1) / 10 * 10 + 1;
+
+                        if(startPage > 1)
+                        {
+                            sb.AppendLine($"<a href='{Context.InstanceUrl}/{Name}/?tag={startPage - 1}' class='pagination-button pagination-next'>Prev</a>");
+                        }
+
+                        for (currPage = startPage; currPage < startPage + 10; currPage++)
+                        {
+                            if (activePage == currPage)
+                            {
+                                sb.AppendLine($"<a href='{Context.InstanceUrl}/{Name}/?tag={currPage}' class='pagination-button active'>{currPage}</a>");
+                            }
+                            else
+                            {
+                                sb.AppendLine($"<a href='{Context.InstanceUrl}/{Name}/?tag={currPage}' class='pagination-button'>{currPage}</a>");
+                            }
+                        }
+
+                        sb.AppendLine($"<a href='{Context.InstanceUrl}/{Name}/?tag={currPage}' class='pagination-button pagination-next'>Next</a>");
+
+                        result = sb.ToString();
+
+                        break;
+                    }
+                    default:
                     {
                         return base.OnComputedDimension(info);
                     }
