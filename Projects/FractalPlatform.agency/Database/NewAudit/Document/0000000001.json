@@ -1,8 +1,9 @@
 {
+  "OnDate": "",
   "Name": "",
   "ProjectDomain": "",
   "Description": "",
-  "SpecificationsFilePath": "",
+  "SpecsFilePath": "",
   "Features": {
     "UserRoles": false,
     "AdminPanel": false,
@@ -23,6 +24,6 @@
   },
   "Contacts": {
     "Email": "",
-    "Messanger": ""
+    "Messenger": ""
   }
 }

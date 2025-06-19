@@ -1,0 +1,16 @@
+{
+  "Contacts": {
+    "Email": {
+      "IsRequired": true
+    }
+  },
+  "Description": {
+    "IsRequired": true
+  },
+  "Name": {
+    "IsRequired": true
+  },
+  "ProjectDomain": {
+    "IsRequired": true
+  }
+}
