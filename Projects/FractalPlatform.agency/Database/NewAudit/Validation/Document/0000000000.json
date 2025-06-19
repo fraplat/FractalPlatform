@@ -7,9 +7,6 @@
   "Description": {
     "IsRequired": true
   },
-  "Name": {
-    "IsRequired": true
-  },
   "ProjectDomain": {
     "IsRequired": true
   }
