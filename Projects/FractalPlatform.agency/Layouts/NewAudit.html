@@ -56,14 +56,14 @@
                             <label for="projectName" class="form-label">
                                 What's the name of your project or idea?
                             </label>
-                            <input type="text" id="projectName" name="projectName" class="form-input" placeholder="e.g., NextGen E-commerce Platform" required @Name.TextBox>
+                            <input type="text" class="form-input" placeholder="e.g., NextGen E-commerce Platform" required @Name.TextBox>
                         </div>
 
                         <div class="form-group" data-aos="fade-up" data-aos-delay="100">
                             <label for="projectDomain" class="form-label">
                                 What industry or domain is your project related to?
                             </label>
-                            <input type="text" id="projectDomain" name="projectDomain" class="form-input" placeholder="e.g., E-commerce, Healthcare, Fintech, Education" required @ProjectDomain.TextBox>
+                            <input type="text" class="form-input" placeholder="e.g., E-commerce, Healthcare, Fintech, Education" required @ProjectDomain.TextBox>
                         </div>
 
                         <!-- Project Description -->
@@ -71,7 +71,7 @@
                             <label for="projectDescription" class="form-label">
                                 Tell us what your project is about.
                             </label>
-                            <textarea id="projectDescription" name="projectDescription" class="form-textarea" rows="6" placeholder="Describe your project vision, main goals, target audience, and key functionality you want to implement..." required @Description.RichTextBox></textarea>
+                            <textarea class="form-textarea" rows="6" placeholder="Describe your project vision, main goals, target audience, and key functionality you want to implement..." required @Description.RichTextBox></textarea>
                         </div>
 
                         <!-- File Upload -->
@@ -108,7 +108,7 @@
                                     <label for="userRoles">User roles</label>
                                 </div>
                                 <div class="checkbox-item">
-                                    <input type="checkbox" value="Admin panel" @Features.UserRoles.CheckBox>
+                                    <input type="checkbox" value="Admin panel" @Features.AdminPanel.CheckBox>
                                     <label for="adminPanel">Admin panel</label>
                                 </div>
                                 <div class="checkbox-item">
