@@ -1,3 +1,28 @@
 {
-  "Title": "My Test"
+  "Name": "",
+  "ProjectDomain": "",
+  "Description": "",
+  "SpecificationsFilePath": "",
+  "Features": {
+    "UserRoles": false,
+    "AdminPanel": false,
+    "Payments": false,
+    "Notifications": false,
+    "Reports": false,
+    "HighLoad": false,
+    "BigDatabase": false,
+    "Localizations": false,
+    "Migrations": false,
+    "AutoTesting": false,
+    "LongTermSupport": false,
+    "WebDesignImportant": false
+  },
+  "Hosting": {
+    "InMyClouds": false,
+    "InFractalClouds": false
+  },
+  "Contacts": {
+    "Email": "",
+    "Messanger": ""
+  }
 }
