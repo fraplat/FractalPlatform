@@ -19,8 +19,18 @@ namespace FractalPlatform.agency
             else if(Context.UrlTag == "audit")
             {
                 CreateNewDocFor("NewAudit","Audits")
-                    .OpenForm(result => FirstDocOf("AuditRequested")
-                                            .OpenForm());
+                    .OpenForm(result => 
+                    {
+                        DocsWhere("Audits", result.TargetDocID)
+                            .Update(@"{'TextMessages':[Add,
+                                {'Provider':'Telegram',
+                                'Receiver':'5018512422',
+                                'Message':'New project audit requested for agency.',
+                                'IsSent':false}]}");
+                        
+                        FirstDocOf("AuditRequested")
+                            .OpenForm();
+                    });
             }
             else if(Context.UrlTag == "audits")
             {

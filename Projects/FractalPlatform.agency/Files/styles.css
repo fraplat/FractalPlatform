@@ -1621,3 +1621,14 @@
         min-width: unset;
     }
     }
+    
+    .uploaded-file-names {
+        margin-top: 10px;
+        font-size: 0.9rem;
+        color: #fff; /* Белый текст */
+    }
+    
+    .uploaded-file-names span {
+        display: block;
+        margin-top: 5px;
+    }

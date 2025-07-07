@@ -54,16 +54,22 @@
                     <div class="audit-form" id="auditForm">
                         <div class="form-group" data-aos="fade-up">
                             <label for="projectName" class="form-label">
+                                What's your name or name of your organization?
+                            </label>
+                            <input type="text" class="form-input" placeholder="e.g., John Smith" required @UserName.TextBox>
+                        </div>
+                        <div class="form-group" data-aos="fade-up">
+                            <label for="projectName" class="form-label">
                                 What's the name of your project or idea?
                             </label>
-                            <input type="text" id="projectName" name="projectName" class="form-input" placeholder="e.g., NextGen E-commerce Platform" required @Name.TextBox>
+                            <input type="text" class="form-input" placeholder="e.g., NextGen E-commerce Platform" required @ProjectName.TextBox>
                         </div>
 
                         <div class="form-group" data-aos="fade-up" data-aos-delay="100">
                             <label for="projectDomain" class="form-label">
                                 What industry or domain is your project related to?
                             </label>
-                            <input type="text" id="projectDomain" name="projectDomain" class="form-input" placeholder="e.g., E-commerce, Healthcare, Fintech, Education" required @ProjectDomain.TextBox>
+                            <input type="text" class="form-input" placeholder="e.g., E-commerce, Healthcare, Fintech, Education" required @ProjectDomain.TextBox>
                         </div>
 
                         <!-- Project Description -->
@@ -71,31 +77,33 @@
                             <label for="projectDescription" class="form-label">
                                 Tell us what your project is about.
                             </label>
-                            <textarea id="projectDescription" name="projectDescription" class="form-textarea" rows="6" placeholder="Describe your project vision, main goals, target audience, and key functionality you want to implement..." required @Description.RichTextBox></textarea>
+                            <textarea class="form-textarea" rows="6" placeholder="Describe your project vision, main goals, target audience, and key functionality you want to implement..." required @Description.RichTextBox></textarea>
                         </div>
 
                         <!-- File Upload -->
                         <div class="form-group" data-aos="fade-up" data-aos-delay="300">
                             <label for="projectFiles" class="form-label">
-                                Upload any existing documentation you already have.
+                                Upload your project documentation (one file or one archive).
                                 <span class="form-sublabel">
-                                    This could be a PDF, Word file, archive with designs, diagrams,
-                                    or anything else that helps us understand your vision.
+                                    You can upload a single file (e.g., PDF, Word document) or a single archive (.zip, .rar, etc.)
+                                    that includes all relevant designs, diagrams, or other materials that help us understand your vision.
                                 </span>
                             </label>
+                            <div id="uploadedFileNames" class="uploaded-file-names"></div>
                             <div class="file-upload-container">
-                                <input type="file" class="file-input" accept=".pdf,.doc,.docx,.zip,.rar,.7z,.tar,.gz,.png,.jpg,.jpeg,.fig,.sketch" multiple @SpecsFilePath.UploadFile>
+                                <input id="projectFiles" type="file" class="file-input" accept=".pdf,.doc,.docx,.zip,.rar,.7z,.tar,.gz,.png,.jpg,.jpeg,.fig,.sketch" @SpecsFilePath.UploadFile>
                                 <label for="projectFiles" class="file-upload-label">
                                     <span class="file-upload-icon">📁</span>
                                     <span class="file-upload-text">
-                                        Attach already prepared specifications about project if you have
+                                        Attach your file or archive here
                                     </span>
                                     <span class="file-upload-hint">
-                                        Click to browse or drag & drop files here
+                                        Click to browse or drag & drop your file
                                     </span>
                                 </label>
                             </div>
                         </div>
+
 
                         <!-- Features -->
                         <div class="form-group" data-aos="fade-up" data-aos-delay="400">
@@ -108,7 +116,7 @@
                                     <label for="userRoles">User roles</label>
                                 </div>
                                 <div class="checkbox-item">
-                                    <input type="checkbox" value="Admin panel" @Features.UserRoles.CheckBox>
+                                    <input type="checkbox" value="Admin panel" @Features.AdminPanel.CheckBox>
                                     <label for="adminPanel">Admin panel</label>
                                 </div>
                                 <div class="checkbox-item">
@@ -222,25 +230,6 @@
             });
         });
 
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const isActive = question.classList.toggle('active');
-
-                const indicator = question.querySelector('span');
-                indicator.textContent = isActive ? '-' : '+';
-
-                if (isActive) {
-                    answer.style.maxHeight = answer.scrollHeight + 'px';
-                    answer.style.paddingBottom = '0px';
-                } else {
-                    answer.style.maxHeight = '0';
-                    answer.style.paddingBottom = '0';
-                }
-            });
-        });
-
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -283,6 +272,21 @@
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
+            }
+        });
+
+        document.getElementById("projectFiles").addEventListener("change", function() {
+            const fileList = this.files;
+            const output = document.getElementById("uploadedFileNames");
+            output.innerHTML = "";
+
+            if (fileList.length === 0) {
+                output.innerHTML = "<span>No file selected</span>";
+            } else {
+                for (let i = 0; i < fileList.length; i++) {
+                    const fileName = fileList[i].name;
+                    output.innerHTML += `<span>📄 ${fileName}</span>`;
+                }
             }
         });
     </script>
