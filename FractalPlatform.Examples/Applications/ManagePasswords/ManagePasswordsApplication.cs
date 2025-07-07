@@ -1,8 +1,9 @@
-﻿using System;
-using FractalPlatform.Client.App;
+﻿using FractalPlatform.Client.App;
 using FractalPlatform.Client.UI;
 using FractalPlatform.Common.Enums;
 using FractalPlatform.Database.Engine.Info;
+using System;
+using System.Threading;
 
 namespace FractalPlatform.Examples.Applications.ManagePasswords
 {
@@ -43,12 +44,25 @@ namespace FractalPlatform.Examples.Applications.ManagePasswords
             switch (info.Action)
             {
                 case "CopyPassword":
-                    var password = DocsWhere("Passwords", info.AttrPath)
+                    {
+                        var password = DocsWhere("Passwords", info.AttrPath)
                                          .Value("{'Passwords':[{'Password':$}]}");
 
-                    //Clipboard.SetText(password);
+                        //Clipboard.SetText(password);
 
-                    break;
+                        break;
+                    }
+                case "TypePassword":
+                    {
+                        var password = DocsWhere("Passwords", info.AttrPath)
+                                         .Value("{'Passwords':[{'Password':$}]}");
+
+                        Thread.Sleep(5000);
+
+                        //SendText(password);
+
+                        break;
+                    }
                 default:
                     throw new NotImplementedException();
             }
