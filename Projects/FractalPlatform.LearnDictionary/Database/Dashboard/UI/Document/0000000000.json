@@ -1,0 +1,9 @@
+{
+  "Style": "Save:false;Cancel:false",
+  "Learn": {
+    "ControlType": "Button"
+  },
+  "NewWord": {
+    "ControlType": "Button"
+  }
+}
