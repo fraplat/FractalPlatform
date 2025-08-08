@@ -4,6 +4,7 @@ using FractalPlatform.Database.Engine.Info;
 using FractalPlatform.Database.Engine;
 using FractalPlatform.Client.UI.DOM;
 using FractalPlatform.Client.App;
+using FractalPlatform.Common.Enums;
 
 namespace FractalPlatform.LearnDictionary
 {
@@ -30,8 +31,9 @@ namespace FractalPlatform.LearnDictionary
                 }
                 case @"NewWord":
                 {
-                    //handle NewWord button click
-
+                    CreateNewDocForArray("NewWord", "Words", "{'Words':[$]}")
+                        .OpenForm();
+                    
                     break;
                 }
                 default:
@@ -45,7 +47,6 @@ namespace FractalPlatform.LearnDictionary
     
         public override object OnComputedDimension(ComputedInfo info)
         {
-
             object result = null;
 
             switch(info.Variable)
@@ -72,6 +73,5 @@ namespace FractalPlatform.LearnDictionary
 
              return result;
         }
-
-}
+    }
 }
