@@ -33,6 +33,22 @@ namespace FractalPlatform.LearnDictionary
                 {
                     CreateNewDocForArray("NewWord", "Words", "{'Words':[$]}")
                         .OpenForm();
+
+                    break;
+                }
+                case @"Reset":
+                {
+                    MessageBox("Are you sure to reset learned words?",
+                               "Reset",
+                               MessageBoxButtonType.YesNo,
+                               result =>
+                    {
+                        if (result.Result)
+                        {
+                            ModifyFirstDocOf("Words")
+                                .Update("{'Words':[{'IsLearned':false}]}");
+                        }
+                    });
                     
                     break;
                 }
@@ -44,7 +60,7 @@ namespace FractalPlatform.LearnDictionary
 
              return true;
         }
-    
+        
         public override object OnComputedDimension(ComputedInfo info)
         {
             object result = null;
