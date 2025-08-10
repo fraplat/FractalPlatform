@@ -1,1371 +1,1644 @@
-{
-  "TotalWords": 0,
-  "LearnedWords": 0,
-  "Words": [
-    {
-      "Word": "A pupil",
-      "Trans": "ученик",
-      "IsLearned": false
-    },
-    {
-      "Word": "A bun",
-      "Trans": "булочка",
-      "IsLearned": false
-    },
-    {
-      "Word": "Flavour",
-      "Trans": "вкус",
-      "IsLearned": false
-    },
-    {
-      "Word": "A hemisphere",
-      "Trans": "полушарие",
-      "IsLearned": false
-    },
-    {
-      "Word": "Ivory",
-      "Trans": "слоновая кость",
-      "IsLearned": false
-    },
-    {
-      "Word": "Sulfur",
-      "Trans": "сера",
-      "IsLearned": false
-    },
-    {
-      "Word": "Admission",
-      "Trans": "вход; приём",
-      "IsLearned": false
-    },
-    {
-      "Word": "Grazing",
-      "Trans": "выпас",
-      "IsLearned": false
-    },
-    {
-      "Word": "A facility",
-      "Trans": "объект; удобство",
-      "IsLearned": false
-    },
-    {
-      "Word": "A bargain",
-      "Trans": "выгодная покупка",
-      "IsLearned": false
-    },
-    {
-      "Word": "to admit",
-      "Trans": "признавать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to adjust",
-      "Trans": "регулировать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to amuse",
-      "Trans": "развлекать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to comb",
-      "Trans": "расчёсывать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to compose",
-      "Trans": "составлять",
-      "IsLearned": false
-    },
-    {
-      "Word": "to comprise",
-      "Trans": "включать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to cope",
-      "Trans": "справляться",
-      "IsLearned": false
-    },
-    {
-      "Word": "to distinguish",
-      "Trans": "различать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to eliminate",
-      "Trans": "устранять",
-      "IsLearned": false
-    },
-    {
-      "Word": "to excite",
-      "Trans": "возбуждать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to gain",
-      "Trans": "получать; приобретать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to mould",
-      "Trans": "формировать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to obtain",
-      "Trans": "получать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to oversee",
-      "Trans": "наблюдать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to possess",
-      "Trans": "владеть",
-      "IsLearned": false
-    },
-    {
-      "Word": "to regard",
-      "Trans": "считать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to relive",
-      "Trans": "переживать заново",
-      "IsLearned": false
-    },
-    {
-      "Word": "to resemble",
-      "Trans": "быть похожим",
-      "IsLearned": false
-    },
-    {
-      "Word": "to reveal",
-      "Trans": "раскрывать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to rinse",
-      "Trans": "полоскать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to rot",
-      "Trans": "гнить",
-      "IsLearned": false
-    },
-    {
-      "Word": "to rub",
-      "Trans": "тереть",
-      "IsLearned": false
-    },
-    {
-      "Word": "to roam",
-      "Trans": "бродить",
-      "IsLearned": false
-    },
-    {
-      "Word": "to seem",
-      "Trans": "казаться",
-      "IsLearned": false
-    },
-    {
-      "Word": "to sneeze",
-      "Trans": "чихать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to splash",
-      "Trans": "брызгать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to tickle",
-      "Trans": "щекотать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to unearth",
-      "Trans": "раскопать",
-      "IsLearned": false
-    },
-    {
-      "Word": "flaming",
-      "Trans": "пылающий",
-      "IsLearned": false
-    },
-    {
-      "Word": "fond",
-      "Trans": "любящий; привязанный",
-      "IsLearned": false
-    },
-    {
-      "Word": "hectic",
-      "Trans": "лихорадочный; суматошный",
-      "IsLearned": false
-    },
-    {
-      "Word": "medieval",
-      "Trans": "средневековый",
-      "IsLearned": false
-    },
-    {
-      "Word": "mediterranean",
-      "Trans": "средиземноморский",
-      "IsLearned": false
-    },
-    {
-      "Word": "mere",
-      "Trans": "простой; обычный",
-      "IsLearned": false
-    },
-    {
-      "Word": "odd",
-      "Trans": "странный",
-      "IsLearned": false
-    },
-    {
-      "Word": "rude",
-      "Trans": "грубый",
-      "IsLearned": false
-    },
-    {
-      "Word": "sacred",
-      "Trans": "священный",
-      "IsLearned": false
-    },
-    {
-      "Word": "wooded",
-      "Trans": "лесистый",
-      "IsLearned": false
-    },
-    {
-      "Word": "apart",
-      "Trans": "отдельно",
-      "IsLearned": false
-    },
-    {
-      "Word": "barely",
-      "Trans": "едва",
-      "IsLearned": false
-    },
-    {
-      "Word": "freely",
-      "Trans": "свободно",
-      "IsLearned": false
-    },
-    {
-      "Word": "throughout",
-      "Trans": "на протяжении",
-      "IsLearned": false
-    },
-    {
-      "Word": "to abound",
-      "Trans": "изобиловать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to assure",
-      "Trans": "уверять",
-      "IsLearned": false
-    },
-    {
-      "Word": "to boast",
-      "Trans": "хвалиться",
-      "IsLearned": false
-    },
-    {
-      "Word": "to breach",
-      "Trans": "нарушать; прорывать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to brew",
-      "Trans": "варить; заваривать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to bury",
-      "Trans": "закапывать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to chase",
-      "Trans": "преследовать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to cherish",
-      "Trans": "лелеять",
-      "IsLearned": false
-    },
-    {
-      "Word": "to clatter",
-      "Trans": "греметь",
-      "IsLearned": false
-    },
-    {
-      "Word": "to conduct",
-      "Trans": "проводить",
-      "IsLearned": false
-    },
-    {
-      "Word": "to delight",
-      "Trans": "восхищать; радовать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to depict",
-      "Trans": "изображать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to dissolve",
-      "Trans": "растворять",
-      "IsLearned": false
-    },
-    {
-      "Word": "to fascinate",
-      "Trans": "очаровывать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to fence",
-      "Trans": "огораживать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to glide",
-      "Trans": "скользить",
-      "IsLearned": false
-    },
-    {
-      "Word": "to leap",
-      "Trans": "прыгать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to mastermind",
-      "Trans": "спланировать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to ward",
-      "Trans": "защищать; отгонять",
-      "IsLearned": false
-    },
-    {
-      "Word": "abundant",
-      "Trans": "обильный",
-      "IsLearned": false
-    },
-    {
-      "Word": "ancient",
-      "Trans": "древний",
-      "IsLearned": false
-    },
-    {
-      "Word": "assessable",
-      "Trans": "подлежащий оценке",
-      "IsLearned": false
-    },
-    {
-      "Word": "catchy",
-      "Trans": "запоминающийся",
-      "IsLearned": false
-    },
-    {
-      "Word": "coastal",
-      "Trans": "прибережный",
-      "IsLearned": false
-    },
-    {
-      "Word": "divine",
-      "Trans": "божественный",
-      "IsLearned": false
-    },
-    {
-      "Word": "elaborate",
-      "Trans": "тщательный; сложный",
-      "IsLearned": false
-    },
-    {
-      "Word": "endangered",
-      "Trans": "находящийся под угрозой исчезновения",
-      "IsLearned": false
-    },
-    {
-      "Word": "estimable",
-      "Trans": "достойный уважения",
-      "IsLearned": false
-    },
-    {
-      "Word": "fanciful",
-      "Trans": "фантастический; причудливый",
-      "IsLearned": false
-    },
-    {
-      "Word": "fruitful",
-      "Trans": "плодотворный",
-      "IsLearned": false
-    },
-    {
-      "Word": "widespread",
-      "Trans": "широко распространённый",
-      "IsLearned": false
-    },
-    {
-      "Word": "downwind",
-      "Trans": "по ветру",
-      "IsLearned": false
-    },
-    {
-      "Word": "frankly",
-      "Trans": "откровенно",
-      "IsLearned": false
-    },
-    {
-      "Word": "sensibly",
-      "Trans": "разумно",
-      "IsLearned": false
-    },
-    {
-      "Word": "undeniably",
-      "Trans": "неоспоримо",
-      "IsLearned": false
-    },
-    {
-      "Word": "to dig for",
-      "Trans": "копать в поисках",
-      "IsLearned": false
-    },
-    {
-      "Word": "to opt for",
-      "Trans": "выбирать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to rely on",
-      "Trans": "полагаться на",
-      "IsLearned": false
-    },
-    {
-      "Word": "to set off",
-      "Trans": "отправляться",
-      "IsLearned": false
-    },
-    {
-      "Word": "to suffer from",
-      "Trans": "страдать от",
-      "IsLearned": false
-    },
-    {
-      "Word": "by all means",
-      "Trans": "во что бы то ни стало; конечно",
-      "IsLearned": false
-    },
-    {
-      "Word": "head over heels in love",
-      "Trans": "по уши влюблённый",
-      "IsLearned": false
-    },
-    {
-      "Word": "in the long run",
-      "Trans": "в долгосрочной перспективе",
-      "IsLearned": false
-    },
-    {
-      "Word": "to come to mind",
-      "Trans": "приходить на ум",
-      "IsLearned": false
-    },
-    {
-      "Word": "to keep an eye on",
-      "Trans": "присматривать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to take notice of",
-      "Trans": "обратить внимание на",
-      "IsLearned": false
-    },
-    {
-      "Word": "admiration for",
-      "Trans": "восхищение",
-      "IsLearned": false
-    },
-    {
-      "Word": "confidence in",
-      "Trans": "уверенность в",
-      "IsLearned": false
-    },
-    {
-      "Word": "exposure to",
-      "Trans": "воздействие",
-      "IsLearned": false
-    },
-    {
-      "Word": "fondness for",
-      "Trans": "привязанность к",
-      "IsLearned": false
-    },
-    {
-      "Word": "an objection to",
-      "Trans": "возражение против",
-      "IsLearned": false
-    },
-    {
-      "Word": "accustomed to",
-      "Trans": "привыкший к",
-      "IsLearned": false
-    },
-    {
-      "Word": "anxious about",
-      "Trans": "обеспокоенный из-за",
-      "IsLearned": false
-    },
-    {
-      "Word": "astonished at/by",
-      "Trans": "поражённый",
-      "IsLearned": false
-    },
-    {
-      "Word": "capable of",
-      "Trans": "способный к",
-      "IsLearned": false
-    },
-    {
-      "Word": "composed of",
-      "Trans": "состоящий из",
-      "IsLearned": false
-    },
-    {
-      "Word": "confident of/about",
-      "Trans": "уверенный в",
-      "IsLearned": false
-    },
-    {
-      "Word": "crucial for/to",
-      "Trans": "решающий для",
-      "IsLearned": false
-    },
-    {
-      "Word": "customary for",
-      "Trans": "обычный для",
-      "IsLearned": false
-    },
-    {
-      "Word": "deficient in",
-      "Trans": "испытывающий недостаток",
-      "IsLearned": false
-    },
-    {
-      "Word": "deprived of",
-      "Trans": "лишённый",
-      "IsLearned": false
-    },
-    {
-      "Word": "discouraged by",
-      "Trans": "обескураженный",
-      "IsLearned": false
-    },
-    {
-      "Word": "eager for",
-      "Trans": "жаждущий",
-      "IsLearned": false
-    },
-    {
-      "Word": "eligible for",
-      "Trans": "имеющий право на",
-      "IsLearned": false
-    },
-    {
-      "Word": "envious of",
-      "Trans": "завистливый к",
-      "IsLearned": false
-    },
-    {
-      "Word": "essential for",
-      "Trans": "необходимый для",
-      "IsLearned": false
-    },
-    {
-      "Word": "fascinated by/with",
-      "Trans": "очарованный",
-      "IsLearned": false
-    },
-    {
-      "Word": "fed up with",
-      "Trans": "сытый по горло",
-      "IsLearned": false
-    },
-    {
-      "Word": "fond of",
-      "Trans": "любящий",
-      "IsLearned": false
-    },
-    {
-      "Word": "frightened of/by",
-      "Trans": "напуганный",
-      "IsLearned": false
-    },
-    {
-      "Word": "frustrated with/by",
-      "Trans": "разочарованный",
-      "IsLearned": false
-    },
-    {
-      "Word": "generous with/to",
-      "Trans": "щедрый к",
-      "IsLearned": false
-    },
-    {
-      "Word": "gentle with",
-      "Trans": "нежный с",
-      "IsLearned": false
-    },
-    {
-      "Word": "grateful for/to",
-      "Trans": "благодарный за/кому-либо",
-      "IsLearned": false
-    },
-    {
-      "Word": "ignorant of/about",
-      "Trans": "невежественный в отношении",
-      "IsLearned": false
-    },
-    {
-      "Word": "incapable of",
-      "Trans": "неспособный к",
-      "IsLearned": false
-    },
-    {
-      "Word": "indifferent to",
-      "Trans": "равнодушный к",
-      "IsLearned": false
-    },
-    {
-      "Word": "inferior to",
-      "Trans": "уступающий по качеству",
-      "IsLearned": false
-    },
-    {
-      "Word": "irritated by/with",
-      "Trans": "раздражённый",
-      "IsLearned": false
-    },
-    {
-      "Word": "jealous of",
-      "Trans": "ревнивый к",
-      "IsLearned": false
-    },
-    {
-      "Word": "keen on",
-      "Trans": "увлечённый",
-      "IsLearned": false
-    },
-    {
-      "Word": "occupied with",
-      "Trans": "занятый",
-      "IsLearned": false
-    },
-    {
-      "Word": "offensive to",
-      "Trans": "оскорбительный для",
-      "IsLearned": false
-    },
-    {
-      "Word": "reliant on",
-      "Trans": "зависимый от",
-      "IsLearned": false
-    },
-    {
-      "Word": "relieved about",
-      "Trans": "испытывающий облегчение из-за",
-      "IsLearned": false
-    },
-    {
-      "Word": "remarkable for",
-      "Trans": "примечательный",
-      "IsLearned": false
-    },
-    {
-      "Word": "renowned for",
-      "Trans": "прославленный",
-      "IsLearned": false
-    },
-    {
-      "Word": "rude to",
-      "Trans": "грубый по отношению к",
-      "IsLearned": false
-    },
-    {
-      "Word": "superior to",
-      "Trans": "превосходящий по качеству",
-      "IsLearned": false
-    },
-    {
-      "Word": "thirsty for",
-      "Trans": "жаждущий",
-      "IsLearned": false
-    },
-    {
-      "Word": "thoughtful of",
-      "Trans": "внимательный к",
-      "IsLearned": false
-    },
-    {
-      "Word": "willing to",
-      "Trans": "готовый",
-      "IsLearned": false
-    },
-    {
-      "Word": "at a loss",
-      "Trans": "в растерянности",
-      "IsLearned": false
-    },
-    {
-      "Word": "at a time",
-      "Trans": "за один раз",
-      "IsLearned": false
-    },
-    {
-      "Word": "at all costs",
-      "Trans": "любой ценой",
-      "IsLearned": false
-    },
-    {
-      "Word": "at dawn",
-      "Trans": "на рассвете",
-      "IsLearned": false
-    },
-    {
-      "Word": "at fault",
-      "Trans": "виновный",
-      "IsLearned": false
-    },
-    {
-      "Word": "at stake",
-      "Trans": "на кону",
-      "IsLearned": false
-    },
-    {
-      "Word": "behind schedule",
-      "Trans": "с опозданием",
-      "IsLearned": false
-    },
-    {
-      "Word": "beneath notice",
-      "Trans": "не заслуживающий внимания",
-      "IsLearned": false
-    },
-    {
-      "Word": "beside the point",
-      "Trans": "не относящийся к делу",
-      "IsLearned": false
-    },
-    {
-      "Word": "beyond belief",
-      "Trans": "невероятный",
-      "IsLearned": false
-    },
-    {
-      "Word": "beyond doubt",
-      "Trans": "вне всякого сомнения",
-      "IsLearned": false
-    },
-    {
-      "Word": "by courtesy of",
-      "Trans": "с любезного разрешения",
-      "IsLearned": false
-    },
-    {
-      "Word": "by dint of",
-      "Trans": "благодаря",
-      "IsLearned": false
-    },
-    {
-      "Word": "by turns",
-      "Trans": "по очереди",
-      "IsLearned": false
-    },
-    {
-      "Word": "by virtue of",
-      "Trans": "в силу",
-      "IsLearned": false
-    },
-    {
-      "Word": "for the sake of",
-      "Trans": "ради",
-      "IsLearned": false
-    },
-    {
-      "Word": "in compliance with",
-      "Trans": "в соответствии с",
-      "IsLearned": false
-    },
-    {
-      "Word": "in disbelief",
-      "Trans": "с недоверием",
-      "IsLearned": false
-    },
-    {
-      "Word": "in disguise",
-      "Trans": "в маскировке",
-      "IsLearned": false
-    },
-    {
-      "Word": "in distress",
-      "Trans": "в беде",
-      "IsLearned": false
-    },
-    {
-      "Word": "in essence",
-      "Trans": "по сути",
-      "IsLearned": false
-    },
-    {
-      "Word": "in jeopardy",
-      "Trans": "под угрозой",
-      "IsLearned": false
-    },
-    {
-      "Word": "in lieu of",
-      "Trans": "вместо",
-      "IsLearned": false
-    },
-    {
-      "Word": "in line with",
-      "Trans": "в соответствии с",
-      "IsLearned": false
-    },
-    {
-      "Word": "in pursuit of",
-      "Trans": "в погоне за",
-      "IsLearned": false
-    },
-    {
-      "Word": "in recognition of",
-      "Trans": "в знак признания",
-      "IsLearned": false
-    },
-    {
-      "Word": "in vain",
-      "Trans": "напрасно",
-      "IsLearned": false
-    },
-    {
-      "Word": "off guard",
-      "Trans": "врасплох",
-      "IsLearned": false
-    },
-    {
-      "Word": "on the brink of",
-      "Trans": "на грани",
-      "IsLearned": false
-    },
-    {
-      "Word": "without prejudice",
-      "Trans": "без ущерба для",
-      "IsLearned": false
-    },
-    {
-      "Word": "to back up",
-      "Trans": "поддерживать; делать резервную копию",
-      "IsLearned": false
-    },
-    {
-      "Word": "to break down",
-      "Trans": "ломаться; разлагать на части",
-      "IsLearned": false
-    },
-    {
-      "Word": "to bring down",
-      "Trans": "свергать; снижать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to bring out",
-      "Trans": "выпускать; выявлять",
-      "IsLearned": false
-    },
-    {
-      "Word": "to call off",
-      "Trans": "отменять",
-      "IsLearned": false
-    },
-    {
-      "Word": "to carry on",
-      "Trans": "продолжать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to carry out",
-      "Trans": "выполнять",
-      "IsLearned": false
-    },
-    {
-      "Word": "to catch on",
-      "Trans": "приживаться; становиться популярным",
-      "IsLearned": false
-    },
-    {
-      "Word": "to check in",
-      "Trans": "регистрироваться",
-      "IsLearned": false
-    },
-    {
-      "Word": "to come across",
-      "Trans": "наткнуться; случайно встретить",
-      "IsLearned": false
-    },
-    {
-      "Word": "to come across as",
-      "Trans": "производить впечатление",
-      "IsLearned": false
-    },
-    {
-      "Word": "to come around",
-      "Trans": "приходить в себя; заходить",
-      "IsLearned": false
-    },
-    {
-      "Word": "to come back for",
-      "Trans": "возвращаться за",
-      "IsLearned": false
-    },
-    {
-      "Word": "to come forward",
-      "Trans": "выступать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to come in",
-      "Trans": "входить",
-      "IsLearned": false
-    },
-    {
-      "Word": "to come off",
-      "Trans": "происходить; производить впечатление; отрываться",
-      "IsLearned": false
-    },
-    {
-      "Word": "to come out of",
-      "Trans": "выходить из; появляться из",
-      "IsLearned": false
-    },
-    {
-      "Word": "to come over",
-      "Trans": "заходить; охватывать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to come up",
-      "Trans": "возникать; появляться",
-      "IsLearned": false
-    },
-    {
-      "Word": "to cut down",
-      "Trans": "срубать; сокращать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to drop off",
-      "Trans": "подвозить; засыпать; уменьшаться",
-      "IsLearned": false
-    },
-    {
-      "Word": "to dust off",
-      "Trans": "смахивать пыль; доставать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to emerge from",
-      "Trans": "появляться из; выныривать из",
-      "IsLearned": false
-    },
-    {
-      "Word": "to find out",
-      "Trans": "выяснять; узнавать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to finish off",
-      "Trans": "завершать; добивать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to finish up",
-      "Trans": "заканчивать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to fit in",
-      "Trans": "вписываться; подходить",
-      "IsLearned": false
-    },
-    {
-      "Word": "to get on",
-      "Trans": "садиться на; ладить",
-      "IsLearned": false
-    },
-    {
-      "Word": "to get out of",
-      "Trans": "выбираться из; избегать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to get up",
-      "Trans": "вставать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to give away",
-      "Trans": "отдавать; выдавать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to give back",
-      "Trans": "возвращать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to give in",
-      "Trans": "уступать; сдаваться",
-      "IsLearned": false
-    },
-    {
-      "Word": "to give up",
-      "Trans": "бросать; сдаваться",
-      "IsLearned": false
-    },
-    {
-      "Word": "to go off",
-      "Trans": "взрываться; срабатывать; портиться",
-      "IsLearned": false
-    },
-    {
-      "Word": "to go on",
-      "Trans": "продолжаться; происходить",
-      "IsLearned": false
-    },
-    {
-      "Word": "to go over",
-      "Trans": "просматривать; повторять",
-      "IsLearned": false
-    },
-    {
-      "Word": "to go out",
-      "Trans": "выходить; встречаться",
-      "IsLearned": false
-    },
-    {
-      "Word": "to grow up",
-      "Trans": "вырастать; становиться взрослым",
-      "IsLearned": false
-    },
-    {
-      "Word": "to hang out",
-      "Trans": "проводить время; тусоваться",
-      "IsLearned": false
-    },
-    {
-      "Word": "to hold on",
-      "Trans": "держаться; ждать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to hold up",
-      "Trans": "задерживать; грабить",
-      "IsLearned": false
-    },
-    {
-      "Word": "to jump up",
-      "Trans": "подскакивать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to keep someone going",
-      "Trans": "поддерживать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to let down",
-      "Trans": "подводить; разочаровывать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to light up",
-      "Trans": "зажигать; освещать; засиять",
-      "IsLearned": false
-    },
-    {
-      "Word": "to line up",
-      "Trans": "выстраиваться; выстраивать в ряд",
-      "IsLearned": false
-    },
-    {
-      "Word": "to look after",
-      "Trans": "присматривать за",
-      "IsLearned": false
-    },
-    {
-      "Word": "to look down on",
-      "Trans": "смотреть свысока; презирать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to look into",
-      "Trans": "расследовать; изучать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to look up",
-      "Trans": "искать; улучшаться",
-      "IsLearned": false
-    },
-    {
-      "Word": "to look up to",
-      "Trans": "уважать; равняться на",
-      "IsLearned": false
-    },
-    {
-      "Word": "to make up",
-      "Trans": "выдумывать; мириться; составлять",
-      "IsLearned": false
-    },
-    {
-      "Word": "to pass off",
-      "Trans": "выдавать; проходить",
-      "IsLearned": false
-    },
-    {
-      "Word": "to pass up",
-      "Trans": "упускать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to pay off",
-      "Trans": "окупаться; давать результат",
-      "IsLearned": false
-    },
-    {
-      "Word": "to pick at",
-      "Trans": "ковырять",
-      "IsLearned": false
-    },
-    {
-      "Word": "to pick on",
-      "Trans": "придираться; дразнить",
-      "IsLearned": false
-    },
-    {
-      "Word": "to pick out",
-      "Trans": "выбирать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to pin down",
-      "Trans": "точно определять",
-      "IsLearned": false
-    },
-    {
-      "Word": "to pull down",
-      "Trans": "сносить",
-      "IsLearned": false
-    },
-    {
-      "Word": "to put off",
-      "Trans": "откладывать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to put down",
-      "Trans": "класть; записывать; унижать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to put out",
-      "Trans": "тушить; выпускать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to put up with",
-      "Trans": "мириться с",
-      "IsLearned": false
-    },
-    {
-      "Word": "to run away",
-      "Trans": "убегать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to run into",
-      "Trans": "сталкиваться; случайно встречать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to run out of",
-      "Trans": "заканчиваться",
-      "IsLearned": false
-    },
-    {
-      "Word": "to seek out",
-      "Trans": "разыскивать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to settle down",
-      "Trans": "успокаиваться; осесть",
-      "IsLearned": false
-    },
-    {
-      "Word": "to settle in",
-      "Trans": "обустраиваться; осваиваться",
-      "IsLearned": false
-    },
-    {
-      "Word": "to set out",
-      "Trans": "отправляться; излагать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to set up",
-      "Trans": "устраивать; основывать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to show up",
-      "Trans": "появляться",
-      "IsLearned": false
-    },
-    {
-      "Word": "to slow down",
-      "Trans": "замедлять(ся)",
-      "IsLearned": false
-    },
-    {
-      "Word": "to speed up",
-      "Trans": "ускорять(ся)",
-      "IsLearned": false
-    },
-    {
-      "Word": "to stretch back",
-      "Trans": "уходить корнями",
-      "IsLearned": false
-    },
-    {
-      "Word": "to take after",
-      "Trans": "быть похожим на",
-      "IsLearned": false
-    },
-    {
-      "Word": "to take away",
-      "Trans": "уносить; забирать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to take back",
-      "Trans": "забирать назад; брать назад",
-      "IsLearned": false
-    },
-    {
-      "Word": "to take down",
-      "Trans": "записывать; разбирать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to take off",
-      "Trans": "снимать; взлетать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to take over",
-      "Trans": "перенимать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to take up",
-      "Trans": "заняться; занимать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to try out",
-      "Trans": "пробовать; испытывать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to turn down",
-      "Trans": "отклонять; уменьшать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to turn in",
-      "Trans": "сдавать; ложиться спать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to turn out",
-      "Trans": "оказываться; получаться",
-      "IsLearned": false
-    },
-    {
-      "Word": "to turn over",
-      "Trans": "переворачивать(ся); передавать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to turn to",
-      "Trans": "обращаться к",
-      "IsLearned": false
-    },
-    {
-      "Word": "to turn up",
-      "Trans": "появляться; увеличивать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to work for",
-      "Trans": "работать на; способствовать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to work out",
-      "Trans": "тренироваться; решать; получаться",
-      "IsLearned": false
-    },
-    {
-      "Word": "to end up",
-      "Trans": "заканчивать; оказаться",
-      "IsLearned": false
-    },
-    {
-      "Word": "to fade away",
-      "Trans": "угасать; исчезать",
-      "IsLearned": false
-    },
-    {
-      "Word": "to fall down",
-      "Trans": "падать; проваливаться",
-      "IsLearned": false
-    },
-    {
-      "Word": "to fall for",
-      "Trans": "влюбляться; попадаться",
-      "IsLearned": false
-    },
-    {
-      "Word": "to fight off",
-      "Trans": "отбиваться; бороться с",
-      "IsLearned": false
-    },
-    {
-      "Word": "to fill in",
-      "Trans": "заполнять; замещать",
-      "IsLearned": false
-    }
-  ]
+﻿{
+   "LearnedWords": 0,
+   "TotalWords": 0,
+   "Words": [
+      {
+         "IsLearned": true,
+         "Phrase": "The pupil studies diligently.",
+         "Trans": "ученик",
+         "Word": "A pupil"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "She baked a bun.",
+         "Trans": "булочка",
+         "Word": "A bun"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "This has great flavour.",
+         "Trans": "вкус",
+         "Word": "Flavour"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "The brain's left hemisphere.",
+         "Trans": "полушарие",
+         "Word": "A hemisphere"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "Carved from pure ivory.",
+         "Trans": "слоновая кость",
+         "Word": "Ivory"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "Sulfur smells like eggs.",
+         "Trans": "сера",
+         "Word": "Sulfur"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "Admission to the event.",
+         "Trans": "вход; приём",
+         "Word": "Admission"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "Cows are grazing peacefully.",
+         "Trans": "выпас",
+         "Word": "Grazing"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "New sports facility opened.",
+         "Trans": "объект; удобство",
+         "Word": "A facility"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "Got a real bargain.",
+         "Trans": "выгодная покупка",
+         "Word": "A bargain"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "I admit my mistake.",
+         "Trans": "признавать",
+         "Word": "to admit"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "Adjust the volume now.",
+         "Trans": "регулировать",
+         "Word": "to adjust"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "Clowns amuse the children.",
+         "Trans": "развлекать",
+         "Word": "to amuse"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "Comb your hair neatly.",
+         "Trans": "расчёсывать",
+         "Word": "to comb"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "Compose a short poem.",
+         "Trans": "составлять",
+         "Word": "to compose"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "The book comprises chapters.",
+         "Trans": "включать",
+         "Word": "to comprise"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "She copes with stress.",
+         "Trans": "справляться",
+         "Word": "to cope"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "Distinguish right from wrong.",
+         "Trans": "различать",
+         "Word": "to distinguish"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "Eliminate all unnecessary items.",
+         "Trans": "устранять",
+         "Word": "to eliminate"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "This news excites me.",
+         "Trans": "возбуждать",
+         "Word": "to excite"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "Gain valuable experience daily.",
+         "Trans": "получать; приобретать",
+         "Word": "to gain"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "Mould the clay carefully.",
+         "Trans": "формировать",
+         "Word": "to mould"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "Obtain a new license.",
+         "Trans": "получать",
+         "Word": "to obtain"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "Oversee the project's progress.",
+         "Trans": "наблюдать",
+         "Word": "to oversee"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "She possesses great talent.",
+         "Trans": "владеть",
+         "Word": "to possess"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "I regard him highly.",
+         "Trans": "считать",
+         "Word": "to regard"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "Relive your childhood memories.",
+         "Trans": "переживать заново",
+         "Word": "to relive"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "You resemble your mother.",
+         "Trans": "быть похожим",
+         "Word": "to resemble"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "Reveal the hidden truth.",
+         "Trans": "раскрывать",
+         "Word": "to reveal"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "Rinse the dishes thoroughly.",
+         "Trans": "полоскать",
+         "Word": "to rinse"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "The wood began rotting.",
+         "Trans": "гнить",
+         "Word": "to rot"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "Rub the stain gently.",
+         "Trans": "тереть",
+         "Word": "to rub"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "They roam the streets.",
+         "Trans": "бродить",
+         "Word": "to roam"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "It seems quite simple.",
+         "Trans": "казаться",
+         "Word": "to seem"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "I sneezed during class.",
+         "Trans": "чихать",
+         "Word": "to sneeze"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "Kids splash in puddles.",
+         "Trans": "брызгать",
+         "Word": "to splash"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "Tickle your little brother.",
+         "Trans": "щекотать",
+         "Word": "to tickle"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "Unearth an ancient artifact.",
+         "Trans": "раскопать",
+         "Word": "to unearth"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Flaming torches lit up.",
+         "Trans": "пылающий",
+         "Word": "flaming"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "Fond of sweet desserts.",
+         "Trans": "любящий; привязанный",
+         "Word": "fond"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "A hectic work schedule.",
+         "Trans": "лихорадочный; суматошный",
+         "Word": "hectic"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "Medieval castles are fascinating.",
+         "Trans": "средневековый",
+         "Word": "medieval"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "Mediterranean cuisine is delicious.",
+         "Trans": "средиземноморский",
+         "Word": "mediterranean"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "A mere formality remains.",
+         "Trans": "простой; обычный",
+         "Word": "mere"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "That’s an odd request.",
+         "Trans": "странный",
+         "Word": "odd"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "Don’t be so rude.",
+         "Trans": "грубый",
+         "Word": "rude"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "This is sacred ground.",
+         "Trans": "священный",
+         "Word": "sacred"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "A wooded mountain trail.",
+         "Trans": "лесистый",
+         "Word": "wooded"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "Live apart from family.",
+         "Trans": "отдельно",
+         "Word": "apart"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "She barely passed exams.",
+         "Trans": "едва",
+         "Word": "barely"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "Speak freely without fear.",
+         "Trans": "свободно",
+         "Word": "freely"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Spread throughout the city.",
+         "Trans": "на протяжении",
+         "Word": "throughout"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Fish abound in rivers.",
+         "Trans": "изобиловать",
+         "Word": "to abound"
+      },
+      {
+         "IsLearned": true,
+         "Phrase": "I assure you, it’s safe.",
+         "Trans": "уверять",
+         "Word": "to assure"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "He boasts about achievements.",
+         "Trans": "хвалиться",
+         "Word": "to boast"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Breach the enemy’s defenses.",
+         "Trans": "нарушать; прорывать",
+         "Word": "to breach"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Brew a strong coffee.",
+         "Trans": "варить; заваривать",
+         "Word": "to brew"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Bury the treasure deep.",
+         "Trans": "закапывать",
+         "Word": "to bury"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Chase the runaway dog.",
+         "Trans": "преследовать",
+         "Word": "to chase"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Cherish every moment together.",
+         "Trans": "лелеять",
+         "Word": "to cherish"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Pots clatter in kitchen.",
+         "Trans": "греметь",
+         "Word": "to clatter"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Conduct a scientific experiment.",
+         "Trans": "проводить",
+         "Word": "to conduct"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Her smile delights everyone.",
+         "Trans": "восхищать; радовать",
+         "Word": "to delight"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Paintings depict historical events.",
+         "Trans": "изображать",
+         "Word": "to depict"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Dissolve sugar in water.",
+         "Trans": "растворять",
+         "Word": "to dissolve"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Space exploration fascinates me.",
+         "Trans": "очаровывать",
+         "Word": "to fascinate"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Fence the garden securely.",
+         "Trans": "огораживать",
+         "Word": "to fence"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Swans glide on water.",
+         "Trans": "скользить",
+         "Word": "to glide"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Frogs leap into ponds.",
+         "Trans": "прыгать",
+         "Word": "to leap"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Mastermind a clever plan.",
+         "Trans": "спланировать",
+         "Word": "to mastermind"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Ward off evil spirits.",
+         "Trans": "защищать; отгонять",
+         "Word": "to ward"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Abundant harvest this year.",
+         "Trans": "обильный",
+         "Word": "abundant"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Ancient ruins attract tourists.",
+         "Trans": "древний",
+         "Word": "ancient"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Skills are easily assessable.",
+         "Trans": "подлежащий оценке",
+         "Word": "assessable"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "A catchy song plays.",
+         "Trans": "запоминающийся",
+         "Word": "catchy"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Coastal towns are beautiful.",
+         "Trans": "прибережный",
+         "Word": "coastal"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "The cake tastes divine.",
+         "Trans": "божественный",
+         "Word": "divine"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "An elaborate wedding ceremony.",
+         "Trans": "тщательный; сложный",
+         "Word": "elaborate"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Protect endangered species now.",
+         "Trans": "находящийся под угрозой исчезновения",
+         "Word": "endangered"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "An estimable community leader.",
+         "Trans": "достойный уважения",
+         "Word": "estimable"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Her fanciful imagination soared.",
+         "Trans": "фантастический; причудливый",
+         "Word": "fanciful"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "A fruitful business venture.",
+         "Trans": "плодотворный",
+         "Word": "fruitful"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Widespread support for reform.",
+         "Trans": "широко распространённый",
+         "Word": "widespread"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Sailing downwind is easier.",
+         "Trans": "по ветру",
+         "Word": "downwind"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Frankly, I don’t care.",
+         "Trans": "откровенно",
+         "Word": "frankly"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "She dresses sensibly always.",
+         "Trans": "разумно",
+         "Word": "sensibly"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Her talent is undeniably.",
+         "Trans": "неоспоримо",
+         "Word": "undeniably"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Dig for hidden treasures.",
+         "Trans": "копать в поисках",
+         "Word": "to dig for"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Opt for healthy snacks.",
+         "Trans": "выбирать",
+         "Word": "to opt for"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Rely on your instincts.",
+         "Trans": "полагаться на",
+         "Word": "to rely on"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Set off at dawn.",
+         "Trans": "отправляться",
+         "Word": "to set off"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Suffer from chronic pain.",
+         "Trans": "страдать от",
+         "Word": "to suffer from"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "By all means, try!",
+         "Trans": "во что бы то ни стало; конечно",
+         "Word": "by all means"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Head over heels in love.",
+         "Trans": "по уши влюблённый",
+         "Word": "head over heels in love"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Patience pays in the long run.",
+         "Trans": "в долгосрочной перспективе",
+         "Word": "in the long run"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Ideas come to mind.",
+         "Trans": "приходить на ум",
+         "Word": "to come to mind"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Keep an eye on kids.",
+         "Trans": "присматривать",
+         "Word": "to keep an eye on"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Take notice of signs.",
+         "Trans": "обратить внимание на",
+         "Word": "to take notice of"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Admiration for her courage.",
+         "Trans": "восхищение",
+         "Word": "admiration for"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Confidence in your abilities.",
+         "Trans": "уверенность в",
+         "Word": "confidence in"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Exposure to new cultures.",
+         "Trans": "воздействие",
+         "Word": "exposure to"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Fondness for old books.",
+         "Trans": "привязанность к",
+         "Word": "fondness for"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Objection to the proposal.",
+         "Trans": "возражение против",
+         "Word": "an objection to"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Accustomed to early mornings.",
+         "Trans": "привыкший к",
+         "Word": "accustomed to"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Anxious about the future.",
+         "Trans": "обеспокоенный из-за",
+         "Word": "anxious about"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Astonished by her talent.",
+         "Trans": "поражённый",
+         "Word": "astonished at/by"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Capable of great things.",
+         "Trans": "способный к",
+         "Word": "capable of"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Team composed of experts.",
+         "Trans": "состоящий из",
+         "Word": "composed of"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Confident of her success.",
+         "Trans": "уверенный в",
+         "Word": "confident of/about"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Crucial for project success.",
+         "Trans": "решающий для",
+         "Word": "crucial for/to"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Customary for holiday celebrations.",
+         "Trans": "обычный для",
+         "Word": "customary for"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Deficient in essential vitamins.",
+         "Trans": "испытывающий недостаток",
+         "Word": "deficient in"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Deprived of basic rights.",
+         "Trans": "лишённый",
+         "Word": "deprived of"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Discouraged by constant setbacks.",
+         "Trans": "обескураженный",
+         "Word": "discouraged by"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Eager for new adventures.",
+         "Trans": "жаждущий",
+         "Word": "eager for"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Eligible for the scholarship.",
+         "Trans": "имеющий право на",
+         "Word": "eligible for"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Envious of their success.",
+         "Trans": "завистливый к",
+         "Word": "envious of"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Essential for healthy growth.",
+         "Trans": "необходимый для",
+         "Word": "essential for"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Fascinated by ancient history.",
+         "Trans": "очарованный",
+         "Word": "fascinated by/with"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Fed up with delays.",
+         "Trans": "сытый по горло",
+         "Word": "fed up with"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Fond of classical music.",
+         "Trans": "любящий",
+         "Word": "fond of"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Frightened by loud noises.",
+         "Trans": "напуганный",
+         "Word": "frightened of/by"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Frustrated with slow progress.",
+         "Trans": "разочарованный",
+         "Word": "frustrated with/by"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Generous with her time.",
+         "Trans": "щедрый к",
+         "Word": "generous with/to"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Gentle with young children.",
+         "Trans": "нежный с",
+         "Word": "gentle with"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Grateful for your help.",
+         "Trans": "благодарный за/кому-либо",
+         "Word": "grateful for/to"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Ignorant of local customs.",
+         "Trans": "невежественный в отношении",
+         "Word": "ignorant of/about"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Incapable of lying convincingly.",
+         "Trans": "неспособный к",
+         "Word": "incapable of"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Indifferent to others’ opinions.",
+         "Trans": "равнодушный к",
+         "Word": "indifferent to"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Inferior to premium brands.",
+         "Trans": "уступающий по качеству",
+         "Word": "inferior to"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Irritated by constant interruptions.",
+         "Trans": "раздражённый",
+         "Word": "irritated by/with"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Jealous of her achievements.",
+         "Trans": "ревнивый к",
+         "Word": "jealous of"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Keen on learning languages.",
+         "Trans": "увлечённый",
+         "Word": "keen on"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Occupied with urgent tasks.",
+         "Trans": "занятый",
+         "Word": "occupied with"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Offensive to many people.",
+         "Trans": "оскорбительный для",
+         "Word": "offensive to"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Reliant on public transport.",
+         "Trans": "зависимый от",
+         "Word": "reliant on"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Relieved about exam results.",
+         "Trans": "испытывающий облегчение из-за",
+         "Word": "relieved about"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Remarkable for its beauty.",
+         "Trans": "примечательный",
+         "Word": "remarkable for"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Renowned for fine wines.",
+         "Trans": "прославленный",
+         "Word": "renowned for"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Rude to the waiter.",
+         "Trans": "грубый по отношению к",
+         "Word": "rude to"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Superior to other models.",
+         "Trans": "превосходящий по качеству",
+         "Word": "superior to"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Thirsty for new knowledge.",
+         "Trans": "жаждущий",
+         "Word": "thirsty for"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Thoughtful of others’ feelings.",
+         "Trans": "внимательный к",
+         "Word": "thoughtful of"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Willing to help anytime.",
+         "Trans": "готовый",
+         "Word": "willing to"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "At a loss for words.",
+         "Trans": "в растерянности",
+         "Word": "at a loss"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "One task at a time.",
+         "Trans": "за один раз",
+         "Word": "at a time"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Win at all costs.",
+         "Trans": "любой ценой",
+         "Word": "at all costs"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Wake up at dawn.",
+         "Trans": "на рассвете",
+         "Word": "at dawn"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Who’s at fault here?",
+         "Trans": "виновный",
+         "Word": "at fault"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Lives are at stake.",
+         "Trans": "на кону",
+         "Word": "at stake"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Project is behind schedule.",
+         "Trans": "с опозданием",
+         "Word": "behind schedule"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Details beneath notice escaped.",
+         "Trans": "не заслуживающий внимания",
+         "Word": "beneath notice"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "That’s beside the point.",
+         "Trans": "не относящийся к делу",
+         "Word": "beside the point"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Beauty beyond belief awaits.",
+         "Trans": "невероятный",
+         "Word": "beyond belief"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Truth beyond doubt revealed.",
+         "Trans": "вне всякого сомнения",
+         "Word": "beyond doubt"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Provided by courtesy of.",
+         "Trans": "с любезного разрешения",
+         "Word": "by courtesy of"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Success by dint of effort.",
+         "Trans": "благодаря",
+         "Word": "by dint of"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "They spoke by turns.",
+         "Trans": "по очереди",
+         "Word": "by turns"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Leader by virtue of experience.",
+         "Trans": "в силу",
+         "Word": "by virtue of"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "For the sake of peace.",
+         "Trans": "ради",
+         "Word": "for the sake of"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "In compliance with rules.",
+         "Trans": "в соответствии с",
+         "Word": "in compliance with"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Stood in disbelief silently.",
+         "Trans": "с недоверием",
+         "Word": "in disbelief"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "He arrived in disguise.",
+         "Trans": "в маскировке",
+         "Word": "in disguise"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Ship in distress signaled.",
+         "Trans": "в беде",
+         "Word": "in distress"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "In essence, it’s simple.",
+         "Trans": "по сути",
+         "Word": "in essence"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Careers in jeopardy now.",
+         "Trans": "под угрозой",
+         "Word": "in jeopardy"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Cash in lieu of gifts.",
+         "Trans": "вместо",
+         "Word": "in lieu of"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "In line with policy.",
+         "Trans": "в соответствии с",
+         "Word": "in line with"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "In pursuit of happiness.",
+         "Trans": "в погоне за",
+         "Word": "in pursuit of"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "In recognition of bravery.",
+         "Trans": "в знак признания",
+         "Word": "in recognition of"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Efforts were in vain.",
+         "Trans": "напрасно",
+         "Word": "in vain"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Caught me off guard.",
+         "Trans": "врасплох",
+         "Word": "off guard"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "On the brink of discovery.",
+         "Trans": "на грани",
+         "Word": "on the brink of"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Dismissed without prejudice.",
+         "Trans": "без ущерба для",
+         "Word": "without prejudice"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Back up your files.",
+         "Trans": "поддерживать; делать резервную копию",
+         "Word": "to back up"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "The car broke down.",
+         "Trans": "ломаться; разлагать на части",
+         "Word": "to break down"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Bring down the price.",
+         "Trans": "свергать; снижать",
+         "Word": "to bring down"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Bring out your talent.",
+         "Trans": "выпускать; выявлять",
+         "Word": "to bring out"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Call off the meeting.",
+         "Trans": "отменять",
+         "Word": "to call off"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Carry on with work.",
+         "Trans": "продолжать",
+         "Word": "to carry on"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Carry out the plan.",
+         "Trans": "выполнять",
+         "Word": "to carry out"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "The trend caught on.",
+         "Trans": "приживаться; становиться популярным",
+         "Word": "to catch on"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Check in at hotel.",
+         "Trans": "регистрироваться",
+         "Word": "to check in"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Come across an artifact.",
+         "Trans": "наткнуться; случайно встретить",
+         "Word": "to come across"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Come across as confident.",
+         "Trans": "производить впечатление",
+         "Word": "to come across as"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "She’ll come around soon.",
+         "Trans": "приходить в себя; заходить",
+         "Word": "to come around"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Come back for more.",
+         "Trans": "возвращаться за",
+         "Word": "to come back for"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Witnesses must come forward.",
+         "Trans": "выступать",
+         "Word": "to come forward"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Come in, it’s open.",
+         "Trans": "входить",
+         "Word": "to come in"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "The event came off.",
+         "Trans": "происходить; производить впечатление; отрываться",
+         "Word": "to come off"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Come out of hiding.",
+         "Trans": "выходить из; появляться из",
+         "Word": "to come out of"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Come over this evening.",
+         "Trans": "заходить; охватывать",
+         "Word": "to come over"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Issues may come up.",
+         "Trans": "возникать; появляться",
+         "Word": "to come up"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Cut down on sugar.",
+         "Trans": "срубать; сокращать",
+         "Word": "to cut down"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Drop off the package.",
+         "Trans": "подвозить; засыпать; уменьшаться",
+         "Word": "to drop off"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Dust off old records.",
+         "Trans": "смахивать пыль; доставать",
+         "Word": "to dust off"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Emerge from the shadows.",
+         "Trans": "появляться из; выныривать из",
+         "Word": "to emerge from"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Find out the truth.",
+         "Trans": "выяснять; узнавать",
+         "Word": "to find out"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Finish off the cake.",
+         "Trans": "завершать; добивать",
+         "Word": "to finish off"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Finish up your homework.",
+         "Trans": "заканчивать",
+         "Word": "to finish up"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Try to fit in.",
+         "Trans": "вписываться; подходить",
+         "Word": "to fit in"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Get on the bus.",
+         "Trans": "садиться на; ладить",
+         "Word": "to get on"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Get out of trouble.",
+         "Trans": "выбираться из; избегать",
+         "Word": "to get out of"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Get up early tomorrow.",
+         "Trans": "вставать",
+         "Word": "to get up"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Give away old clothes.",
+         "Trans": "отдавать; выдавать",
+         "Word": "to give away"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Give back the book.",
+         "Trans": "возвращать",
+         "Word": "to give back"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Don’t give in easily.",
+         "Trans": "уступать; сдаваться",
+         "Word": "to give in"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Never give up hope.",
+         "Trans": "бросать; сдаваться",
+         "Word": "to give up"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "The alarm went off.",
+         "Trans": "взрываться; срабатывать; портиться",
+         "Word": "to go off"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "The show goes on.",
+         "Trans": "продолжаться; происходить",
+         "Word": "to go on"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Go over the notes.",
+         "Trans": "просматривать; повторять",
+         "Word": "to go over"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Let’s go out tonight.",
+         "Trans": "выходить; встречаться",
+         "Word": "to go out"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Kids grow up fast.",
+         "Trans": "вырастать; становиться взрослым",
+         "Word": "to grow up"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Hang out with friends.",
+         "Trans": "проводить время; тусоваться",
+         "Word": "to hang out"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Hold on a second.",
+         "Trans": "держаться; ждать",
+         "Word": "to hold on"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Traffic held up progress.",
+         "Trans": "задерживать; грабить",
+         "Word": "to hold up"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Jump up with excitement.",
+         "Trans": "подскакивать",
+         "Word": "to jump up"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Support keeps her going.",
+         "Trans": "поддерживать",
+         "Word": "to keep someone going"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Don’t let me down.",
+         "Trans": "подводить; разочаровывать",
+         "Word": "to let down"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Her smile lights up.",
+         "Trans": "зажигать; освещать; засиять",
+         "Word": "to light up"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Line up for tickets.",
+         "Trans": "выстраиваться; выстраивать в ряд",
+         "Word": "to line up"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Look after the kids.",
+         "Trans": "присматривать за",
+         "Word": "to look after"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Don’t look down on others.",
+         "Trans": "смотреть свысока; презирать",
+         "Word": "to look down on"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Look into the issue.",
+         "Trans": "расследовать; изучать",
+         "Word": "to look into"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Look up the word.",
+         "Trans": "искать; улучшаться",
+         "Word": "to look up"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "I look up to her.",
+         "Trans": "уважать; равняться на",
+         "Word": "to look up to"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Make up a story.",
+         "Trans": "выдумывать; мириться; составлять",
+         "Word": "to make up"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Pass off as genuine.",
+         "Trans": "выдавать; проходить",
+         "Word": "to pass off"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Don’t pass up opportunities.",
+         "Trans": "упускать",
+         "Word": "to pass up"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Hard work pays off.",
+         "Trans": "окупаться; давать результат",
+         "Word": "to pay off"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Pick at the food.",
+         "Trans": "ковырять",
+         "Word": "to pick at"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Don’t pick on him.",
+         "Trans": "придираться; дразнить",
+         "Word": "to pick on"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Pick out a gift.",
+         "Trans": "выбирать",
+         "Word": "to pick out"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Pin down the location.",
+         "Trans": "точно определять",
+         "Word": "to pin down"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Pull down old buildings.",
+         "Trans": "сносить",
+         "Word": "to pull down"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Put off the meeting.",
+         "Trans": "откладывать",
+         "Word": "to put off"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Put down your phone.",
+         "Trans": "класть; записывать; унижать",
+         "Word": "to put down"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Put out the fire.",
+         "Trans": "тушить; выпускать",
+         "Word": "to put out"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Put up with noise.",
+         "Trans": "мириться с",
+         "Word": "to put up with"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Don’t run away now.",
+         "Trans": "убегать",
+         "Word": "to run away"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Run into an old friend.",
+         "Trans": "сталкиваться; случайно встречать",
+         "Word": "to run into"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Run out of milk.",
+         "Trans": "заканчиваться",
+         "Word": "to run out of"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Seek out new opportunities.",
+         "Trans": "разыскивать",
+         "Word": "to seek out"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Time to settle down.",
+         "Trans": "успокаиваться; осесть",
+         "Word": "to settle down"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Settle in new home.",
+         "Trans": "обустраиваться; осваиваться",
+         "Word": "to settle in"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Set out on adventure.",
+         "Trans": "отправляться; излагать",
+         "Word": "to set out"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Set up a business.",
+         "Trans": "устраивать; основывать",
+         "Word": "to set up"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Show up on time.",
+         "Trans": "появляться",
+         "Word": "to show up"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Slow down your pace.",
+         "Trans": "замедлять(ся)",
+         "Word": "to slow down"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Speed up the process.",
+         "Trans": "ускорять(ся)",
+         "Word": "to speed up"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "History stretches back centuries.",
+         "Trans": "уходить корнями",
+         "Word": "to stretch back"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "You take after dad.",
+         "Trans": "быть похожим на",
+         "Word": "to take after"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Take away the trash.",
+         "Trans": "уносить; забирать",
+         "Word": "to take away"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Take back your words.",
+         "Trans": "забирать назад; брать назад",
+         "Word": "to take back"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Take down the notes.",
+         "Trans": "записывать; разбирать",
+         "Word": "to take down"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Plane will take off.",
+         "Trans": "снимать; взлетать",
+         "Word": "to take off"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Take over the project.",
+         "Trans": "перенимать",
+         "Word": "to take over"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Take up a hobby.",
+         "Trans": "заняться; занимать",
+         "Word": "to take up"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Try out new recipes.",
+         "Trans": "пробовать; испытывать",
+         "Word": "to try out"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Turn down the offer.",
+         "Trans": "отклонять; уменьшать",
+         "Word": "to turn down"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Turn in your homework.",
+         "Trans": "сдавать; ложиться спать",
+         "Word": "to turn in"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "It turned out well.",
+         "Trans": "оказываться; получаться",
+         "Word": "to turn out"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Turn over the page.",
+         "Trans": "переворачивать(ся); передавать",
+         "Word": "to turn over"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Turn to your friends.",
+         "Trans": "обращаться к",
+         "Word": "to turn to"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Turn up the volume.",
+         "Trans": "появляться; увеличивать",
+         "Word": "to turn up"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Work for a cause.",
+         "Trans": "работать на; способствовать",
+         "Word": "to work for"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Work out every morning.",
+         "Trans": "тренироваться; решать; получаться",
+         "Word": "to work out"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "End up staying late.",
+         "Trans": "заканчивать; оказаться",
+         "Word": "to end up"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Memories slowly fade away.",
+         "Trans": "угасать; исчезать",
+         "Word": "to fade away"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Don’t fall down stairs.",
+         "Trans": "падать; проваливаться",
+         "Word": "to fall down"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Fall for her charm.",
+         "Trans": "влюбляться; попадаться",
+         "Word": "to fall for"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Fight off the cold.",
+         "Trans": "отбиваться; бороться с",
+         "Word": "to fight off"
+      },
+      {
+         "IsLearned": false,
+         "Phrase": "Fill in the form.",
+         "Trans": "заполнять; замещать",
+         "Word": "to fill in"
+      }
+   ]
 }

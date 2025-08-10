@@ -257,25 +257,20 @@
                         <div class="card-controls">
                             <div class="checkbox-wrapper" data-index="0">
                                 <control attr="IsLearned">
-                                    <!-- Words\[0]\IsLearned: false -->
                                     <input @CheckBox />
                                 </control>
                                 <span>Изучено</span>
                             </div>
                         </div>
                         <div class="card-face card-front">
-                            <control attr="Word">
-                                <!-- Words\[0]\Word: A pupil -->
-                                <div class="word-display">@Value</div>
-                                <p style="display: none;"><input @TextBox /></p>
-                            </control>
+                            <div class="word-display">
+                                <b>@Word.Value</b>
+                                <hr>
+                                @Phrase.Value
+                            </div>
                         </div>
                         <div class="card-face card-back">
-                            <control attr="Trans">
-                                <!-- Words\[0]\Trans: ученик -->
-                                <div class="trans-display">@Value</div>
-                                <p style="display: none;"><input @TextBox /></p>
-                            </control>
+                            <div class="trans-display">@Trans.Value</div>
                         </div>
                     </div>
                 </div>

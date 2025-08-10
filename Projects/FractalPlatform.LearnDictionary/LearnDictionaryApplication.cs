@@ -25,7 +25,7 @@ namespace FractalPlatform.LearnDictionary
                 case @"Learn":
                 {
                     ModifyDocsWhere("Words","{'Words':[{'IsLearned':false}]}")
-                        .OpenForm("{'Words':[{'Word':$,'Trans':$,'IsLearned':$}]}");
+                        .OpenForm("{'Words':[{'Word':$,'Phrase':$,'Trans':$,'IsLearned':$}]}");
 
                     break;
                 }
@@ -38,14 +38,14 @@ namespace FractalPlatform.LearnDictionary
                 }
                 case @"Reset":
                 {
-                    MessageBox("Are you sure to reset learned words?",
+                    MessageBox("Are you sure you want to reset learned words?",
                                "Reset",
                                MessageBoxButtonType.YesNo,
                                result =>
                     {
                         if (result.Result)
                         {
-                            ModifyFirstDocOf("Words")
+                            ModifyDocsWhere("Words", "{'Words':[{'IsLearned':true}]}")
                                 .Update("{'Words':[{'IsLearned':false}]}");
                         }
                     });

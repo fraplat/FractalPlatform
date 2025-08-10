@@ -1,5 +1,5 @@
 {
-  "Style": "Save:false;Cancel:false",
+  "Style": "CollLabel:Learn the words;Save:false;Cancel:false",
   "Learn": {
     "ControlType": "Button"
   },
