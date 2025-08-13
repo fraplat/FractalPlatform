@@ -1,9 +1,0 @@
-{
-  "ReadOnly": true,
-  "Style": "Hide:Tasks,Description;Type:Link",
-  "Categories": [
-    {
-      "ReadOnly": false
-    }
-  ]
-}

@@ -1,8 +1,0 @@
-{
-  "TotalPoints": {
-    "Formula": "@TotalPointsVariable"
-  },
-  "TotalTime": {
-    "Formula": "@TotalTimeVariable"
-  }
-}
