@@ -1,6 +1,7 @@
 using FractalPlatform.Client.UI;
 using FractalPlatform.Database.Engine.Info;
 using FractalPlatform.Client.App;
+using FractalPlatform.Common.Enums;
 
 namespace FractalPlatform.LearnDictionary
 {
