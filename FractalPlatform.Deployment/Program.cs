@@ -467,7 +467,7 @@ namespace FractalPlatform.Deployment
 					sb.AppendLine($"Error: {error}");
 				}
 
-				sb.AppendLine("=============================");
+				sb.AppendLine("====================================");
 
 				sb.AppendLine($"Build {appName} FAILED.");
 
