@@ -1,4 +1,11 @@
 {
   "IsRawPage": true,
-  "Layout": "Words"
+  "Layout": "Words",
+  "Style": "Hide:IsLearned",
+  "LearnedWords": {
+    "Visible": false
+  },
+  "TotalWords": {
+    "Visible": false
+  }
 }

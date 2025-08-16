@@ -1,0 +1,18 @@
+{
+  "Words": [
+    {
+      "Word": {
+        "Index": 1
+      },
+      "Trans": {
+        "Index": 2
+      },
+      "Phrase": {
+        "Index": 3
+      },
+      "IsLearned": {
+        "Index": 4
+      }
+    }
+  ]
+}

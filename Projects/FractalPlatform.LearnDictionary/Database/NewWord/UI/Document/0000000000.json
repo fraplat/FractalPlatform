@@ -1,5 +1,5 @@
 {
-  "Style": "CollLabel:Add new word",
+  "Style": "CollLabel:Add new word;Save:Add",
   "IsLearned": {
     "Visible": false
   }

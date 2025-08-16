@@ -6,6 +6,9 @@
   "NewWord": {
     "ControlType": "Button"
   },
+  "Edit": {
+    "ControlType": "Button"
+  },
   "Reset": {
     "ControlType": "Button"
   }

@@ -36,6 +36,15 @@ namespace FractalPlatform.LearnDictionary
 
                     break;
                 }
+                case @"Edit":
+                {
+                    ModifyFirstDocOf("Words")
+                        .ExtendUIDimension("{'Layout':'','IsRawPage':false}")
+                        .ResetDimension(DimensionType.Pagination)
+                        .OpenForm();
+                    
+                    break;
+                }
                 case @"Reset":
                 {
                     MessageBox("Are you sure you want to reset learned words?",
@@ -70,15 +79,16 @@ namespace FractalPlatform.LearnDictionary
                 case @"LearnedWordsVariable":
                 {
                     result = DocsWhere("Words","{'Words':[{'IsLearned':true}]}")
-                                .Count("{'Words':[{'Word':$}]}");
-
+                                .Count("{'Words':[{'Word':$}]}") + //total learned words
+                             info.Collection //learned words in current session
+                                 .GetWhere("{'Words':[{'IsLearned':true}]}")
+                                 .Count("{'Words':[{'Word':$}]}");
                     break;
                 }
                 case @"TotalWordsVariable":
                 {
                     result = FirstDocOf("Words")
                                 .Count("{'Words':[{'Word':$}]}");
-
                     break;
                 }
                 default:
