@@ -409,6 +409,42 @@ namespace FractalPlatform.Deployment
 			}
 		}
 
+		static string AddSuggestions(string error)
+		{
+			var suggestion = "\r\nDid you add {0} namespace in the code?";
+
+			if (error.Contains("The name 'DimensionType' does not exist in the current context"))
+			{
+				error += string.Format(suggestion, "FractalPlatform.Common.Enums");
+			}
+			else if (error.Contains("are you missing a using directive or an assembly reference"))
+			{
+				if (error.Contains("FormBuilderExtensions") ||
+					error.Contains("BaseQuery"))
+				{
+					error += string.Format(suggestion, "FractalPlatform.Client.UI");
+				}
+				else if (error.Contains("BaseApplication"))
+				{
+					error += string.Format(suggestion, "FractalPlatform.Client.App");
+				}
+				else if (error.Contains("ToJson") || error.Contains("ToCollection"))
+				{
+					error += string.Format(suggestion, "FractalPlatform.Database.Engine");
+				}
+				else if (error.Contains("DOMForm"))
+				{
+					error += string.Format(suggestion, "FractalPlatform.Client.UI.DOM");
+				}
+				else if (error.Contains("Info'"))
+				{
+					error += string.Format(suggestion, "FractalPlatform.Database.Engine.Info");
+				}
+			}
+
+			return error;
+		}
+
 		static void Rebuild(string appName)
 		{
 			Console.WriteLine($"Start build {appName} application ...");
@@ -464,7 +500,7 @@ namespace FractalPlatform.Deployment
 
 				foreach (var error in captureLogger.Errors)
 				{
-					sb.AppendLine($"Error: {error}");
+					sb.AppendLine($"Error: {AddSuggestions(error)}");
 				}
 
 				sb.AppendLine("====================================");
