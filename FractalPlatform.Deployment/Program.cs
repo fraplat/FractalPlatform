@@ -417,6 +417,10 @@ namespace FractalPlatform.Deployment
 			{
 				error += string.Format(suggestion, "FractalPlatform.Common.Enums");
 			}
+			else if (error.Contains("The name 'AIModel' does not exist in the current context"))
+			{
+				error += string.Format(suggestion, "FractalPlatform.Common.Clients");
+			}
 			else if (error.Contains("are you missing a using directive or an assembly reference"))
 			{
 				if (error.Contains("FormBuilderExtensions") ||
