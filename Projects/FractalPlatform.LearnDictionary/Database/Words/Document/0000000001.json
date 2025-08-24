@@ -681,7 +681,7 @@
       "Word": "deprived of"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Discouraged by constant setbacks.",
       "Trans": "обескураженный",
       "Word": "discouraged by"
@@ -699,19 +699,19 @@
       "Word": "eligible for"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Envious of their success.",
       "Trans": "завистливый к",
       "Word": "envious of"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Essential for healthy growth.",
       "Trans": "необходимый для",
       "Word": "essential for"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Fascinated by ancient history.",
       "Trans": "очарованный",
       "Word": "fascinated by/with"
@@ -747,19 +747,19 @@
       "Word": "generous with/to"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Gentle with young children.",
       "Trans": "нежный с",
       "Word": "gentle with"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Grateful for your help.",
       "Trans": "благодарный за/кому-либо",
       "Word": "grateful for/to"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Ignorant of local customs.",
       "Trans": "невежественный в отношении",
       "Word": "ignorant of/about"
@@ -771,31 +771,31 @@
       "Word": "incapable of"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Indifferent to others’ opinions.",
       "Trans": "равнодушный к",
       "Word": "indifferent to"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Inferior to premium brands.",
       "Trans": "уступающий по качеству",
       "Word": "inferior to"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Irritated by constant interruptions.",
       "Trans": "раздражённый",
       "Word": "irritated by/with"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Jealous of her achievements.",
       "Trans": "ревнивый к",
       "Word": "jealous of"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Keen on learning languages.",
       "Trans": "увлечённый",
       "Word": "keen on"
@@ -807,31 +807,31 @@
       "Word": "occupied with"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Offensive to many people.",
       "Trans": "оскорбительный для",
       "Word": "offensive to"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Reliant on public transport.",
       "Trans": "зависимый от",
       "Word": "reliant on"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Relieved about exam results.",
       "Trans": "испытывающий облегчение из-за",
       "Word": "relieved about"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Remarkable for its beauty.",
       "Trans": "примечательный",
       "Word": "remarkable for"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Renowned for fine wines.",
       "Trans": "прославленный",
       "Word": "renowned for"
@@ -843,37 +843,37 @@
       "Word": "rude to"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Superior to other models.",
       "Trans": "превосходящий по качеству",
       "Word": "superior to"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Thirsty for new knowledge.",
       "Trans": "жаждущий",
       "Word": "thirsty for"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Thoughtful of others’ feelings.",
       "Trans": "внимательный к",
       "Word": "thoughtful of"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Willing to help anytime.",
       "Trans": "готовый",
       "Word": "willing to"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "At a loss for words.",
       "Trans": "в растерянности",
       "Word": "at a loss"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "One task at a time.",
       "Trans": "за один раз",
       "Word": "at a time"
@@ -885,19 +885,19 @@
       "Word": "at all costs"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Wake up at dawn.",
       "Trans": "на рассвете",
       "Word": "at dawn"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Who’s at fault here?",
       "Trans": "виновный",
       "Word": "at fault"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Lives are at stake.",
       "Trans": "на кону",
       "Word": "at stake"
@@ -909,7 +909,7 @@
       "Word": "behind schedule"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Details beneath notice escaped.",
       "Trans": "не заслуживающий внимания",
       "Word": "beneath notice"
@@ -921,163 +921,163 @@
       "Word": "beside the point"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Beauty beyond belief awaits.",
       "Trans": "невероятный",
       "Word": "beyond belief"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Truth beyond doubt revealed.",
       "Trans": "вне всякого сомнения",
       "Word": "beyond doubt"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Provided by courtesy of.",
       "Trans": "с любезного разрешения",
       "Word": "by courtesy of"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Success by dint of effort.",
       "Trans": "благодаря",
       "Word": "by dint of"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "They spoke by turns.",
       "Trans": "по очереди",
       "Word": "by turns"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Leader by virtue of experience.",
       "Trans": "в силу",
       "Word": "by virtue of"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "For the sake of peace.",
       "Trans": "ради",
       "Word": "for the sake of"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "In compliance with rules.",
       "Trans": "в соответствии с",
       "Word": "in compliance with"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Stood in disbelief silently.",
       "Trans": "с недоверием",
       "Word": "in disbelief"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "He arrived in disguise.",
       "Trans": "в маскировке",
       "Word": "in disguise"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Ship in distress signaled.",
       "Trans": "в беде",
       "Word": "in distress"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "In essence, it’s simple.",
       "Trans": "по сути",
       "Word": "in essence"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Careers in jeopardy now.",
       "Trans": "под угрозой",
       "Word": "in jeopardy"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Cash in lieu of gifts.",
       "Trans": "вместо",
       "Word": "in lieu of"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "In line with policy.",
       "Trans": "в соответствии с",
       "Word": "in line with"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "In pursuit of happiness.",
       "Trans": "в погоне за",
       "Word": "in pursuit of"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "In recognition of bravery.",
       "Trans": "в знак признания",
       "Word": "in recognition of"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Efforts were in vain.",
       "Trans": "напрасно",
       "Word": "in vain"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Caught me off guard.",
       "Trans": "врасплох",
       "Word": "off guard"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "On the brink of discovery.",
       "Trans": "на грани",
       "Word": "on the brink of"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Dismissed without prejudice.",
       "Trans": "без ущерба для",
       "Word": "without prejudice"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Back up your files.",
       "Trans": "поддерживать; делать резервную копию",
       "Word": "to back up"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "The car broke down.",
       "Trans": "ломаться; разлагать на части",
       "Word": "to break down"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Bring down the price.",
       "Trans": "свергать; снижать",
       "Word": "to bring down"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Bring out your talent.",
       "Trans": "выпускать; выявлять",
       "Word": "to bring out"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Call off the meeting.",
       "Trans": "отменять",
       "Word": "to call off"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Carry on with work.",
       "Trans": "продолжать",
       "Word": "to carry on"
@@ -1089,13 +1089,13 @@
       "Word": "to carry out"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "The trend caught on.",
       "Trans": "приживаться; становиться популярным",
       "Word": "to catch on"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Check in at hotel.",
       "Trans": "регистрироваться",
       "Word": "to check in"
@@ -1113,13 +1113,13 @@
       "Word": "to come across as"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "She’ll come around soon.",
       "Trans": "приходить в себя; заходить",
       "Word": "to come around"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Come back for more.",
       "Trans": "возвращаться за",
       "Word": "to come back for"
@@ -1131,7 +1131,7 @@
       "Word": "to come forward"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Come in, it’s open.",
       "Trans": "входить",
       "Word": "to come in"
@@ -1161,7 +1161,7 @@
       "Word": "to come up"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Cut down on sugar.",
       "Trans": "срубать; сокращать",
       "Word": "to cut down"
@@ -1173,7 +1173,7 @@
       "Word": "to drop off"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Dust off old records.",
       "Trans": "смахивать пыль; доставать",
       "Word": "to dust off"
@@ -1185,7 +1185,7 @@
       "Word": "to emerge from"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Find out the truth.",
       "Trans": "выяснять; узнавать",
       "Word": "to find out"
@@ -1209,19 +1209,19 @@
       "Word": "to fit in"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Get on the bus.",
       "Trans": "садиться на; ладить",
       "Word": "to get on"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Get out of trouble.",
       "Trans": "выбираться из; избегать",
       "Word": "to get out of"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Get up early tomorrow.",
       "Trans": "вставать",
       "Word": "to get up"
@@ -1233,7 +1233,7 @@
       "Word": "to give away"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Give back the book.",
       "Trans": "возвращать",
       "Word": "to give back"
@@ -1245,7 +1245,7 @@
       "Word": "to give in"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Never give up hope.",
       "Trans": "бросать; сдаваться",
       "Word": "to give up"
@@ -1257,7 +1257,7 @@
       "Word": "to go off"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "The show goes on.",
       "Trans": "продолжаться; происходить",
       "Word": "to go on"
@@ -1269,13 +1269,13 @@
       "Word": "to go over"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Let’s go out tonight.",
       "Trans": "выходить; встречаться",
       "Word": "to go out"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Kids grow up fast.",
       "Trans": "вырастать; становиться взрослым",
       "Word": "to grow up"
@@ -1287,7 +1287,7 @@
       "Word": "to hang out"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Hold on a second.",
       "Trans": "держаться; ждать",
       "Word": "to hold on"
@@ -1299,7 +1299,7 @@
       "Word": "to hold up"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Jump up with excitement.",
       "Trans": "подскакивать",
       "Word": "to jump up"
@@ -1317,7 +1317,7 @@
       "Word": "to let down"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Her smile lights up.",
       "Trans": "зажигать; освещать; засиять",
       "Word": "to light up"
@@ -1329,7 +1329,7 @@
       "Word": "to line up"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Look after the kids.",
       "Trans": "присматривать за",
       "Word": "to look after"
@@ -1341,7 +1341,7 @@
       "Word": "to look down on"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Look into the issue.",
       "Trans": "расследовать; изучать",
       "Word": "to look into"
@@ -1359,7 +1359,7 @@
       "Word": "to look up to"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Make up a story.",
       "Trans": "выдумывать; мириться; составлять",
       "Word": "to make up"
@@ -1371,7 +1371,7 @@
       "Word": "to pass off"
     },
     {
-      "IsLearned": false,
+      "IsLearned": true,
       "Phrase": "Don’t pass up opportunities.",
       "Trans": "упускать",
       "Word": "to pass up"

@@ -238,6 +238,29 @@
                 margin: 5px 0;
             }
         }
+        
+        .read-link {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            pointer-events: all;
+        }
+        
+        .read-link a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.7em;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 4px 8px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .read-link a:hover {
+            color: white;
+            background: rgba(0, 0, 0, 0.4);
+            transform: scale(1.05);
+        }
     </style>
 </head>
 
@@ -267,6 +290,9 @@
                                 <b>@Word.Value</b>
                                 <hr>
                                 @Phrase.Value
+                            </div>
+                            <div class="read-link">
+                                <a @LearnText.Link>🔊 Learn text</a>
                             </div>
                         </div>
                         <div class="card-face card-back">

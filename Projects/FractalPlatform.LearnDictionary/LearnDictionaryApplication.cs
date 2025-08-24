@@ -1,3 +1,5 @@
+using FractalPlatform.Database.Engine;
+using FractalPlatform.Client.UI.DOM;
 using FractalPlatform.Client.UI;
 using FractalPlatform.Database.Engine.Info;
 using FractalPlatform.Client.App;
@@ -15,14 +17,14 @@ namespace FractalPlatform.LearnDictionary
         
         public override bool OnEventDimension(EventInfo info)
         {
-            var path = info.AttrPath.ToString();
+            var path = info.AttrPath.LastPath;
 
             switch(path)
             {
                 case @"Learn":
                 {
                     ModifyDocsWhere("Words","{'Words':[{'IsLearned':false}]}")
-                        .OpenForm("{'Words':[{'Word':$,'Phrase':$,'Trans':$,'IsLearned':$}]}");
+                        .OpenForm("{'Words':[{'Word':$,'Phrase':$,'Trans':$,'IsLearned':$,'LearnText':$}]}");
 
                     break;
                 }
@@ -36,9 +38,15 @@ namespace FractalPlatform.LearnDictionary
                 case @"Edit":
                 {
                     ModifyFirstDocOf("Words")
-                        .ExtendUIDimension("{'Layout':'','IsRawPage':false}")
+                        .ExtendUIDimension("{'Layout':'','IsRawPage':false,'Style':'Hide:IsLearned,LearnText'}")
                         .ResetDimension(DimensionType.Pagination)
                         .OpenForm();
+                    
+                    break;
+                }
+                case @"LearnText":
+                {
+                    MessageBox("test");
                     
                     break;
                 }

@@ -12,6 +12,9 @@
       },
       "IsLearned": {
         "Index": 4
+      },
+      "LearnText": {
+        "Index": 5
       }
     }
   ]
