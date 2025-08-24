@@ -1,3 +1,5 @@
+using FractalPlatform.Database.Engine;
+using FractalPlatform.Client.UI.DOM;
 using FractalPlatform.Client.UI;
 using FractalPlatform.Database.Engine.Info;
 using FractalPlatform.Client.App;
@@ -39,6 +41,12 @@ namespace FractalPlatform.LearnDictionary
                         .ExtendUIDimension("{'Layout':'','IsRawPage':false}")
                         .ResetDimension(DimensionType.Pagination)
                         .OpenForm();
+                    
+                    break;
+                }
+                case @"LearnText":
+                {
+                    MessageBox("test");
                     
                     break;
                 }
