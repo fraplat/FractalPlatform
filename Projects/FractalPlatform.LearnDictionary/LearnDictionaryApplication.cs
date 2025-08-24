@@ -17,14 +17,14 @@ namespace FractalPlatform.LearnDictionary
         
         public override bool OnEventDimension(EventInfo info)
         {
-            var path = info.AttrPath.ToString();
+            var path = info.AttrPath.LastPath;
 
             switch(path)
             {
                 case @"Learn":
                 {
                     ModifyDocsWhere("Words","{'Words':[{'IsLearned':false}]}")
-                        .OpenForm("{'Words':[{'Word':$,'Phrase':$,'Trans':$,'IsLearned':$}]}");
+                        .OpenForm("{'Words':[{'Word':$,'Phrase':$,'Trans':$,'IsLearned':$,'LearnText':$}]}");
 
                     break;
                 }
@@ -38,7 +38,7 @@ namespace FractalPlatform.LearnDictionary
                 case @"Edit":
                 {
                     ModifyFirstDocOf("Words")
-                        .ExtendUIDimension("{'Layout':'','IsRawPage':false}")
+                        .ExtendUIDimension("{'Layout':'','IsRawPage':false,'Style':'Hide:IsLearned,LearnText'}")
                         .ResetDimension(DimensionType.Pagination)
                         .OpenForm();
                     
