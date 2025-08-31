@@ -124,33 +124,6 @@ namespace FractalPlatform.Examples.Applications.Movies
             }
 		}
 
-		public override void OnStart()
-        {
-            const string password = "ps";
-
-            if (Context.HasUrlTag && Context.UrlTag == password)
-            {
-                OpenSeasons();
-
-                return;
-            }
-            
-            InputBox("Password", "Enter password", result =>
-            {
-                if (result.Result)
-                {
-                    if (result.FindFirstValue("Password") == password)
-                    {
-                        Context.UrlTag = password;
-
-                        OpenSeasons();
-                    }
-                    else
-                    {
-                        MessageBox("Wrong password.");
-                    }
-                }
-            });
-        }
+		public override void OnStart() => UsePassword("ps", OpenSeasons);
     }
 }
