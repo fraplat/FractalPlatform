@@ -124,6 +124,6 @@ namespace FractalPlatform.Examples.Applications.Movies
             }
 		}
 
-		public override void OnStart() => UsePassword("ps", OpenSeasons);
+		public override void OnStart() => OpenSeasons();
     }
 }

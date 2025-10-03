@@ -10,8 +10,7 @@ using System.Linq;
 namespace FractalPlatform.BowlingScores {
     public class BowlingScoresApplication: BaseApplication {
 
-        public override void OnStart() =>
-            UsePassword("123", () => FirstDocOf("Dashboard").OpenForm());
+        public override void OnStart() => FirstDocOf("Dashboard").OpenForm();
 
         public override bool OnEventDimension(EventInfo info) {
             switch (info.AttrPath.ToString()) {
