@@ -21,7 +21,7 @@ namespace FractalPlatform.Sandbox
         {
             InitializeComponent();
 
-            this.Text = $"{domForm.Name} form. Use sandbox only for local debug purposes | Ctrl + D deploy web application | Ctrl + S sync with Fractal Studio.";
+            this.Text = $"{domForm.Name} form | Ctrl+D deploy web app | Ctrl+U upload sources to FS | Ctrl+P pull sources from FS";
 
             DomForm = domForm;
 
@@ -324,7 +324,11 @@ namespace FractalPlatform.Sandbox
                     Arguments = DomForm.Context.Application.Name
                 });
             }
-            else if (e.Control && e.KeyCode == Keys.S) //sync
+			else if (e.Control && e.KeyCode == Keys.U) //upload
+			{
+				throw new NotImplementedException();
+			}
+			else if (e.Control && e.KeyCode == Keys.P) //pull
             {
                 throw new NotImplementedException();
             }
