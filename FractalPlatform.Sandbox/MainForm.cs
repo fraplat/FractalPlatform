@@ -21,7 +21,7 @@ namespace FractalPlatform.Sandbox
         {
             InitializeComponent();
 
-            this.Text = $"{domForm.Name} form. Use sandbox only for local debug purposes. Ctrl + D deploy web application.";
+            this.Text = $"{domForm.Name} form. Use sandbox only for local debug purposes | Ctrl + D deploy web application | Ctrl + S sync with Fractal Studio.";
 
             DomForm = domForm;
 
@@ -316,13 +316,17 @@ namespace FractalPlatform.Sandbox
                 var workingDirectory = @$"{Utils.GetSolutionPath()}\FractalPlatform.Deployment\bin\Release\net8.0";
 #endif
 
-                Process.Start(new ProcessStartInfo 
-                { 
+                Process.Start(new ProcessStartInfo
+                {
                     UseShellExecute = true,
                     WorkingDirectory = workingDirectory,
-                    FileName= "FractalPlatform.Deployment.exe",
-                    Arguments = DomForm.Context.Application.Name 
+                    FileName = "FractalPlatform.Deployment.exe",
+                    Arguments = DomForm.Context.Application.Name
                 });
+            }
+            else if (e.Control && e.KeyCode == Keys.S) //sync
+            {
+                throw new NotImplementedException();
             }
         }
     }
