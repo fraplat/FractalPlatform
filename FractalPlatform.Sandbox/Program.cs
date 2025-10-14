@@ -14,6 +14,12 @@ namespace FractalPlatform.Sandbox
 {
     internal class Program
     {
+        public static string BaseUrl { get; private set; }
+
+        public static string AppName { get; private set; }
+
+        public static string DeploymentKey {get; private set; }
+
         public static bool NeedRestartApp { get; set; } = false;
         
         static string FindAssemblyPath(string assemblyName)
@@ -133,7 +139,11 @@ namespace FractalPlatform.Sandbox
 
                 var options = JsonConvert.DeserializeObject<Options>(appSettings);
 
-                var appName = options.AppName;
+                Program.BaseUrl = options.BaseUrl;
+
+                Program.AppName = options.AppName;
+
+                Program.DeploymentKey = options.DeploymentKey;
 
                 var solutionPath = Utils.GetSolutionPath();
 
@@ -141,7 +151,7 @@ namespace FractalPlatform.Sandbox
 
                 if (assemblyFile == null)
                 {
-                    throw new InvalidOperationException($"'{appName}' application is not found in assemblies.");
+                    throw new InvalidOperationException($"'{AppName}' application is not found in assemblies.");
                 }
 
                 var assemblyName = GetAssemblyName(assemblyFile);
@@ -161,15 +171,15 @@ namespace FractalPlatform.Sandbox
 
                 if (assemblyName == "FractalPlatform.Examples")
                 {
-                    type = assembly.GetType($"{assemblyName}.Applications.{appName}.{appName}Application");
+                    type = assembly.GetType($"{assemblyName}.Applications.{AppName}.{AppName}Application");
                     workingFolder = @$"{solutionPath}\{assemblyName}\Databases";
-                    dbName = appName.Replace("Application", "");
+                    dbName = AppName.Replace("Application", "");
                     dbPath = @$"{workingFolder}\{dbName}";
                     Context.WebRootPath = @$"{solutionPath}\{assemblyName}";
                 }
                 else //Projects folder
                 {
-                    type = assembly.GetType($"{assemblyName}.{appName}Application");
+                    type = assembly.GetType($"{assemblyName}.{AppName}Application");
                     workingFolder = @$"{solutionPath}\Projects\{assemblyName}";
                     dbName = "Database";
 					dbPath = @$"{workingFolder}\Database";

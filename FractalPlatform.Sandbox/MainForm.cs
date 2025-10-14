@@ -1,12 +1,16 @@
 ﻿using FractalPlatform.Client.UI.DOM;
 using FractalPlatform.Client.UI.DOM.Controls;
 using FractalPlatform.Client.UI.DOM.Controls.Grid;
+using FractalPlatform.Common.Exceptions;
 using FractalPlatform.Database.Engine;
 using FractalPlatform.Sandbox.Controls;
 using FractalPlatform.Sandbox.Controls.Grid;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.IO.Compression;
+using System.Net.Http;
 using System.Windows.Forms;
 
 namespace FractalPlatform.Sandbox
@@ -21,7 +25,7 @@ namespace FractalPlatform.Sandbox
         {
             InitializeComponent();
 
-            this.Text = $"{domForm.Name} form | Ctrl+D deploy web app | Ctrl+U upload sources to FS | Ctrl+P pull sources from FS";
+            this.Text = $"{domForm.Name} form | Ctrl+D deploy web app | Ctrl+P pull sources from FS";
 
             DomForm = domForm;
 
@@ -306,7 +310,73 @@ namespace FractalPlatform.Sandbox
             RefreshMainForm();
         }
 
-        private void MainForm_KeyUp(object sender, KeyEventArgs e)
+		private void UnzipToFolder(Stream zipStream, string outputFolder)
+		{
+			using (var archive = new ZipArchive(zipStream, ZipArchiveMode.Read))
+			{
+				foreach (var entry in archive.Entries)
+				{
+					var filePath = $"{outputFolder}{entry.FullName}";
+
+					entry.ExtractToFile(filePath, overwrite: true);
+				}
+			}
+		}
+
+		private bool DownloadAndExtractFiles(string baseUrl,
+											 string appName,
+											 string fileType,
+											 string deploymentKey,
+											 ref bool isFilesNotExists)
+		{
+			var url = $"{baseUrl}/{appName}/DownloadFile/?fileType={fileType}&deploymentKey={deploymentKey}";
+
+			var client = new HttpClient();
+
+			var response = client.GetAsync(url).Result;
+
+			if (response.IsSuccessStatusCode)
+			{
+				// Read the content as a stream
+				using (var stream = response.Content.ReadAsStreamAsync().Result)
+				{
+					// Define the output folder
+					string directoryPath;
+
+					if (fileType == "Database")
+					{
+						directoryPath = $@"{Utils.GetSolutionPath()}{Constants.Slash}FractalPlatform.{appName}{Constants.Slash}Database";
+					}
+					else if (fileType == "Files")
+					{
+						directoryPath = $@"{Utils.GetSolutionPath()}{Constants.Slash}FractalPlatform.{appName}{Constants.Slash}Files";
+					}
+					else if (fileType == "Layouts")
+					{
+						directoryPath = $@"{Utils.GetSolutionPath()}{Constants.Slash}FractalPlatform.{appName}{Constants.Slash}Layouts";
+					}
+					else
+					{
+						throw new BaseException(1245, $"File type {fileType} is not recognized.");
+					}
+
+					if (Directory.Exists(directoryPath))
+					{
+						UnzipToFolder(stream, directoryPath);
+					}
+
+					return true;
+				}
+			}
+			else
+			{
+				isFilesNotExists = (response.StatusCode == System.Net.HttpStatusCode.NotFound);
+
+				return false;
+			}
+		}
+
+		private void MainForm_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.D)
             {
@@ -324,14 +394,39 @@ namespace FractalPlatform.Sandbox
                     Arguments = DomForm.Context.Application.Name
                 });
             }
-			else if (e.Control && e.KeyCode == Keys.U) //upload
-			{
-				throw new NotImplementedException();
-			}
-			else if (e.Control && e.KeyCode == Keys.P) //pull
+			else if (e.Control && e.KeyCode == Keys.P)
             {
-                throw new NotImplementedException();
-            }
-        }
+				var isFilesNotExists = false;
+
+                DownloadAndExtractFiles(Program.BaseUrl,
+                                        Program.AppName,
+                                        "Database",
+                                        Program.DeploymentKey,
+                                        ref isFilesNotExists);
+
+				DownloadAndExtractFiles(Program.BaseUrl,
+										Program.AppName,
+										"Layouts",
+										Program.DeploymentKey,
+										ref isFilesNotExists);
+
+				DownloadAndExtractFiles(Program.BaseUrl,
+										Program.AppName,
+										"Files",
+										Program.DeploymentKey,
+										ref isFilesNotExists);
+
+				DownloadAndExtractFiles(Program.BaseUrl,
+										Program.AppName,
+										string.Empty,
+										Program.DeploymentKey,
+										ref isFilesNotExists);
+
+                MessageBox.Show("Project updated successfuly.",
+                                "Pull project from Fractal Studio",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information); 
+			}
+		}
     }
 }
