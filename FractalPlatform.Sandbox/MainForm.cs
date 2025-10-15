@@ -1,6 +1,7 @@
 ﻿using FractalPlatform.Client.UI.DOM;
 using FractalPlatform.Client.UI.DOM.Controls;
 using FractalPlatform.Client.UI.DOM.Controls.Grid;
+using FractalPlatform.Common.Enums;
 using FractalPlatform.Common.Exceptions;
 using FractalPlatform.Database.Engine;
 using FractalPlatform.Sandbox.Controls;
@@ -325,7 +326,7 @@ namespace FractalPlatform.Sandbox
 
 		private bool DownloadAndExtractFiles(string baseUrl,
 											 string appName,
-											 string fileType,
+											 DownloadFileType fileType,
 											 string deploymentKey,
 											 ref bool isFilesNotExists)
 		{
@@ -343,19 +344,19 @@ namespace FractalPlatform.Sandbox
 					// Define the output folder
 					string directoryPath;
 
-					if (fileType == "Database")
+					if (fileType == DownloadFileType.Database)
 					{
 						directoryPath = $@"{Utils.GetSolutionPath()}{Constants.Slash}FractalPlatform.{appName}{Constants.Slash}Database";
 					}
-					else if (fileType == "Files")
+					else if (fileType == DownloadFileType.Files)
 					{
 						directoryPath = $@"{Utils.GetSolutionPath()}{Constants.Slash}FractalPlatform.{appName}{Constants.Slash}Files";
 					}
-					else if (fileType == "Layouts")
+					else if (fileType == DownloadFileType.Layouts)
 					{
 						directoryPath = $@"{Utils.GetSolutionPath()}{Constants.Slash}FractalPlatform.{appName}{Constants.Slash}Layouts";
 					}
-					else if (fileType == "Code")
+					else if (fileType == DownloadFileType.Code)
 					{
 						directoryPath = $@"{Utils.GetSolutionPath()}{Constants.Slash}FractalPlatform.{appName}";
 					}
@@ -404,25 +405,25 @@ namespace FractalPlatform.Sandbox
 
                 DownloadAndExtractFiles(Program.BaseUrl,
                                         Program.AppName,
-                                        "Database",
+                                        DownloadFileType.Database,
                                         Program.DeploymentKey,
                                         ref isFilesNotExists);
 
 				DownloadAndExtractFiles(Program.BaseUrl,
 										Program.AppName,
-										"Layouts",
+										DownloadFileType.Layouts,
 										Program.DeploymentKey,
 										ref isFilesNotExists);
 
 				DownloadAndExtractFiles(Program.BaseUrl,
 										Program.AppName,
-										"Files",
+										DownloadFileType.Files,
 										Program.DeploymentKey,
 										ref isFilesNotExists);
 
 				DownloadAndExtractFiles(Program.BaseUrl,
 										Program.AppName,
-										"Code",
+										DownloadFileType.Code,
 										Program.DeploymentKey,
 										ref isFilesNotExists);
 
