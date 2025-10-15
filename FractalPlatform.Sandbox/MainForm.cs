@@ -355,6 +355,10 @@ namespace FractalPlatform.Sandbox
 					{
 						directoryPath = $@"{Utils.GetSolutionPath()}{Constants.Slash}FractalPlatform.{appName}{Constants.Slash}Layouts";
 					}
+					else if (fileType == "Code")
+					{
+						directoryPath = $@"{Utils.GetSolutionPath()}{Constants.Slash}FractalPlatform.{appName}";
+					}
 					else
 					{
 						throw new BaseException(1245, $"File type {fileType} is not recognized.");
@@ -418,7 +422,7 @@ namespace FractalPlatform.Sandbox
 
 				DownloadAndExtractFiles(Program.BaseUrl,
 										Program.AppName,
-										string.Empty,
+										"Code",
 										Program.DeploymentKey,
 										ref isFilesNotExists);
 
