@@ -25,7 +25,7 @@ namespace FractalPlatform.Sandbox
         {
             InitializeComponent();
 
-            this.Text = $"{domForm.Name} form | Ctrl+D deploy web app | Ctrl+P pull sources from FS";
+            this.Text = $"{domForm.Name} form | Ctrl+D deploy web application | Ctrl+P pull sources from Fractal Studio";
 
             DomForm = domForm;
 
