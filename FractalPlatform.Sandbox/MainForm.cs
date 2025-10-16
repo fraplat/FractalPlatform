@@ -391,13 +391,20 @@ namespace FractalPlatform.Sandbox
                 var workingDirectory = @$"{Utils.GetSolutionPath()}\FractalPlatform.Deployment\bin\Release\net8.0";
 #endif
 
-				Process.Start(new ProcessStartInfo
+				var proc = Process.Start(new ProcessStartInfo
 				{
 					UseShellExecute = true,
 					WorkingDirectory = workingDirectory,
 					FileName = "FractalPlatform.Deployment.exe",
 					Arguments = DomForm.Context.Application.Name
 				});
+
+				proc.WaitForExit();
+
+				MessageBox.Show("Project deployed successfuly. Please click Refresh link in Fractal Studio.",
+								"Deploy project",
+								MessageBoxButtons.OK,
+								MessageBoxIcon.Information);
 			}
 			else if (e.Control && e.KeyCode == Keys.P)
 			{
