@@ -16,300 +16,300 @@ using System.Windows.Forms;
 
 namespace FractalPlatform.Sandbox
 {
-    public partial class MainForm : Form
-    {
-        public DOMForm DomForm { get; }
+	public partial class MainForm : Form
+	{
+		public DOMForm DomForm { get; }
 
-        public Action<FormResult> HandleResult { get; }
+		public Action<FormResult> HandleResult { get; }
 
-        public MainForm(DOMForm domForm, Action<FormResult> handleResult)
-        {
-            InitializeComponent();
+		public MainForm(DOMForm domForm, Action<FormResult> handleResult)
+		{
+			InitializeComponent();
 
-            this.Text = $"{domForm.Name} form | Ctrl+D deploy web application | Ctrl+P pull sources from Fractal Studio";
+			this.Text = $"{domForm.Name} form | Ctrl+D deploy web application | Ctrl+P pull sources from Fractal Studio";
 
-            DomForm = domForm;
+			DomForm = domForm;
 
-            HandleResult = handleResult;
+			HandleResult = handleResult;
 
-            Program.NeedRestartApp = false;
-        }
+			Program.NeedRestartApp = false;
+		}
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            RefreshMainForm();
-        }
+		private void MainForm_Load(object sender, EventArgs e)
+		{
+			RefreshMainForm();
+		}
 
-        private void AddControls(Control control, List<DOMControl> domControls, ref int maxWidth, ref int maxHeight)
-        {
-            foreach (var domControl in domControls)
-            {
-                if (!domControl.Visible)
-                {
-                    continue;
-                }
+		private void AddControls(Control control, List<DOMControl> domControls, ref int maxWidth, ref int maxHeight)
+		{
+			foreach (var domControl in domControls)
+			{
+				if (!domControl.Visible)
+				{
+					continue;
+				}
 
-                BaseControl subControl = null;
+				BaseControl subControl = null;
 
-                if (domControl is LinkDOMControl)
-                {
-                    subControl = new LinkControl(this, (LinkDOMControl)domControl);
-                }
-                else if (domControl is ButtonDOMControl)
-                {
-                    subControl = new ButtonControl(this, (ButtonDOMControl)domControl);
-                }
-                else if (domControl is CheckBoxDOMControl)
-                {
-                    subControl = new CheckBoxControl(this, (CheckBoxDOMControl)domControl);
-                }
-                else if (domControl is ComboBoxDOMControl)
-                {
-                    subControl = new ComboBoxControl(this, (ComboBoxDOMControl)domControl);
-                }
-                else if (domControl is GroupBoxDOMControl)
-                {
-                    subControl = new GroupBoxControl(this, (GroupBoxDOMControl)domControl);
-                }
-                else if (domControl is LabelDOMControl)
-                {
-                    subControl = new LabelControl(this, (LabelDOMControl)domControl);
-                }
-                else if (domControl is TextBoxDOMControl)
-                {
-                    subControl = new TextBoxControl(this, (TextBoxDOMControl)domControl);
-                }
-                else if (domControl is RichTextBoxDOMControl)
-                {
-                    subControl = new RichTextBoxControl(this, (RichTextBoxDOMControl)domControl);
-                }
-                else if (domControl is UploadFileDOMControl)
-                {
-                    subControl = new UploadFileControl(this, (UploadFileDOMControl)domControl);
-                }
-                else if (domControl is TreeViewDOMControl)
-                {
-                    subControl = new TreeViewControl(this, (TreeViewDOMControl)domControl);
-                }
-                else if (domControl is GridDOMControl)
-                {
-                    subControl = new GridControl(this, (GridDOMControl)domControl);
-                }
-                else if (domControl is PictureDOMControl)
-                {
-                    subControl = new PictureControl(this, (PictureDOMControl)domControl);
-                }
-                else
-                {
-                    subControl = new NotSupportedControl(this, domControl);
-                }
+				if (domControl is LinkDOMControl)
+				{
+					subControl = new LinkControl(this, (LinkDOMControl)domControl);
+				}
+				else if (domControl is ButtonDOMControl)
+				{
+					subControl = new ButtonControl(this, (ButtonDOMControl)domControl);
+				}
+				else if (domControl is CheckBoxDOMControl)
+				{
+					subControl = new CheckBoxControl(this, (CheckBoxDOMControl)domControl);
+				}
+				else if (domControl is ComboBoxDOMControl)
+				{
+					subControl = new ComboBoxControl(this, (ComboBoxDOMControl)domControl);
+				}
+				else if (domControl is GroupBoxDOMControl)
+				{
+					subControl = new GroupBoxControl(this, (GroupBoxDOMControl)domControl);
+				}
+				else if (domControl is LabelDOMControl)
+				{
+					subControl = new LabelControl(this, (LabelDOMControl)domControl);
+				}
+				else if (domControl is TextBoxDOMControl)
+				{
+					subControl = new TextBoxControl(this, (TextBoxDOMControl)domControl);
+				}
+				else if (domControl is RichTextBoxDOMControl)
+				{
+					subControl = new RichTextBoxControl(this, (RichTextBoxDOMControl)domControl);
+				}
+				else if (domControl is UploadFileDOMControl)
+				{
+					subControl = new UploadFileControl(this, (UploadFileDOMControl)domControl);
+				}
+				else if (domControl is TreeViewDOMControl)
+				{
+					subControl = new TreeViewControl(this, (TreeViewDOMControl)domControl);
+				}
+				else if (domControl is GridDOMControl)
+				{
+					subControl = new GridControl(this, (GridDOMControl)domControl);
+				}
+				else if (domControl is PictureDOMControl)
+				{
+					subControl = new PictureControl(this, (PictureDOMControl)domControl);
+				}
+				else
+				{
+					subControl = new NotSupportedControl(this, domControl);
+				}
 
-                subControl.Visible = domControl.Visible;
+				subControl.Visible = domControl.Visible;
 
-                subControl.Enabled = domControl.Enabled;
+				subControl.Enabled = domControl.Enabled;
 
-                if (control is GroupBoxControl)
-                {
-                    ((GroupBoxControl)control).AddControl(subControl);
-                }
-                else
-                {
-                    control.Controls.Add(subControl);
-                }
+				if (control is GroupBoxControl)
+				{
+					((GroupBoxControl)control).AddControl(subControl);
+				}
+				else
+				{
+					control.Controls.Add(subControl);
+				}
 
-                var width = subControl.Location.X + subControl.Width;
+				var width = subControl.Location.X + subControl.Width;
 
-                if (width > maxWidth)
-                {
-                    maxWidth = width;
-                }
+				if (width > maxWidth)
+				{
+					maxWidth = width;
+				}
 
-                var height = subControl.Location.Y + subControl.Height;
+				var height = subControl.Location.Y + subControl.Height;
 
-                if (height > maxHeight)
-                {
-                    maxHeight = height;
-                }
+				if (height > maxHeight)
+				{
+					maxHeight = height;
+				}
 
-                AddControls(subControl, domControl.Controls, ref maxWidth, ref maxHeight);
-            }
-        }
+				AddControls(subControl, domControl.Controls, ref maxWidth, ref maxHeight);
+			}
+		}
 
-        private void RefreshMainForm(bool needRefreshDomForm = true)
-        {
-            if (needRefreshDomForm)
-            {
-                DomForm.NeedRefreshForm = true;
+		private void RefreshMainForm(bool needRefreshDomForm = true)
+		{
+			if (needRefreshDomForm)
+			{
+				DomForm.NeedRefreshForm = true;
 
-                DomForm.RefreshForm();
-            }
+				DomForm.RefreshForm();
+			}
 
-            this.pnlMain.SuspendLayout();
+			this.pnlMain.SuspendLayout();
 
-            this.pnlMain.Controls.Clear();
+			this.pnlMain.Controls.Clear();
 
-            int maxWidth = 0;
-            int maxHeight = 0;
+			int maxWidth = 0;
+			int maxHeight = 0;
 
-            AddControls(pnlMain, DomForm.Controls, ref maxWidth, ref maxHeight);
+			AddControls(pnlMain, DomForm.Controls, ref maxWidth, ref maxHeight);
 
-            InitBaseControls();
+			InitBaseControls();
 
-            this.Width = maxWidth + 20;
-            this.Height = maxHeight + pnlHeader.Height + pnlFooter.Height + 50;
+			this.Width = maxWidth + 20;
+			this.Height = maxHeight + pnlHeader.Height + pnlFooter.Height + 50;
 
-            this.pnlMain.ResumeLayout(false);
-        }
+			this.pnlMain.ResumeLayout(false);
+		}
 
-        private void InitBaseControls()
-        {
-            btnPrevPage.Visible = DomForm.IsPrevPageButtonVisible;
-            btnPrevPage.Enabled = DomForm.IsPrevPageButtonEnabled;
-            btnPrevPage.Text = DomForm.PrevPageButtonText;
+		private void InitBaseControls()
+		{
+			btnPrevPage.Visible = DomForm.IsPrevPageButtonVisible;
+			btnPrevPage.Enabled = DomForm.IsPrevPageButtonEnabled;
+			btnPrevPage.Text = DomForm.PrevPageButtonText;
 
-            btnNextPage.Visible = DomForm.IsNextPageButtonVisible;
-            btnNextPage.Enabled = DomForm.IsNextPageButtonEnabled;
-            btnNextPage.Text = DomForm.NextPageButtonText;
+			btnNextPage.Visible = DomForm.IsNextPageButtonVisible;
+			btnNextPage.Enabled = DomForm.IsNextPageButtonEnabled;
+			btnNextPage.Text = DomForm.NextPageButtonText;
 
-            btnSave.Visible = DomForm.IsSaveButtonVisible;
-            btnSave.Text = DomForm.SaveButtonText;
+			btnSave.Visible = DomForm.IsSaveButtonVisible;
+			btnSave.Text = DomForm.SaveButtonText;
 
-            btnCancel.Visible = DomForm.IsCancelButtonVisible;
-            btnCancel.Text = DomForm.CancelButtonText;
+			btnCancel.Visible = DomForm.IsCancelButtonVisible;
+			btnCancel.Text = DomForm.CancelButtonText;
 
-            var isFilterVisible = DomForm.IsFilterButtonVisible;
+			var isFilterVisible = DomForm.IsFilterButtonVisible;
 
-            tbFilter.Visible = isFilterVisible;
-            btnFilter.Visible = isFilterVisible;
+			tbFilter.Visible = isFilterVisible;
+			btnFilter.Visible = isFilterVisible;
 
-            //language
-            var isLangVisible = DomForm.IsLanguageButtonVisible;
+			//language
+			var isLangVisible = DomForm.IsLanguageButtonVisible;
 
-            lblLanguage.Visible = isLangVisible;
-            cmbLanguage.Visible = isLangVisible;
+			lblLanguage.Visible = isLangVisible;
+			cmbLanguage.Visible = isLangVisible;
 
-            if (isLangVisible)
-            {
-                cmbLanguage.Items.Clear();
+			if (isLangVisible)
+			{
+				cmbLanguage.Items.Clear();
 
-                foreach (var lang in DomForm.Languages)
-                {
-                    cmbLanguage.Items.Add(lang);
-                }
+				foreach (var lang in DomForm.Languages)
+				{
+					cmbLanguage.Items.Add(lang);
+				}
 
-                cmbLanguage.SelectedIndexChanged -= cmbLanguage_SelectedIndexChanged;
-                
-                cmbLanguage.SelectedItem = DomForm.Context.User.Language;
+				cmbLanguage.SelectedIndexChanged -= cmbLanguage_SelectedIndexChanged;
 
-                cmbLanguage.SelectedIndexChanged += cmbLanguage_SelectedIndexChanged;
-            }
+				cmbLanguage.SelectedItem = DomForm.Context.User.Language;
 
-            //theme
-            var isThemeVisible = DomForm.IsThemeButtonVisible && ((DomForm.IsLoginPage && DomForm.IsChooseThemeOnLoginPage) || DomForm.IsChooseThemeOnAllPages);
+				cmbLanguage.SelectedIndexChanged += cmbLanguage_SelectedIndexChanged;
+			}
 
-            lblTheme.Visible = isThemeVisible;
-            cmbTheme.Visible = isThemeVisible;
+			//theme
+			var isThemeVisible = DomForm.IsThemeButtonVisible && ((DomForm.IsLoginPage && DomForm.IsChooseThemeOnLoginPage) || DomForm.IsChooseThemeOnAllPages);
 
-            if (isThemeVisible)
-            {
-                cmbTheme.Items.Clear();
+			lblTheme.Visible = isThemeVisible;
+			cmbTheme.Visible = isThemeVisible;
 
-                foreach (var theme in DomForm.Themes)
-                {
-                    cmbTheme.Items.Add(theme.ToString());
-                }
+			if (isThemeVisible)
+			{
+				cmbTheme.Items.Clear();
 
-                cmbTheme.SelectedIndex = (int)DomForm.GetUserTheme() - 1;
-            }
+				foreach (var theme in DomForm.Themes)
+				{
+					cmbTheme.Items.Add(theme.ToString());
+				}
 
-            if (!isFilterVisible && !isLangVisible && !isThemeVisible)
-            {
-                pnlHeader.Height = 0;
-            }
+				cmbTheme.SelectedIndex = (int)DomForm.GetUserTheme() - 1;
+			}
 
-            if (!DomForm.IsPrevPageButtonVisible &&
-               !DomForm.IsNextPageButtonVisible &&
-               !DomForm.IsSaveButtonVisible &&
-               !DomForm.IsCancelButtonVisible)
-            {
-                pnlFooter.Height = 0;
-            }
-        }
+			if (!isFilterVisible && !isLangVisible && !isThemeVisible)
+			{
+				pnlHeader.Height = 0;
+			}
 
-        public void RefreshForm()
-        {
-            if (DomForm.NeedRefreshForm)
-            {
-                RefreshMainForm();
-            }
-        }
+			if (!DomForm.IsPrevPageButtonVisible &&
+			   !DomForm.IsNextPageButtonVisible &&
+			   !DomForm.IsSaveButtonVisible &&
+			   !DomForm.IsCancelButtonVisible)
+			{
+				pnlFooter.Height = 0;
+			}
+		}
 
-        public void ReloadData()
-        {
-            if (DomForm.NeedReloadForm)
-            {
-                DomForm.ReloadData();
-            }
-        }
+		public void RefreshForm()
+		{
+			if (DomForm.NeedRefreshForm)
+			{
+				RefreshMainForm();
+			}
+		}
 
-        private void CloseForm()
-        {
-            DomForm.Context.FormFactory.CloseForm();
+		public void ReloadData()
+		{
+			if (DomForm.NeedReloadForm)
+			{
+				DomForm.ReloadData();
+			}
+		}
 
-            if (!DomForm.Context.FormFactory.HasForms)
-            {
-                Program.NeedRestartApp = true;
-            }
-        }
+		private void CloseForm()
+		{
+			DomForm.Context.FormFactory.CloseForm();
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            CloseForm();
-        }
+			if (!DomForm.Context.FormFactory.HasForms)
+			{
+				Program.NeedRestartApp = true;
+			}
+		}
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            DomForm.SaveForm();
+		private void btnCancel_Click(object sender, EventArgs e)
+		{
+			CloseForm();
+		}
 
-            if (!DomForm.HasValidationErrors)
-            {
-                this.DialogResult = DialogResult.OK;
+		private void btnSave_Click(object sender, EventArgs e)
+		{
+			DomForm.SaveForm();
 
-                CloseForm();
-            }
-            else
-            {
-                RefreshMainForm(false);
-            }
-        }
+			if (!DomForm.HasValidationErrors)
+			{
+				this.DialogResult = DialogResult.OK;
 
-        private void cmbLanguage_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DomForm.SetUserLanguage(cmbLanguage.Text);
+				CloseForm();
+			}
+			else
+			{
+				RefreshMainForm(false);
+			}
+		}
 
-            RefreshMainForm();
-        }
+		private void cmbLanguage_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			DomForm.SetUserLanguage(cmbLanguage.Text);
 
-        private void btnPrevPage_Click(object sender, EventArgs e)
-        {
-            DomForm.OnPrevPageClick();
+			RefreshMainForm();
+		}
 
-            RefreshMainForm();
-        }
+		private void btnPrevPage_Click(object sender, EventArgs e)
+		{
+			DomForm.OnPrevPageClick();
 
-        private void btnNextPage_Click(object sender, EventArgs e)
-        {
-            DomForm.OnNextPageClick();
+			RefreshMainForm();
+		}
 
-            RefreshMainForm();
-        }
+		private void btnNextPage_Click(object sender, EventArgs e)
+		{
+			DomForm.OnNextPageClick();
 
-        private void btnFilter_Click(object sender, EventArgs e)
-        {
-            DomForm.Filter = tbFilter.Text;
+			RefreshMainForm();
+		}
 
-            RefreshMainForm();
-        }
+		private void btnFilter_Click(object sender, EventArgs e)
+		{
+			DomForm.Filter = tbFilter.Text;
+
+			RefreshMainForm();
+		}
 
 		private void UnzipToFolder(Stream zipStream, string outputFolder)
 		{
@@ -330,7 +330,7 @@ namespace FractalPlatform.Sandbox
 											 string deploymentKey,
 											 ref bool isFilesNotExists)
 		{
-			var url = $"{baseUrl}/{appName}/DownloadFile/?fileType={fileType}&deploymentKey={deploymentKey}";
+			var url = $"{baseUrl}/{appName}/DownloadFile/?fileType={fileType}&deploymentKey={deploymentKey}&isFromFractalStudio=true";
 
 			var client = new HttpClient();
 
@@ -346,19 +346,19 @@ namespace FractalPlatform.Sandbox
 
 					if (fileType == DownloadFileType.Database)
 					{
-						directoryPath = $@"{Utils.GetSolutionPath()}{Constants.Slash}FractalPlatform.{appName}{Constants.Slash}Database";
+						directoryPath = $@"{Utils.GetSolutionPath()}{Constants.Slash}Projects{Constants.Slash}FractalPlatform.{appName}{Constants.Slash}Database";
 					}
 					else if (fileType == DownloadFileType.Files)
 					{
-						directoryPath = $@"{Utils.GetSolutionPath()}{Constants.Slash}FractalPlatform.{appName}{Constants.Slash}Files";
+						directoryPath = $@"{Utils.GetSolutionPath()}{Constants.Slash}Projects{Constants.Slash}FractalPlatform.{appName}{Constants.Slash}Files";
 					}
 					else if (fileType == DownloadFileType.Layouts)
 					{
-						directoryPath = $@"{Utils.GetSolutionPath()}{Constants.Slash}FractalPlatform.{appName}{Constants.Slash}Layouts";
+						directoryPath = $@"{Utils.GetSolutionPath()}{Constants.Slash}Projects{Constants.Slash}FractalPlatform.{appName}{Constants.Slash}Layouts";
 					}
 					else if (fileType == DownloadFileType.Code)
 					{
-						directoryPath = $@"{Utils.GetSolutionPath()}{Constants.Slash}FractalPlatform.{appName}";
+						directoryPath = $@"{Utils.GetSolutionPath()}{Constants.Slash}Projects{Constants.Slash}FractalPlatform.{appName}";
 					}
 					else
 					{
@@ -382,32 +382,32 @@ namespace FractalPlatform.Sandbox
 		}
 
 		private void MainForm_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.Control && e.KeyCode == Keys.D)
-            {
+		{
+			if (e.Control && e.KeyCode == Keys.D)
+			{
 #if DEBUG
-                var workingDirectory = @$"{Utils.GetSolutionPath()}\FractalPlatform.Deployment\bin\Debug\net8.0";
+				var workingDirectory = @$"{Utils.GetSolutionPath()}\FractalPlatform.Deployment\bin\Debug\net8.0";
 #else
                 var workingDirectory = @$"{Utils.GetSolutionPath()}\FractalPlatform.Deployment\bin\Release\net8.0";
 #endif
 
-                Process.Start(new ProcessStartInfo
-                {
-                    UseShellExecute = true,
-                    WorkingDirectory = workingDirectory,
-                    FileName = "FractalPlatform.Deployment.exe",
-                    Arguments = DomForm.Context.Application.Name
-                });
-            }
+				Process.Start(new ProcessStartInfo
+				{
+					UseShellExecute = true,
+					WorkingDirectory = workingDirectory,
+					FileName = "FractalPlatform.Deployment.exe",
+					Arguments = DomForm.Context.Application.Name
+				});
+			}
 			else if (e.Control && e.KeyCode == Keys.P)
-            {
+			{
 				var isFilesNotExists = false;
 
-                DownloadAndExtractFiles(Program.BaseUrl,
-                                        Program.AppName,
-                                        DownloadFileType.Database,
-                                        Program.DeploymentKey,
-                                        ref isFilesNotExists);
+				DownloadAndExtractFiles(Program.BaseUrl,
+										Program.AppName,
+										DownloadFileType.Database,
+										Program.DeploymentKey,
+										ref isFilesNotExists);
 
 				DownloadAndExtractFiles(Program.BaseUrl,
 										Program.AppName,
@@ -427,11 +427,11 @@ namespace FractalPlatform.Sandbox
 										Program.DeploymentKey,
 										ref isFilesNotExists);
 
-                MessageBox.Show("Project updated successfuly.",
-                                "Pull project from Fractal Studio",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information); 
+				MessageBox.Show("Project updated successfuly.",
+								"Pull project from Fractal Studio",
+								MessageBoxButtons.OK,
+								MessageBoxIcon.Information);
 			}
 		}
-    }
+	}
 }
