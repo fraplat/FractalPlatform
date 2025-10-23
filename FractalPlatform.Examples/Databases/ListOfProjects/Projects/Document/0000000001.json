@@ -552,6 +552,17 @@
       "Image": ""
     },
     {
+      "App Name": "Cartouche",
+      "DB Entities (Tables)": 23,
+      "Classic Lines of Code": 8180,
+      "FP Lines Of Code": 818,
+      "Open Application": "https://fraplat.tech/mars/Cartouche",
+      "Open Sources": "https://github.com/fraplat/FractalPlatform/tree/main/Projects/FractalPlatform.Cartouche",
+      "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=Cartouche+template",
+      "Description": "Twitter like social network",
+      "Image": ""
+    },
+    {
       "App Name": "FractalStudio",
       "DB Entities (Tables)": 8,
       "Classic Lines of Code": 15500,
