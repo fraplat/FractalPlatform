@@ -2,5 +2,8 @@
   "Style": "CollLabel:Add new word;Save:Add",
   "IsLearned": {
     "Visible": false
+  },
+  "IsArchived": {
+    "Visible": false
   }
 }
