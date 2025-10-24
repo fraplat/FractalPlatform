@@ -1,4 +1,4 @@
-# LearDictionary web application
+# LearnDictionary web application
 
 ## Description
 
