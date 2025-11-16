@@ -57,17 +57,14 @@ namespace FractalPlatform.Examples.Applications.MyElectro
         private string DownloadData(bool isTomorrow)
         {
             var html = REST.Get("https://www.dtek-kem.com.ua/ua/shutdowns");
-            var startIndex = html.IndexOf("DisconSchedule.preset") + 23;
-            var endIndex = html.IndexOf("DisconSchedule.showCurSchedule");
+            var startIndex = html.IndexOf("DisconSchedule.fact =") + 22;
+            var endIndex = html.IndexOf("</script>", startIndex);
             var json = html.Substring(startIndex, endIndex - startIndex);
             var data = (JObject)JsonConvert.DeserializeObject(json);
-            var dtekGroupId = "1";
+            var dtekGroupId = "GPV1.1";
 
-            var today = DateTime.Now.DayOfWeek != DayOfWeek.Sunday ? (int)DateTime.Now.DayOfWeek : 7;
-            var tomorrow = today < 7 ? today + 1 : 1;
-
-            return !isTomorrow ? data["data"][dtekGroupId][today.ToString()].ToString() :
-                                 data["data"][dtekGroupId][tomorrow.ToString()].ToString();
+            var entries = data["data"].Children<JProperty>().ToList();
+            return (!isTomorrow ? entries[0].Value[dtekGroupId] : entries[1].Value[dtekGroupId]).ToString();
         }
 
         public override void OnStart()
