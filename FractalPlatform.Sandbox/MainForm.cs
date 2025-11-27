@@ -319,6 +319,14 @@ namespace FractalPlatform.Sandbox
 				{
 					var filePath = $"{outputFolder}{entry.FullName}";
 
+					var directory = Path.GetDirectoryName(filePath);
+
+					if (!Directory.Exists(directory))
+						Directory.CreateDirectory(directory);
+
+					if (string.IsNullOrEmpty(entry.Name))
+						continue;
+
 					entry.ExtractToFile(filePath, overwrite: true);
 				}
 			}
