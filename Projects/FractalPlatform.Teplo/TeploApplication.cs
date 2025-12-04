@@ -24,7 +24,7 @@ namespace FractalPlatform.Teplo
         }
         
         public override void OnStart() =>
-            UsePassword("Chavdar22", () => FirstDocOf("Dashboard")
+            UsePassword("c22", () => FirstDocOf("Dashboard")
                                         .OpenForm(result =>
                                         {
                                             var year = DateTime.Now.Year;
