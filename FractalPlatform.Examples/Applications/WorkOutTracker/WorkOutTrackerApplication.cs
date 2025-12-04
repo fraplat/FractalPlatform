@@ -39,7 +39,7 @@ namespace FractalPlatform.Examples.Applications.WorkOutTracker
                             Points = info.Collection
                                               .GetDoc(info.DocID)
                                               .AndWhere("{'Results':[{'Exercise':@Exercise}]}", e)
-                                              .IntValues("{'Results':[{'Sum':$}]}")
+                                              .UIntValues("{'Results':[{'Sum':$}]}")
                                               .Select(y => new PointChartInfo { X = x++, Y = y })
                                               .ToList()
                         };
