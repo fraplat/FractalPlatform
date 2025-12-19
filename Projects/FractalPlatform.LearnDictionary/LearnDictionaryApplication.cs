@@ -1,8 +1,6 @@
-using System.Collections.Generic;
 using System.Linq;
 using System;
 using FractalPlatform.Database.Engine;
-using FractalPlatform.Client.UI.DOM;
 using FractalPlatform.Client.UI;
 using FractalPlatform.Database.Engine.Info;
 using FractalPlatform.Client.App;

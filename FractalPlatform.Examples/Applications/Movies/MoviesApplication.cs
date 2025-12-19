@@ -56,6 +56,9 @@ namespace FractalPlatform.Examples.Applications.Movies
 
 		private void OpenSeasons()
         {
+            var viewed = FirstDocOf("Viewed")
+                            .Values("{'Viewed':[{'Episode':$}]}");
+
             var obj = new
             {
                 Title = "Watch all seasons",
@@ -71,13 +74,16 @@ namespace FractalPlatform.Examples.Applications.Movies
                                                                return new
                                                                {
                                                                    NextEpisode = "Next episode",
-																   Viewed = "No",
+																   Viewed = viewed.Contains(filePath) ? "Yes" : "No",
 																   Title = Directory.GetFileName(f).Replace(".mp4", ""),
                                                                    Size = $"{Directory.GetFileInfo(f).Length / 1024 / 1024} mb",
                                                                    Episode = filePath,
 																   Download = filePath
                                                                };
                                                            })
+                                                           .OrderBy(x => x.Viewed)
+                                                           .ThenBy(x => x.Episode)
+                                                           .ToList()
                                    })
             };
 
@@ -99,11 +105,11 @@ namespace FractalPlatform.Examples.Applications.Movies
             }
         }
 
-		public override object OnComputedDimension(ComputedInfo info)
-		{
-			var episode = info.Collection
-    						  .GetWhere(info.AttrPath)
-							  .Value("{'Seasons':[{'Episodes':[{'Episode':$}]}]}");
+        public override object OnComputedDimension(ComputedInfo info)
+        {
+            var episode = info.Collection
+                              .GetWhere(info.AttrPath)
+                              .Value("{'Seasons':[{'Episodes':[{'Episode':$}]}]}");
 
             if (!Context.FormFactory.HasForms ||
                 Context.FormFactory
@@ -122,8 +128,8 @@ namespace FractalPlatform.Examples.Applications.Movies
             {
                 return "No";
             }
-		}
+        }
 
-		public override void OnStart() => OpenSeasons();
+        public override void OnStart() => OpenSeasons();
     }
 }
