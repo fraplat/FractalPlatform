@@ -46,6 +46,9 @@ namespace FractalPlatform.fraplat {
                 case "autotesting":
                     FirstDocOf("AutoTesting").OpenForm();
                     break;
+                case "queries":
+                    FirstDocOf("Queries").OpenForm();
+                    break;
                 default:
                     NotImplementedMessageBox();
                     break;
