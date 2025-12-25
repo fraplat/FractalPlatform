@@ -68,15 +68,15 @@
       "Image": ""
     },
     {
-      "App Name": "MyElectro",
-      "DB Entities (Tables)": 0,
-      "Classic Lines of Code": 1100,
-      "FP Lines Of Code": 110,
-      "Open Application": "https://fraplat.tech/jupiter/MyElectro",
-      "Open Sources": "https://github.com/fraplat/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/MyElctro",
-      "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=MyElectro+template",
-      "Description": "Electricity availability forecast (Group 1) from DTEK website",
-      "Image": ""
+        "App Name": "MyElectro",
+        "DB Entities (Tables)": 0,
+        "Classic Lines of Code": 1100,
+        "FP Lines Of Code": 110,
+        "Open Application": "https://fraplat.tech/mars/MyElectro",
+        "Open Sources": "https://github.com/fraplat/FractalPlatform/tree/main/FractalPlatform.Examples/Applications/MyElectro",
+        "Open in Fractal Studio": "https://fraplat.tech/mars/FractalStudio/?tag=MyElectro+template",
+        "Description": "Electricity availability forecast (Group 1) from DTEK website",
+        "Image": ""
     },
     {
       "App Name": "LearnDictionary",
