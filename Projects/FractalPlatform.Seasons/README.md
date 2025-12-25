@@ -2,7 +2,7 @@
 
 ## Description
 
-Online theatre without advirtisements with elements of social network.
+Online theatre without advertisement with elements of social network.
 
 ## Functionality
 
