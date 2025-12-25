@@ -10,6 +10,8 @@ Convenient trainer for learning foreign language vocabulary.
 - Learn words and mark them as learned
 - Statistic of learned words
 - Reset statistic of learned words
+- Generate prompted topic for speaking english lesson
+- Use AI to create new word using in a sentence related to personal life
 
 ## Project
 

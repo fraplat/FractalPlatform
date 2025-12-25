@@ -7,7 +7,7 @@
 
 ## Functionality
 
-Sandbox application for test purposes
+Calculate fuel consumption for a trip based on distance and vehicle efficiency.
 
 ## How it implemented
 
