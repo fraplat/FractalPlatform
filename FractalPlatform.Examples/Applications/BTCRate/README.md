@@ -7,7 +7,7 @@
 ## Functionality
 
 Application shows web form based on REST api call.
-In current case application shows BTC price in USD/EUR currencies from Coindesk.com market.
+In current case application shows BTC price in USD/EUR currencies from cryptocompare.com market.
 
 ## How it implemented
 
