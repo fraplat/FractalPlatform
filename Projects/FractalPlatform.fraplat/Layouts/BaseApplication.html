@@ -338,7 +338,7 @@
 
             <span class="keyword">case</span> <span class="string">"CompleteTask"</span>:
                 <span class="type">ModifyDocsWhere</span>(<span class="string">"Tasks"</span>, info.<span class="type">DocID</span>)
-                    .<span class="type">Update</span>(<span class="string">"{'Status':'Completed','CompletedDate':@<b></b><b></b>Date}"</span>, 
+                    .<span class="type">Update</span>(<span class="string">"{'Status':'Completed','CompletedDate':@@Date}"</span>, 
                               <span class="type">GetNowDate</span>());
                 <span class="type">RefreshForm</span>();
                 <span class="keyword">return true</span>;
@@ -380,7 +380,7 @@
                                <span class="string">"Normal"</span>;
 
             <span class="type">ModifyDocsWhere</span>(<span class="string">"Tasks"</span>, info.<span class="type">DocID</span>)
-                .<span class="type">Update</span>(<span class="type">DQL</span>(<span class="string">"{'Priority':@<b></b><b></b>Priority}"</span>, priority));
+                .<span class="type">Update</span>(<span class="type">DQL</span>(<span class="string">"{'Priority':@@Priority}"</span>, priority));
 
             <span class="type">RefreshForm</span>();
             <span class="keyword">return true</span>;
@@ -421,7 +421,7 @@
         <span class="keyword">if</span> (info.<span class="type">Action</span> == <span class="string">"CheckOverdue"</span>)
         {
             <span class="keyword">var</span> overdueTasks = <span class="type">DocsWhere</span>(<span class="string">"Tasks"</span>, 
-                <span class="string">"{'DueDate':Less(@<b></b><b></b>Now),'Status':'Active'}"</span>,
+                <span class="string">"{'DueDate':Less(@@Now),'Status':'Active'}"</span>,
                 <span class="type">GetNowDate</span>())
                 .<span class="type">Count</span>();
 
@@ -603,7 +603,7 @@
         <span class="keyword">var</span> total = quantity * price;
         
         <span class="type">ModifyDocsWhere</span>(<span class="string">"Orders"</span>, info.<span class="type">DocID</span>)
-            .<span class="type">Update</span>(<span class="string">"{'Total':@<b></b><b></b>Total}"</span>, total);
+            .<span class="type">Update</span>(<span class="string">"{'Total':@@Total}"</span>, total);
         
         <span class="type">RefreshForm</span>();
         
@@ -615,7 +615,7 @@
         <span class="keyword">var</span> email = info.<span class="type">AfterValue</span>.<span class="type">ToString</span>();
         
         <span class="comment">// Validate email format</span>
-        <span class="keyword">if</span> (!email.<span class="type">Contains</span>(<span class="string">"@<b></b><b></b>"</span>))
+        <span class="keyword">if</span> (!email.<span class="type">Contains</span>(<span class="string">"@@"</span>))
         {
             <span class="type">MessageBox</span>(<span class="string">"Please enter a valid email address"</span>);
             <span class="keyword">return false</span>; <span class="comment">// Reject the change</span>
@@ -701,7 +701,7 @@
             </div>
 
             <h3>OnComputedDimension() - Dynamic Field Values</h3>
-            <p>Called when a computed field needs to be calculated. Use variables like @<b></b><b></b>VariableName in your data.</p>
+            <p>Called when a computed field needs to be calculated. Use variables like @@VariableName in your data.</p>
 
             <div class="method-signature">
                 public virtual object OnComputedDimension(ComputedInfo info)
@@ -1183,7 +1183,7 @@
 {
     <span class="type">Name</span> = <span class="string">"Jane"</span>,
     <span class="type">Age</span> = <span class="number">25</span>,
-    <span class="type">Email</span> = <span class="string">"jane@<b></b>example.com"</span>
+    <span class="type">Email</span> = <span class="string">"jane@@example.com"</span>
 });</pre>
             </div>
 
@@ -1513,10 +1513,10 @@
 <span class="keyword">var</span> age = <span class="number">30</span>;
 
 <span class="comment">// Create JSON with parameters</span>
-<span class="keyword">var</span> json = <span class="type">DQL</span>(<span class="string">"{'Name':@<b></b><b></b></b>Name,'Age':@<b></b><b></b>Age}"</span>, name, age);
+<span class="keyword">var</span> json = <span class="type">DQL</span>(<span class="string">"{'Name':@@</b>Name,'Age':@@Age}"</span>, name, age);
 
 <span class="comment">// Use in queries</span>
-<span class="type">AddDoc</span>(<span class="string">"Users"</span>, <span class="type">DQL</span>(<span class="string">"{'Name':@<b></b><b></b>Name}"</span>, name));</pre>
+<span class="type">AddDoc</span>(<span class="string">"Users"</span>, <span class="type">DQL</span>(<span class="string">"{'Name':@@Name}"</span>, name));</pre>
             </div>
 
             <h3>User Management</h3>
@@ -1680,7 +1680,7 @@
 <span class="comment">// POST request</span>
 <span class="keyword">var</span> result = <span class="type">REST</span>.<span class="type">Post</span>(
     <span class="string">"https://api.example.com/users"</span>,
-    <span class="keyword">new</span> { <span class="type">Name</span> = <span class="string">"John"</span>, <span class="type">Email</span> = <span class="string">"john@<b></b><b></b>example.com"</span> }
+    <span class="keyword">new</span> { <span class="type">Name</span> = <span class="string">"John"</span>, <span class="type">Email</span> = <span class="string">"john@@example.com"</span> }
 );
 
 <span class="comment">// With headers</span>
@@ -1860,7 +1860,7 @@
 
             <span class="keyword">case</span> <span class="string">"CompleteTask"</span>:
                 <span class="type">ModifyDocsWhere</span>(<span class="string">"Tasks"</span>, info.<span class="type">DocID</span>)
-                    .<span class="type">Update</span>(<span class="string">"{'Status':'Completed','CompletedDate':@<b></b><b></b>Date}"</span>, 
+                    .<span class="type">Update</span>(<span class="string">"{'Status':'Completed','CompletedDate':@@Date}"</span>, 
                               <span class="type">GetNowDate</span>());
                 <span class="type">RefreshForm</span>();
                 <span class="keyword">return true</span>;
@@ -1902,7 +1902,7 @@
                                <span class="string">"Normal"</span>;
 
             <span class="type">ModifyDocsWhere</span>(<span class="string">"Tasks"</span>, info.<span class="type">DocID</span>)
-                .<span class="type">Update</span>(<span class="type">DQL</span>(<span class="string">"{'Priority':@<b></b><b></b>Priority}"</span>, priority));
+                .<span class="type">Update</span>(<span class="type">DQL</span>(<span class="string">"{'Priority':@@Priority}"</span>, priority));
 
             <span class="type">RefreshForm</span>();
             <span class="keyword">return true</span>;
@@ -1943,7 +1943,7 @@
         <span class="keyword">if</span> (info.<span class="type">Action</span> == <span class="string">"CheckOverdue"</span>)
         {
             <span class="keyword">var</span> overdueTasks = <span class="type">DocsWhere</span>(<span class="string">"Tasks"</span>, 
-                <span class="string">"{'DueDate':Less(@<b></b><b></b>Now),'Status':'Active'}"</span>,
+                <span class="string">"{'DueDate':Less(@@Now),'Status':'Active'}"</span>,
                 <span class="type">GetNowDate</span>())
                 .<span class="type">Count</span>();
 

@@ -550,7 +550,7 @@ Projects/
 <span class="keyword">var</span> countries = <span class="keyword">new</span>[] { <span class="string">"USA"</span>, <span class="string">"Canada"</span>, <span class="string">"Mexico"</span> };
 <span class="type">FirstDocOf</span>(<span class="string">"Users"</span>)
     .<span class="type">SetDimension</span>(<span class="type">DimensionType</span>.<span class="type">Enum</span>, 
-                  <span class="type">DQL</span>(<span class="string">"{'Country':{'Items':[@<b></b>Countries]}}"</span>, countries))
+                  <span class="type">DQL</span>(<span class="string">"{'Country':{'Items':[@@Countries]}}"</span>, countries))
     .<span class="type">OpenForm</span>();</pre>
             </div>
 
@@ -580,18 +580,18 @@ Projects/
     <span class="comment"><!-- Input fields are auto-generated --></span>
     <span class="keyword">div</span> <span class="string">class</span>=<span class="string">"field"</span><span class="keyword"></span>
         <span class="keyword"><label></span>Name:<span class="keyword"></label></span>
-        @<b></b>Name
+        @@Name
     <span class="keyword">/div</span>
     
     <span class="keyword">div</span> <span class="string">class</span>=<span class="string">"field"</span><span class="keyword"></span>
         <span class="keyword"><label></span>Email:<span class="keyword"></label></span>
-        @<b></b>Email
+        @@Email
     <span class="keyword">/div</span>
     
     <span class="comment"><!-- Buttons --></span>
     <span class="keyword">div</span> <span class="string">class</span>=<span class="string">"actions"</span><span class="keyword"></span>
-        @<b></b>Save
-        @<b></b>Cancel
+        @@Save
+        @@Cancel
     <span class="keyword">/div</span>
 <span class="keyword">/div</span></pre>
             </div>
@@ -604,20 +604,20 @@ Projects/
                     <th>Example</th>
                 </tr>
                 <tr>
-                    <td><code>@<b></b>FieldName
+                    <td><code>@@FieldName
                         </code></td>
                     <td>Replaced with input control</td>
-                    <td><code>@<b></b>Name
+                    <td><code>@@Name
                         </code> → text input</td>
                 </tr>
                 <tr>
-                    <td><code>@<b></b>BaseUrl
+                    <td><code>@@BaseUrl
                         </code></td>
                     <td>Your app's URL</td>
                     <td>Used for links</td>
                 </tr>
                 <tr>
-                    <td><code>@<b></b>BaseFilesUrl
+                    <td><code>@@BaseFilesUrl
                         </code></td>
                     <td>Files directory URL</td>
                     <td>For images, CSS, etc.</td>
@@ -640,13 +640,13 @@ Projects/
             <h3>Working with Images and Files</h3>
             <div class="code-block">
                 <pre><span class="comment"><!-- Display an image from Files folder --></span>
-<span class="keyword"><img</span> <span class="string">src</span>=<span class="string">"@<b></b>BaseFilesUrl/logo.png"</span> <span class="string">alt</span>=<span class="string">"Logo"</span><span class="keyword">></span>
+<span class="keyword"><img</span> <span class="string">src</span>=<span class="string">"@@BaseFilesUrl/logo.png"</span> <span class="string">alt</span>=<span class="string">"Logo"</span><span class="keyword">></span>
 
 <span class="comment"><!-- Link to CSS file --></span>
-<span class="keyword"><link</span> <span class="string">rel</span>=<span class="string">"stylesheet"</span> <span class="string">href</span>=<span class="string">"@<b></b>BaseFilesUrl/styles.css"</span><span class="keyword">></span>
+<span class="keyword"><link</span> <span class="string">rel</span>=<span class="string">"stylesheet"</span> <span class="string">href</span>=<span class="string">"@@BaseFilesUrl/styles.css"</span><span class="keyword">></span>
 
 <span class="comment"><!-- Link to another page in your app --></span>
-<span class="keyword"><a</span> <span class="string">href</span>=<span class="string">"@<b></b>BaseUrl/Products"</span><span class="keyword">></span>View Products<span class="keyword"></a></span></pre>
+<span class="keyword"><a</span> <span class="string">href</span>=<span class="string">"@@BaseUrl/Products"</span><span class="keyword">></span>View Products<span class="keyword"></a></span></pre>
             </div>
 
             <h3>Mobile Layouts</h3>
@@ -790,20 +790,20 @@ Projects/
             <div class="code-block">
                 <pre><span class="comment">// Basic DQL with parameters</span>
 <span class="keyword">var</span> userName = <span class="string">"John"</span>;
-<span class="keyword">var</span> user = <span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="type">DQL</span>(<span class="string">"{'Name':@<b></b>Name}"</span>, userName))
+<span class="keyword">var</span> user = <span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="type">DQL</span>(<span class="string">"{'Name':@@Name}"</span>, userName))
                 .<span class="type">ToCollection</span>();
 
 <span class="comment">// Multiple parameters</span>
 <span class="keyword">var</span> minAge = <span class="number">18</span>;
 <span class="keyword">var</span> status = <span class="string">"Active"</span>;
 <span class="keyword">var</span> users = <span class="type">DocsWhere</span>(<span class="string">"Users"</span>, 
-                        <span class="type">DQL</span>(<span class="string">"{'Age':{'>':@<b></b>MinAge},'Status':@<b></b>Status}"</span>, 
+                        <span class="type">DQL</span>(<span class="string">"{'Age':{'>':@@MinAge},'Status':@@Status}"</span>, 
                             minAge, status))
                    .<span class="type">ToCollection</span>();
 
 <span class="comment">// Arrays in DQL</span>
 <span class="keyword">var</span> roles = <span class="keyword">new</span>[] { <span class="string">"Admin"</span>, <span class="string">"Manager"</span> };
-<span class="keyword">var</span> dimension = <span class="type">DQL</span>(<span class="string">"{'Role':{'Items':[@<b></b>Roles]}}"</span>, roles);</pre>
+<span class="keyword">var</span> dimension = <span class="type">DQL</span>(<span class="string">"{'Role':{'Items':[@@Roles]}}"</span>, roles);</pre>
             </div>
 
             <h3>Common UI Helpers</h3>
@@ -869,7 +869,7 @@ Projects/
             <span class="keyword">var</span> email = info.Collection.FindFirstValue(<span class="string">"Email"</span>);
             
             <span class="comment">// Save to database</span>
-            <span class="type">AddDoc</span>(<span class="string">"Users"</span>, <span class="type">DQL</span>(<span class="string">"{'Name':@<b></b>Name,'Email':@<b></b>Email}"</span>, 
+            <span class="type">AddDoc</span>(<span class="string">"Users"</span>, <span class="type">DQL</span>(<span class="string">"{'Name':@@Name,'Email':@@Email}"</span>, 
                                       name, email));
             
             <span class="type">MessageBox</span>(<span class="string">"User saved successfully!"</span>);
@@ -928,7 +928,7 @@ Projects/
         <span class="comment">// User clicked Save/OK</span>
         <span class="keyword">var</span> email = result.FindFirstValue(<span class="string">"Email"</span>);
         
-        <span class="keyword">if</span> (!email.Contains(<span class="string">"@<b></b>"</span>))
+        <span class="keyword">if</span> (!email.Contains(<span class="string">"@@"</span>))
         {
             <span class="type">MessageBox</span>(<span class="string">"Invalid email address!"</span>);
             <span class="keyword">return</span>;
@@ -957,7 +957,7 @@ Projects/
 <span class="keyword">public void</span> <span class="type">SaveUser</span>(<span class="type">EventInfo</span> info)
 {
     <span class="keyword">var</span> name = info.Collection.FindFirstValue(<span class="string">"Name"</span>);
-    <span class="type">AddDoc</span>(<span class="string">"Users"</span>, <span class="type">DQL</span>(<span class="string">"{'Name':@<b></b>Name}"</span>, name));
+    <span class="type">AddDoc</span>(<span class="string">"Users"</span>, <span class="type">DQL</span>(<span class="string">"{'Name':@@Name}"</span>, name));
     <span class="type">MessageBox</span>(<span class="string">"User saved!"</span>);
 }
 
@@ -1274,7 +1274,7 @@ https://fraplat.tech/mars/{YourAppName}/?tag={YourTag}</pre>
                 <pre><span class="comment">// ✅ GOOD: Flat and simple</span>
 {
     <span class="string">"Name"</span>: <span class="string">"John Doe"</span>,
-    <span class="string">"Email"</span>: <span class="string">"john@<b></b>example.com"</span>,
+    <span class="string">"Email"</span>: <span class="string">"john@@example.com"</span>,
     <span class="string">"Age"</span>: <span class="number">30</span>,
     <span class="string">"Status"</span>: <span class="string">"Active"</span>
 }
@@ -1331,14 +1331,14 @@ https://fraplat.tech/mars/{YourAppName}/?tag={YourTag}</pre>
             <div class="code-block">
                 <pre><span class="comment">// ✅ GOOD: Always validate user input</span>
 <span class="keyword">var</span> email = result.FindFirstValue(<span class="string">"Email"</span>);
-<span class="keyword">if</span> (<span class="keyword">string</span>.<span class="type">IsNullOrEmpty</span>(email) || !email.Contains(<span class="string">"@<b></b>"</span>))
+<span class="keyword">if</span> (<span class="keyword">string</span>.<span class="type">IsNullOrEmpty</span>(email) || !email.Contains(<span class="string">"@@"</span>))
 {
     <span class="type">MessageBox</span>(<span class="string">"Please enter a valid email address"</span>);
     <span class="keyword">return</span>;
 }
 
 <span class="comment">// ✅ GOOD: Check if data exists</span>
-<span class="keyword">var</span> count = <span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Email':@<b></b>Email}"</span>, email)
+<span class="keyword">var</span> count = <span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Email':@@Email}"</span>, email)
                   .<span class="type">Count</span>();
 
 <span class="keyword">if</span> (count > <span class="number">0</span>)
@@ -1474,7 +1474,7 @@ https://fraplat.tech/mars/{YourAppName}/?tag={YourTag}</pre>
 <span class="comment">// ✅ GOOD: Show errors clearly</span>
 <span class="keyword">if</span> (!<span class="type">IsValidEmail</span>(email))
 {
-    <span class="type">MessageBox</span>(<span class="string">"Invalid email format. Please use: name@<b></b>domain.com"</span>,
+    <span class="type">MessageBox</span>(<span class="string">"Invalid email format. Please use: name@@domain.com"</span>,
                <span class="string">"Validation Error"</span>,
                <span class="type">MessageBoxButtonType</span>.<span class="type">Ok</span>);
     <span class="keyword">return</span>;
@@ -1525,7 +1525,7 @@ https://fraplat.tech/mars/{YourAppName}/?tag={YourTag}</pre>
 
 <span class="comment">// ✅ GOOD: Use DQL with parameters</span>
 <span class="keyword">var</span> userName = userInput;
-<span class="keyword">var</span> user = <span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="type">DQL</span>(<span class="string">"{'Name':@<b></b>UserName}"</span>, userName));</pre>
+<span class="keyword">var</span> user = <span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="type">DQL</span>(<span class="string">"{'Name':@@UserName}"</span>, userName));</pre>
             </div>
 
             <h3>Testing Your Application</h3>

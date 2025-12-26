@@ -175,21 +175,21 @@
         tr:nth-child(even) {
             background: #f9f9f9;
         }
-
+        
         .comparison {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
             margin: 20px 0;
         }
-
+        
         .comparison-item {
             background: #f9f9f9;
             padding: 15px;
             border-radius: 8px;
             border: 2px solid #667eea;
         }
-
+        
         .comparison-item h4 {
             color: #667eea;
             margin-bottom: 10px;
@@ -543,14 +543,14 @@ Orders:
             <p><strong>Step 1: Create HTML file</strong> (MyLayout.html)</p>
 
             <div class="code-block">
-                <pre>&lt;div class="hero"&gt;
-  &lt;h1&gt;Welcome to My App!&lt;/h1&gt;
-  &lt;p&gt;This is a custom layout&lt;/p&gt;
-&lt;/div&gt;
+                <pre><div class="hero">
+  <h1>Welcome to My App!</h1>
+  <p>This is a custom layout</p>
+</div>
 
-&lt;div class="content"&gt;
-  &lt;!-- Controls will go here --&gt;
-&lt;/div&gt;</pre>
+<div class="content">
+  <!-- Controls will go here -->
+</div></pre>
             </div>
 
             <p><strong>Step 2: Configure UI Dimension</strong></p>
@@ -619,15 +619,15 @@ Orders:
 
             <p><strong>MyLayout.html:</strong></p>
             <div class="code-block">
-                <pre>&lt;header&gt;
-  &lt;control attr="Title"&gt;
-    &lt;h1&gt;@Value&lt;/h1&gt;
-  &lt;/control&gt;
+                <pre><header>
+  <control attr="Title">
+    <h1>@@Value</h1>
+  </control>
   
-  &lt;control attr="Subtitle"&gt;
-    &lt;p&gt;@Value&lt;/p&gt;
-  &lt;/control&gt;
-&lt;/header&gt;</pre>
+  <control attr="Subtitle">
+    <p>@@Value</p>
+  </control>
+</header></pre>
             </div>
 
             <h3>Method 2: Direct Control Tags</h3>
@@ -644,13 +644,13 @@ Orders:
 
             <p><strong>MyLayout.html:</strong></p>
             <div class="code-block">
-                <pre>&lt;control attr="Title"&gt;
-  &lt;h1&gt;@Value&lt;/h1&gt;
-&lt;/control&gt;
+                <pre><control attr="Title">
+  <h1>@@Value</h1>
+</control>
 
-&lt;control attr="Subtitle"&gt;
-  &lt;p class="subtitle"&gt;@Value&lt;/p&gt;
-&lt;/control&gt;</pre>
+<control attr="Subtitle">
+  <p class="subtitle">@@Value</p>
+</control></pre>
             </div>
 
             <div class="tip">
@@ -674,47 +674,47 @@ Orders:
 
             <p><strong>Layout:</strong></p>
             <div class="code-block">
-                <pre>&lt;div class="product-grid"&gt;
-  &lt;control attr="Products" repeatable="true"&gt;
-    &lt;div class="product-card"&gt;
-      &lt;h3&gt;@Name.Value&lt;/h3&gt;
-      &lt;p class="price"&gt;$@Price.Value&lt;/p&gt;
-    &lt;/div&gt;
-  &lt;/control&gt;
-&lt;/div&gt;</pre>
+                <pre><div class="product-grid">
+  <control attr="Products" repeatable="true">
+    <div class="product-card">
+      <h3>@@Name.Value</h3>
+      <p class="price">$@@Price.Value</p>
+    </div>
+  </control>
+</div></pre>
             </div>
 
             <p><strong>Result:</strong></p>
             <div class="code-block">
-                <pre>&lt;div class="product-grid"&gt;
-  &lt;div class="product-card"&gt;
-    &lt;h3&gt;Laptop&lt;/h3&gt;
-    &lt;p class="price"&gt;$999&lt;/p&gt;
-  &lt;/div&gt;
-  &lt;div class="product-card"&gt;
-    &lt;h3&gt;Mouse&lt;/h3&gt;
-    &lt;p class="price"&gt;$25&lt;/p&gt;
-  &lt;/div&gt;
-  &lt;div class="product-card"&gt;
-    &lt;h3&gt;Keyboard&lt;/h3&gt;
-    &lt;p class="price"&gt;$75&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
+                <pre><div class="product-grid">
+  <div class="product-card">
+    <h3>Laptop</h3>
+    <p class="price">$999</p>
+  </div>
+  <div class="product-card">
+    <h3>Mouse</h3>
+    <p class="price">$25</p>
+  </div>
+  <div class="product-card">
+    <h3>Keyboard</h3>
+    <p class="price">$75</p>
+  </div>
+</div></pre>
             </div>
 
             <h3>Nested Repeatable Controls</h3>
 
             <div class="code-block">
-                <pre>&lt;control attr="Categories" repeatable="true"&gt;
-  &lt;h2&gt;@Name.Value&lt;/h2&gt;
+                <pre><control attr="Categories" repeatable="true">
+  <h2>@@Name.Value</h2>
   
-  &lt;control attr="Products" repeatable="true"&gt;
-    &lt;div class="product"&gt;
-      &lt;span&gt;@Name.Value&lt;/span&gt;
-      &lt;span&gt;$@Price.Value&lt;/span&gt;
-    &lt;/div&gt;
-  &lt;/control&gt;
-&lt;/control&gt;</pre>
+  <control attr="Products" repeatable="true">
+    <div class="product">
+      <span>@@Name.Value</span>
+      <span>$@@Price.Value</span>
+    </div>
+  </control>
+</control></pre>
             </div>
 
             <h3>Injecting Standard Controls</h3>
@@ -722,11 +722,11 @@ Orders:
             <p>Use <code>type="standard"</code> to render built-in controls:</p>
 
             <div class="code-block">
-                <pre>&lt;control attr="Tags" type="standard"&gt;
-&lt;/control&gt;
+                <pre><control attr="Tags" type="standard">
+</control>
 
-&lt;control attr="Description" type="standard"&gt;
-&lt;/control&gt;</pre>
+<control attr="Description" type="standard">
+</control></pre>
             </div>
 
             <div class="warning">
@@ -747,24 +747,24 @@ Orders:
                     <th>Example</th>
                 </tr>
                 <tr>
-                    <td>@Value</td>
+                    <td>@@Value</td>
                     <td>Control's value</td>
-                    <td>&lt;input value="@Value"&gt;</td>
+                    <td><input value="@@Value"></td>
                 </tr>
                 <tr>
-                    <td>@Name</td>
+                    <td>@@Name</td>
                     <td>Control's name</td>
-                    <td>&lt;input name="@Name"&gt;</td>
+                    <td><input name="@@Name"></td>
                 </tr>
                 <tr>
-                    <td>@Key</td>
+                    <td>@@Key</td>
                     <td>Attribute key</td>
-                    <td>&lt;label&gt;@Key&lt;/label&gt;</td>
+                    <td><label>@@Key</label></td>
                 </tr>
                 <tr>
-                    <td>@ToolTip</td>
+                    <td>@@ToolTip</td>
                     <td>Help text</td>
-                    <td>&lt;span title="@ToolTip"&gt;</td>
+                    <td><span title="@@ToolTip"></td>
                 </tr>
             </table>
 
@@ -777,29 +777,29 @@ Orders:
                     <th>Usage</th>
                 </tr>
                 <tr>
-                    <td>@Enabled</td>
+                    <td>@@Enabled</td>
                     <td>"true" or "false"</td>
-                    <td>if (@Enabled == "true")</td>
+                    <td>if (@@Enabled == "true")</td>
                 </tr>
                 <tr>
-                    <td>@Disabled</td>
+                    <td>@@Disabled</td>
                     <td>"disabled" or ""</td>
-                    <td>&lt;input @Disabled&gt;</td>
+                    <td><input @@Disabled></td>
                 </tr>
                 <tr>
-                    <td>@Checked</td>
+                    <td>@@Checked</td>
                     <td>"checked" or ""</td>
-                    <td>&lt;input @Checked&gt;</td>
+                    <td><input @@Checked></td>
                 </tr>
                 <tr>
-                    <td>@ReadOnly</td>
+                    <td>@@ReadOnly</td>
                     <td>"readonly" or ""</td>
-                    <td>&lt;input @ReadOnly&gt;</td>
+                    <td><input @@ReadOnly></td>
                 </tr>
                 <tr>
-                    <td>@Visible</td>
+                    <td>@@Visible</td>
                     <td>"true" or "false"</td>
-                    <td>if (@Visible == "true")</td>
+                    <td>if (@@Visible == "true")</td>
                 </tr>
             </table>
 
@@ -811,11 +811,11 @@ Orders:
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td>@Width</td>
+                    <td>@@Width</td>
                     <td>Control width from UI Dimension</td>
                 </tr>
                 <tr>
-                    <td>@Height</td>
+                    <td>@@Height</td>
                     <td>Control height from UI Dimension</td>
                 </tr>
             </table>
@@ -829,19 +829,19 @@ Orders:
                     <th>Example</th>
                 </tr>
                 <tr>
-                    <td>@ClickUrl</td>
+                    <td>@@ClickUrl</td>
                     <td>Button click URL</td>
-                    <td>&lt;a href="@ClickUrl"&gt;</td>
+                    <td><a href="@@ClickUrl"></td>
                 </tr>
                 <tr>
-                    <td>@ClickSubmit</td>
+                    <td>@@ClickSubmit</td>
                     <td>Button submit script</td>
-                    <td>&lt;button onclick="@ClickSubmit"&gt;</td>
+                    <td><button onclick="@@ClickSubmit"></td>
                 </tr>
                 <tr>
-                    <td>@ChangeSubmit</td>
+                    <td>@@ChangeSubmit</td>
                     <td>Change event script</td>
-                    <td>&lt;input onchange="@ChangeSubmit"&gt;</td>
+                    <td><input onchange="@@ChangeSubmit"></td>
                 </tr>
             </table>
 
@@ -853,27 +853,27 @@ Orders:
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td>@AddRowUrl</td>
+                    <td>@@AddRowUrl</td>
                     <td>URL to add new row</td>
                 </tr>
                 <tr>
-                    <td>@EditRowUrl</td>
+                    <td>@@EditRowUrl</td>
                     <td>URL to edit row</td>
                 </tr>
                 <tr>
-                    <td>@DeleteRowUrl</td>
+                    <td>@@DeleteRowUrl</td>
                     <td>URL to delete row</td>
                 </tr>
                 <tr>
-                    <td>@AddRowScript</td>
+                    <td>@@AddRowScript</td>
                     <td>Script to add row</td>
                 </tr>
                 <tr>
-                    <td>@EditRowScript</td>
+                    <td>@@EditRowScript</td>
                     <td>Script to edit row</td>
                 </tr>
                 <tr>
-                    <td>@DeleteRowScript</td>
+                    <td>@@DeleteRowScript</td>
                     <td>Script to delete row</td>
                 </tr>
             </table>
@@ -886,31 +886,31 @@ Orders:
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td>@SavePageScript</td>
+                    <td>@@SavePageScript</td>
                     <td>Save button script</td>
                 </tr>
                 <tr>
-                    <td>@CancelPageScript</td>
+                    <td>@@CancelPageScript</td>
                     <td>Cancel button script</td>
                 </tr>
                 <tr>
-                    <td>@RefreshPageScript</td>
+                    <td>@@RefreshPageScript</td>
                     <td>Refresh button script</td>
                 </tr>
                 <tr>
-                    <td>@NextPageScript</td>
+                    <td>@@NextPageScript</td>
                     <td>Next page script (pagination)</td>
                 </tr>
                 <tr>
-                    <td>@PrevPageScript</td>
+                    <td>@@PrevPageScript</td>
                     <td>Previous page script</td>
                 </tr>
                 <tr>
-                    <td>@SavePageUrl</td>
+                    <td>@@SavePageUrl</td>
                     <td>Save button URL</td>
                 </tr>
                 <tr>
-                    <td>@CancelPageUrl</td>
+                    <td>@@CancelPageUrl</td>
                     <td>Cancel button URL</td>
                 </tr>
             </table>
@@ -924,32 +924,32 @@ Orders:
                     <th>Example Value</th>
                 </tr>
                 <tr>
-                    <td>@UserName</td>
+                    <td>@@UserName</td>
                     <td>Current user's name</td>
                     <td>"john.doe"</td>
                 </tr>
                 <tr>
-                    <td>@UserLanguage</td>
+                    <td>@@UserLanguage</td>
                     <td>User's language</td>
                     <td>"EN", "UA", "RU"</td>
                 </tr>
                 <tr>
-                    <td>@UserTheme</td>
+                    <td>@@UserTheme</td>
                     <td>User's theme</td>
                     <td>"Dark", "Light"</td>
                 </tr>
                 <tr>
-                    <td>@UserAvatar</td>
+                    <td>@@UserAvatar</td>
                     <td>User's avatar URL</td>
                     <td>"/files/avatar.png"</td>
                 </tr>
                 <tr>
-                    <td>@AppName</td>
+                    <td>@@AppName</td>
                     <td>Application name</td>
                     <td>"MyApp"</td>
                 </tr>
                 <tr>
-                    <td>@FormName</td>
+                    <td>@@FormName</td>
                     <td>Current form name</td>
                     <td>"ProductEdit"</td>
                 </tr>
@@ -963,19 +963,19 @@ Orders:
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td>@BaseUrl</td>
+                    <td>@@BaseUrl</td>
                     <td>Base URL of platform</td>
                 </tr>
                 <tr>
-                    <td>@BaseAppUrl</td>
+                    <td>@@BaseAppUrl</td>
                     <td>Base URL of application</td>
                 </tr>
                 <tr>
-                    <td>@BaseFormUrl</td>
+                    <td>@@BaseFormUrl</td>
                     <td>Base URL with form name</td>
                 </tr>
                 <tr>
-                    <td>@BaseFilesUrl</td>
+                    <td>@@BaseFilesUrl</td>
                     <td>URL to files folder</td>
                 </tr>
             </table>
@@ -988,23 +988,23 @@ Orders:
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td>@StartForm</td>
+                    <td>@@StartForm</td>
                     <td>Render form start tags</td>
                 </tr>
                 <tr>
-                    <td>@EndForm</td>
+                    <td>@@EndForm</td>
                     <td>Render form end tags</td>
                 </tr>
                 <tr>
-                    <td>@Styles</td>
+                    <td>@@Styles</td>
                     <td>Inject custom styles</td>
                 </tr>
                 <tr>
-                    <td>@ComboBoxItems</td>
+                    <td>@@ComboBoxItems</td>
                     <td>Render dropdown options</td>
                 </tr>
                 <tr>
-                    <td>@FilterText</td>
+                    <td>@@FilterText</td>
                     <td>Current filter text</td>
                 </tr>
             </table>
@@ -1012,46 +1012,46 @@ Orders:
             <h3>Special Accessors</h3>
 
             <div class="code-block">
-                <pre>@Top.FieldName.Value     // Access top-level field from nested context
-@FieldName.Computed      // Compute element value
-@FieldName.TextBox       // Render as textbox attributes
-@FieldName.Button        // Render as button attributes
-@FieldName.Link          // Render as link attributes
-@FieldName.CheckBox      // Render as checkbox attributes
-@FieldName.Picture       // Render as image attributes</pre>
+                <pre>@@Top.FieldName.Value     // Access top-level field from nested context
+@@FieldName.Computed      // Compute element value
+@@FieldName.TextBox       // Render as textbox attributes
+@@FieldName.Button        // Render as button attributes
+@@FieldName.Link          // Render as link attributes
+@@FieldName.CheckBox      // Render as checkbox attributes
+@@FieldName.Picture       // Render as image attributes</pre>
             </div>
 
             <h3>Example: Complete Form Template</h3>
 
             <div class="code-block">
-                <pre>&lt;div class="form-container"&gt;
-  @StartForm
+                <pre><div class="form-container">
+  @@StartForm
   
-  &lt;h1&gt;@FormName&lt;/h1&gt;
+  <h1>@@FormName</h1>
   
-  &lt;div class="user-info"&gt;
-    &lt;img src="@UserAvatar" alt="@UserName"&gt;
-    &lt;span&gt;@UserName&lt;/span&gt;
-  &lt;/div&gt;
+  <div class="user-info">
+    <img src="@@UserAvatar" alt="@@UserName">
+    <span>@@UserName</span>
+  </div>
   
-  &lt;control attr="Title"&gt;
-    &lt;input type="text" 
-           name="@Name" 
-           value="@Value" 
-           @Disabled 
-           @ReadOnly
-           title="@ToolTip"&gt;
-  &lt;/control&gt;
+  <control attr="Title">
+    <input type="text" 
+           name="@@Name" 
+           value="@@Value" 
+           @@Disabled 
+           @@ReadOnly
+           title="@@ToolTip">
+  </control>
   
-  &lt;control attr="IsActive"&gt;
-    &lt;input type="checkbox" @Checked&gt; @Key
-  &lt;/control&gt;
+  <control attr="IsActive">
+    <input type="checkbox" @@Checked> @@Key
+  </control>
   
-  &lt;button onclick="@SavePageScript"&gt;Save&lt;/button&gt;
-  &lt;button onclick="@CancelPageScript"&gt;Cancel&lt;/button&gt;
+  <button onclick="@@SavePageScript">Save</button>
+  <button onclick="@@CancelPageScript">Cancel</button>
   
-  @EndForm
-&lt;/div&gt;</pre>
+  @@EndForm
+</div></pre>
             </div>
         </div>
 
@@ -1107,19 +1107,19 @@ Orders:
     
     private string RenderTags(ComponentDOMControl domControl)
     {
-        var tags = domControl.GetValue() as List&lt;string&gt;;
+        var tags = domControl.GetValue() as List<string>;
         var html = new StringBuilder();
         
-        html.Append("&lt;div class='tags-component'&gt;");
-        html.Append($"&lt;input type='hidden' name='{domControl.Name}' value='{JsonConvert.SerializeObject(tags)}'/&gt;");
+        html.Append("<div class='tags-component'>");
+        html.Append($"<input type='hidden' name='{domControl.Name}' value='{JsonConvert.SerializeObject(tags)}'/>");
         
         foreach (var tag in tags)
         {
-            html.Append($"&lt;span class='tag'&gt;{tag} &lt;button onclick='removeTag(this)'&gt;×&lt;/button&gt;&lt;/span&gt;");
+            html.Append($"<span class='tag'>{tag} <button onclick='removeTag(this)'>×</button></span>");
         }
         
-        html.Append("&lt;input type='text' placeholder='Add tag...' onkeypress='addTag(event, this)'/&gt;");
-        html.Append("&lt;/div&gt;");
+        html.Append("<input type='text' placeholder='Add tag...' onkeypress='addTag(event, this)'/>");
+        html.Append("</div>");
         
         return html.ToString();
     }
@@ -1132,7 +1132,7 @@ Orders:
                 <strong>⚠️ Important Pattern:</strong>
                 <p style="margin-top: 10px;">Components use a hidden input field to communicate between frontend and backend:</p>
                 <div class="code-block" style="margin-top: 10px;">
-                    <pre>&lt;input name="[control.Name]" type="hidden" value='[JSON data]'/&gt;</pre>
+                    <pre><input name="[control.Name]" type="hidden" value='[JSON data]'/></pre>
                 </div>
                 <p style="margin-top: 10px;">Your JavaScript must update this hidden field before form submission. The backend reads this JSON and applies it to your document.</p>
             </div>
@@ -1140,9 +1140,9 @@ Orders:
             <h3>Component JavaScript Example</h3>
 
             <div class="code-block">
-                <pre>&lt;script&gt;
+                <pre><script>
 function addTag(event, input) {
-    if (event.key === 'Enter' &amp;&amp; input.value.trim()) {
+    if (event.key === 'Enter' && input.value.trim()) {
         // Get current tags from hidden input
         var container = input.closest('.tags-component');
         var hiddenInput = container.querySelector('input[type="hidden"]');
@@ -1167,7 +1167,7 @@ function removeTag(button) {
     var tags = JSON.parse(hiddenInput.value);
     
     // Remove tag
-    tags = tags.filter(t =&gt; t !== tagText);
+    tags = tags.filter(t => t !== tagText);
     
     // Update hidden input
     hiddenInput.value = JSON.stringify(tags);
@@ -1175,7 +1175,7 @@ function removeTag(button) {
     // Refresh display
     location.reload();
 }
-&lt;/script&gt;</pre>
+</script></pre>
             </div>
 
             <h3>Alternative: Using Standard Controls</h3>
@@ -1192,11 +1192,11 @@ function removeTag(button) {
             var html = new StringBuilder();
             
             // Render standard controls inside component
-            html.Append("&lt;div class='address-card'&gt;");
+            html.Append("<div class='address-card'>");
             html.Append(RenderTextBox(domControl.GetControl("Street")));
             html.Append(RenderTextBox(domControl.GetControl("City")));
             html.Append(RenderTextBox(domControl.GetControl("ZipCode")));
-            html.Append("&lt;/div&gt;");
+            html.Append("</div>");
             
             return html.ToString();
         }
@@ -1313,9 +1313,9 @@ function removeTag(button) {
 {
     var html = new StringBuilder();
     
-    html.Append($"&lt;div class='custom-input-group'&gt;");
-    html.Append($"  &lt;label&gt;{domControl.Label}&lt;/label&gt;");
-    html.Append($"  &lt;input type='text' ");
+    html.Append($"<div class='custom-input-group'>");
+    html.Append($"  <label>{domControl.Label}</label>");
+    html.Append($"  <input type='text' ");
     html.Append($"         name='{domControl.Name}' ");
     html.Append($"         value='{domControl.Value}' ");
     html.Append($"         class='custom-input' ");
@@ -1326,8 +1326,8 @@ function removeTag(button) {
     if (domControl.ReadOnly)
         html.Append(" readonly");
     
-    html.Append($"         placeholder='{domControl.ToolTip}'/&gt;");
-    html.Append($"&lt;/div&gt;");
+    html.Append($"         placeholder='{domControl.ToolTip}'/>");
+    html.Append($"</div>");
     
     return html.ToString();
 }</pre>
@@ -1340,38 +1340,38 @@ function removeTag(button) {
 {
     var html = new StringBuilder();
     
-    html.Append("&lt;div class='custom-grid'&gt;");
-    html.Append($"&lt;button onclick='{OnAddRowScript(domControl, 0)}'&gt;Add&lt;/button&gt;");
-    html.Append("&lt;table&gt;");
-    html.Append("  &lt;thead&gt;&lt;tr&gt;");
+    html.Append("<div class='custom-grid'>");
+    html.Append($"<button onclick='{OnAddRowScript(domControl, 0)}'>Add</button>");
+    html.Append("<table>");
+    html.Append("  <thead><tr>");
     
     // Render headers
     foreach (var column in domControl.Columns)
     {
-        html.Append($"&lt;th&gt;{column.Label}&lt;/th&gt;");
+        html.Append($"<th>{column.Label}</th>");
     }
-    html.Append("&lt;th&gt;Actions&lt;/th&gt;");
-    html.Append("  &lt;/tr&gt;&lt;/thead&gt;");
+    html.Append("<th>Actions</th>");
+    html.Append("  </tr></thead>");
     
-    html.Append("  &lt;tbody&gt;");
-    for (uint i = 0; i &lt; domControl.RowCount; i++)
+    html.Append("  <tbody>");
+    for (uint i = 0; i < domControl.RowCount; i++)
     {
-        html.Append("&lt;tr&gt;");
+        html.Append("<tr>");
         
         foreach (var column in domControl.Columns)
         {
-            html.Append($"&lt;td&gt;{domControl.GetCellValue(i, column.Name)}&lt;/td&gt;");
+            html.Append($"<td>{domControl.GetCellValue(i, column.Name)}</td>");
         }
         
-        html.Append("&lt;td&gt;");
-        html.Append($"  &lt;button onclick='{OnEditRowScript(domControl, i)}'&gt;Edit&lt;/button&gt;");
-        html.Append($"  &lt;button onclick='{OnDeleteRowScript(domControl, i)}'&gt;Delete&lt;/button&gt;");
-        html.Append("&lt;/td&gt;");
-        html.Append("&lt;/tr&gt;");
+        html.Append("<td>");
+        html.Append($"  <button onclick='{OnEditRowScript(domControl, i)}'>Edit</button>");
+        html.Append($"  <button onclick='{OnDeleteRowScript(domControl, i)}'>Delete</button>");
+        html.Append("</td>");
+        html.Append("</tr>");
     }
-    html.Append("  &lt;/tbody&gt;");
-    html.Append("&lt;/table&gt;");
-    html.Append("&lt;/div&gt;");
+    html.Append("  </tbody>");
+    html.Append("</table>");
+    html.Append("</div>");
     
     return html.ToString();
 }</pre>
@@ -1422,11 +1422,11 @@ string errorStyle = GetValidationErrorStyle(domControl);</pre>
 {
     var html = new StringBuilder();
     
-    html.Append("&lt;div class='context-menu'&gt;");
-    html.Append($"  &lt;a href='{OnClickUrl(domControl)}'&gt;View Details&lt;/a&gt;");
-    html.Append($"  &lt;a href='#' onclick='{OnClickScript(domControl)}'&gt;Quick Edit&lt;/a&gt;");
-    html.Append("  &lt;a href='#'&gt;Export&lt;/a&gt;");
-    html.Append("&lt;/div&gt;");
+    html.Append("<div class='context-menu'>");
+    html.Append($"  <a href='{OnClickUrl(domControl)}'>View Details</a>");
+    html.Append($"  <a href='#' onclick='{OnClickScript(domControl)}'>Quick Edit</a>");
+    html.Append("  <a href='#'>Export</a>");
+    html.Append("</div>");
     
     return html.ToString();
 }</pre>
@@ -1443,13 +1443,13 @@ string errorStyle = GetValidationErrorStyle(domControl);</pre>
 {
     public override string RenderStyles()
     {
-        return @"
-            &lt;style&gt;
+        return @@"
+            <style>
                 .product-form { max-width: 800px; margin: 0 auto; }
                 .product-header { background: #667eea; color: white; padding: 20px; }
                 .product-image { width: 200px; height: 200px; object-fit: cover; }
                 .price-tag { font-size: 24px; color: #2c5; font-weight: bold; }
-            &lt;/style&gt;
+            </style>
         ";
     }
     
@@ -1457,11 +1457,11 @@ string errorStyle = GetValidationErrorStyle(domControl);</pre>
     {
         if (domControl.Name == "ProductImage")
         {
-            return $@"
-                &lt;div class='product-image-container'&gt;
-                    &lt;img src='{domControl.Value}' class='product-image' alt='Product'/&gt;
-                    &lt;button onclick='uploadImage()'&gt;Change Image&lt;/button&gt;
-                &lt;/div&gt;
+            return $@@"
+                <div class='product-image-container'>
+                    <img src='{domControl.Value}' class='product-image' alt='Product'/>
+                    <button onclick='uploadImage()'>Change Image</button>
+                </div>
             ";
         }
         
@@ -1472,19 +1472,19 @@ string errorStyle = GetValidationErrorStyle(domControl);</pre>
     {
         if (domControl.Name == "Price")
         {
-            return $@"
-                &lt;div class='price-input'&gt;
-                    &lt;label&gt;{domControl.Label}&lt;/label&gt;
-                    &lt;span class='currency'&gt;                <tr>
-                    <td>@ChangeSubmit</td>
+            return $@@"
+                <div class='price-input'>
+                    <label>{domControl.Label}</label>
+                    <span class='currency'>                <tr>
+                    <td>@@ChangeSubmit</td>
                     <td>Change event script</td>
-                    <td>&lt;input onchange="@ChangeSubmit"&gt;</td>lt;/span&gt;
-                    &lt;input type='number' 
+                    <td><input onchange="@@ChangeSubmit"></td>lt;/span>
+                    <input type='number' 
                            name='{domControl.Name}' 
                            value='{domControl.Value}' 
                            step='0.01'
-                           class='price-tag'/&gt;
-                &lt;/div&gt;
+                           class='price-tag'/>
+                </div>
             ";
         }
         
