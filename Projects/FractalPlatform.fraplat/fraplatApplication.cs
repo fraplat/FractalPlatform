@@ -70,6 +70,9 @@ namespace FractalPlatform.fraplat {
                 case "layouts":
                     FirstDocOf("Layouts").OpenForm();
                     break;
+                case "guides":
+                    FirstDocOf("Guides").OpenForm();
+                    break;
                 default:
                     NotImplementedMessageBox();
                     break;
