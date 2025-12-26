@@ -7,181 +7,181 @@
     <title>Fractal Platform Transactions Guide</title>
     <link rel="stylesheet" href="@BaseFilesUrl/styles.css">
     <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.6;
-        color: #333;
-        background: #f5f5f5;
-    }
-    
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-    }
-    
-    header {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        padding: 40px 20px;
-        text-align: center;
-        border-radius: 10px;
-        margin-bottom: 30px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    
-    header h1 {
-        font-size: 2.5em;
-        margin-bottom: 10px;
-    }
-    
-    header p {
-        font-size: 1.2em;
-        opacity: 0.9;
-    }
-    
-    nav {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        margin-bottom: 30px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    
-    nav h2 {
-        margin-bottom: 15px;
-        color: #667eea;
-    }
-    
-    nav ul {
-        list-style: none;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 10px;
-    }
-    
-    nav a {
-        color: #667eea;
-        text-decoration: none;
-        padding: 10px;
-        display: block;
-        border-radius: 5px;
-        transition: all 0.3s;
-    }
-    
-    nav a:hover {
-        background: #667eea;
-        color: white;
-        transform: translateX(5px);
-    }
-    
-    .article {
-        background: white;
-        padding: 30px;
-        margin-bottom: 30px;
-        border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    
-    .article h2 {
-        color: #667eea;
-        margin-bottom: 20px;
-        padding-bottom: 10px;
-        border-bottom: 3px solid #667eea;
-    }
-    
-    .article h3 {
-        color: #764ba2;
-        margin-top: 25px;
-        margin-bottom: 15px;
-    }
-    
-    .code-block {
-        background: #282c34;
-        color: #abb2bf;
-        padding: 20px;
-        border-radius: 8px;
-        overflow-x: auto;
-        margin: 15px 0;
-        border-left: 4px solid #667eea;
-        font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-        font-size: 18px;
-        line-height: 1.5;
-    }
-    
-    pre {
-        margin: 0;
-        white-space: pre;
-    }
-    
-    /* JSON Syntax highlighting */
-    .json .string { color: #98c379; }
-    .json .number { color: #d19a66; }
-    .json .boolean { color: #56b6c2; }
-    .json .null { color: #56b6c2; }
-    .json .comma { color: #abb2bf; }
-    .json .brace { color: #abb2bf; }
-    .json .bracket { color: #abb2bf; }
-    .json .key { color: #e06c75; }
-    
-    /* C# Syntax highlighting */
-    .csharp .keyword { color: #c678dd; }
-    .csharp .string { color: #98c379; }
-    .csharp .number { color: #d19a66; }
-    .csharp .comment { color: #5c6370; font-style: italic; }
-    .csharp .type { color: #61afef; }
-    
-    .tip {
-        background: #e3f2fd;
-        border-left: 4px solid #2196f3;
-        padding: 15px;
-        margin: 15px 0;
-        border-radius: 5px;
-    }
-    
-    .tip strong {
-        color: #1976d2;
-    }
-    
-    .warning {
-        background: #fff3cd;
-        border-left: 4px solid #ffc107;
-        padding: 15px;
-        margin: 15px 0;
-        border-radius: 5px;
-    }
-    
-    .warning strong {
-        color: #ff6f00;
-    }
-    
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 15px 0;
-    }
-    
-    th, td {
-        padding: 12px;
-        text-align: left;
-        border: 1px solid #ddd;
-    }
-    
-    th {
-        background: #667eea;
-        color: white;
-    }
-    
-    tr:nth-child(even) {
-        background: #f9f9f9;
-    }
-</style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        nav h2 {
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+        }
+        
+        nav a {
+            color: #667eea;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        nav a:hover {
+            background: #667eea;
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .article {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .article h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .article h3 {
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .code-block {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+        
+        pre {
+            margin: 0;
+            white-space: pre;
+        }
+        
+        /* JSON Syntax highlighting */
+        .json .string { color: #98c379; }
+        .json .number { color: #d19a66; }
+        .json .boolean { color: #56b6c2; }
+        .json .null { color: #56b6c2; }
+        .json .comma { color: #abb2bf; }
+        .json .brace { color: #abb2bf; }
+        .json .bracket { color: #abb2bf; }
+        .json .key { color: #e06c75; }
+        
+        /* C# Syntax highlighting */
+        .csharp .keyword { color: #c678dd; }
+        .csharp .string { color: #98c379; }
+        .csharp .number { color: #d19a66; }
+        .csharp .comment { color: #5c6370; font-style: italic; }
+        .csharp .type { color: #61afef; }
+        
+        .tip {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .tip strong {
+            color: #1976d2;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .warning strong {
+            color: #ff6f00;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        
+        th {
+            background: #667eea;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+    </style>
 </head>
 
 <body>
