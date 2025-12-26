@@ -1163,41 +1163,57 @@ collection.<span class="method">SkipOpenFormIf</span>(!hasData)
             </ul>
 
             <h3 style="color: white; margin-top: 30px;">Common Patterns Cheat Sheet</h3>
+<div style="margin-top: 15px; background: rgba(0,0,0,0.3); border-left: 4px solid white; border-radius: 8px; overflow: hidden;">
+    <div style="padding: 16px; color: #abb2bf; font-family: 'JetBrains Mono', 'Consolas', monospace; font-size: 14px; line-height: 1.5;">
+        <!-- Header -->
+        <div style="display: flex; padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.3); font-weight: 600; color: white;">
+            <div style="flex: 1; min-width: 200px;">Task</div>
+            <div style="flex: 2;">Pattern</div>
+        </div>
 
-            <table style="margin-top: 15px;">
-                <tr style="background: rgba(255,255,255,0.1);">
-                    <th style="background: transparent; color: white; border-color: rgba(255,255,255,0.3);">Task</th>
-                    <th style="background: transparent; color: white; border-color: rgba(255,255,255,0.3);">Pattern</th>
-                </tr>
-                <tr style="background: rgba(255,255,255,0.05);">
-                    <td style="color: white; border-color: rgba(255,255,255,0.3);">View data only</td>
-                    <td style="color: white; border-color: rgba(255,255,255,0.3);"><code>WantNotModifyExistingDocument()</code></td>
-                </tr>
-                <tr style="background: rgba(255,255,255,0.1);">
-                    <td style="color: white; border-color: rgba(255,255,255,0.3);">Edit existing</td>
-                    <td style="color: white; border-color: rgba(255,255,255,0.3);"><code>WantModifyExistingDocuments()</code></td>
-                </tr>
-                <tr style="background: rgba(255,255,255,0.05);">
-                    <td style="color: white; border-color: rgba(255,255,255,0.3);">Create new</td>
-                    <td style="color: white; border-color: rgba(255,255,255,0.3);"><code>WantCreateNewDocumentFor(collection)</code></td>
-                </tr>
-                <tr style="background: rgba(255,255,255,0.1);">
-                    <td style="color: white; border-color: rgba(255,255,255,0.3);">Add to array</td>
-                    <td style="color: white; border-color: rgba(255,255,255,0.3);"><code>WantCreateNewDocumentForArray(collection, path, docId)</code></td>
-                </tr>
-                <tr style="background: rgba(255,255,255,0.05);">
-                    <td style="color: white; border-color: rgba(255,255,255,0.3);">Customize UI</td>
-                    <td style="color: white; border-color: rgba(255,255,255,0.3);"><code>SetUIDimension(json)</code> or <code>ExtendUIDimension(json)</code></td>
-                </tr>
-                <tr style="background: rgba(255,255,255,0.1);">
-                    <td style="color: white; border-color: rgba(255,255,255,0.3);">Change theme</td>
-                    <td style="color: white; border-color: rgba(255,255,255,0.3);"><code>SetThemeDimension(ThemeType.Dark)</code></td>
-                </tr>
-                <tr style="background: rgba(255,255,255,0.05);">
-                    <td style="color: white; border-color: rgba(255,255,255,0.3);">Conditional open</td>
-                    <td style="color: white; border-color: rgba(255,255,255,0.3);"><code>SkipOpenFormIf(condition)</code></td>
-                </tr>
-            </table>
+        <!-- Row 1 -->
+        <div style="display: flex; padding: 10px 0; background: rgba(255,255,255,0.05);">
+            <div style="flex: 1; min-width: 200px; color: white;">View data only</div>
+            <div style="flex: 2; color: white;"><code>WantNotModifyExistingDocument()</code></div>
+        </div>
+
+        <!-- Row 2 -->
+        <div style="display: flex; padding: 10px 0; background: rgba(255,255,255,0.1);">
+            <div style="flex: 1; min-width: 200px; color: white;">Edit existing</div>
+            <div style="flex: 2; color: white;"><code>WantModifyExistingDocuments()</code></div>
+        </div>
+
+        <!-- Row 3 -->
+        <div style="display: flex; padding: 10px 0; background: rgba(255,255,255,0.05);">
+            <div style="flex: 1; min-width: 200px; color: white;">Create new</div>
+            <div style="flex: 2; color: white;"><code>WantCreateNewDocumentFor(collection)</code></div>
+        </div>
+
+        <!-- Row 4 -->
+        <div style="display: flex; padding: 10px 0; background: rgba(255,255,255,0.1);">
+            <div style="flex: 1; min-width: 200px; color: white;">Add to array</div>
+            <div style="flex: 2; color: white;"><code>WantCreateNewDocumentForArray(collection, path, docId)</code></div>
+        </div>
+
+        <!-- Row 5 -->
+        <div style="display: flex; padding: 10px 0; background: rgba(255,255,255,0.05);">
+            <div style="flex: 1; min-width: 200px; color: white;">Customize UI</div>
+            <div style="flex: 2; color: white;"><code>SetUIDimension(json)</code> or <code>ExtendUIDimension(json)</code></div>
+        </div>
+
+        <!-- Row 6 -->
+        <div style="display: flex; padding: 10px 0; background: rgba(255,255,255,0.1);">
+            <div style="flex: 1; min-width: 200px; color: white;">Change theme</div>
+            <div style="flex: 2; color: white;"><code>SetThemeDimension(ThemeType.Dark)</code></div>
+        </div>
+
+        <!-- Row 7 -->
+        <div style="display: flex; padding: 10px 0; background: rgba(255,255,255,0.05);">
+            <div style="flex: 1; min-width: 200px; color: white;">Conditional open</div>
+            <div style="flex: 2; color: white;"><code>SkipOpenFormIf(condition)</code></div>
+        </div>
+    </div>
+</div>
 
             <h3 style="color: white; margin-top: 30px;">The Perfect Chain Template</h3>
             <div class="code-block" style="background: rgba(0,0,0,0.3); border-left-color: white;">
