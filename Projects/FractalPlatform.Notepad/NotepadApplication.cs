@@ -28,6 +28,12 @@ namespace FractalPlatform.Notepad
 
                     break;
                 }
+                case @"Refresh":
+                {
+                    RefreshForm();
+
+                    break;
+                }
                 default:
                 {
                     return base.OnEventDimension(info);

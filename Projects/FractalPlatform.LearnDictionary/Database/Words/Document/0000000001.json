@@ -2069,52 +2069,248 @@
       },
       {
          "IsArchived": false,
-         "IsLearned": false,
+         "IsLearned": true,
          "Phrase": "I got you",
          "Trans": "я понял тебя",
          "Word": "gotcha"
       },
       {
          "IsArchived": false,
-         "IsLearned": false,
+         "IsLearned": true,
          "Phrase": "I have to go",
          "Trans": "я должен идти",
          "Word": "I gotta go"
       },
       {
          "IsArchived": false,
-         "IsLearned": false,
+         "IsLearned": true,
          "Phrase": "I got to finish the work",
          "Trans": "Я должен",
          "Word": "I got to (obligation)"
       },
       {
          "IsArchived": false,
-         "IsLearned": false,
+         "IsLearned": true,
          "Phrase": "I get to eat as much fruit as I want",
          "Trans": "Я могу",
          "Word": "I get to (opportunity)"
       },
       {
          "IsArchived": false,
-         "IsLearned": false,
+         "IsLearned": true,
          "Phrase": "Do you get along with your mother-in-law?",
          "Trans": "теща",
          "Word": "mother-in-law"
       },
       {
          "IsArchived": false,
-         "IsLearned": false,
+         "IsLearned": true,
          "Phrase": "Software suite for voice analysis to detect deception",
          "Trans": "обман",
          "Word": "deception"
       },
       {
          "IsArchived": false,
-         "IsLearned": false,
+         "IsLearned": true,
          "Phrase": "Сreating a self-sustaining ecosystem.",
          "Trans": "самодостаточную",
          "Word": "self-sustaining"
+      },
+      {
+         "IsArchived": false,
+         "IsLearned": true,
+         "Phrase": "Sweating from fear",
+         "Trans": "потеть",
+         "Word": "sweating"
+      },
+      {
+         "IsArchived": false,
+         "IsLearned": true,
+         "Phrase": "My shoe laces came undone.",
+         "Trans": "шнурки",
+         "Word": "Shoe laces"
+      },
+      {
+         "IsArchived": false,
+         "IsLearned": true,
+         "Phrase": "I have power outages",
+         "Trans": "отключение электричества",
+         "Word": "power outages"
+      },
+      {
+         "IsArchived": false,
+         "IsLearned": true,
+         "Phrase": "I used to sledding",
+         "Trans": "Катание на санках",
+         "Word": "sledding"
+      },
+      {
+         "IsArchived": false,
+         "IsLearned": true,
+         "Phrase": "I like mulled wine",
+         "Trans": "Глинтвейн",
+         "Word": "mulled wine"
+      },
+      {
+         "IsArchived": false,
+         "IsLearned": true,
+         "Phrase": "I used sun lounger on daily basin in the SPA",
+         "Trans": "шезлонг",
+         "Word": "sun lounger"
+      },
+      {
+         "IsArchived": false,
+         "IsLearned": true,
+         "Phrase": "I have eat pastry every day with coffe",
+         "Trans": "выпечка",
+         "Word": "pastry"
+      },
+      {
+         "IsArchived": false,
+         "IsLearned": true,
+         "Phrase": "You should has good liver to drink alcohol",
+         "Trans": "печень",
+         "Word": "liver"
+      },
+      {
+         "IsArchived": false,
+         "IsLearned": true,
+         "Phrase": "I missed the lesson because I mixed up the time.",
+         "Trans": "перепутал",
+         "Word": "mixed up"
+      },
+      {
+         "IsArchived": false,
+         "IsLearned": true,
+         "Phrase": "I didn't either",
+         "Trans": "Я не делал также",
+         "Word": "I didn't either"
+      },
+      {
+         "IsArchived": false,
+         "IsLearned": false,
+         "Phrase": "My acquaintance",
+         "Trans": "знакомый",
+         "Word": "acquaintance"
+      },
+      {
+         "IsArchived": false,
+         "IsLearned": false,
+         "Phrase": "Tit for tat the war rule",
+         "Trans": "око за око",
+         "Word": "tit for tat"
+      },
+      {
+         "IsArchived": false,
+         "IsLearned": false,
+         "Phrase": "I should have plugged my computer in",
+         "Trans": "Я должен был (с сожалением)",
+         "Word": "I should have"
+      },
+      {
+         "IsArchived": false,
+         "IsLearned": false,
+         "Phrase": "It might have been a good idea",
+         "Trans": "Наверное это была хорошая идея",
+         "Word": "It might have been a good idea"
+      },
+      {
+         "IsArchived": false,
+         "IsLearned": true,
+         "Phrase": "I have gas stove",
+         "Trans": "газовая плита",
+         "Word": "Gas stove"
+      },
+      {
+         "IsArchived": false,
+         "IsLearned": true,
+         "Phrase": "With power strip I have more outlets",
+         "Trans": "удленитель",
+         "Word": "Power strip"
+      },
+      {
+         "IsArchived": false,
+         "IsLearned": true,
+         "Phrase": "Time by time I use extension chord",
+         "Trans": "Удлинитель с розеткой",
+         "Word": "Extension chord"
+      },
+      {
+         "IsArchived": false,
+         "IsLearned": true,
+         "Phrase": "In the meantime we are thinking",
+         "Trans": "Тем временем",
+         "Word": "In the meantime"
+      },
+      {
+         "IsArchived": false,
+         "IsLearned": true,
+         "Phrase": "Our education is outdated",
+         "Trans": "Устаревший",
+         "Word": "outdated"
+      },
+      {
+         "IsArchived": false,
+         "IsLearned": true,
+         "Phrase": "They using combat drones every day",
+         "Trans": "Боевые дроны",
+         "Word": "Combat drones"
+      },
+      {
+         "IsArchived": false,
+         "IsLearned": true,
+         "Phrase": "Flame in the our heart",
+         "Trans": "Пламя",
+         "Word": "Flame"
+      },
+      {
+         "IsArchived": false,
+         "IsLearned": true,
+         "Phrase": "Glow in the dark",
+         "Trans": "Свечение",
+         "Word": "Glow"
+      },
+      {
+         "IsArchived": false,
+         "IsLearned": true,
+         "Phrase": "She doesnt want solitude",
+         "Trans": "Одиночество",
+         "Word": "Solitude"
+      },
+      {
+         "IsArchived": false,
+         "IsLearned": true,
+         "Phrase": "She is newbie in our team",
+         "Trans": "Новичок",
+         "Word": "Newbie"
+      },
+      {
+         "IsArchived": false,
+         "IsLearned": true,
+         "Phrase": "I like to bake bread",
+         "Trans": "выпекать",
+         "Word": "Bake"
+      },
+      {
+         "IsArchived": false,
+         "IsLearned": false,
+         "Phrase": "I have been working in TX for 8 years",
+         "Trans": "Я работаю (в прошлом и сейчас)",
+         "Word": "I have been working"
+      },
+      {
+         "IsArchived": false,
+         "IsLearned": false,
+         "Phrase": "I don't like to compete with anybody",
+         "Trans": "соревноваться, конкурировать",
+         "Word": "Compete"
+      },
+      {
+         "IsArchived": false,
+         "IsLearned": false,
+         "Phrase": "Have you considered to do it by yourself",
+         "Trans": "Считается, рассматривается",
+         "Word": "Considered"
       }
    ]
 }

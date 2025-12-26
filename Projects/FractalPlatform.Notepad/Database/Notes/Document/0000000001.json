@@ -3,6 +3,7 @@
     {
       "Name": "Main",
       "Text": "",
+      "Refresh": "Refresh",
       "Save": "Save",
       "Cancel": "Cancel"
     }

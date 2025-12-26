@@ -1,0 +1,131 @@
+﻿{
+   "Day": "Saturday",
+   "OnDate": "2025-08-30T00:00:00",
+   "TotalPoints": 95,
+   "TotalTime": "05:25:00",
+   "Never": [
+      {
+         "Completed": 0,
+         "DueDate": "0001-01-01T00:00:00",
+         "IsCompleted": true,
+         "LastDone": "2025-08-30T00:00:00",
+         "Points": 10,
+         "StartFrom": "0001-01-01T00:00:00",
+         "Status": "Active",
+         "Task": "NoSugar",
+         "Time": "0m"
+      },
+      {
+         "Completed": 0,
+         "DueDate": "0001-01-01T00:00:00",
+         "IsCompleted": true,
+         "LastDone": "2025-08-30T00:00:00",
+         "Points": 10,
+         "StartFrom": "0001-01-01T00:00:00",
+         "Status": "Active",
+         "Task": "NoNews",
+         "Time": "0m"
+      }
+   ],
+   "Repeat": [
+      {
+         "Completed": 0,
+         "DueDate": "0001-01-01T00:00:00",
+         "IsCompleted": true,
+         "LastDone": "2025-08-30T00:00:00",
+         "Points": 10,
+         "StartFrom": "0001-01-01T00:00:00",
+         "Status": "Active",
+         "Task": "Diet",
+         "Time": "0m"
+      },
+      {
+         "Completed": 0,
+         "DueDate": "0001-01-01T00:00:00",
+         "IsCompleted": true,
+         "LastDone": "2025-08-30T00:00:00",
+         "Points": 5,
+         "StartFrom": "0001-01-01T00:00:00",
+         "Status": "Active",
+         "Task": "Vitamins",
+         "Time": "5m"
+      },
+      {
+         "Completed": 0,
+         "DueDate": "0001-01-01T00:00:00",
+         "IsCompleted": true,
+         "LastDone": "2025-08-30T00:00:00",
+         "Points": 5,
+         "StartFrom": "0001-01-01T00:00:00",
+         "Status": "Active",
+         "Task": "Two glass of water",
+         "Time": "5m"
+      },
+      {
+         "Completed": 0,
+         "DueDate": "0001-01-01T00:00:00",
+         "IsCompleted": true,
+         "LastDone": "2025-08-30T00:00:00",
+         "Points": 5,
+         "StartFrom": "0001-01-01T00:00:00",
+         "Status": "Active",
+         "Task": "To shave",
+         "Time": "5m"
+      },
+      {
+         "Completed": 0,
+         "DueDate": "0001-01-01T00:00:00",
+         "IsCompleted": true,
+         "LastDone": "2025-08-30T00:00:00",
+         "Points": 5,
+         "StartFrom": "0001-01-01T00:00:00",
+         "Status": "Active",
+         "Task": "Listen audio with plan",
+         "Time": "5m"
+      },
+      {
+         "Completed": 0,
+         "DueDate": "0001-01-01T00:00:00",
+         "IsCompleted": true,
+         "LastDone": "2025-08-30T00:00:00",
+         "Points": 5,
+         "StartFrom": "0001-01-01T00:00:00",
+         "Status": "Active",
+         "Task": "Protein",
+         "Time": "5m"
+      },
+      {
+         "Completed": 0,
+         "DueDate": "0001-01-01T00:00:00",
+         "IsCompleted": true,
+         "LastDone": "2025-08-30T00:00:00",
+         "Points": 10,
+         "StartFrom": "0001-01-01T00:00:00",
+         "Status": "Active",
+         "Task": "Walking",
+         "Time": "2h"
+      },
+      {
+         "Completed": 0,
+         "DueDate": "0001-01-01T00:00:00",
+         "IsCompleted": true,
+         "LastDone": "2025-08-30T00:00:00",
+         "Points": 15,
+         "StartFrom": "0001-01-01T00:00:00",
+         "Status": "Active",
+         "Task": "Bike",
+         "Time": "2h"
+      },
+      {
+         "Completed": 0,
+         "DueDate": "0001-01-01T00:00:00",
+         "IsCompleted": true,
+         "LastDone": "2025-08-30T00:00:00",
+         "Points": 15,
+         "StartFrom": "0001-01-01T00:00:00",
+         "Status": "Active",
+         "Task": "Swimming",
+         "Time": "1h"
+      }
+   ]
+}

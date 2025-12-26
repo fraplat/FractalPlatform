@@ -1,0 +1,239 @@
+﻿{
+   "Angry": [
+      {
+         "WhatICanChange": "Ничего не могу изменить. Деньги потрачены",
+         "WhatItSaysAboutMe": "Что ты думаешь что можно что-то купить с девушками",
+         "WhatSheDoes": "Она не пишет мне первой",
+         "WhyItDisturbedMe": "Потому что мне кажется что я много вкладывался"
+      },
+      {
+         "WhatICanChange": "Ничего не могу изменить. Максимум дождаться если это мне нужно",
+         "WhatItSaysAboutMe": "Что я завысил ожидания. Она говорила заблоговременно что уедет",
+         "WhatSheDoes": "Она уехала к маме",
+         "WhyItDisturbedMe": "Потому что я остался один"
+      },
+      {
+         "WhatICanChange": "Поменять девушку. Но нужно ли это сейчас ? Стоит ли обязательно ей это говорить ?",
+         "WhatItSaysAboutMe": "То что я жду здовровых отношений",
+         "WhatSheDoes": "Она не вкладывается в отношения",
+         "WhyItDisturbedMe": "Потому что я жду отдачу"
+      },
+      {
+         "WhatICanChange": "Тратить умеренные деньги или признать что я не могу себе позволить",
+         "WhatItSaysAboutMe": "Может быть слишком экономный",
+         "WhatSheDoes": "Ее нужно обеспечивать всем",
+         "WhyItDisturbedMe": "Потому что мне стоит это денег"
+      },
+      {
+         "WhatICanChange": "Медленно заходить в ее жизнь. Если мне это нужно.",
+         "WhatItSaysAboutMe": "Что я тороплю события?",
+         "WhatSheDoes": "Она слишком скрытная",
+         "WhyItDisturbedMe": "Потому что это подозрительно"
+      },
+      {
+         "WhatICanChange": "Найти другую девушку. Если вообще сможешь.",
+         "WhatItSaysAboutMe": "Что для семьи с детьми возраст девушки критичен",
+         "WhatSheDoes": "Ей скоро 40 лет",
+         "WhyItDisturbedMe": "Потому что ей сложно будет родить"
+      }
+   ],
+   "Decisions": [
+      {
+         "Name": "My IT Company",
+         "Decart": [
+            {
+               "WhatHappens": "If I Open IT company",
+               "Negative": [
+                  "Hard work for 2-3 years",
+                  "No big holidays",
+                  "Possible problems with private life"
+               ],
+               "Positive": [
+                  "Be more happy",
+                  "Earn more money",
+                  "Give money to my childs",
+                  "Improve my personal network",
+                  "More prestige wife"
+               ]
+            },
+            {
+               "WhatHappens": "If I NOT open IT company",
+               "Negative": [
+                  "No big pillow of money",
+                  "No good english",
+                  "No good personal network"
+               ],
+               "Positive": [
+                  "Normal work without overtimes",
+                  "Safe current money"
+               ]
+            }
+         ]
+      }
+   ],
+   "Equity": {
+      "Bank": [
+         {
+            "Name": "USD",
+            "Sum": 12500
+         }
+      ],
+      "Cache": [
+         {
+            "Name": "EUR",
+            "Sum": 50000
+         },
+         {
+            "Name": "Safe",
+            "Sum": 1700
+         },
+         {
+            "Name": "DriverLicense",
+            "Sum": 1250
+         }
+      ],
+      "Crypto": [
+         {
+            "Name": "USDT",
+            "Sum": 36600
+         },
+         {
+            "Name": "BTC",
+            "Sum": 15000
+         },
+         {
+            "Name": "USDT",
+            "Sum": 39601
+         }
+      ],
+      "RealEstate": [
+         {
+            "Name": "Chavdar",
+            "Sum": 100000
+         },
+         {
+            "Name": "Dacha",
+            "Sum": 40000
+         },
+         {
+            "Name": "PostVolynska",
+            "Sum": 20000
+         },
+         {
+            "Name": "Avto",
+            "Sum": 20000
+         }
+      ],
+      "Total": {
+         "Bank": 0,
+         "Cache": 0,
+         "Crypto": 0,
+         "RealEstate": 0,
+         "TotalSum": 0
+      }
+   },
+   "Future": [
+      {
+         "What": "Register on Upwork",
+         "When": "Next week"
+      },
+      {
+         "What": "Boost my English",
+         "When": "Next week"
+      },
+      {
+         "What": "First Sale",
+         "When": "Next month"
+      }
+   ],
+   "Girl": {
+      "Advantages": [
+         "Beauty",
+         "Manners",
+         "NoSmoking",
+         "NoChildrens",
+         "NoDrinking",
+         "Smart",
+         "Religion",
+         "Cats",
+         "Love",
+         "Influence"
+      ],
+      "Disadvantages": [
+         "Сharacter",
+         "40yo",
+         "Donetsk",
+         "NoWorking",
+         "NoMoney"
+      ]
+   },
+   "Imagine": [
+      {
+         "Image": "",
+         "What": "My company",
+         "When": "This year"
+      },
+      {
+         "Image": "",
+         "What": "Live near sea",
+         "When": "This year"
+      },
+      {
+         "Image": "",
+         "What": "House near sea",
+         "When": "Next 3 years"
+      }
+   ],
+   "What I dont have": [
+      {
+         "Description": "InProgress ?",
+         "What": "Family"
+      },
+      {
+         "Description": "InProgress - Agency",
+         "What": "Business"
+      },
+      {
+         "Description": "InProgress - 3d children ?",
+         "What": "Imigration"
+      }
+   ],
+   "What I have": [
+      {
+         "Description": "",
+         "What": "Childs"
+      },
+      {
+         "Description": "",
+         "What": "Girl"
+      },
+      {
+         "Description": "",
+         "What": "Big flat"
+      },
+      {
+         "Description": "",
+         "What": "Car"
+      },
+      {
+         "Description": "",
+         "What": "Dacha"
+      },
+      {
+         "Description": "",
+         "What": "Work"
+      },
+      {
+         "Description": "",
+         "What": "Health"
+      },
+      {
+         "Description": "",
+         "What": "Savings"
+      },
+      {
+         "Description": "",
+         "What": "Project"
+      }
+   ]
+}

@@ -146,68 +146,30 @@ namespace FractalPlatform.MyElectro
                       EndMinute = g.Last().EndMinute,
                       Electricity = g.First().Electricity
                   })
-                  .Where(x => DateTime.Now.Hour < x.EndHour || isTomorrow)
-                  .Select(x => new
+                  .Where(x => (DateTime.Now.Hour < x.EndHour ||
+                               (DateTime.Now.Hour == x.EndHour &&
+                                DateTime.Now.Minute < x.EndMinute) ||
+                                isTomorrow))
+                  .Select(x =>
                   {
-                      Час = $"{x.StartHour.ToString("00")}:{x.StartMinute.ToString("00")} - {x.EndHour.ToString("00")}:{x.EndMinute.ToString("00")}",
-                      Світло = x.Electricity
+                      var start = new TimeSpan(x.StartHour, x.StartMinute, 0);
+                      var end = new TimeSpan(x.EndHour, x.EndMinute, 0);
+                      var total = end - start;
+                      var sign = x.Electricity == "ПРИСУТНЄ" ? "+" : "-";
+                      var isUndefined = x.StartHour == 0 &&
+                                        x.StartMinute == 0 &&
+                                        x.EndHour == 24 &&
+                                        x.EndMinute == 0;
+                      
+                      return new
+                      {
+                        Час = $"{x.StartHour:00}:{x.StartMinute:00} - {x.EndHour:00}:{x.EndMinute:00}",
+                        Світло = !isUndefined || !isTomorrow ? x.Electricity : "НЕВІДОМО",
+                        Годин = !isUndefined ? $"{sign} {(int)total.TotalHours:00}:{total.Minutes:00}" : null
+                      };
                   }).ToList();
         }
         
-        private object GetSchedule2(string schedule, bool isTomorrow)
-        {
-            string prevElectricity = null;
-            int groupId = 0;
-            
-            return schedule
-                   .ToCollection()
-                   .ToAttrList()
-                   .Select(x =>
-                   {
-                       var hour = int.Parse(x.Key.FirstPath);
-                       var startHour = hour - 1;
-                       var endHour = hour;
-                       var strElectricity = x.Value.ToString();
-                       var electricity = strElectricity
-                                        .Replace("yes", $"ПРИСУТНЄ")
-                                        .Replace("no", $"ВІДСУТНЄ")
-                                        .Replace("maybe", "НЕВІДОМО")
-                                        .Replace("first", $"ВІДСУТНЄ")
-                                        .Replace("second", $"ВІДСУТНЄ");
-
-                       if (prevElectricity == null || prevElectricity != electricity)
-                       {
-                           groupId++;
-                           prevElectricity = electricity;
-                       }
-
-                       return new
-                       {
-                           StartHour = startHour,
-                           EndHour = endHour,
-                           Electricity = electricity,
-                           GroupId = groupId,
-                           IsFirst = strElectricity == "first",
-                           IsSecond = strElectricity == "second"
-                       };
-                   })
-                  .GroupBy(x => x.GroupId,
-                  (k, g) => new
-                  {
-                      StartHour = g.Min(x => x.StartHour),
-                      StartMinutes = g.Any(x => x.IsFirst) ? 30 : 0,
-                      EndHour = g.Max(x => x.EndHour),
-                      EndMinutes = g.Any(x => x.IsSecond) ? 0 : 30,
-                      Electricity = g.First().Electricity
-                  })
-                  .Where(x => DateTime.Now.Hour < x.EndHour || isTomorrow)
-                  .Select(x => new
-                  {
-                      Час = $"{x.StartHour.ToString("00")}:{x.StartMinutes.ToString("00")} - {x.EndHour.ToString("00")}:{x.EndMinutes.ToString("00")}",
-                      Світло = x.Electricity
-                  }).ToList();
-        }
-
         private string DownloadData(bool isTomorrow)
         {
             var html = REST.Get("https://www.dtek-kem.com.ua/ua/shutdowns");
@@ -215,7 +177,12 @@ namespace FractalPlatform.MyElectro
             var endIndex = html.IndexOf("</script>", startIndex);
             var json = html.Substring(startIndex, endIndex - startIndex);
             var data = (JObject)JsonConvert.DeserializeObject(json);
-            var dtekGroupId = "GPV1.1";
+            string dtekGroupId = "GPV1.1";
+            
+            if(Context.HasUrlTag)
+            {
+                dtekGroupId = Context.UrlTag;
+            }
 
             var entries = data["data"].Children<JProperty>().ToList();
             return (!isTomorrow ? entries[0].Value[dtekGroupId] : entries[1].Value[dtekGroupId]).ToString();

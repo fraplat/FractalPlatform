@@ -1,0 +1,72 @@
+{
+  "Categories": [
+    {
+      "Tasks": [
+        {
+          "Points": {
+            "Items": [
+              5,
+              10,
+              15,
+              20,
+              25,
+              30,
+              50,
+              100
+            ]
+          },
+          "RepeatEvery": {
+            "Items": [
+              "Never",
+              "Once",
+              "Day",
+              "WorkingDay",
+              "Week",
+              "Month",
+              "DayOfMonth",
+              "Year",
+              "DayOfYear",
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ]
+          },
+          "Status": {
+            "Items": [
+              "Active",
+              "InProgress",
+              "Closed"
+            ]
+          },
+          "Time": {
+            "Items": [
+              "0m",
+              "5m",
+              "10m",
+              "15m",
+              "20m",
+              "25m",
+              "30m",
+              "1h",
+              "2h",
+              "3h",
+              "4h",
+              "6h",
+              "8h",
+              "10h",
+              "12h",
+              "14h",
+              "16h",
+              "32h",
+              "64h"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
