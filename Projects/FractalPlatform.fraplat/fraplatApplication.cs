@@ -49,6 +49,27 @@ namespace FractalPlatform.fraplat {
                 case "queries":
                     FirstDocOf("Queries").OpenForm();
                     break;
+                case "transactions":
+                    FirstDocOf("Transactions").OpenForm();
+                    break;
+                case "fractalstudio":
+                    FirstDocOf("FractalStudio").OpenForm();
+                    break;
+                case "uicontrols":
+                    FirstDocOf("UIControls").OpenForm();
+                    break;
+                case "baseapplication":
+                    FirstDocOf("BaseApplication").OpenForm();
+                    break;
+                case "formbuilder":
+                    FirstDocOf("FormBuilder").OpenForm();
+                    break;
+                case "transformations":
+                    FirstDocOf("Transformations").OpenForm();
+                    break;
+                case "layouts":
+                    FirstDocOf("Layouts").OpenForm();
+                    break;
                 default:
                     NotImplementedMessageBox();
                     break;
