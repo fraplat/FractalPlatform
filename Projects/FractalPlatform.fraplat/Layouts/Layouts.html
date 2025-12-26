@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fractal Platform Layout Guide</title>
+    <link rel="stylesheet" href="@BaseFilesUrl/styles.css">
     <style>
         * {
             margin: 0;
@@ -1497,12 +1498,8 @@ string errorStyle = GetValidationErrorStyle(domControl);</pre>
                 <strong>⚠️ Performance Note:</strong> RenderForm methods are called frequently. Keep logic simple and avoid heavy processing. Cache values when possible.
             </div>
         </div>
-
-        <footer style="text-align: center; padding: 40px; color: #666;">
-            <p>Made with ❤️ for Fractal Platform developers</p>
-            <p>Start building beautiful layouts today! 🚀</p>
-        </footer>
     </div>
+    @Footer.Partial
 </body>
 
 </html>
