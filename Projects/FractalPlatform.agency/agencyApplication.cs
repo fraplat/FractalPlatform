@@ -37,6 +37,10 @@ namespace FractalPlatform.agency
                 DocsOf("Audits")
                     .OpenForm();
             }
+            else
+            {
+                NotImplementedMessageBox();
+            }
         }
     }
 }
