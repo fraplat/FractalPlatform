@@ -203,6 +203,26 @@ sudo systemctl restart nginx
         </pre>
         </div>
 
+        <h4>Configure NGINX Proxy (replace mydomain.com on your own domain)</h4>
+        <h4>Save config: Ctrl+O, Enter, Ctrl+X</h4>
+        <pre class="code-block">
+sudo nano /etc/nginx/conf.d/kestrel.conf
+        </pre>
+
+        <pre class="code-block">
+server {
+    listen 80;
+    server_name mydomain.com www.mydomain.com;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 80;
+    server_name *.mydomain.com;
+    return 301 https://$host$request_uri;
+}
+        </pre>
+        </div>
         <div class="how-it-works">
             <h3>Step 5: Done! (replace mydomain.com on your own domain)</h3>
             <p>Your Fractal Platform is now live on <strong>https://mydomain.com</strong></p>
@@ -226,6 +246,24 @@ sudo systemctl restart nginx
             <p>Set MyAppName as DefaultAppName in the opened form</p>
             <p>Click Save button</p>
             <p>Your MyAppName is now live on <strong>https://mydomain.com</strong></p>
+        </div>
+
+        <div class="how-it-works">
+            <h3>Step 6: Update Fractal Platform runtime to latest version (if needed)</h3>
+            <pre class="code-block">sudo docker stop mycontainer
+sudo docker rm mycontainer
+sudo docker pull fraplat/image:v1.0
+sudo docker run -d \
+  --name mycontainer \
+  --restart always \
+  -v app_databases:/app/Databases \
+  -v app_layouts:/app/Layouts \
+  -v app_deployments:/app/Deployments \
+  -v app_files:/app/wwwroot/files \
+  -p 8080:8080 \
+  -p 8081:8081 \
+  fraplat/image:v1.0
+            </pre>
         </div>
     </section>
     @Footer.Partial
