@@ -1,9 +1,0 @@
-{
-  "Style": "Hide:Password,UserTasks,Rates",
-  "ReadOnly": true,
-  "Captcha": { "Visible": false },
-  "Password": { "Visible": false },
-  "Photo": { "ControlType": "Picture" },
-  "Roles": { "ControlType": "Tags" },
-  "UserTasks": { "ControlType": "Button" }
-}
