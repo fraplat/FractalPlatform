@@ -1,6 +1,0 @@
-{
-  "Limit": {
-    "MaxDocs": 20,
-    "Strategy": "HideOld"
-  }
-}
