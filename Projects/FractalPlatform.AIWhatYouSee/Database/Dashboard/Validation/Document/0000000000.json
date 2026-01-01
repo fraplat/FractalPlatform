@@ -1,7 +1,0 @@
-{
-  "Question": {
-    "IsRequired": true,
-    "MinLen": 16,
-    "MaxLen": 256
-  }
-}
