@@ -1,9 +1,0 @@
-{
-  "UserName": { "Index": 1 },
-  "LoginButton": { "Index": 2 },
-  "LogoutButton": { "Index": 3 },
-  "Register": { "Index": 4 },
-  "Stock": { "Index": 5 },
-  "NewOrder": { "Index": 6 },
-  "Orders": { "Index": 7 }
-}
