@@ -92,7 +92,5 @@ namespace FractalPlatform.Weather
             };
 		
 		public override void OnStart() => Weather();
-        
-        public override BaseRenderForm CreateRenderForm(DOMForm form) => new ExtendedRenderForm(this, form);
     }
 }

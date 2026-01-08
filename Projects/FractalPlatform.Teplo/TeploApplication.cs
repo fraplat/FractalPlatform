@@ -5,6 +5,7 @@ using FractalPlatform.Client.App;
 using FractalPlatform.Client.UI;
 using System;
 using System.Globalization;
+using FractalPlatform.Database.Engine.Info;
 
 namespace FractalPlatform.Teplo
 {

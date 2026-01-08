@@ -132,7 +132,5 @@ namespace FractalPlatform.CoffeePoints
         }
 
         public override void OnStart() => Dashboard();
-
-        public override BaseRenderForm CreateRenderForm(DOMForm form) => new ExtendedRenderForm(this, form);
     }
 }

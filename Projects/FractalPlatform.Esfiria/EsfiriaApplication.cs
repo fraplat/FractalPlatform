@@ -229,7 +229,5 @@ namespace FractalPlatform.Esfiria
                 Dashboard();
             }
         }
-
-        public override BaseRenderForm CreateRenderForm(DOMForm form) => new ExtendedRenderForm(this, form);
     }
 }

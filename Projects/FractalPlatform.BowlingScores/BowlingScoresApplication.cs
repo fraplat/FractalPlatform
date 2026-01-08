@@ -84,7 +84,5 @@ namespace FractalPlatform.BowlingScores {
                      .SetUIDimension("{'ReadOnly':true,'Control':{'ControlType':'Chart','Style':'Type:Bar'}}")
                      .OpenForm();
         }
-    
-        public override BaseRenderForm CreateRenderForm(DOMForm form) => new ExtendedRenderForm(this, form);
     }
 }

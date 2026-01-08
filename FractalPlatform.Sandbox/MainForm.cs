@@ -219,7 +219,7 @@ namespace FractalPlatform.Sandbox
 					cmbTheme.Items.Add(theme.ToString());
 				}
 
-				cmbTheme.SelectedIndex = (int)DomForm.GetUserTheme() - 1;
+				cmbTheme.SelectedIndex = (int)Enum.Parse<ThemeType>(DomForm.GetUserTheme()) - 1;
 			}
 
 			if (!isFilterVisible && !isLangVisible && !isThemeVisible)
