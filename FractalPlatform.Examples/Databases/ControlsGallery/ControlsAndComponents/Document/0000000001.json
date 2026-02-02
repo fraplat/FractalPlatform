@@ -425,474 +425,491 @@
       }
     }
   ],
-  "Controls": [
-    {
-      "Description": "Label of text",
-      "Name": "Label",
-      "Dimensions": {
-        "DocumentLabel": "Document",
-        "Document": {
-          "Text": "{'Control':'This is Label'}"
+    "Controls": [
+        {
+            "Description": "Label of text",
+            "Name": "Label",
+            "Dimensions": {
+                "DocumentLabel": "Document",
+                "Document": {
+                    "Text": "{'Control':'This is Label'}"
+                },
+                "UILabel": "UI",
+                "UI": {
+                    "Text": "{'Control': {'ControlType':'Label'}}"
+                }
+            },
+            "Example": {
+                "Control": "This is Label"
+            }
         },
-        "UILabel": "UI",
-        "UI": {
-          "Text": "{'Control': {'ControlType':'Label'}}"
+        {
+            "Description": "Hyper link to a resource",
+            "Name": "Link",
+            "Dimensions": {
+                "DocumentLabel": "Document",
+                "Document": {
+                    "Text": "{'Control':'This is Link'}"
+                },
+                "UILabel": "UI",
+                "UI": {
+                    "Text": "{'Control': {'ControlType':'Link'}}"
+                }
+            },
+            "Example": {
+                "Control": "This is Link"
+            }
+        },
+        {
+            "Description": "Text box",
+            "Name": "TextBox",
+            "Dimensions": {
+                "DocumentLabel": "Document",
+                "Document": {
+                    "Text": "{'Control':'This is TextBox'}"
+                },
+                "UILabel": "UI",
+                "UI": {
+                    "Text": "{'Control': {'ControlType':'TextBox'}}"
+                }
+            },
+            "Example": {
+                "Control": "This is TextBox"
+            }
+        },
+        {
+            "Description": "Filter against bots",
+            "Name": "TextBox - Captcha",
+            "Dimensions": {
+                "DocumentLabel": "Document",
+                "Document": {
+                    "Text": "{'Control':'Enter number here'}"
+                },
+                "UILabel": "UI",
+                "UI": {
+                    "Text": "{'Control': {'ControlType':'TextBox','Style':'Type:Captcha'}}"
+                }
+            },
+            "Example": {
+                "Control": "Enter number here"
+            }
+        },
+        {
+            "Description": "User password",
+            "Name": "TextBox - Password",
+            "Dimensions": {
+                "DocumentLabel": "Document",
+                "Document": {
+                    "Text": "{'Control':'This is Password'}"
+                },
+                "UILabel": "UI",
+                "UI": {
+                    "Text": "{'Control': {'ControlType':'TextBox','Style':'Type:Password'}}"
+                }
+            },
+            "Example": {
+                "Control": "This is Password"
+            }
+        },
+        {
+            "Description": "Text box multi line",
+            "Name": "RichTextBox",
+            "Dimensions": {
+                "DocumentLabel": "Document",
+                "Document": {
+                    "Text": "{'Control':'This is RichTextBox'}"
+                },
+                "UILabel": "UI",
+                "UI": {
+                    "Text": "{'Control': {'ControlType':'RichTextBox'}}"
+                }
+            },
+            "Example": {
+                "Control": "This is RichTextBox"
+            }
+        },
+        {
+            "Description": "Check box",
+            "Name": "CheckBox",
+            "Dimensions": {
+                "DocumentLabel": "Document",
+                "Document": {
+                    "Text": "{'Control':true}"
+                },
+                "UILabel": "UI",
+                "UI": {
+                    "Text": "{'Control': {'ControlType':'CheckBox'}}"
+                }
+            },
+            "Example": {
+                "Control": true
+            }
+        },
+        {
+            "Description": "Regular button",
+            "Name": "Button",
+            "Dimensions": {
+                "DocumentLabel": "Document",
+                "Document": {
+                    "Text": "{'Control':'This is Button'}"
+                },
+                "UILabel": "UI",
+                "UI": {
+                    "Text": "{'Control': {'ControlType':'Button'}}"
+                }
+            },
+            "Example": {
+                "Control": "This is Button"
+            }
+        },
+        {
+            "Description": "Button as link",
+            "Name": "Button - Link",
+            "Dimensions": {
+                "DocumentLabel": "Document",
+                "Document": {
+                    "Text": "{'Control':'This is Button'}"
+                },
+                "UILabel": "UI",
+                "UI": {
+                    "Text": "{'Control': {'ControlType':'Button','Style':'Type:Link'}}"
+                }
+            },
+            "Example": {
+                "Control": "This is Button"
+            }
+        },
+        {
+            "Description": "Submit button sends changed values on form",
+            "Name": "Button - Submit",
+            "Dimensions": {
+                "DocumentLabel": "Document",
+                "Document": {
+                    "Text": "{'Control':'This is submit Button'}"
+                },
+                "UILabel": "UI",
+                "UI": {
+                    "Text": "{'Control': {'ControlType':'Button','Style':'Type:Submit'}}"
+                }
+            },
+            "Example": {
+                "Control": "This is submit Button"
+            }
+        },
+        {
+            "Description": "Enumerate values",
+            "Name": "ComboBox",
+            "Dimensions": {
+                "DocumentLabel": "Document",
+                "Document": {
+                    "Text": "{'Control':'One'}"
+                },
+                "EnumLabel": "Enum",
+                "Enum": {
+                    "Text": "{'Control':{'Items':['One','Two','Three']}}"
+                },
+                "UILabel": "UI",
+                "UI": {
+                    "Text": "{'Control': {'ControlType':'ComboBox'}}"
+                }
+            },
+            "Example": {
+                "Control": "One"
+            }
+        },
+        {
+            "Description": "Grid",
+            "Name": "Grid",
+            "Dimensions": {
+                "DocumentLabel": "Document",
+                "Document": {
+                    "Text": "{'Control':[{'Name':'Bob','Age':15},{'Name':'Rebeca','Age':20}]}"
+                },
+                "UILabel": "UI",
+                "UI": {
+                    "Text": "{'Control': {'ControlType':'Grid','Style':'Type:'}}"
+                }
+            },
+            "Example": {
+                "Control": [
+                    {
+                        "Age": 15,
+                        "Name": "Bob"
+                    },
+                    {
+                        "Age": 20,
+                        "Name": "Rebeca"
+                    }
+                ]
+            }
+        },
+        {
+            "Description": "Grid with link rows",
+            "Name": "Grid - Link",
+            "Dimensions": {
+                "DocumentLabel": "Document",
+                "Document": {
+                    "Text": "{'Control':[{'Name':'Bob','Age':15},{'Name':'Rebeca','Age':20}]}"
+                },
+                "UILabel": "UI",
+                "UI": {
+                    "Text": "{'Control': {'ControlType':'Grid','Style':'Type:Link'}}"
+                }
+            },
+            "Example": {
+                "Control": [
+                    {
+                        "Age": 15,
+                        "Name": "Bob"
+                    },
+                    {
+                        "Age": 20,
+                        "Name": "Rebeca"
+                    }
+                ]
+            }
+        },
+        {
+            "Description": "Picture",
+            "Name": "Picture",
+            "Dimensions": {
+                "DocumentLabel": "Document",
+                "Document": {
+                    "Text": "{'Control':'https://memepedia.ru/wp-content/uploads/2020/11/kot-priemlemo-shablon.jpg'}"
+                },
+                "UILabel": "UI",
+                "UI": {
+                    "Text": "{'Control': {'ControlType':'Picture'}}"
+                }
+            },
+            "Example": {
+                "Control": "https://memepedia.ru/wp-content/uploads/2020/11/kot-priemlemo-shablon.jpg"
+            }
+        },
+        {
+            "Description": "QR code picture",
+            "Name": "Picture - QRCode",
+            "Dimensions": {
+                "DocumentLabel": "Document",
+                "Document": {
+                    "Text": "{'Control':'Some encoded text'}"
+                },
+                "UILabel": "UI",
+                "UI": {
+                    "Text": "{'Control': {'ControlType':'Picture','Style':'Type:QRCode'}}"
+                }
+            },
+            "Example": {
+                "Control": "Some encoded text"
+            }
+        },
+        {
+            "Description": "Embedded mp4 video",
+            "Name": "Video - mp4",
+            "Dimensions": {
+                "DocumentLabel": "Document",
+                "Document": {
+                    "Text": "{'Control':'MyVideo.mp4'}"
+                },
+                "UILabel": "UI",
+                "UI": {
+                    "Text": "{'Control': {'ControlType':'Media'}}"
+                }
+            },
+            "Example": {
+                "Control": "MyVideo.mp4"
+            }
+        },
+        {
+            "Description": "Embedded youtube video",
+            "Name": "Video - youtube",
+            "Dimensions": {
+                "DocumentLabel": "Document",
+                "Document": {
+                    "Text": "{'Control':'https://www.youtube.com/watch?v=LhOSM6uCWxk'}"
+                },
+                "UILabel": "UI",
+                "UI": {
+                    "Text": "{'Control': {'ControlType':'Media','Style':'Type:Youtube'}}"
+                }
+            },
+            "Example": {
+                "Control": "https://www.youtube.com/watch?v=LhOSM6uCWxk"
+            }
+        },
+        {
+            "Description": "Embedded mp3 audio",
+            "Name": "Audio - mp3",
+            "Dimensions": {
+                "DocumentLabel": "Document",
+                "Document": {
+                    "Text": "{'Control':'MyAudio.mp3'}"
+                },
+                "UILabel": "UI",
+                "UI": {
+                    "Text": "{'Control': {'ControlType':'Media','Style':'Type:Audio'}}"
+                }
+            },
+            "Example": {
+                "Control": "MyAudio.mp3"
+            }
+        },
+        {
+            "Description": "Calendar",
+            "Name": "Calendar",
+            "Dimensions": {
+                "DocumentLabel": "Document",
+                "Document": {
+                    "Text": "{'Control':'2023-01-01'}"
+                },
+                "UILabel": "UI",
+                "UI": {
+                    "Text": "{'Control': {'ControlType':'Calendar'}}"
+                }
+            },
+            "Example": {
+                "Control": "2023-01-01"
+            }
+        },
+        {
+            "Description": "Time",
+            "Name": "Time",
+            "Dimensions": {
+                "DocumentLabel": "Document",
+                "Document": {
+                    "Text": "{'Control':'12:30'}"
+                },
+                "UILabel": "UI",
+                "UI": {
+                    "Text": "{'Control': {'ControlType':'Time'}}"
+                }
+            },
+            "Example": {
+                "Control": "12:30"
+            }
+        },
+        {
+            "Description": "Raw",
+            "Name": "Raw",
+            "Dimensions": {
+                "DocumentLabel": "Document",
+                "Document": {
+                    "Text": "{'Control':'<b>Bold text</b>'}"
+                },
+                "UILabel": "UI",
+                "UI": {
+                    "Text": "{'Control': {'ControlType':'Raw'}}"
+                }
+            },
+            "Example": {
+                "Control": "<b>Bold text</b>"
+            }
+        },
+        {
+            "Description": "Upload file to server",
+            "Name": "UploadFile",
+            "Dimensions": {
+                "DocumentLabel": "Document",
+                "Document": {
+                    "Text": "{'Control':''}"
+                },
+                "UILabel": "UI",
+                "UI": {
+                    "Text": "{'Control': {'ControlType':'UploadFile'}}"
+                }
+            },
+            "Example": {
+                "Control": ""
+            }
+        },
+        {
+            "Description": "Upload big files to server",
+            "Name": "UploadBigFile",
+            "Dimensions": {
+                "DocumentLabel": "Document",
+                "Document": {
+                    "Text": "{'Control':''}"
+                },
+                "UILabel": "UI",
+                "UI": {
+                    "Text": "{'Control': {'ControlType':'UploadFile','Style':'Type:BigFiles'}}"
+                }
+            },
+            "Example": {
+                "Control": ""
+            }
+        },
+        {
+            "Description": "Phone",
+            "Name": "Phone",
+            "Dimensions": {
+                "DocumentLabel": "Document",
+                "Document": {
+                    "Text": "{'Control':'+380981112233'}"
+                },
+                "UILabel": "UI",
+                "UI": {
+                    "Text": "{'Control': {'ControlType':'Phone'}}"
+                }
+            },
+            "Example": {
+                "Control": "+380981112233"
+            }
+        },
+        {
+            "Description": "TreeView",
+            "Name": "TreeView",
+            "Dimensions": {
+                "DocumentLabel": "Document",
+                "Document": {
+                    "Text": "{'Control':[{'Parent':null,'Name':'MyParent','Text':'My Parent'},{'Parent':'MyParent','Name':'MyChildA','Text':'My Child A'},{'Parent':'MyParent','MyChildB','Text':'My Child B'},{'Parent':'MyChildB','MyChildC','Text':'My Child C'}]}"
+                },
+                "UILabel": "UI",
+                "UI": {
+                    "Text": "{'Control': {'ControlType':'TreeView','Style':'Type:'}}"
+                }
+            },
+            "Example": {
+                "Control": [
+                    {
+                        "Parent": null,
+                        "Name": "MyParent",
+                        "Text": "My Parent"
+                    },
+                    {
+                        "Parent": "MyParent",
+                        "Name": "MyChildA",
+                        "Text": "My Child A"
+                    },
+                    {
+                        "Parent": "MyParent",
+                        "Name": "MyChildB",
+                        "Text": "My Child B"
+                    },
+                    {
+                        "Parent": "MyChildB",
+                        "Name": "MyChildC",
+                        "Text": "My Child C"
+                    }
+                ]
+            }
+        },
+        {
+            "Description": "GPS coordinates on map",
+            "Name": "GPS",
+            "Dimensions": {
+                "DocumentLabel": "Document",
+                "Document": {
+                    "Text": "{'Control':'50.450001,30.523333'}"
+                },
+                "UILabel": "UI",
+                "UI": {
+                    "Text": "{'Control': {'ControlType':'GPS'}}"
+                }
+            },
+            "Example": {
+                "Control": "50.450001,30.523333"
+            }
         }
-      },
-      "Example": {
-        "Control": "This is Label"
-      }
-    },
-    {
-      "Description": "Hyper link to a resource",
-      "Name": "Link",
-      "Dimensions": {
-        "DocumentLabel": "Document",
-        "Document": {
-          "Text": "{'Control':'This is Link'}"
-        },
-        "UILabel": "UI",
-        "UI": {
-          "Text": "{'Control': {'ControlType':'Link'}}"
-        }
-      },
-      "Example": {
-        "Control": "This is Link"
-      }
-    },
-    {
-      "Description": "Text box",
-      "Name": "TextBox",
-      "Dimensions": {
-        "DocumentLabel": "Document",
-        "Document": {
-          "Text": "{'Control':'This is TextBox'}"
-        },
-        "UILabel": "UI",
-        "UI": {
-          "Text": "{'Control': {'ControlType':'TextBox'}}"
-        }
-      },
-      "Example": {
-        "Control": "This is TextBox"
-      }
-    },
-    {
-      "Description": "Filter against bots",
-      "Name": "TextBox - Captcha",
-      "Dimensions": {
-        "DocumentLabel": "Document",
-        "Document": {
-          "Text": "{'Control':'Enter number here'}"
-        },
-        "UILabel": "UI",
-        "UI": {
-          "Text": "{'Control': {'ControlType':'TextBox','Style':'Type:Captcha'}}"
-        }
-      },
-      "Example": {
-        "Control": "Enter number here"
-      }
-    },
-    {
-      "Description": "User password",
-      "Name": "TextBox - Password",
-      "Dimensions": {
-        "DocumentLabel": "Document",
-        "Document": {
-          "Text": "{'Control':'This is Password'}"
-        },
-        "UILabel": "UI",
-        "UI": {
-          "Text": "{'Control': {'ControlType':'TextBox','Style':'Type:Password'}}"
-        }
-      },
-      "Example": {
-        "Control": "This is Password"
-      }
-    },
-    {
-      "Description": "Text box multi line",
-      "Name": "RichTextBox",
-      "Dimensions": {
-        "DocumentLabel": "Document",
-        "Document": {
-          "Text": "{'Control':'This is RichTextBox'}"
-        },
-        "UILabel": "UI",
-        "UI": {
-          "Text": "{'Control': {'ControlType':'RichTextBox'}}"
-        }
-      },
-      "Example": {
-        "Control": "This is RichTextBox"
-      }
-    },
-    {
-      "Description": "Check box",
-      "Name": "CheckBox",
-      "Dimensions": {
-        "DocumentLabel": "Document",
-        "Document": {
-          "Text": "{'Control':true}"
-        },
-        "UILabel": "UI",
-        "UI": {
-          "Text": "{'Control': {'ControlType':'CheckBox'}}"
-        }
-      },
-      "Example": {
-        "Control": true
-      }
-    },
-    {
-      "Description": "Regular button",
-      "Name": "Button",
-      "Dimensions": {
-        "DocumentLabel": "Document",
-        "Document": {
-          "Text": "{'Control':'This is Button'}"
-        },
-        "UILabel": "UI",
-        "UI": {
-          "Text": "{'Control': {'ControlType':'Button'}}"
-        }
-      },
-      "Example": {
-        "Control": "This is Button"
-      }
-    },
-    {
-      "Description": "Button as link",
-      "Name": "Button - Link",
-      "Dimensions": {
-        "DocumentLabel": "Document",
-        "Document": {
-          "Text": "{'Control':'This is Button'}"
-        },
-        "UILabel": "UI",
-        "UI": {
-          "Text": "{'Control': {'ControlType':'Button','Style':'Type:Link'}}"
-        }
-      },
-      "Example": {
-        "Control": "This is Button"
-      }
-    },
-    {
-      "Description": "Submit button sends changed values on form",
-      "Name": "Button - Submit",
-      "Dimensions": {
-        "DocumentLabel": "Document",
-        "Document": {
-          "Text": "{'Control':'This is submit Button'}"
-        },
-        "UILabel": "UI",
-        "UI": {
-          "Text": "{'Control': {'ControlType':'Button','Style':'Type:Submit'}}"
-        }
-      },
-      "Example": {
-        "Control": "This is submit Button"
-      }
-    },
-    {
-      "Description": "Enumerate values",
-      "Name": "ComboBox",
-      "Dimensions": {
-        "DocumentLabel": "Document",
-        "Document": {
-          "Text": "{'Control':'One'}"
-        },
-        "EnumLabel": "Enum",
-        "Enum": {
-          "Text": "{'Control':{'Items':['One','Two','Three']}}"
-        },
-        "UILabel": "UI",
-        "UI": {
-          "Text": "{'Control': {'ControlType':'ComboBox'}}"
-        }
-      },
-      "Example": {
-        "Control": "One"
-      }
-    },
-    {
-      "Description": "Grid",
-      "Name": "Grid",
-      "Dimensions": {
-        "DocumentLabel": "Document",
-        "Document": {
-          "Text": "{'Control':[{'Name':'Bob','Age':15},{'Name':'Rebeca','Age':20}]}"
-        },
-        "UILabel": "UI",
-        "UI": {
-          "Text": "{'Control': {'ControlType':'Grid','Style':'Type:'}}"
-        }
-      },
-      "Example": {
-        "Control": [
-          {
-            "Age": 15,
-            "Name": "Bob"
-          },
-          {
-            "Age": 20,
-            "Name": "Rebeca"
-          }
-        ]
-      }
-    },
-    {
-      "Description": "Grid with link rows",
-      "Name": "Grid - Link",
-      "Dimensions": {
-        "DocumentLabel": "Document",
-        "Document": {
-          "Text": "{'Control':[{'Name':'Bob','Age':15},{'Name':'Rebeca','Age':20}]}"
-        },
-        "UILabel": "UI",
-        "UI": {
-          "Text": "{'Control': {'ControlType':'Grid','Style':'Type:Link'}}"
-        }
-      },
-      "Example": {
-        "Control": [
-          {
-            "Age": 15,
-            "Name": "Bob"
-          },
-          {
-            "Age": 20,
-            "Name": "Rebeca"
-          }
-        ]
-      }
-    },
-    {
-      "Description": "Picture",
-      "Name": "Picture",
-      "Dimensions": {
-        "DocumentLabel": "Document",
-        "Document": {
-          "Text": "{'Control':'https://memepedia.ru/wp-content/uploads/2020/11/kot-priemlemo-shablon.jpg'}"
-        },
-        "UILabel": "UI",
-        "UI": {
-          "Text": "{'Control': {'ControlType':'Picture'}}"
-        }
-      },
-      "Example": {
-        "Control": "https://memepedia.ru/wp-content/uploads/2020/11/kot-priemlemo-shablon.jpg"
-      }
-    },
-    {
-      "Description": "QR code picture",
-      "Name": "Picture - QRCode",
-      "Dimensions": {
-        "DocumentLabel": "Document",
-        "Document": {
-          "Text": "{'Control':'Some encoded text'}"
-        },
-        "UILabel": "UI",
-        "UI": {
-          "Text": "{'Control': {'ControlType':'Picture','Style':'Type:QRCode'}}"
-        }
-      },
-      "Example": {
-        "Control": "Some encoded text"
-      }
-    },
-    {
-      "Description": "Embedded mp4 video",
-      "Name": "Video - mp4",
-      "Dimensions": {
-        "DocumentLabel": "Document",
-        "Document": {
-          "Text": "{'Control':'MyVideo.mp4'}"
-        },
-        "UILabel": "UI",
-        "UI": {
-          "Text": "{'Control': {'ControlType':'Media'}}"
-        }
-      },
-      "Example": {
-        "Control": "MyVideo.mp4"
-      }
-    },
-    {
-      "Description": "Embedded youtube video",
-      "Name": "Video - youtube",
-      "Dimensions": {
-        "DocumentLabel": "Document",
-        "Document": {
-          "Text": "{'Control':'https://www.youtube.com/watch?v=LhOSM6uCWxk'}"
-        },
-        "UILabel": "UI",
-        "UI": {
-          "Text": "{'Control': {'ControlType':'Media','Style':'Type:Youtube'}}"
-        }
-      },
-      "Example": {
-        "Control": "https://www.youtube.com/watch?v=LhOSM6uCWxk"
-      }
-    },
-    {
-      "Description": "Embedded mp3 audio",
-      "Name": "Audio - mp3",
-      "Dimensions": {
-        "DocumentLabel": "Document",
-        "Document": {
-          "Text": "{'Control':'MyAudio.mp3'}"
-        },
-        "UILabel": "UI",
-        "UI": {
-          "Text": "{'Control': {'ControlType':'Media','Style':'Type:Audio'}}"
-        }
-      },
-      "Example": {
-        "Control": "MyAudio.mp3"
-      }
-    },
-    {
-      "Description": "Calendar",
-      "Name": "Calendar",
-      "Dimensions": {
-        "DocumentLabel": "Document",
-        "Document": {
-          "Text": "{'Control':'2023-01-01'}"
-        },
-        "UILabel": "UI",
-        "UI": {
-          "Text": "{'Control': {'ControlType':'Calendar'}}"
-        }
-      },
-      "Example": {
-        "Control": "2023-01-01"
-      }
-    },
-    {
-      "Description": "Time",
-      "Name": "Time",
-      "Dimensions": {
-        "DocumentLabel": "Document",
-        "Document": {
-          "Text": "{'Control':'12:30'}"
-        },
-        "UILabel": "UI",
-        "UI": {
-          "Text": "{'Control': {'ControlType':'Time'}}"
-        }
-      },
-      "Example": {
-        "Control": "12:30"
-      }
-    },
-    {
-      "Description": "Raw",
-      "Name": "Raw",
-      "Dimensions": {
-        "DocumentLabel": "Document",
-        "Document": {
-          "Text": "{'Control':'<b>Bold text</b>'}"
-        },
-        "UILabel": "UI",
-        "UI": {
-          "Text": "{'Control': {'ControlType':'Raw'}}"
-        }
-      },
-      "Example": {
-        "Control": "<b>Bold text</b>"
-      }
-    },
-    {
-      "Description": "Upload file to server",
-      "Name": "UploadFile",
-      "Dimensions": {
-        "DocumentLabel": "Document",
-        "Document": {
-          "Text": "{'Control':''}"
-        },
-        "UILabel": "UI",
-        "UI": {
-          "Text": "{'Control': {'ControlType':'UploadFile'}}"
-        }
-      },
-      "Example": {
-        "Control": ""
-      }
-    },
-    {
-      "Description": "Phone",
-      "Name": "Phone",
-      "Dimensions": {
-        "DocumentLabel": "Document",
-        "Document": {
-          "Text": "{'Control':'+380981112233'}"
-        },
-        "UILabel": "UI",
-        "UI": {
-          "Text": "{'Control': {'ControlType':'Phone'}}"
-        }
-      },
-      "Example": {
-        "Control": "+380981112233"
-      }
-    },
-    {
-      "Description": "TreeView",
-      "Name": "TreeView",
-      "Dimensions": {
-        "DocumentLabel": "Document",
-        "Document": {
-          "Text": "{'Control':[{'Parent':null,'Name':'MyParent','Text':'My Parent'},{'Parent':'MyParent','Name':'MyChildA','Text':'My Child A'},{'Parent':'MyParent','MyChildB','Text':'My Child B'},{'Parent':'MyChildB','MyChildC','Text':'My Child C'}]}"
-        },
-        "UILabel": "UI",
-        "UI": {
-          "Text": "{'Control': {'ControlType':'TreeView','Style':'Type:'}}"
-        }
-      },
-      "Example": {
-        "Control": [
-          {
-            "Parent": null,
-            "Name": "MyParent",
-            "Text": "My Parent"
-          },
-          {
-            "Parent": "MyParent",
-            "Name": "MyChildA",
-            "Text": "My Child A"
-          },
-          {
-            "Parent": "MyParent",
-            "Name": "MyChildB",
-            "Text": "My Child B"
-          },
-          {
-            "Parent": "MyChildB",
-            "Name": "MyChildC",
-            "Text": "My Child C"
-          }
-        ]
-      }
-    },
-    {
-      "Description": "GPS coordinates on map",
-      "Name": "GPS",
-      "Dimensions": {
-        "DocumentLabel": "Document",
-        "Document": {
-          "Text": "{'Control':'50.450001,30.523333'}"
-        },
-        "UILabel": "UI",
-        "UI": {
-          "Text": "{'Control': {'ControlType':'GPS'}}"
-        }
-      },
-      "Example": {
-        "Control": "50.450001,30.523333"
-      }
-    }
-  ]
+    ]
 }
