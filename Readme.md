@@ -67,7 +67,9 @@ We save up to 70% of development time by using a standard interface for internal
 
 Watch Fractal Platform in action and see how we build applications in real-time:
 
-[![Fractal Platform Video](https://img.youtube.com/vi/7JgKmSyeTjk/maxresdefault.jpg)](https://youtube.com/@fraplat)
+[![Fractal Platform Presentation](https://img.youtube.com/vi/7JgKmSyeTjk/maxresdefault.jpg)](https://www.youtube.com/watch?v=7JgKmSyeTjk)
+
+[![Fractal Platform Podcast](https://img.youtube.com/vi/yRZ0XhyJ0zI/maxresdefault.jpg)](https://www.youtube.com/watch?v=yRZ0XhyJ0zI)
 
 > *Click the image above to watch the video*
 
