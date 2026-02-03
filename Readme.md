@@ -69,6 +69,8 @@ Watch Fractal Platform in action and see how we build applications in real-time:
 
 [![Fractal Platform Presentation](https://img.youtube.com/vi/7JgKmSyeTjk/maxresdefault.jpg)](https://www.youtube.com/watch?v=7JgKmSyeTjk)
 
+Podcast: Building Low-Code Solutions with the Fractal Platform
+
 [![Fractal Platform Podcast](https://img.youtube.com/vi/yRZ0XhyJ0zI/maxresdefault.jpg)](https://www.youtube.com/watch?v=yRZ0XhyJ0zI)
 
 > *Click the image above to watch the video*
