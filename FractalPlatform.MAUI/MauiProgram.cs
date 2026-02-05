@@ -1,31 +1,23 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using FractalPlatform.MAUI;
 
-namespace FractalPlatform.MAUI
+public static class MauiProgram
 {
-    public static class MauiProgram
-    {
-        public static MauiApp CreateMauiApp()
-        {
-            var builder = MauiApp.CreateBuilder();
-            builder
-                .UseMauiApp<App>()
-                .ConfigureFonts(fonts =>
-                {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
-#if ANDROID
-                builder.ConfigureMauiHandlers(handlers =>
-				{
-					handlers.AddHandler<WebView, CustomWebViewHandler>();
-				}); ;
-#endif
+	public static LocalHttpServer LocalServer { get; private set; }
 
-#if DEBUG
-            builder.Logging.AddDebug();
-#endif
+	public static MauiApp CreateMauiApp()
+	{
+		var builder = MauiApp.CreateBuilder();
+		builder
+			.UseMauiApp<App>()
+			.ConfigureFonts(fonts =>
+			{
+				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+			});
 
-            return builder.Build();
-        }
-    }
+		// Запускаємо HTTP-сервер
+		LocalServer = new LocalHttpServer(8080);
+		LocalServer.Start();
+
+		return builder.Build();
+	}
 }
