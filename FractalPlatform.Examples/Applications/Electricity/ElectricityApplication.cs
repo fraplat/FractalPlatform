@@ -1,7 +1,6 @@
 ﻿using System.Net.NetworkInformation;
 using FractalPlatform.Client.App;
 using FractalPlatform.Client.UI;
-using FractalPlatform.Client.UI.DOM;
 using FractalPlatform.Database.Engine.Info;
 
 namespace FractalPlatform.Examples.Applications.Electricity
