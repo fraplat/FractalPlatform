@@ -42,6 +42,12 @@ namespace FractalPlatform.MAUI
 			_handler = handler;
 		}
 
+		public override void OnPageFinished(AWebView view, string url)
+		{
+			base.OnPageFinished(view, url);
+			System.Diagnostics.Debug.WriteLine($"Page finished loading: {url}");
+		}
+
 		public override WebResourceResponse ShouldInterceptRequest(
 			AWebView view, IWebResourceRequest request)
 		{

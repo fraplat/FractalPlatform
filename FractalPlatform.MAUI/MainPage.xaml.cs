@@ -27,32 +27,34 @@ public partial class MainPage : ContentPage
 </body>
 </html>";
 
-		webView.Navigating += WebView_Navigating;
+		//webView.Navigating += WebView_Navigating;
 
-		webView.Navigated += async (s, e) =>
-		{
-			await webView.EvaluateJavaScriptAsync(@"
-        document.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const data = {};
-            new FormData(e.target).forEach((v, k) => data[k] = v);
-            window.location.href = 'myapp://submit?data=' +
-                encodeURIComponent(JSON.stringify(data));
-        });
-    ");
-		};
+		//webView.Navigated += async (s, e) =>
+		//{
+		//	await webView.EvaluateJavaScriptAsync(@"
+  //      document.addEventListener('submit', function(e) {
+  //          e.preventDefault();
+  //          const data = {};
+  //          new FormData(e.target).forEach((v, k) => data[k] = v);
+  //          window.location.href = 'myapp://submit?data=' +
+  //              encodeURIComponent(JSON.stringify(data));
+  //      });
+  //  ");
+		//};
 
 		UpdateHtml(customHtml);
 	}
 
 	private void UpdateHtml(string html)
 	{
-		var htmlSource = new HtmlWebViewSource
-		{
-			Html = html
-		};
+		//var htmlSource = new HtmlWebViewSource
+		//{
+		//	Html = html
+		//};
 
-		webView.Source = htmlSource;
+		//webView.Source = htmlSource;
+
+		webView.Source = "https://www.google.com";
 	}
 
 	private void WebView_Navigating(object sender, WebNavigatingEventArgs e)
