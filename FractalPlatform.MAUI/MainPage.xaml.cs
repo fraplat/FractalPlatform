@@ -47,14 +47,12 @@ public partial class MainPage : ContentPage
 
 	private void UpdateHtml(string html)
 	{
-		//var htmlSource = new HtmlWebViewSource
-		//{
-		//	Html = html
-		//};
+		var htmlSource = new HtmlWebViewSource
+		{
+			Html = html
+		};
 
-		//webView.Source = htmlSource;
-
-		webView.Source = "https://www.google.com";
+		webView.Source = htmlSource;
 	}
 
 	private void WebView_Navigating(object sender, WebNavigatingEventArgs e)
