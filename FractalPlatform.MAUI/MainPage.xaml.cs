@@ -1,4 +1,6 @@
-﻿namespace FractalPlatform.MAUI;
+﻿using System.Net;
+
+namespace FractalPlatform.MAUI;
 
 public partial class MainPage : ContentPage
 {
