@@ -375,7 +375,5 @@ namespace FractalPlatform.Examples.Applications.FreelanceResponse
         }
 
         public override void OnLogin(FormResult result) => FirstDocOf("Dashboard").OpenForm();
-
-        public override BaseRenderForm CreateRenderForm(DOMForm form) => new ExtendedRenderForm(this, form);
     }
 }

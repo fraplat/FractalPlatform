@@ -164,8 +164,5 @@ namespace FractalPlatform.Diary
 
 			return true;
 		}
-
-		public override BaseRenderForm CreateRenderForm(DOMForm form) =>
-						new ExtendedRenderForm(this, form);
 	}
 }

@@ -80,7 +80,5 @@ namespace FractalPlatform.Examples.Applications.Electricity
         }
 
         public override void OnStart() => FirstDocOf("Dashboard").OpenForm();
-        
-        public override BaseRenderForm CreateRenderForm(DOMForm form) => new ExtendedRenderForm(this, form);
     }
 }

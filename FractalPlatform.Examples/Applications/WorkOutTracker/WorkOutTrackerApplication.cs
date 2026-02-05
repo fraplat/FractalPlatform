@@ -66,7 +66,5 @@ namespace FractalPlatform.Examples.Applications.WorkOutTracker
         }
 
         public override void OnStart() => ModifyDocsOf("WorkOut").OpenForm();
-
-        public override BaseRenderForm CreateRenderForm(DOMForm form) => new ExtendedRenderForm(this, form);
     }
 }

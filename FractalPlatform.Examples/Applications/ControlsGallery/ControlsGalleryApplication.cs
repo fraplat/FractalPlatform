@@ -56,7 +56,5 @@ namespace FractalPlatform.Examples.Applications.ControlsGallery
         }
 
         public override void OnStart() => FirstDocOf("ControlsAndComponents").OpenForm();
-        
-        public override BaseRenderForm CreateRenderForm(DOMForm form) => new ExtendedRenderForm(this, form);
     }
 }
