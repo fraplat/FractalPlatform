@@ -1,38 +1,25 @@
-﻿using Microsoft.Maui.Controls;
-using Microsoft.Maui.Handlers;
-using System.Text;
-
-#if ANDROID
+﻿using Microsoft.Maui.Handlers;
 using Android.Webkit;
 using AWebView = Android.Webkit.WebView;
-#endif
 
 namespace FractalPlatform.MAUI
 {
 	public class CustomWebViewHandler : WebViewHandler
 	{
-		protected override void ConnectHandler(
-#if ANDROID
-			AWebView platformView
-#elif IOS
-            WebKit.WKWebView platformView
-#else
-            object platformView
-#endif
-		)
+		protected override void ConnectHandler(AWebView platformView)
 		{
 			base.ConnectHandler(platformView);
 
-#if ANDROID
 			platformView.Settings.JavaScriptEnabled = true;
 			platformView.Settings.AllowFileAccess = true;
 
-			platformView.SetWebViewClient(new CustomWebViewClient(this));
-#endif
+			platformView.Post(() =>
+			{
+				platformView.SetWebViewClient(new CustomWebViewClient(this));
+			});
 		}
 	}
 
-#if ANDROID
 	public class CustomWebViewClient : WebViewClient
 	{
 		private CustomWebViewHandler _handler;
@@ -59,5 +46,4 @@ namespace FractalPlatform.MAUI
 			return base.ShouldInterceptRequest(view, request);
 		}
 	}
-#endif
 }
