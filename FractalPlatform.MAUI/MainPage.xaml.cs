@@ -16,10 +16,11 @@ public partial class MainPage : ContentPage
 <!DOCTYPE html>
 <html>
 <body>
-    <h1>Форма</h1>
+    <h1>Форма2</h1>
     <form action='myapp://submit' method='get'>
-		<img src='https://www.example.com/image.jpg' alt='Example Image' width='200' />
-        <input type='text' name='firstName' placeholder='Ім''я' />
+		<img src='https://nstatic.nova.bg/public/pics/mynews/980x551_7d092874163ef9dcd53abdd41058f58d.jpg' />
+        <img src=""fractal://assets/image.jpg"" alt=""Example Image"" width=""200"" />
+		<input type='text' name='firstName' placeholder='Ім''я' />
         <input type='text' name='lastName' placeholder='Прізвище' />
         <input type='email' name='email' placeholder='Email' />
         <button type='submit'>Відправити</button>
@@ -49,7 +50,8 @@ public partial class MainPage : ContentPage
 	{
 		var htmlSource = new HtmlWebViewSource
 		{
-			Html = html
+			Html = html,
+			BaseUrl = "https://booben.com"
 		};
 
 		webView.Source = htmlSource;
