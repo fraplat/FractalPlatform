@@ -13,30 +13,40 @@ public partial class MainPage : ContentPage
 		string customHtml = @"
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            background-color: #f0f0f0;
-        }
-        h1 {
-            color: #333;
-        }
-    </style>
-</head>
 <body>
-    <h1>Привіт з кастомного HTML!</h1>
-    <p>Це HTML завантажений з C# коду.</p>
-    <button onclick='alert(""Кнопка натиснута!"")'>Натисни мене</button>
+    <h1>Форма</h1>
+    <form action='myapp://submit' method='get'>
+        <input type='text' name='firstName' placeholder='Ім''я' />
+        <input type='text' name='lastName' placeholder='Прізвище' />
+        <input type='email' name='email' placeholder='Email' />
+        <button type='submit'>Відправити</button>
+    </form>
 </body>
 </html>";
 
+		webView.Navigating += WebView_Navigating;
+
+		webView.Navigated += async (s, e) =>
+		{
+			await webView.EvaluateJavaScriptAsync(@"
+        document.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const data = {};
+            new FormData(e.target).forEach((v, k) => data[k] = v);
+            window.location.href = 'myapp://submit?data=' +
+                encodeURIComponent(JSON.stringify(data));
+        });
+    ");
+		};
+
+		UpdateHtml(customHtml);
+	}
+
+	private void UpdateHtml(string html)
+	{
 		var htmlSource = new HtmlWebViewSource
 		{
-			Html = customHtml
+			Html = html
 		};
 
 		webView.Source = htmlSource;
@@ -49,20 +59,11 @@ public partial class MainPage : ContentPage
 			e.Cancel = true;
 
 			var uri = new Uri(e.Url);
-			var query = System.Web.HttpUtility.ParseQueryString(uri.Query);
-			string jsonData = System.Web.HttpUtility.UrlDecode(query["data"]);
+			var json = Uri.UnescapeDataString(
+				uri.Query.Replace("?data=", "")
+			);
 
-			// Десеріалізуємо JSON з усіма полями форми
-			var formData = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, string>>(jsonData);
-
-			// Тепер у formData всі поля форми
-			foreach (var field in formData)
-			{
-				Console.WriteLine($"{field.Key} = {field.Value}");
-			}
-
-			string message = string.Join("\n", formData.Select(kv => $"{kv.Key}: {kv.Value}"));
-			DisplayAlert("Form Submitted", message, "OK");
+			UpdateHtml("<b>great</b>");
 		}
 	}
 }
