@@ -18,6 +18,7 @@ public partial class MainPage : ContentPage
 <body>
     <h1>Форма</h1>
     <form action='myapp://submit' method='get'>
+		<img src='https://www.example.com/image.jpg' alt='Example Image' width='200' />
         <input type='text' name='firstName' placeholder='Ім''я' />
         <input type='text' name='lastName' placeholder='Прізвище' />
         <input type='email' name='email' placeholder='Email' />
