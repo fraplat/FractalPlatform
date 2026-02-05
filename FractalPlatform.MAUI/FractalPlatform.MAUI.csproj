@@ -60,7 +60,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="EmbedIO" Version="3.5.2" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.8" />
 	</ItemGroup>

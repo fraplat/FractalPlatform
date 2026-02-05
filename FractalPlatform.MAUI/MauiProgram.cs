@@ -2,7 +2,7 @@
 
 public static class MauiProgram
 {
-	public static LocalHttpServer LocalServer { get; private set; }
+	public static MiniHttpServer Server;
 
 	public static MauiApp CreateMauiApp()
 	{
@@ -15,8 +15,8 @@ public static class MauiProgram
 			});
 
 		// Запускаємо HTTP-сервер
-		LocalServer = new LocalHttpServer(8080);
-		LocalServer.Start();
+		Server = new MiniHttpServer();
+		Server.Start(8080);
 
 		return builder.Build();
 	}

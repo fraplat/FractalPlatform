@@ -11,7 +11,7 @@
 		private void LoadPage()
 		{
 			// Просто завантажуємо localhost
-			webView.Source = MauiProgram.LocalServer.BaseUrl;
+			webView.Source = "http://127.0.0.1:8123/";
 		}
 	}
 }
