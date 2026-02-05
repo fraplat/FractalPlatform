@@ -5,12 +5,14 @@
 		public MainPage()
 		{
 			InitializeComponent();
-			LoadPage();
 		}
 
-		private void LoadPage()
+		protected override async void OnAppearing()
 		{
-			// Просто завантажуємо localhost
+			base.OnAppearing();
+
+			await Task.Delay(300); // да, это нормально на Android
+
 			webView.Source = "http://127.0.0.1:8123/";
 		}
 	}

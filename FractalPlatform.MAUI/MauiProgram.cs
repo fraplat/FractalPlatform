@@ -16,7 +16,7 @@ public static class MauiProgram
 
 		// Запускаємо HTTP-сервер
 		Server = new MiniHttpServer();
-		Server.Start(8080);
+		Server.Start(8123);
 
 		return builder.Build();
 	}
