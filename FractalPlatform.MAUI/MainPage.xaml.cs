@@ -1,4 +1,6 @@
-﻿namespace FractalPlatform.MAUI
+﻿using FractalPlatform.Database.Storages.Internal;
+
+namespace FractalPlatform.MAUI
 {
     public partial class MainPage : ContentPage
     {
@@ -13,10 +15,16 @@
         {
             count++;
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
+            var storage = new BUFStorage();
+            storage.Init();
+            storage.FromJson("{ \"Name\": \"John Doe\", \"Age\": 30 }");
+
+            var name = storage.FindFirstAttrValue("Name");
+
+			if (count == 1)
+                CounterBtn.Text = $"Clicked {count} time {name}";
             else
-                CounterBtn.Text = $"Clicked {count} times";
+                CounterBtn.Text = $"Clicked {count} times {name}";
 
             SemanticScreenReader.Announce(CounterBtn.Text);
         }
