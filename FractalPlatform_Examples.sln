@@ -53,8 +53,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FractalPlatform.LearnDictio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FractalPlatform.Teplo", "Projects\FractalPlatform.Teplo\FractalPlatform.Teplo.csproj", "{2AF307C0-47E3-BF76-E3CF-2AC9C2B3FBE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FractalPlatform.MAUI", "FractalPlatform.MAUI\FractalPlatform.MAUI.csproj", "{5432D285-CD9F-AEF3-6F36-7FDB6B369F91}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -247,14 +245,6 @@ Global
 		{2AF307C0-47E3-BF76-E3CF-2AC9C2B3FBE6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2AF307C0-47E3-BF76-E3CF-2AC9C2B3FBE6}.Release|x86.ActiveCfg = Release|Any CPU
 		{2AF307C0-47E3-BF76-E3CF-2AC9C2B3FBE6}.Release|x86.Build.0 = Release|Any CPU
-		{5432D285-CD9F-AEF3-6F36-7FDB6B369F91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5432D285-CD9F-AEF3-6F36-7FDB6B369F91}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5432D285-CD9F-AEF3-6F36-7FDB6B369F91}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{5432D285-CD9F-AEF3-6F36-7FDB6B369F91}.Debug|x86.Build.0 = Debug|Any CPU
-		{5432D285-CD9F-AEF3-6F36-7FDB6B369F91}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5432D285-CD9F-AEF3-6F36-7FDB6B369F91}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5432D285-CD9F-AEF3-6F36-7FDB6B369F91}.Release|x86.ActiveCfg = Release|Any CPU
-		{5432D285-CD9F-AEF3-6F36-7FDB6B369F91}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
