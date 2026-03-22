@@ -1,9 +1,0 @@
-{
-  "Style": "Hide:Restrictions,Sport,Project,Work",
-  "OnDate": {
-    "ReadOnly": true
-  },
-  "Points": {
-    "ReadOnly": true
-  }
-}

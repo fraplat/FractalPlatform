@@ -2,7 +2,6 @@
 using FractalPlatform.Client.App;
 using FractalPlatform.Client.App.Chart;
 using FractalPlatform.Client.UI;
-using FractalPlatform.Client.UI.DOM;
 using FractalPlatform.Common.Enums;
 using FractalPlatform.Database.Engine;
 using FractalPlatform.Database.Engine.Info;
@@ -66,7 +65,5 @@ namespace FractalPlatform.Examples.Applications.WorkOutTracker
         }
 
         public override void OnStart() => ModifyDocsOf("WorkOut").OpenForm();
-
-        public override BaseRenderForm CreateRenderForm(DOMForm form) => new ExtendedRenderForm(this, form);
     }
 }

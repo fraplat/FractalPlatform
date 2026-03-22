@@ -325,7 +325,5 @@ namespace FractalPlatform.RealWorld
 
 			Dashboard();
 		}
-
-		public override BaseRenderForm CreateRenderForm(DOMForm form) => new ExtendedRenderForm(this, form);
 	}
 }

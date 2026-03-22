@@ -303,7 +303,5 @@ namespace FractalPlatform.Forum
 
             Dashboard();
         }
-
-        public override BaseRenderForm CreateRenderForm(DOMForm form) => new ExtendedRenderForm(this, form);
     }
 }

@@ -5,7 +5,7 @@ using FractalPlatform.Client.UI.DOM.Controls.Component;
 
 namespace FractalPlatform.Examples.Applications.OnlineShop
 {
-    public class RenderForm : ExtendedRenderForm
+    public class RenderForm : BaseRenderForm
     {
         public RenderForm(BaseApplication application, DOMForm form) : base (application, form)
         {

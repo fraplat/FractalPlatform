@@ -1,7 +1,0 @@
-{
-  "TaskNumber": { "Index": 1 },
-  "OnDate": { "Index": 2 },
-  "Who": { "Index": 3 },
-  "Stars": { "Index": 4 },
-  "Comment": { "Index": 5 }
-}

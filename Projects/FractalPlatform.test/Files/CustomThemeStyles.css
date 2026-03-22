@@ -1,0 +1,33 @@
+body {
+    background-color: #101010;
+    color: #eeeeee;
+}
+
+input, button, select, textarea {
+    background-color: #101010;
+    color: #eeeeee;
+}
+
+.grbTopBorder {
+    border-left: 1px solid white;
+    border-top: 1px solid white;
+    border-right: 1px solid white;
+}
+
+.grbBottomBorder {
+    border-left: 1px solid white;
+    border-bottom: 1px solid white;
+    border-right: 1px solid white;
+}
+
+.gridHeaderRow {
+    background-color: silver;
+}
+
+.gridSelectedRow {
+    background-color: silver;
+}
+
+.gridUnselectedRow {
+    background-color: #101010;
+}

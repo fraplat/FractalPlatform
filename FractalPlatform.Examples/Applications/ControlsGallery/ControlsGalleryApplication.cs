@@ -1,6 +1,5 @@
 ﻿using FractalPlatform.Client.App;
 using FractalPlatform.Client.UI;
-using FractalPlatform.Client.UI.DOM;
 using FractalPlatform.Common.Enums;
 using FractalPlatform.Database.Engine.Info;
 
@@ -56,7 +55,5 @@ namespace FractalPlatform.Examples.Applications.ControlsGallery
         }
 
         public override void OnStart() => FirstDocOf("ControlsAndComponents").OpenForm();
-        
-        public override BaseRenderForm CreateRenderForm(DOMForm form) => new ExtendedRenderForm(this, form);
     }
 }

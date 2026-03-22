@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using FractalPlatform.Client.UI.DOM;
 using FractalPlatform.Client.App;
 using FractalPlatform.Client.UI;
 using FractalPlatform.Database.Engine;
@@ -164,8 +163,5 @@ namespace FractalPlatform.Diary
 
 			return true;
 		}
-
-		public override BaseRenderForm CreateRenderForm(DOMForm form) =>
-						new ExtendedRenderForm(this, form);
 	}
 }

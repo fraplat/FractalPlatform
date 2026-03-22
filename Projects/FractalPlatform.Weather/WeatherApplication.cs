@@ -3,7 +3,6 @@ using System.Linq;
 using Newtonsoft.Json;
 using FractalPlatform.Client.UI;
 using FractalPlatform.Client.App;
-using FractalPlatform.Client.UI.DOM;
 using FractalPlatform.Database.Engine;
 using FractalPlatform.Database.Engine.Info;
 
@@ -92,7 +91,5 @@ namespace FractalPlatform.Weather
             };
 		
 		public override void OnStart() => Weather();
-        
-        public override BaseRenderForm CreateRenderForm(DOMForm form) => new ExtendedRenderForm(this, form);
     }
 }
