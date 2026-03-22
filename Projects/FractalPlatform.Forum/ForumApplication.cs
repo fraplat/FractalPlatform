@@ -280,7 +280,7 @@ namespace FractalPlatform.Forum
                                                      .Values("{'Messages':[{'Who':$,'Message':$}]}");
 
                         CreateNewDocForArray("NewMessage", "Topics", "{'Messages':[$]}", _topicID)
-                              .ExtendDocument(DQL("{'Message':@Message}", $"[QUOTE={whoAndMessage[0]}]{whoAndMessage[1]}[/QUOTE]"))
+                              .ExtendDocument("{'Message':@Message}", $"[QUOTE={whoAndMessage[0]}]{whoAndMessage[1]}[/QUOTE]")
                               .OpenForm(result => TopicDashboard());
 
                         return true;

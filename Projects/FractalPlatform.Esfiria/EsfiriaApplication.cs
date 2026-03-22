@@ -67,7 +67,7 @@ namespace FractalPlatform.Esfiria
                             Title = tours.First(),
                         }
                         .ToCollection("Choose a tour")
-                        .SetDimension(DimensionType.Enum, DQL("{'Title':{'Items':[@Items]}}", tours))
+                        .SetDimension(DimensionType.Enum, "{'Title':{'Items':[@Items]}}", tours)
                         .SetUIDimension("{'Style':'Save:Choose'}")
                         .OpenForm(result =>
                         {
@@ -86,7 +86,7 @@ namespace FractalPlatform.Esfiria
                                     Period = periods.First(),
                                 }
                                 .ToCollection("Choose a period")
-                                .SetDimension(DimensionType.Enum, DQL("{'Period':{'Items':[@Items]}}", periods))
+                                .SetDimension(DimensionType.Enum, "{'Period':{'Items':[@Items]}}", periods)
                                 .SetUIDimension("{'Style':'Save:Book'}")
                                 .OpenForm(result =>
                                 {

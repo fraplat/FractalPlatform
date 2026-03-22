@@ -334,7 +334,7 @@ namespace FractalPlatform.MyApp
             var email = collection.FindFirstValue("Email");
             
             // Add new document to Users collection
-            AddDoc("User", DQL("{'Name':@@Name,'Email':@@Email}", name, email));
+            AddDoc("User", "{'Name':@Name,'Email':@Email}", name, email);
             
             MessageBox("User saved successfully!");
         }

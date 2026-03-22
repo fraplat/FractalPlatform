@@ -44,7 +44,7 @@ namespace FractalPlatform.Seasons
                               .ToStorage();
 
             FirstDocOf("Dashboard").ToCollection()
-                                   .IfTrue(collection != null, c => c.ExtendDocument(DQL("{'Genre':@Genre,'Year':@Year,'Country':@Country}", filters[0], filters[1], filters[2])))
+                                   .IfTrue(collection != null, c => c.ExtendDocument("{'Genre':@Genre,'Year':@Year,'Country':@Country}", filters[0], filters[1], filters[2]))
                                    .MergeToArrayPath(movies, "Movies")
                                    .OpenForm();
         }

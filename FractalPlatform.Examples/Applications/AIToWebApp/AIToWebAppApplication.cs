@@ -50,7 +50,7 @@ namespace FractalPlatform.Examples.Applications.AIToWebApp
 		{
 			FirstDocOf("Dashboard")
 				  .ToCollection()
-				  .ExtendDocument(DQL("{'AppName':@AppName,'Question':@Question}", appName, question))
+				  .ExtendDocument("{'AppName':@AppName,'Question':@Question}", appName, question)
 				  .SetThemeDimension(ThemeType.LightGreen)
 				  .OpenForm(result =>
 				  {
@@ -81,7 +81,7 @@ namespace FractalPlatform.Examples.Applications.AIToWebApp
 
 							  var collection = codeBlock.Text
 												    .ToCollection(appAndQuestion[0])
-													.ExtendDocument(DQL("{'AppName':@AppName,'Question':@Question,'OnDate':@Now}", appAndQuestion[0], appAndQuestion[1]));
+													.ExtendDocument("{'AppName':@AppName,'Question':@Question,'OnDate':@Now}", appAndQuestion[0], appAndQuestion[1]);
 
 							  docID = AddDoc("Apps", collection.ToJson());
 						  }

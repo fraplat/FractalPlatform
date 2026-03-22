@@ -49,7 +49,7 @@ namespace FractalPlatform.CoffeePoints
                                              .Values("{'Proposes':[{'OnDate':$,'Map':{'Point':{'Lat':$,'Lng':$}}}]}");
 
                 DocsWhere("Proposes", "{'OnDate':@OnDate}", dateAndLatAndLng[0])
-                    .ExtendDocument(DQL("{'Map':{'Center':{'Lat':@Lat,'Lng':@Lng},'Points':[{'Lat':@Lat,'Lng':@Lng}]}}", dateAndLatAndLng[1], dateAndLatAndLng[2]))
+                    .ExtendDocument("{'Map':{'Center':{'Lat':@Lat,'Lng':@Lng},'Points':[{'Lat':@Lat,'Lng':@Lng}]}}", dateAndLatAndLng[1], dateAndLatAndLng[2])
                     .OpenForm();
 
                 return false;

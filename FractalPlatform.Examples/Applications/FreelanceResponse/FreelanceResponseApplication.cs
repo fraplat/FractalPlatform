@@ -211,7 +211,7 @@ namespace FractalPlatform.Examples.Applications.FreelanceResponse
                                                  "Users",
                                                  "{'Rates':[$]}",
                                                  userID)
-                                  .ExtendDocument(DQL("{'TaskNumber':@TaskNumber}", task.TaskNumber))
+                                  .ExtendDocument("{'TaskNumber':@TaskNumber}", task.TaskNumber)
                                   .OpenForm(result =>
                                   {
                                       if (result.Result)
@@ -238,7 +238,7 @@ namespace FractalPlatform.Examples.Applications.FreelanceResponse
                         else
                         {
                             CreateNewDocForArray("NewRate", "Users", "{'Rates':[$]}", userID)
-                                  .ExtendDocument(DQL("{'TaskNumber':@TaskNumber}", task.TaskNumber))
+                                  .ExtendDocument("{'TaskNumber':@TaskNumber}", task.TaskNumber)
                                   .OpenForm(result =>
                                   {
                                       if (result.Result)
@@ -255,7 +255,7 @@ namespace FractalPlatform.Examples.Applications.FreelanceResponse
                         var task = GetTask(info.DocID);
 
                         CreateNewDocForArray("NewAccept", "Tasks", "{'Accepts':[$]}", info.DocID)
-                              .ExtendDocument(DQL("{'MinPrice':@MinPrice}", task.MinPrice))
+                              .ExtendDocument("{'MinPrice':@MinPrice}", task.MinPrice)
                               .OpenForm(result =>
                               {
                                   if (result.Result)

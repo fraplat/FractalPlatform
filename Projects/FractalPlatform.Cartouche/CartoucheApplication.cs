@@ -210,7 +210,7 @@ namespace FractalPlatform.Cartouche {
 	        FirstDocOf("Dashboard")
 		        .ToCollection()
 		        .DeleteByParent("Posts")
-		        .ExtendDocument(DQL("{'FullName':@FullName,'Avatar':@Avatar}", values[0], values[1]))
+		        .ExtendDocument("{'FullName':@FullName,'Avatar':@Avatar}", values[0], values[1])
 		        .MergeToArrayPath(posts, "Posts", Constants.FIRST_DOC_ID, true)
 		        .OpenForm();
         }
@@ -381,7 +381,7 @@ namespace FractalPlatform.Cartouche {
                                       .Value("{'Comments':[{'Name':$}]}");
 
                         CreateNewDocForArray("NewComment", "Posts", "{'Comments':[$]}", info.DocID)
-                            .ExtendDocument(DQL("{'Text':@Text}", name))
+                            .ExtendDocument("{'Text':@Text}", name)
                             .OpenForm();
 
                         break;
@@ -473,7 +473,7 @@ namespace FractalPlatform.Cartouche {
                                     .Values("{'Comments':[{'Text':$}]}");
 
                         FirstDocOf("NewComment")
-                            .ExtendDocument(DQL("{'Text':@Text}", text))
+                            .ExtendDocument("{'Text':@Text}", text)
                             .ExtendUIDimension("{'Style':'CollLabel:Update comment;Save:Update'}")
                             .OpenForm(result => 
                             {

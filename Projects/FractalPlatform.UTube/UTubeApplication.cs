@@ -74,7 +74,7 @@ namespace FractalPlatform.UTube
                       .DeleteByParent("NewVideos")
                       .DeleteByParent("Subscribes")
                       .DeleteByParent("Recommendations")
-                      .ExtendDocument(DQL("{'FilterText':@Filter}", filter))
+                      .ExtendDocument("{'FilterText':@Filter}", filter)
                       .MergeToArrayPath(newVideos, "NewVideos")
                       .MergeToArrayPath(subscribes, "Subscribes")
                       .MergeToArrayPath(recommendations, "Recommendations")

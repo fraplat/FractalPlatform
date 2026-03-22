@@ -97,7 +97,7 @@ namespace FractalPlatform.Examples.Applications.DatingGame
 
             DocsWhere("Games", "{'ID':@ID,'AnswerQuestions':[{'From':@Name}]}", _gameID, _myParticipant.Name)
                   .SetUIDimension("{'Style':'Add:false;Del:false','AnswerQuestion':{'Enabled':false},'Choose':{'ControlType':'ComboBox'}}")
-                  .SetDimension(DimensionType.Enum, DQL("{'Choose':{'Items':[@Participants]}}", chooseParticipants))
+                  .SetDimension(DimensionType.Enum, "{'Choose':{'Items':[@Participants]}}", chooseParticipants)
                   .ExtendDocument("{'Choose':'NoBody'}", _gameID)
                   .OpenForm("{'AnswerQuestions':[{'To':$,'Question':$,'Answer':$}]}",
                             result =>
