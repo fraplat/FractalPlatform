@@ -140,7 +140,7 @@ server {
             <h4>Install "Let’s Encrypt" SSL (replace mydomain.com on your own domain)</h4>
             <pre class="code-block">
 sudo yum install -y certbot python-certbot-nginx
-sudo certbot --nginx -d mydomain.com -d www.mydomain.com
+sudo certbot --nginx -d fraplat.com -d *.fraplat.com
 sudo systemctl restart nginx
         </pre>
 
@@ -153,8 +153,14 @@ sudo nano /etc/nginx/conf.d/kestrel.conf
             </pre>
             <pre class="code-block">
 server {
+    listen 80;
+    server_name mydomain.com *.mydomain.com;
+    return 301 https://$host$request_uri;
+}
+
+server {
     listen 443 ssl;
-    server_name mydomain.com www.mydomain.com;
+    server_name mydomain.com;
     client_max_body_size 100M;
     ssl_certificate /etc/letsencrypt/live/mydomain.com/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/mydomain.com/privkey.pem;
@@ -163,11 +169,7 @@ server {
 
     location / {
         proxy_pass http://127.0.0.1:8080;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection keep-alive;
         proxy_set_header Host $host;
-        proxy_cache_bypass $http_upgrade;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
     }
@@ -175,7 +177,7 @@ server {
 
 server {
     listen 443 ssl;
-    server_name *.mydomain.com;
+    server_name ~^(?<subdomain>[^.]+)\.mydomain\.com$;
     client_max_body_size 100M;
     ssl_certificate /etc/letsencrypt/live/mydomain.com/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/mydomain.com/privkey.pem;
@@ -183,15 +185,9 @@ server {
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
     location / {
-        if ($host ~* ^([^.]+)\.fraplat\.com$) {
-            set $subdomain $1;
-        }
-
-        proxy_pass http://127.0.0.1:8080/$subdomain/;
-        proxy_http_version 1.1;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_pass http://127.0.0.1:8080;
+        proxy_set_header Host mydomain.com;
+        proxy_set_header X-Forwarded-Host $host;
         proxy_set_header X-Forwarded-Proto $scheme;
     }
 }
@@ -200,27 +196,6 @@ server {
             <h4>Restart NGINX</h4>
             <pre class="code-block">
 sudo systemctl restart nginx
-        </pre>
-        </div>
-
-        <h4>Configure NGINX Proxy (replace mydomain.com on your own domain)</h4>
-        <h4>Save config: Ctrl+O, Enter, Ctrl+X</h4>
-        <pre class="code-block">
-sudo nano /etc/nginx/conf.d/kestrel.conf
-        </pre>
-
-        <pre class="code-block">
-server {
-    listen 80;
-    server_name mydomain.com www.mydomain.com;
-    return 301 https://$host$request_uri;
-}
-
-server {
-    listen 80;
-    server_name *.mydomain.com;
-    return 301 https://$host$request_uri;
-}
         </pre>
         </div>
         <div class="how-it-works">
