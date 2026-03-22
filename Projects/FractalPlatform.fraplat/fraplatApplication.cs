@@ -73,6 +73,9 @@ namespace FractalPlatform.fraplat {
                 case "guides":
                     FirstDocOf("Guides").OpenForm();
                     break;
+                case "competitors":
+                    FirstDocOf("Competitors").OpenForm();
+                    break;
                 default:
                     NotImplementedMessageBox();
                     break;
