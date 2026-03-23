@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.IO;
 using System.Windows.Forms;
 using FractalPlatform.Client.UI.DOM.Controls;
 using FractalPlatform.Database.Dimensions.Language;
@@ -68,20 +67,21 @@ namespace FractalPlatform.Sandbox.Controls
 				foreach (Control control in this.Controls)
 				{
 					if (!hasLabel || control is Label)
-                    {
+					{
 						control.ForeColor = Color.Red;
 
 						toolTip.SetToolTip(control, message);
 					}
-                }
+				}
 			}
 		}
 
-		private void CreateContextMenu()
+		protected virtual void CreateContextMenu()
 		{
 			var contextMenu = DOMControl.ContextMenu;
 
-			if (contextMenu != null && contextMenu.Count > 0)
+			if (contextMenu != null &&
+				contextMenu.Count > 0)
 			{
 				var contextMenuStrip = new ContextMenuStrip();
 
