@@ -18,7 +18,7 @@ namespace FractalPlatform.Examples.Applications.HowOldAreYou
 
 					var bytes = ReadFileBytes(photo);
 
-					var answer = AI.Generate(question, AIModel.GPT4o, AIImage.FromBytes(bytes));
+					var answer = AI.Generate(question, AIModel.GPT4o, AIAttachment.FromBytes(bytes));
 
 					new
 					{
