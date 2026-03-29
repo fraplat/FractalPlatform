@@ -75,23 +75,23 @@ namespace FractalPlatform.Sandbox
             if (resultEvent)
             {
                 //check auth
-                if (collection.HasDimension(DimensionType.Auth))
-                {
-                    var auth = (AuthDimension)collection.GetDimension(DimensionType.Auth);
+                //if (collection.HasDimension(DimensionType.Auth))
+                //{
+                //    var auth = (AuthDimension)collection.GetDimension(DimensionType.Auth);
 
-                    if (auth.IsNeedRelogin(context))
-                    {
-                        var application = context.Application as DashboardApplication;
+                //    if (auth.IsNeedRelogin(context))
+                //    {
+                //        var application = context.Application as DashboardApplication;
 
-                        if (application != null) //valid only for dashboard app
-                        {
-                            application.LoginOrRegister(result =>
-                            {
-                                OpenForm(context, formName, groupBoxName, collection, parentKey, docID, filter, handleResult);
-                            });
-                        }
-                    }
-                }
+                //        if (application != null) //valid only for dashboard app
+                //        {
+                //            application.LoginOrRegister(result =>
+                //            {
+                //                OpenForm(context, formName, groupBoxName, collection, parentKey, docID, filter, handleResult);
+                //            });
+                //        }
+                //    }
+                //}
 
                 //open form
                 var domForm = new DOMForm(ActiveForm,
