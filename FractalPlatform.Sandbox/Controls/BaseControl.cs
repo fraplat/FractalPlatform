@@ -10,6 +10,7 @@ namespace FractalPlatform.Sandbox.Controls
 	public class BaseControl : Panel
 	{
 		private LanguageDimension _languageDimension;
+		private ToolTip _validationToolTip; // store as field
 
 		public MainForm ParentForm { get; }
 
@@ -35,24 +36,22 @@ namespace FractalPlatform.Sandbox.Controls
 		{
 			if (DOMControl.HasValidationError)
 			{
+				// Dispose previous tooltip to prevent leak
+				_validationToolTip?.Dispose();
+				_validationToolTip = new ToolTip();
+
 				ForeColor = Color.Red;
 
-				// Create the ToolTip and associate with the Form container.
-				ToolTip toolTip = new ToolTip();
+				_validationToolTip.AutoPopDelay = 3000;
+				_validationToolTip.InitialDelay = 500;
+				_validationToolTip.ReshowDelay = 300;
+				_validationToolTip.ShowAlways = true;
 
-				// Set up the delays for the ToolTip.
-				toolTip.AutoPopDelay = 3000;
-				toolTip.InitialDelay = 500;
-				toolTip.ReshowDelay = 300;
-				// Force the ToolTip text to be displayed whether or not the form is active.
-				toolTip.ShowAlways = true;
-
-				// Set up the ToolTip text for the Button and Checkbox.
 				var message = QueryHelper.Format(DOMControl.ParentForm.Context,
 												 DOMControl.ValidationError.Message,
 												 DOMControl.ValidationError.Params);
 
-				toolTip.SetToolTip(this, message);
+				_validationToolTip.SetToolTip(this, message);
 
 				bool hasLabel = false;
 
@@ -70,10 +69,19 @@ namespace FractalPlatform.Sandbox.Controls
 					{
 						control.ForeColor = Color.Red;
 
-						toolTip.SetToolTip(control, message);
+						_validationToolTip.SetToolTip(control, message);
 					}
 				}
 			}
+		}
+
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing)
+			{
+				_validationToolTip?.Dispose();
+			}
+			base.Dispose(disposing);
 		}
 
 		protected virtual void CreateContextMenu()

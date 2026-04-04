@@ -609,13 +609,18 @@ namespace FractalPlatform.Deployment
 
 				Console.WriteLine($"Start deploying {options.AppNames.Count} applications ...");
 
+				// Move OUTSIDE the loop:
+				bool needBuild = options.AppNames.Any(a => options.IsRebuildApplication || options.IsDeployAssembly);
+
+				if (needBuild)
+				{
+					MSBuildLocator.RegisterDefaults();
+				}
+
 				foreach (var appName in options.AppNames)
 				{
-					if (options.IsRebuildApplication ||
-						options.IsDeployAssembly)
+					if (options.IsRebuildApplication || options.IsDeployAssembly)
 					{
-						MSBuildLocator.RegisterDefaults();
-
 						Rebuild(appName);
 					}
 

@@ -220,6 +220,9 @@ namespace FractalPlatform.Sandbox.Controls.Grid
 			if (menuItems == null || menuItems.Count == 0)
 				return;
 
+			// Dispose previous dynamic context menu
+			_lvGrid.ContextMenuStrip?.Dispose();
+
 			var contextMenuStrip = new ContextMenuStrip();
 
 			foreach (var contextMenuItem in menuItems)
@@ -232,6 +235,9 @@ namespace FractalPlatform.Sandbox.Controls.Grid
 
 			hitInfo.Item.Selected = true;
 			_lvGrid.Select();
+
+			// Assign so it can be disposed on next call
+			_lvGrid.ContextMenuStrip = contextMenuStrip;
 
 			contextMenuStrip.Show(_lvGrid, e.Location);
 		}

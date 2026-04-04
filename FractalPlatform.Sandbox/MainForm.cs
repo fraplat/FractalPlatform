@@ -401,7 +401,7 @@ namespace FractalPlatform.Sandbox
                 var workingDirectory = @$"{Utils.GetSolutionPath()}\FractalPlatform.Deployment\bin\Release\net8.0";
 #endif
 
-				var proc = Process.Start(new ProcessStartInfo
+				using var proc = Process.Start(new ProcessStartInfo
 				{
 					UseShellExecute = true,
 					WorkingDirectory = workingDirectory,
@@ -409,7 +409,7 @@ namespace FractalPlatform.Sandbox
 					Arguments = DomForm.Context.Application.Name
 				});
 
-				proc.WaitForExit();
+				proc?.WaitForExit();
 
 				MessageBox.Show("Project deployed successfuly. Please click Refresh link in Fractal Studio.",
 								"Deploy project",
