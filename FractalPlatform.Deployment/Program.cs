@@ -256,11 +256,13 @@ namespace FractalPlatform.Deployment
 		{
 			using (var client = new HttpClient())
 			{
+				client.DefaultRequestHeaders.Add("DeploymentKey", deploymentKey);
+
 				using (var content = new MultipartFormDataContent())
 				{
 					content.Add(new StreamContent(new MemoryStream(fileBytes)), "upload", fileName);
 
-					var url = $"{baseUrl}/{appName}/UploadFile/?fileType={fileType}&deploymentKey={deploymentKey}&deploymentParams={deploymentParams}";
+					var url = $"{baseUrl}/{appName}/UploadFile/?fileType={fileType}&deploymentParams={deploymentParams}";
 
 					var response = await client.PostAsync(url, content);
 

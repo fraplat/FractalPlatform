@@ -333,59 +333,61 @@ namespace FractalPlatform.Sandbox
 		}
 
 		private bool DownloadAndExtractFiles(string baseUrl,
-											 string appName,
-											 DownloadFileType fileType,
-											 string deploymentKey,
-											 ref bool isFilesNotExists)
+									string appName,
+									DownloadFileType fileType,
+									string deploymentKey,
+									ref bool isFilesNotExists)
 		{
-			var url = $"{baseUrl}/{appName}/DownloadFile/?fileType={fileType}&deploymentKey={deploymentKey}&isFromFractalStudio=true";
+			var url = $"{baseUrl}/{appName}/DownloadFile/?fileType={fileType}";
 
-			var client = new HttpClient();
-
-			var response = client.GetAsync(url).Result;
-
-			if (response.IsSuccessStatusCode)
+			using (var client = new HttpClient())
 			{
-				// Read the content as a stream
-				using (var stream = response.Content.ReadAsStreamAsync().Result)
-				{
-					// Define the output folder
-					string directoryPath;
+				client.DefaultRequestHeaders.Add("DeploymentKey", deploymentKey);
 
-					if (fileType == DownloadFileType.Database)
+				using (var response = client.GetAsync(url).Result)
+				{
+					if (response.IsSuccessStatusCode)
 					{
-						directoryPath = $@"{Utils.GetSolutionPath()}{Constants.Slash}Projects{Constants.Slash}FractalPlatform.{appName}{Constants.Slash}Database";
-					}
-					else if (fileType == DownloadFileType.Files)
-					{
-						directoryPath = $@"{Utils.GetSolutionPath()}{Constants.Slash}Projects{Constants.Slash}FractalPlatform.{appName}{Constants.Slash}Files";
-					}
-					else if (fileType == DownloadFileType.Layouts)
-					{
-						directoryPath = $@"{Utils.GetSolutionPath()}{Constants.Slash}Projects{Constants.Slash}FractalPlatform.{appName}{Constants.Slash}Layouts";
-					}
-					else if (fileType == DownloadFileType.Code)
-					{
-						directoryPath = $@"{Utils.GetSolutionPath()}{Constants.Slash}Projects{Constants.Slash}FractalPlatform.{appName}";
+						// Read the content as a stream
+						using (var stream = response.Content.ReadAsStreamAsync().Result)
+						{
+							// Define the output folder
+							string directoryPath;
+							if (fileType == DownloadFileType.Database)
+							{
+								directoryPath = $@"{Utils.GetSolutionPath()}{Constants.Slash}Projects{Constants.Slash}FractalPlatform.{appName}{Constants.Slash}Database";
+							}
+							else if (fileType == DownloadFileType.Files)
+							{
+								directoryPath = $@"{Utils.GetSolutionPath()}{Constants.Slash}Projects{Constants.Slash}FractalPlatform.{appName}{Constants.Slash}Files";
+							}
+							else if (fileType == DownloadFileType.Layouts)
+							{
+								directoryPath = $@"{Utils.GetSolutionPath()}{Constants.Slash}Projects{Constants.Slash}FractalPlatform.{appName}{Constants.Slash}Layouts";
+							}
+							else if (fileType == DownloadFileType.Code)
+							{
+								directoryPath = $@"{Utils.GetSolutionPath()}{Constants.Slash}Projects{Constants.Slash}FractalPlatform.{appName}";
+							}
+							else
+							{
+								throw new BaseException(1245, $"File type {fileType} is not recognized.");
+							}
+
+							if (Directory.Exists(directoryPath))
+							{
+								UnzipToFolder(stream, directoryPath);
+							}
+							return true;
+						}
 					}
 					else
 					{
-						throw new BaseException(1245, $"File type {fileType} is not recognized.");
-					}
+						isFilesNotExists = (response.StatusCode == System.Net.HttpStatusCode.NotFound);
 
-					if (Directory.Exists(directoryPath))
-					{
-						UnzipToFolder(stream, directoryPath);
+						return false;
 					}
-
-					return true;
 				}
-			}
-			else
-			{
-				isFilesNotExists = (response.StatusCode == System.Net.HttpStatusCode.NotFound);
-
-				return false;
 			}
 		}
 
