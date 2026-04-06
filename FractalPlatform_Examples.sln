@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.9.34902.65
+# Visual Studio Version 18
+VisualStudioVersion = 18.5.11626.173 insiders
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FractalPlatform.Examples", "FractalPlatform.Examples\FractalPlatform.Examples.csproj", "{497B9A69-5582-4312-BBA7-7C8F7A132FFA}"
 EndProject
@@ -16,8 +16,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projects", "Projects", "{F28180B4-148A-4F98-B3B3-EE5E834C1838}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FractalPlatform.CoffeePoints", "Projects\FractalPlatform.CoffeePoints\FractalPlatform.CoffeePoints.csproj", "{E0CD0646-3912-46BB-B6A5-0FB9A4138FF7}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FractalPlatform.CorpChat", "Projects\FractalPlatform.CorpChat\FractalPlatform.CorpChat.csproj", "{6AD5376F-F73C-467F-A122-8B4B6B29DEFE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FractalPlatform.Forum", "Projects\FractalPlatform.Forum\FractalPlatform.Forum.csproj", "{1FA99A08-9937-4663-A238-8053227CE961}"
 EndProject
@@ -101,14 +99,6 @@ Global
 		{E0CD0646-3912-46BB-B6A5-0FB9A4138FF7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E0CD0646-3912-46BB-B6A5-0FB9A4138FF7}.Release|x86.ActiveCfg = Release|Any CPU
 		{E0CD0646-3912-46BB-B6A5-0FB9A4138FF7}.Release|x86.Build.0 = Release|Any CPU
-		{6AD5376F-F73C-467F-A122-8B4B6B29DEFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6AD5376F-F73C-467F-A122-8B4B6B29DEFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6AD5376F-F73C-467F-A122-8B4B6B29DEFE}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{6AD5376F-F73C-467F-A122-8B4B6B29DEFE}.Debug|x86.Build.0 = Debug|Any CPU
-		{6AD5376F-F73C-467F-A122-8B4B6B29DEFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6AD5376F-F73C-467F-A122-8B4B6B29DEFE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6AD5376F-F73C-467F-A122-8B4B6B29DEFE}.Release|x86.ActiveCfg = Release|Any CPU
-		{6AD5376F-F73C-467F-A122-8B4B6B29DEFE}.Release|x86.Build.0 = Release|Any CPU
 		{1FA99A08-9937-4663-A238-8053227CE961}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1FA99A08-9937-4663-A238-8053227CE961}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FA99A08-9937-4663-A238-8053227CE961}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -251,7 +241,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E0CD0646-3912-46BB-B6A5-0FB9A4138FF7} = {F28180B4-148A-4F98-B3B3-EE5E834C1838}
-		{6AD5376F-F73C-467F-A122-8B4B6B29DEFE} = {F28180B4-148A-4F98-B3B3-EE5E834C1838}
 		{1FA99A08-9937-4663-A238-8053227CE961} = {F28180B4-148A-4F98-B3B3-EE5E834C1838}
 		{7C94990D-7E7A-4D1D-801C-D0A59D42AE8E} = {F28180B4-148A-4F98-B3B3-EE5E834C1838}
 		{694DD846-6FA1-4451-AE26-D9ACA870289B} = {F28180B4-148A-4F98-B3B3-EE5E834C1838}
