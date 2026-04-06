@@ -1,3 +1,0 @@
-# Corporative Chat
-
-Comming soon ...
