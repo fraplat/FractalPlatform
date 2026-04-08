@@ -64,6 +64,6 @@ namespace FractalPlatform.Examples.Applications.WorkOutTracker
             return false;
         }
 
-        public override void OnStart() => ModifyDocsOf("WorkOut").OpenForm();
+        public override void OnStart() => DocsOf("WorkOut").OpenForm();
     }
 }

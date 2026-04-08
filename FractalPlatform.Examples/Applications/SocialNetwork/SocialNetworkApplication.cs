@@ -52,11 +52,11 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
         }
 
         public bool MyUser() =>
-            ModifyDocsWhere("Users", "{'Name':@UserName}")
+            DocsWhere("Users", "{'Name':@UserName}")
                   .ExtendUIDimension("{'ReadOnly':false,'Style':'Save:true;Hide:Avatar,Photo,Value,NewComment;Add:false'}")
                   .OpenForm();
 
-        public bool Users() => ModifyDocsOf("Users").OpenForm();
+        public bool Users() => DocsOf("Users").OpenForm();
 
         public bool NewPost()
         {

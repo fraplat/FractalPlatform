@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.5.11626.173 insiders
+VisualStudioVersion = 18.5.11626.173
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FractalPlatform.Examples", "FractalPlatform.Examples\FractalPlatform.Examples.csproj", "{497B9A69-5582-4312-BBA7-7C8F7A132FFA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FractalPlatform.Deployment", "FractalPlatform.Deployment\FractalPlatform.Deployment.csproj", "{EB3C4466-306F-429B-BFB7-05CB3165435B}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FractalPlatform.Examples.Tests", "FractalPlatform.Examples.Tests\FractalPlatform.Examples.Tests.csproj", "{53334CCE-8CBF-4197-8F10-C4A71B837A3E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FractalPlatform.Sandbox", "FractalPlatform.Sandbox\FractalPlatform.Sandbox.csproj", "{355C4B5E-F153-4DE7-8208-2AD09A1E9673}"
 EndProject
@@ -32,8 +30,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FractalPlatform.Converter", "Tools\FractalPlatform.Converter\FractalPlatform.Converter.csproj", "{8626F341-03DD-4680-ABBA-8D6AD39E8397}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FractalPlatform.Converter.Examples", "Tools\FractalPlatform.Converter.Examples\FractalPlatform.Converter.Examples.csproj", "{E031A9E0-106F-4CE5-BB60-71FFFF45C8AF}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FractalPlatform.Common", "FractalPlatform.Common\FractalPlatform.Common.csproj", "{C0632814-96C7-4A30-949A-FB31ECFA41DA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FractalPlatform.Esfiria", "Projects\FractalPlatform.Esfiria\FractalPlatform.Esfiria.csproj", "{0D25194A-51BC-4959-BB49-442EE8C3B5FD}"
 EndProject
@@ -75,14 +71,6 @@ Global
 		{EB3C4466-306F-429B-BFB7-05CB3165435B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EB3C4466-306F-429B-BFB7-05CB3165435B}.Release|x86.ActiveCfg = Release|Any CPU
 		{EB3C4466-306F-429B-BFB7-05CB3165435B}.Release|x86.Build.0 = Release|Any CPU
-		{53334CCE-8CBF-4197-8F10-C4A71B837A3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{53334CCE-8CBF-4197-8F10-C4A71B837A3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{53334CCE-8CBF-4197-8F10-C4A71B837A3E}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{53334CCE-8CBF-4197-8F10-C4A71B837A3E}.Debug|x86.Build.0 = Debug|Any CPU
-		{53334CCE-8CBF-4197-8F10-C4A71B837A3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{53334CCE-8CBF-4197-8F10-C4A71B837A3E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{53334CCE-8CBF-4197-8F10-C4A71B837A3E}.Release|x86.ActiveCfg = Release|Any CPU
-		{53334CCE-8CBF-4197-8F10-C4A71B837A3E}.Release|x86.Build.0 = Release|Any CPU
 		{355C4B5E-F153-4DE7-8208-2AD09A1E9673}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{355C4B5E-F153-4DE7-8208-2AD09A1E9673}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{355C4B5E-F153-4DE7-8208-2AD09A1E9673}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -163,14 +151,6 @@ Global
 		{E031A9E0-106F-4CE5-BB60-71FFFF45C8AF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E031A9E0-106F-4CE5-BB60-71FFFF45C8AF}.Release|x86.ActiveCfg = Release|Any CPU
 		{E031A9E0-106F-4CE5-BB60-71FFFF45C8AF}.Release|x86.Build.0 = Release|Any CPU
-		{C0632814-96C7-4A30-949A-FB31ECFA41DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C0632814-96C7-4A30-949A-FB31ECFA41DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C0632814-96C7-4A30-949A-FB31ECFA41DA}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{C0632814-96C7-4A30-949A-FB31ECFA41DA}.Debug|x86.Build.0 = Debug|Any CPU
-		{C0632814-96C7-4A30-949A-FB31ECFA41DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C0632814-96C7-4A30-949A-FB31ECFA41DA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C0632814-96C7-4A30-949A-FB31ECFA41DA}.Release|x86.ActiveCfg = Release|Any CPU
-		{C0632814-96C7-4A30-949A-FB31ECFA41DA}.Release|x86.Build.0 = Release|Any CPU
 		{0D25194A-51BC-4959-BB49-442EE8C3B5FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0D25194A-51BC-4959-BB49-442EE8C3B5FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D25194A-51BC-4959-BB49-442EE8C3B5FD}.Debug|x86.ActiveCfg = Debug|Any CPU

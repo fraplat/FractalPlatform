@@ -5,6 +5,6 @@ namespace FractalPlatform.Examples.Applications.Template
 {
     public class TemplateApplication : BaseApplication
     {
-        public override void OnStart() => ModifyFirstDocOf("TemplateList").OpenForm();
+        public override void OnStart() => FirstDocOf("TemplateList").OpenForm();
     }
 }

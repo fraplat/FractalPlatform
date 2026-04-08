@@ -6,8 +6,7 @@ namespace FractalPlatform.Examples.Applications.Vote
     public class VoteApplication : BaseApplication
     {
         public override void OnStart() =>
-            Client.SetDefaultCollection("Questionary")
-                  .WantMergeDocumentFor("Report")
+             MergeDocFor("Questionary", "Report")
                   .OpenForm(result =>
                   {
                       if (result.Result)

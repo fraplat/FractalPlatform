@@ -5,6 +5,6 @@ namespace FractalPlatform.Examples.Applications.ListOfProjects
 {
     public class ListOfProjectsApplication : BaseApplication
     {
-        public override void OnStart() => ModifyFirstDocOf("Projects").OpenForm();
+        public override void OnStart() => FirstDocOf("Projects").OpenForm();
     }
 }

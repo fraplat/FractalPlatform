@@ -290,7 +290,7 @@ namespace FractalPlatform.Seasons
                     }
                 case "EditMovies":
                     {
-                        ModifyDocsOf("Movies")
+                        DocsOf("Movies")
                         .ExtendUIDimension("{'Layout':'','IsRawPage':false}")
                         .OpenForm();
 
@@ -298,13 +298,13 @@ namespace FractalPlatform.Seasons
                     }
                 case "EditActors":
                     {
-                        ModifyDocsOf("Actors").OpenForm();
+                        DocsOf("Actors").OpenForm();
 
                         return true;
                     }
                 case "EditUsers":
                     {
-                        ModifyDocsOf("Users")
+                        DocsOf("Users")
                         .ExtendUIDimension("{'Layout':'','IsRawPage':false}")
                         .OpenForm();
 
@@ -312,7 +312,7 @@ namespace FractalPlatform.Seasons
                     }
                 case "EditUser":
                     {
-                        ModifyDocsWhere("Users", "{'Name':@Name}", Context.User.Name)
+                        DocsWhere("Users", "{'Name':@Name}", Context.User.Name)
                         .ExtendUIDimension("{'Layout':'','IsRawPage':false,'PlayList':{'Visible':false},'BestMovies':{'Visible':false},'GoodMovies':{'Visible':false}}")
                         .OpenForm(result => result.NeedReloadData = true);
 

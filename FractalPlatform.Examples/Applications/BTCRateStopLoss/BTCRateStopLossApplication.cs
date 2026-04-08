@@ -18,15 +18,13 @@ namespace FractalPlatform.Examples.Applications.BTCRateStopLoss
         public decimal GetBTCRate() =>
             decimal.Parse(REST.Get("https://api.coindesk.com/v1/bpi/currentprice.json")
                                      .ToCollection()
-                                     .GetFirstDoc()
                                      .Value("{'bpi':{'USD':{'rate':$}}}"));
         
         public override bool OnTimerDimension(TimerInfo info)
         {
             var rate = GetBTCRate();
 
-            var config = Client.SetDefaultCollection("Config")
-                               .GetFirstDoc()
+            var config = FirstDocOf("Config")
                                .SelectOne<ConfigInfo>();
 
             if ((rate < config.MinValue || rate > config.MaxValue) &&
@@ -58,7 +56,7 @@ namespace FractalPlatform.Examples.Applications.BTCRateStopLoss
             {
                 if (result.Result)
                 {
-                    ModifyFirstDocOf("Config")
+                    FirstDocOf("Config")
                           .OpenForm(result => Rate());
                 }
                 else

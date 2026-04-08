@@ -37,7 +37,7 @@ namespace FractalPlatform.Teplo
                                             
                                             if(result.Result)
                                             {
-                                                var query = ModifyDocsWhere("Accounts",
+                                                var query = DocsWhere("Accounts",
                                                                      "{'Показники':[{'Рік':@Year,'Місяць':@Month,'Квартира':@Apartment}]}",
                                                                       year, month, apartment);
                                                              
@@ -49,7 +49,7 @@ namespace FractalPlatform.Teplo
                                                 }
                                                 else
                                                 {
-                                                    ModifyFirstDocOf("Accounts")
+                                                    FirstDocOf("Accounts")
                                                         .Update("{'Показники':[Add,{'Рік':@Year,'Місяць':@Month,'Квартира':@Apartment,'Показник':@Value}]}",
                                                                  year, month, apartment, value);
                                                     

@@ -433,7 +433,7 @@ Projects/
 <span class="type">AddDoc</span>(<span class="string">"Products"</span>, <span class="string">"{'Name':'Mouse','Price':29.99}"</span>);
 
 <span class="comment">// Update existing documents</span>
-<span class="type">ModifyDocsWhere</span>(<span class="string">"Products"</span>, <span class="string">"{'Name':'Laptop'}"</span>)
+<span class="type">DocsWhere</span>(<span class="string">"Products"</span>, <span class="string">"{'Name':'Laptop'}"</span>)
       .<span class="type">Update</span>(<span class="string">"{'Price':899.99}"</span>);
 
 <span class="comment">// Delete documents</span>
@@ -773,15 +773,15 @@ Projects/
             <h4>Modifying Data</h4>
             <div class="code-block">
                 <pre><span class="comment">// Update documents</span>
-<span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'John'}"</span>)
+<span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'John'}"</span>)
       .<span class="type">Update</span>(<span class="string">"{'Status':'Inactive'}"</span>);
 
 <span class="comment">// Delete documents</span>
-<span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Status':'Inactive'}"</span>)
+<span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Status':'Inactive'}"</span>)
       .<span class="type">Delete</span>();
 
 <span class="comment">// Add to array</span>
-<span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'John'}"</span>)
+<span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'John'}"</span>)
       .<span class="type">Update</span>(<span class="string">"{'Roles':[Add,'Admin']}"</span>);</pre>
             </div>
 
@@ -1319,10 +1319,10 @@ https://fraplat.tech/mars/{YourAppName}/?tag={YourTag}</pre>
 }
 
 <span class="comment">// ✅ GOOD: Add/Remove from arrays</span>
-<span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'John'}"</span>)
+<span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'John'}"</span>)
       .<span class="type">Update</span>(<span class="string">"{'Roles':[Add,'Manager']}"</span>);
 
-<span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'John'}"</span>)
+<span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'John'}"</span>)
       .<span class="type">Update</span>(<span class="string">"{'Roles':[Remove,'User']}"</span>);</pre>
             </div>
 
@@ -1395,7 +1395,7 @@ https://fraplat.tech/mars/{YourAppName}/?tag={YourTag}</pre>
 {
     <span class="keyword">if</span> (userId.<span class="type">HasValue</span>)
     {
-        <span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, userId.<span class="type">Value</span>)
+        <span class="type">DocsWhere</span>(<span class="string">"Users"</span>, userId.<span class="type">Value</span>)
               .<span class="type">Update</span>(data.ToJson());
     }
     <span class="keyword">else</span>
@@ -1557,7 +1557,7 @@ https://fraplat.tech/mars/{YourAppName}/?tag={YourTag}</pre>
                 <tr>
                     <td>Data not saving</td>
                     <td>Not calling commit/update</td>
-                    <td>Use AddDoc or ModifyDocsWhere</td>
+                    <td>Use AddDoc or DocsWhere</td>
                 </tr>
                 <tr>
                     <td>Layout looks wrong</td>

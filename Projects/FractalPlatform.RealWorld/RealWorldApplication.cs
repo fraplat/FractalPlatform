@@ -5,7 +5,6 @@ using FractalPlatform.Client.App;
 using FractalPlatform.Client.UI;
 using FractalPlatform.Database.Engine;
 using FractalPlatform.Database.Engine.Info;
-using FractalPlatform.Client.UI.DOM;
 using FractalPlatform.Common.Enums;
 
 namespace FractalPlatform.RealWorld
@@ -156,7 +155,7 @@ namespace FractalPlatform.RealWorld
 				case "AddArticle":
 					return CreateNewDocFor("Post", "Articles").OpenForm(result => Dashboard());
 				case "Settings":
-					return ModifyDocsWhere("Users", "{'Name':@UserName}").OpenForm();
+					return DocsWhere("Users", "{'Name':@UserName}").OpenForm();
 				case "AddLike":
 					return DocsWhere("Articles", info.DocID).Update("{'Likes':[Add,@UserName]}");
 				case "RemoveLike":
@@ -189,7 +188,7 @@ namespace FractalPlatform.RealWorld
 					}
 				case "EditArticle":
 					{
-						return ModifyDocsWhere("Articles", info.DocID)
+						return DocsWhere("Articles", info.DocID)
 								.ExtendUIDimension("{'Layout':'Post'}")
 								.OpenForm(result => OpenArticle(info.Collection, info.AttrPath));
 					}

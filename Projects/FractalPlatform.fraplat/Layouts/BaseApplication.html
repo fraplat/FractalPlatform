@@ -338,7 +338,7 @@
                 <span class="keyword">return true</span>;
 
             <span class="keyword">case</span> <span class="string">"CompleteTask"</span>:
-                <span class="type">ModifyDocsWhere</span>(<span class="string">"Tasks"</span>, info.<span class="type">DocID</span>)
+                <span class="type">DocsWhere</span>(<span class="string">"Tasks"</span>, info.<span class="type">DocID</span>)
                     .<span class="type">Update</span>(<span class="string">"{'Status':'Completed','CompletedDate':@@Date}"</span>, 
                               <span class="type">GetNowDate</span>());
                 <span class="type">RefreshForm</span>();
@@ -380,7 +380,7 @@
                                daysUntilDue < <span class="number">7</span> ? <span class="string">"High"</span> :
                                <span class="string">"Normal"</span>;
 
-            <span class="type">ModifyDocsWhere</span>(<span class="string">"Tasks"</span>, info.<span class="type">DocID</span>)
+            <span class="type">DocsWhere</span>(<span class="string">"Tasks"</span>, info.<span class="type">DocID</span>)
                 .<span class="type">Update</span>(<span class="type">DQL</span>(<span class="string">"{'Priority':@@Priority}"</span>, priority));
 
             <span class="type">RefreshForm</span>();
@@ -603,7 +603,7 @@
         <span class="comment">// Calculate total automatically</span>
         <span class="keyword">var</span> total = quantity * price;
         
-        <span class="type">ModifyDocsWhere</span>(<span class="string">"Orders"</span>, info.<span class="type">DocID</span>)
+        <span class="type">DocsWhere</span>(<span class="string">"Orders"</span>, info.<span class="type">DocID</span>)
             .<span class="type">Update</span>(<span class="string">"{'Total':@@Total}"</span>, total);
         
         <span class="type">RefreshForm</span>();
@@ -964,7 +964,7 @@
     <span class="keyword">if</span> (info.<span class="type">EventType</span> == <span class="string">"PhoneVerification"</span>)
     {
         <span class="comment">// Mark phone as verified</span>
-        <span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, info.<span class="type">DocID</span>)
+        <span class="type">DocsWhere</span>(<span class="string">"Users"</span>, info.<span class="type">DocID</span>)
             .<span class="type">Update</span>(<span class="string">"{'PhoneVerified':true}"</span>);
         
         <span class="type">MessageBox</span>(<span class="string">"Phone number verified successfully!"</span>);
@@ -974,7 +974,7 @@
     <span class="keyword">if</span> (info.<span class="type">EventType</span> == <span class="string">"EmailVerification"</span>)
     {
         <span class="comment">// Mark email as verified</span>
-        <span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, info.<span class="type">DocID</span>)
+        <span class="type">DocsWhere</span>(<span class="string">"Users"</span>, info.<span class="type">DocID</span>)
             .<span class="type">Update</span>(<span class="string">"{'EmailVerified':true}"</span>);
         
         <span class="type">MessageBox</span>(<span class="string">"Email verified successfully!"</span>);
@@ -1188,18 +1188,18 @@
 });</pre>
             </div>
 
-            <h4>ModifyDocsWhere() - Update Documents</h4>
+            <h4>DocsWhere() - Update Documents</h4>
             <div class="code-block csharp">
                 <pre><span class="comment">// Update specific document</span>
-<span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, userId)
+<span class="type">DocsWhere</span>(<span class="string">"Users"</span>, userId)
     .<span class="type">Update</span>(<span class="string">"{'Age':31}"</span>);
 
 <span class="comment">// Update multiple documents</span>
-<span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Status':'Inactive'}"</span>)
+<span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Status':'Inactive'}"</span>)
     .<span class="type">Update</span>(<span class="string">"{'Status':'Archived'}"</span>);
 
 <span class="comment">// Add to array</span>
-<span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, userId)
+<span class="type">DocsWhere</span>(<span class="string">"Users"</span>, userId)
     .<span class="type">Update</span>(<span class="string">"{'Tags':[Add,'VIP']}"</span>);</pre>
             </div>
 
@@ -1324,7 +1324,7 @@
 
             <div class="code-block csharp">
                 <pre><span class="comment">// After updating data</span>
-<span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, userId)
+<span class="type">DocsWhere</span>(<span class="string">"Users"</span>, userId)
     .<span class="type">Update</span>(<span class="string">"{'Status':'Active'}"</span>);
 
 <span class="type">RefreshForm</span>(); <span class="comment">// Show the changes</span></pre>
@@ -1578,7 +1578,7 @@
     <span class="comment">// Multiple operations</span>
     <span class="keyword">var</span> orderId = <span class="type">AddDoc</span>(<span class="string">"Orders"</span>, orderData);
     <span class="type">AddDoc</span>(<span class="string">"OrderItems"</span>, itemsData);
-    <span class="type">ModifyDocsWhere</span>(<span class="string">"Products"</span>, productId)
+    <span class="type">DocsWhere</span>(<span class="string">"Products"</span>, productId)
         .<span class="type">Update</span>(<span class="string">"{'Stock':Sub(1)}"</span>);
     
     <span class="type">CommitTran</span>(); <span class="comment">// All succeed together</span>
@@ -1860,7 +1860,7 @@
                 <span class="keyword">return true</span>;
 
             <span class="keyword">case</span> <span class="string">"CompleteTask"</span>:
-                <span class="type">ModifyDocsWhere</span>(<span class="string">"Tasks"</span>, info.<span class="type">DocID</span>)
+                <span class="type">DocsWhere</span>(<span class="string">"Tasks"</span>, info.<span class="type">DocID</span>)
                     .<span class="type">Update</span>(<span class="string">"{'Status':'Completed','CompletedDate':@@Date}"</span>, 
                               <span class="type">GetNowDate</span>());
                 <span class="type">RefreshForm</span>();
@@ -1902,7 +1902,7 @@
                                daysUntilDue < <span class="number">7</span> ? <span class="string">"High"</span> :
                                <span class="string">"Normal"</span>;
 
-            <span class="type">ModifyDocsWhere</span>(<span class="string">"Tasks"</span>, info.<span class="type">DocID</span>)
+            <span class="type">DocsWhere</span>(<span class="string">"Tasks"</span>, info.<span class="type">DocID</span>)
                 .<span class="type">Update</span>(<span class="type">DQL</span>(<span class="string">"{'Priority':@@Priority}"</span>, priority));
 
             <span class="type">RefreshForm</span>();

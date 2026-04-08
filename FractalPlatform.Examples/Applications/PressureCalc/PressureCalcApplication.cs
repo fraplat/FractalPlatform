@@ -6,7 +6,7 @@ namespace FractalPlatform.Examples.Applications.PressureCalc
     public class PressureCalcApplication : BaseApplication
     {
         public override void OnStart() =>
-            ModifyFirstDocOf("Params")
+            FirstDocOf("Params")
                 .OpenForm(result =>
                 {
                     var ageAndWeight = result.Collection.GetFirstDoc().IntValues("{'Age':$,'Weight':$}");

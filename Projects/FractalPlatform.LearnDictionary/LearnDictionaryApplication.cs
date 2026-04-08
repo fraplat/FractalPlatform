@@ -22,7 +22,7 @@ namespace FractalPlatform.LearnDictionary
             {
                 case @"Learn":
                     {
-                        ModifyDocsWhere("Words", "{'Words':[{'IsLearned':false}]}")
+                        DocsWhere("Words", "{'Words':[{'IsLearned':false}]}")
                             .OpenForm("{'Words':[{'Word':$,'Phrase':$,'Trans':$,'IsLearned':$,'LearnText':$}]}");
 
                         break;
@@ -36,7 +36,7 @@ namespace FractalPlatform.LearnDictionary
                     }
                 case @"Edit":
                     {
-                        ModifyFirstDocOf("Words")
+                        FirstDocOf("Words")
                             .ExtendUIDimension("{'Layout':'','IsRawPage':false,'Style':'Hide:IsLearned,IsArchived,LearnText'}")
                             .ResetDimension(DimensionType.Pagination)
                             .OpenForm();
@@ -51,6 +51,8 @@ namespace FractalPlatform.LearnDictionary
 
                         var answer = AI.Generate($"Create a micro text with 3-4 simple sentences with phrase: {word}. These sentences should be imagined about me and my life: {aboutMe}", AIModel.GPT4oMini);
                         var text = answer.Text;
+                        
+                        //test
 
                         text = text.Replace(word, $"<b>{word}</b>");
 
@@ -67,7 +69,7 @@ namespace FractalPlatform.LearnDictionary
                         {
                             if (result.Result)
                             {
-                                ModifyDocsWhere("Words", "{'Words':[{'IsLearned':true,'IsArchived':false}]}")
+                                DocsWhere("Words", "{'Words':[{'IsLearned':true,'IsArchived':false}]}")
                                     .Update("{'Words':[{'IsLearned':false}]}");
                             }
                         });
@@ -76,14 +78,14 @@ namespace FractalPlatform.LearnDictionary
                     }
                 case @"MyLife":
                     {
-                        ModifyFirstDocOf("MyLife")
+                        FirstDocOf("MyLife")
                             .OpenForm();
 
                         break;
                     }
                 case @"Articles":
                     {
-                        ModifyFirstDocOf("Articles")
+                        FirstDocOf("Articles")
                             .OpenForm();
 
                         break;
@@ -97,7 +99,7 @@ namespace FractalPlatform.LearnDictionary
                         {
                             if (result.Result)
                             {
-                                ModifyDocsWhere("Words", "{'Words':[{'IsLearned':true}]}")
+                                DocsWhere("Words", "{'Words':[{'IsLearned':true}]}")
                                     .Update("{'Words':[{'IsArchived':true}]}");
                             }
                         });

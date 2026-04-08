@@ -419,7 +419,7 @@
 <span class="type">Client</span>.<span class="type">BeginTran</span>(<span class="type">TranType</span>.<span class="type">ReadCommited</span>);
 
 <span class="comment">// 2. Perform operations</span>
-<span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Bob'}"</span>)
+<span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Bob'}"</span>)
       .<span class="type">Update</span>(<span class="string">"{'Age':30}"</span>);
 
 <span class="comment">// 3. Commit or rollback</span>
@@ -435,7 +435,7 @@
                 <pre><span class="type">Client</span>.<span class="type">BeginTran</span>(<span class="type">TranType</span>.<span class="type">ReadCommited</span>);
 
 <span class="comment">// Update Bob's age</span>
-<span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Bob'}"</span>)
+<span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Bob'}"</span>)
       .<span class="type">Update</span>(<span class="string">"{'Age':25}"</span>);
 
 <span class="comment">// Changes are visible inside transaction</span>
@@ -458,7 +458,7 @@ users = <span class="type">DocsWhere</span>(<span class="string">"Users"</span>,
                 <pre><span class="type">Client</span>.<span class="type">BeginTran</span>(<span class="type">TranType</span>.<span class="type">ReadCommited</span>);
 
 <span class="comment">// Update Bob's age</span>
-<span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Bob'}"</span>)
+<span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Bob'}"</span>)
       .<span class="type">Update</span>(<span class="string">"{'Age':30}"</span>);
 
 <span class="comment">// Changes are visible inside transaction</span>
@@ -508,7 +508,7 @@ count = <span class="type">DocsWhere</span>(<span class="string">"Users"</span>,
                 <pre><span class="type">Client</span>.<span class="type">BeginTran</span>(<span class="type">TranType</span>.<span class="type">RepeatableRead</span>);
 
 <span class="comment">// Update Bob's age</span>
-<span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Bob'}"</span>)
+<span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Bob'}"</span>)
       .<span class="type">Update</span>(<span class="string">"{'Age':20}"</span>);
 
 <span class="comment">// Verify inside transaction</span>
@@ -534,7 +534,7 @@ users = <span class="type">DocsWhere</span>(<span class="string">"Users"</span>,
                 <pre><span class="type">Client</span>.<span class="type">BeginTran</span>(<span class="type">TranType</span>.<span class="type">Snapshot</span>);
 
 <span class="comment">// Update Bob's age to 25</span>
-<span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Bob'}"</span>)
+<span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Bob'}"</span>)
       .<span class="type">Update</span>(<span class="string">"{'Age':25}"</span>);
 
 <span class="comment">// Verify inside transaction - shows new value</span>
@@ -627,7 +627,7 @@ count = <span class="type">DocsOf</span>(<span class="string">"Users"</span>)
                 <pre><span class="type">Client</span>.<span class="type">BeginTran</span>(<span class="type">TranType</span>.<span class="type">Snapshot</span>);
 
 <span class="comment">// Update Bob</span>
-<span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Bob'}"</span>)
+<span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Bob'}"</span>)
       .<span class="type">Update</span>(<span class="string">"{'Age':25}"</span>);
 
 <span class="comment">// Add Tim</span>
@@ -868,14 +868,14 @@ otherClient.<span class="type">Context</span>.<span class="type">ResetError</spa
 <span class="keyword">var</span> users = <span class="type">DocsOf</span>(<span class="string">"Users"</span>).<span class="type">Select</span><<span class="type">UserInfo</span>>();
 <span class="comment">// ... lots of processing ...</span>
 <span class="comment">// ... user interaction ...</span>
-<span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Bob'}"</span>).<span class="type">Update</span>(<span class="string">"{'Age':30}"</span>);
+<span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Bob'}"</span>).<span class="type">Update</span>(<span class="string">"{'Age':30}"</span>);
 <span class="type">Client</span>.<span class="type">CommitTran</span>();
 
 <span class="comment">// ✅ GOOD - Short transaction</span>
 <span class="keyword">var</span> users = <span class="type">DocsOf</span>(<span class="string">"Users"</span>).<span class="type">Select</span><<span class="type">UserInfo</span>>();
 <span class="comment">// ... processing outside transaction ...</span>
 <span class="type">Client</span>.<span class="type">BeginTran</span>(<span class="type">TranType</span>.<span class="type">RepeatableRead</span>);
-<span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Bob'}"</span>).<span class="type">Update</span>(<span class="string">"{'Age':30}"</span>);
+<span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Bob'}"</span>).<span class="type">Update</span>(<span class="string">"{'Age':30}"</span>);
 <span class="type">Client</span>.<span class="type">CommitTran</span>();</pre>
             </div>
 
@@ -886,7 +886,7 @@ otherClient.<span class="type">Context</span>.<span class="type">ResetError</spa
 {
     <span class="type">Client</span>.<span class="type">BeginTran</span>(<span class="type">TranType</span>.<span class="type">RepeatableRead</span>);
     
-    <span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Bob'}"</span>)
+    <span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Bob'}"</span>)
           .<span class="type">Update</span>(<span class="string">"{'Age':30}"</span>);
     
     <span class="type">AddDoc</span>(<span class="string">"Cars"</span>, <span class="string">"{'Model':'Tesla'}"</span>);

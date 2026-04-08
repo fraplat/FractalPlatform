@@ -6,7 +6,7 @@ namespace FractalPlatform.Notepad
 {
     public class NotepadApplication : BaseApplication
     {
-        public override void OnStart() => ModifyFirstDocOf("Notes").OpenForm();
+        public override void OnStart() => FirstDocOf("Notes").OpenForm();
     
         public override bool OnEventDimension(EventInfo info)
         {

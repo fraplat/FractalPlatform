@@ -25,7 +25,7 @@ namespace FractalPlatform.Examples.Applications.ManagePasswords
                                             .GetBaseDoc()
                                             .Update("{'EncryptPassword':@Password}", password);
 
-                                      ModifyFirstDocOf("Passwords")
+                                      FirstDocOf("Passwords")
                                             .OpenForm();
                                   }
                                   else

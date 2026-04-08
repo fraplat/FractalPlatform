@@ -376,14 +376,14 @@ DocsWhere("User", "{'Status':'Active'}").Count()
 AddDoc("User", "{'Name':'Alice','Email':'alice@example.com'}")
 
 // UPDATE
-ModifyDocsWhere("User", "{'Name':'Bob'}")
+DocsWhere("User", "{'Name':'Bob'}")
       .Update("{'Status':'Inactive'}")
 
 // DELETE
 DelDoc("User", 1) // Delete by ID
 
 // DELETE WHERE
-ModifyDocsWhere("User", "{'Status':'Inactive'}")
+DocsWhere("User", "{'Status':'Inactive'}")
       .Delete()
 
 ---
@@ -589,7 +589,7 @@ CreateNewDocFor("NewUser", "User")
     });
 
 // Modify existing
-ModifyDocsWhere("User", 1)
+DocsWhere("User", 1)
     .OpenForm(result =>
     {
         if (result.Result)
@@ -747,7 +747,7 @@ public override bool OnEventDimension(EventInfo info)
     {
         var orderId = info.FindFirstValue("OrderID");
         DocsWhere("Order", orderId)
-            .ModifyDocsOf()
+            .DocsOf()
             .OpenForm();
     }
     

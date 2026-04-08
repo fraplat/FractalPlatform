@@ -3,7 +3,6 @@ using FractalPlatform.Client.App;
 using FractalPlatform.Client.UI;
 using FractalPlatform.Database.Engine;
 using FractalPlatform.Database.Engine.Info;
-using FractalPlatform.Database.Engine.Query;
 
 namespace FractalPlatform.CoffeePoints
 {
@@ -83,7 +82,7 @@ namespace FractalPlatform.CoffeePoints
             Storage friends;
             Storage points;
 
-            BaseQuery query;
+            WantQuery query;
 
             var minAge = 0;
             var maxAge = 100;

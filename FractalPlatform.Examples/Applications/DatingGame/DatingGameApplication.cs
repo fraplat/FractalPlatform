@@ -141,7 +141,7 @@ namespace FractalPlatform.Examples.Applications.DatingGame
 
         private void ShowQuestions()
         {
-            ModifyDocsWhere("Games", "{'ID':@ID,'AnswerQuestions':[{'To':@Name}]}", _gameID, _myParticipant.Name)
+            DocsWhere("Games", "{'ID':@ID,'AnswerQuestions':[{'To':@Name}]}", _gameID, _myParticipant.Name)
                   .SetUIDimension("{'Style':'Add:false;Del:false','AnswerQuestions':[{'From':{'Enabled':false},'Question':{'Enabled':false}}]}")
                   .SetDimension(DimensionType.Validation, "{'AnswerQuestions':[{'Answer':{'IsRequired':true}}]}")
                   .OpenForm("{'AnswerQuestions':[{'From':$,'Question':$,'Answer':$}]}",
@@ -280,8 +280,8 @@ namespace FractalPlatform.Examples.Applications.DatingGame
                                                 .Count() + 1;
 
                               //3. Create new game
-                              Client.SetDefaultCollection("Games")
-                                    .AddDoc(new Game
+                              AddDoc("Games",
+                                    new Game
                                     {
                                         ID = newDocID,
                                         Status = GameStatus.Pending,

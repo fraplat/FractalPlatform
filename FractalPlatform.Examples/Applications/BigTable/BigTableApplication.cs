@@ -8,6 +8,6 @@ namespace FractalPlatform.Examples.Applications.BigTable
     {
         public override bool OnMenuDimension(MenuInfo info) => CreateNewDocFor("NewOrder", "Orders").OpenForm();
         
-        public override void OnStart() => ModifyDocsOf("Orders").OpenForm();
+        public override void OnStart() => DocsOf("Orders").OpenForm();
     }
 }

@@ -3,7 +3,6 @@ using System.Linq;
 using FractalPlatform.Client.App;
 using FractalPlatform.Client.UI;
 using FractalPlatform.Common.Enums;
-using FractalPlatform.Client.UI.DOM;
 using FractalPlatform.Database.Engine;
 using FractalPlatform.Database.Engine.Info;
 using FractalPlatform.Database.Dimensions.Filter;
@@ -275,7 +274,7 @@ namespace FractalPlatform.UTube
                     }
                 case "MyUser":
                     {
-                        ModifyDocsWhere("Users", "{'Name':@UserName}")
+                        DocsWhere("Users", "{'Name':@UserName}")
                         .OpenForm();
 
                         return true;
@@ -283,7 +282,7 @@ namespace FractalPlatform.UTube
 
                 case "Users":
                     {
-                        ModifyDocsOf("Users")
+                        DocsOf("Users")
                         .OpenForm();
 
                         return true;
@@ -303,14 +302,14 @@ namespace FractalPlatform.UTube
                     }
                 case "MyChannels":
                     {
-                        ModifyDocsWhere("Channels", "{'Owner':@UserName,'IsLocked':false}")
+                        DocsWhere("Channels", "{'Owner':@UserName,'IsLocked':false}")
                         .OpenForm();
 
                         return true;
                     }
                 case "Channels":
                     {
-                        ModifyDocsWhere("Channels", "{'IsLocked':false}")
+                        DocsWhere("Channels", "{'IsLocked':false}")
                         .OpenForm();
 
                         return true;

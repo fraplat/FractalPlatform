@@ -5,6 +5,6 @@ namespace FractalPlatform.Examples.Applications.ToDoPG
 {
     public class ToDoPGApplication : BaseApplication
     {
-        public override void OnStart() => ModifyFirstDocOf("ToDoList").OpenForm();
+        public override void OnStart() => FirstDocOf("ToDoList").OpenForm();
     }
 }

@@ -631,7 +631,7 @@
 
             <div class="code-block csharp">
                 <pre><span class="comment">// Add age to Tim's document</span>
-<span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Tim'}"</span>)
+<span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Tim'}"</span>)
     .<span class="type">Update</span>(<span class="string">"{'Age':15}"</span>);</pre>
             </div>
 
@@ -639,7 +639,7 @@
             <p>To add an array of values:</p>
 
             <div class="code-block csharp">
-                <pre><span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Tim'}"</span>)
+                <pre><span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Tim'}"</span>)
     .<span class="type">Update</span>(<span class="string">"{'Numbers':[1,2,3]}"</span>);</pre>
             </div>
 
@@ -647,7 +647,7 @@
             <p>To add nested objects:</p>
 
             <div class="code-block csharp">
-                <pre><span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Tim'}"</span>)
+                <pre><span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Tim'}"</span>)
     .<span class="type">Update</span>(<span class="string">"{'Car':{'Engine':'2.0', 'Model':'VW'}}"</span>);</pre>
             </div>
 
@@ -655,7 +655,7 @@
             <p>To add an object as an item in an array:</p>
 
             <div class="code-block csharp">
-                <pre><span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Tim'}"</span>)
+                <pre><span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Tim'}"</span>)
     .<span class="type">Update</span>(<span class="string">"{'Childs':[Add,{'Name':'Ted','Age':'5'}]}"</span>);</pre>
             </div>
 
@@ -672,7 +672,7 @@
             <p>To change the value of a field:</p>
 
             <div class="code-block csharp">
-                <pre><span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Tim'}"</span>)
+                <pre><span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Tim'}"</span>)
     .<span class="type">Update</span>(<span class="string">"{'Age':25}"</span>);</pre>
             </div>
 
@@ -680,7 +680,7 @@
             <p>To update fields inside objects:</p>
 
             <div class="code-block csharp">
-                <pre><span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Tim'}"</span>)
+                <pre><span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Tim'}"</span>)
     .<span class="type">Update</span>(<span class="string">"{'Car':{'Engine':'3.0'}}"</span>);</pre>
             </div>
 
@@ -689,11 +689,11 @@
 
             <div class="code-block csharp">
                 <pre><span class="comment">// Add 1 to age</span>
-<span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Tim'}"</span>)
+<span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Tim'}"</span>)
     .<span class="type">Update</span>(<span class="string">"{'Age':Add(1)}"</span>);
 
 <span class="comment">// Subtract 1 from age</span>
-<span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Tim'}"</span>)
+<span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Tim'}"</span>)
     .<span class="type">Update</span>(<span class="string">"{'Age':Sub(1)}"</span>);</pre>
             </div>
 
@@ -702,11 +702,11 @@
 
             <div class="code-block csharp">
                 <pre><span class="comment">// Add number 4 to the Numbers array</span>
-<span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Tim'}"</span>)
+<span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Tim'}"</span>)
     .<span class="type">Update</span>(<span class="string">"{'Numbers':[Add,4]}"</span>);
 
 <span class="comment">// Add a new child object</span>
-<span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Bob'}"</span>)
+<span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Bob'}"</span>)
     .<span class="type">Update</span>(<span class="string">"{'Childs':[Add,{'Name':'Boby','Age':20}]}"</span>);</pre>
             </div>
 
@@ -715,11 +715,11 @@
 
             <div class="code-block csharp">
                 <pre><span class="comment">// Update the first item (index 0)</span>
-<span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Tim'}"</span>)
+<span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Tim'}"</span>)
     .<span class="type">Update</span>(<span class="string">"{'Numbers':[@0,7]}"</span>);
 
 <span class="comment">// Update the last item</span>
-<span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Tim'}"</span>)
+<span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Tim'}"</span>)
     .<span class="type">Update</span>(<span class="string">"{'Numbers':[Last,7]}"</span>);</pre>
             </div>
 
@@ -837,7 +837,7 @@
 
             <div class="code-block csharp">
                 <pre><span class="comment">// Delete only the Engine from Car</span>
-<span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Bob'}"</span>)
+<span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Bob'}"</span>)
     .<span class="type">Delete</span>(<span class="string">"{'Car':{'Engine':$}}"</span>);</pre>
             </div>
 
@@ -845,11 +845,11 @@
 
             <div class="code-block csharp">
                 <pre><span class="comment">// Delete the second item (index 1)</span>
-<span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Bob'}"</span>)
+<span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Bob'}"</span>)
     .<span class="type">Delete</span>(<span class="string">"{'Numbers':[@1,$]}"</span>);
 
 <span class="comment">// Delete the last item</span>
-<span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Bob'}"</span>)
+<span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Bob'}"</span>)
     .<span class="type">Delete</span>(<span class="string">"{'Numbers':[Last,$]}"</span>);</pre>
             </div>
 
@@ -867,7 +867,7 @@
 
             <div class="code-block csharp">
                 <pre><span class="comment">// Delete all jobs at Google</span>
-<span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Bob','Jobs':[{'Company':'Google'}]}"</span>)
+<span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Bob','Jobs':[{'Company':'Google'}]}"</span>)
     .<span class="type">Delete</span>(<span class="string">"{'Jobs':[$]}"</span>);</pre>
             </div>
 
@@ -967,7 +967,7 @@
             <p>You can pass objects as variables using <code>@VariableName</code>:</p>
 
             <div class="code-block csharp">
-                <pre><span class="type">ModifyDocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Tim'}"</span>)
+                <pre><span class="type">DocsWhere</span>(<span class="string">"Users"</span>, <span class="string">"{'Name':'Tim'}"</span>)
     .<span class="type">Update</span>(<span class="string">"{'Participants':[Add,@Participant]}"</span>,
     <span class="keyword">new</span> <span class="type">Participant</span> {
         <span class="type">Name</span> = <span class="string">"Hello"</span>,

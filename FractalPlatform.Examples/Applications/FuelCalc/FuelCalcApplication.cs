@@ -15,7 +15,7 @@ namespace FractalPlatform.Examples.Applications.FuelCalc
         }
 
         public override void OnStart() =>
-            ModifyFirstDocOf("Fuel")
+            FirstDocOf("Fuel")
                 .OpenForm(result =>
                 {
                     var prms = result.Collection.GetFirstDoc().SelectOne<Params>();

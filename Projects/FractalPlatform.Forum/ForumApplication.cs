@@ -1,5 +1,4 @@
 ﻿using FractalPlatform.Client.App;
-using FractalPlatform.Client.UI.DOM;
 using FractalPlatform.Client.UI;
 using FractalPlatform.Database.Engine.Info;
 using System.Text.RegularExpressions;
@@ -187,25 +186,25 @@ namespace FractalPlatform.Forum
             {
                 case "Users":
                     {
-                        ModifyDocsOf("Users").OpenForm();
+                        DocsOf("Users").OpenForm();
 
                         return true;
                     }
                 case "EditCategories":
                     {
-                        ModifyDocsOf("Categories").OpenForm(result => Dashboard());
+                        DocsOf("Categories").OpenForm(result => Dashboard());
 
                         return true;
                     }
                 case "EditTopics":
                     {
-                        ModifyDocsWhere("Topics", "{'Category':@Category}", _category).OpenForm(result => CategoryDashboard());
+                        DocsWhere("Topics", "{'Category':@Category}", _category).OpenForm(result => CategoryDashboard());
 
                         return true;
                     }
                 case "EditTopic":
                     {
-                        ModifyDocsWhere("Topics", _topicID).OpenForm(result => TopicDashboard());
+                        DocsWhere("Topics", _topicID).OpenForm(result => TopicDashboard());
 
                         return true;
                     }

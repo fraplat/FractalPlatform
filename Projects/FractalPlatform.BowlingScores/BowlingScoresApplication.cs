@@ -1,6 +1,5 @@
 using FractalPlatform.Client.App;
 using FractalPlatform.Client.UI;
-using FractalPlatform.Client.UI.DOM;
 using FractalPlatform.Database.Engine;
 using FractalPlatform.Database.Engine.Info;
 using System;
@@ -35,7 +34,7 @@ namespace FractalPlatform.BowlingScores {
                     });
                     break;
                 case @"Score\Scores":
-                    ModifyDocsOf("Scores").OpenForm();
+                    DocsOf("Scores").OpenForm();
                     break;
                 case @"Report\Points":
                     Report("Points");

@@ -87,7 +87,7 @@ namespace FractalPlatform.Diary
 			{
 				case @"Days":
 					{
-						ModifyDocsOf("Days").OpenForm();
+						DocsOf("Days").OpenForm();
 
 						break;
 					}
@@ -108,7 +108,7 @@ namespace FractalPlatform.Diary
 					}
 				case @"Points":
 					{
-						ModifyDocsOf("Points").OpenForm();
+						DocsOf("Points").OpenForm();
 
 						break;
 					}

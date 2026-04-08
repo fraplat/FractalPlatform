@@ -1,4 +1,3 @@
-using FractalPlatform.Client.UI.DOM;
 using System;
 using System.Linq;
 using System.Text;
@@ -219,7 +218,7 @@ namespace FractalPlatform.Cartouche {
         {
             if (Context.UrlTag == "settings")
             {
-                ModifyFirstDocOf("Settings")
+                FirstDocOf("Settings")
                     .OpenForm();
             }
             else
@@ -284,7 +283,7 @@ namespace FractalPlatform.Cartouche {
                     }
                 case @"EditBots":
                     {
-                        ModifyDocsWhere("Users", "{'IsBot':true}")
+                        DocsWhere("Users", "{'IsBot':true}")
                             .SetDimension(DimensionType.Filter, "{}")
                             .ExtendUIDimension("{'Settings':{'Visible':true},'Following':{'Visible':true,'ReadOnly':true}}")
                             .OpenForm();
@@ -448,7 +447,7 @@ namespace FractalPlatform.Cartouche {
                             docID = DocsWhere("Posts", "{'Name':@Name,'OnDate':@OnDate}", nameAndOnDate[0], nameAndOnDate[1])
                                     .GetFirstID();
                                     
-                            ModifyDocsWhere("Posts", docID)
+                            DocsWhere("Posts", docID)
                                 .ExtendUIDimension("{'Style':'Save:Update','IsRawPage':false,'Layout':'','Visible':false,'Text':{'Visible':true},'Picture':{'Visible':true}}")
                                 .OpenForm(result => Dashboard());
 
@@ -457,7 +456,7 @@ namespace FractalPlatform.Cartouche {
                         {
                             docID = info.DocID;
                             
-                            ModifyDocsWhere("Posts", docID)
+                            DocsWhere("Posts", docID)
                                 .ExtendUIDimension("{'Style':'Save:Update','IsRawPage':false,'Layout':'','Visible':false,'Text':{'Visible':true},'Picture':{'Visible':true}}")
                                 .OpenForm();
                         }

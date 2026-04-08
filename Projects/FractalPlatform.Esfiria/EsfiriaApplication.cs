@@ -3,7 +3,6 @@ using System;
 using System.Linq;
 using FractalPlatform.Client.App;
 using FractalPlatform.Client.UI;
-using FractalPlatform.Client.UI.DOM;
 using FractalPlatform.Common.Enums;
 using FractalPlatform.Database.Engine;
 using FractalPlatform.Database.Engine.Info;
@@ -41,7 +40,7 @@ namespace FractalPlatform.Esfiria
             switch (info.Action)
             {
                 case "Tours":
-                    ModifyDocsOf("Tours").OpenForm();
+                    DocsOf("Tours").OpenForm();
                     return true;
                 case "About":
                     NotImplementedMessageBox();
@@ -116,7 +115,7 @@ namespace FractalPlatform.Esfiria
 
                                         AddDoc("Booked", book);
 
-                                        ModifyDocsWhere("Requests", info.AttrPath)
+                                        DocsWhere("Requests", info.AttrPath)
                                             .Update("{'IsBooked':true}");
 
                                         CloseIfOpenedForm("Requests");
@@ -161,7 +160,7 @@ namespace FractalPlatform.Esfiria
                         .OpenForm();
                     return true;
                 case "UserAdmin":
-                    ModifyDocsOf("Users")
+                    DocsOf("Users")
                         .OpenForm();
                     return true;
                 case "Send":
