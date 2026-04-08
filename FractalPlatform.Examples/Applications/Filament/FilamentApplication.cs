@@ -23,7 +23,7 @@ namespace FractalPlatform.Examples.Applications.Filament
                     Count = $"Товарів: {products.Count} штук",
                     Products = products
                 }
-                .ToCollection(Constants.FIRST_DOC_ID)
+                .ToCollection()
                 .SetUIDimension("{'Style':'Hide:Link','ReadOnly':true,'Count':{'ControlType':'Label'},'Names':[{'Link':{'ControlType':'Link'}}]}")
                 .SetDimension(DimensionType.Pagination, "{'Products':{'Page':{'Size':30}}}")
                 .SetDimension(DimensionType.Sort)

@@ -50,7 +50,7 @@ namespace FractalPlatform.Examples.Applications.BTCRateStopLoss
             {
                 USD = GetBTCRate()
             }
-            .ToCollection(Constants.FIRST_DOC_ID)
+            .ToCollection()
             .SetUIDimension("{'Style':'Save:Config;Cancel:Refresh'}")
             .OpenForm(result =>
             {

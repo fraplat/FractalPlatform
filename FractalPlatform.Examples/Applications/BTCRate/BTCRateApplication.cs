@@ -10,7 +10,7 @@ namespace FractalPlatform.Examples.Applications.BTCRate
         private void Rate()
         {
             REST.Get("https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD,EUR")
-                .ToCollection(Constants.FIRST_DOC_ID)
+                .ToCollection()
                 .SetUIDimension("{'ReadOnly':true,'Style':'Cancel:Refresh'}")
                 .SetDimension(DimensionType.Theme, "{'DefaultTheme':'White'}")
                 .OpenForm(result => Rate());
