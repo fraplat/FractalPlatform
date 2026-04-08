@@ -3,7 +3,6 @@ using FractalPlatform.Client.UI;
 using FractalPlatform.Common.Enums;
 using FractalPlatform.Database.Engine.Info;
 using System;
-using System.Threading;
 
 namespace FractalPlatform.Examples.Applications.ManagePasswords
 {
@@ -48,18 +47,12 @@ namespace FractalPlatform.Examples.Applications.ManagePasswords
                         var password = DocsWhere("Passwords", info.AttrPath)
                                          .Value("{'Passwords':[{'Password':$}]}");
 
-                        //Clipboard.SetText(password);
-
                         break;
                     }
                 case "TypePassword":
                     {
                         var password = DocsWhere("Passwords", info.AttrPath)
                                          .Value("{'Passwords':[{'Password':$}]}");
-
-                        Thread.Sleep(5000);
-
-                        //SendText(password);
 
                         break;
                     }
