@@ -14,7 +14,6 @@ namespace FractalPlatform.Examples.Applications.SendTextMessage
                           FirstDocOf("Dashboard")
                                 .Update("{'TextMessages':[Add,{'Provider':'Telegram','Receiver':@Receiver,'Message':@Message,'IsSent':false}]}",
                                         result.Collection
-                                              .GetFirstDoc()
                                               .Values("{'Receiver':$,'Message':$}")
                                               .ToArray());
                       }

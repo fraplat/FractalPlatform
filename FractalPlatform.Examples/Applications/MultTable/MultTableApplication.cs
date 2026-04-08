@@ -46,7 +46,6 @@ namespace FractalPlatform.Examples.Applications.MultTable
                       if (result.Result)
                       {
                           var setting = result.Collection
-                                              .GetFirstDoc()
                                               .SelectOne<Setting>();
 
                           var sbDoc = new StringBuilder();

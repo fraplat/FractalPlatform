@@ -61,7 +61,6 @@ namespace FractalPlatform.Examples.Applications.Electricity
                         if (result.Result)
                         {
                             var gps = result.Collection
-                                            .GetFirstDoc()
                                             .Values("{'Lat':$,'Lng':$}");
 
                             FirstDocOf("Dashboard").Update("{'Map':{'Points':[Add,{'Lat':@Lat,'Lng':@Lng}]}}", gps[0], gps[1]);

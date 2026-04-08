@@ -67,7 +67,6 @@ namespace FractalPlatform.Examples.Applications.OnlineShop
                 case "SearchButton":
                     {
                         var searchText = info.Collection
-                                                  .GetFirstDoc()
                                                   .Value("{'Header':{'SearchText':$}}");
 
                         var categories = DocsWhere("Products", "{'Name':@SearchText}", searchText)
@@ -111,7 +110,6 @@ namespace FractalPlatform.Examples.Applications.OnlineShop
             if (result.Result)
             {
                 var category = result.Collection
-                                     .GetFirstDoc()
                                      .Value("{'Header':{'Category':$}}");
 
                 var filters = result.Collection
@@ -151,8 +149,7 @@ namespace FractalPlatform.Examples.Applications.OnlineShop
             var collection = FirstDocOf("Dashboard")
                                    .ToCollection();
 
-            collection.GetFirstDoc()
-                      .Update("{'Header':{'Category':@Category}}", category);
+            collection.Update("{'Header':{'Category':@Category}}", category);
 
             var filter = DocsWhere("Categories", "{'Name':@Category}", category)
                                .ToStorage("{'Filters':[$]}");

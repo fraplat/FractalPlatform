@@ -57,7 +57,6 @@ namespace FractalPlatform.Examples.Applications.AIToWebApp
 					  uint docID;
 
 					  var appAndQuestion = result.Collection
-												 .GetFirstDoc()
 												 .Values("{'AppName':$,'Question':$}");
 
 					  var query = DocsWhere("Apps", "{'Question':@Question}", appAndQuestion[1]);

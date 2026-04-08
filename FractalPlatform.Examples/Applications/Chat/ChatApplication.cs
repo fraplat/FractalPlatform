@@ -16,7 +16,6 @@ namespace FractalPlatform.Examples.Applications.Chat
                            FirstDocOf("Chats")
                                  .Update("{'Messages':[Add,{'OnDate':@Now,'Who':@Who,'Message':@Message}]}",
                                          result.Collection
-                                               .GetFirstDoc()
                                                .Values("{'Who':$,'Message':$}")
                                                .Select(x => x.Replace("<", "&lt;").Replace(">", "&gt;"))
                                                .ToArray());

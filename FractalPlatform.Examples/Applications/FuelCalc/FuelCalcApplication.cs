@@ -18,7 +18,7 @@ namespace FractalPlatform.Examples.Applications.FuelCalc
             FirstDocOf("Fuel")
                 .OpenForm(result =>
                 {
-                    var prms = result.Collection.GetFirstDoc().SelectOne<Params>();
+                    var prms = result.Collection.SelectOne<Params>();
                     var pricePerKm = prms.ConsumptionPer100Km * prms.PricePerLitter / 100;
 
                     new

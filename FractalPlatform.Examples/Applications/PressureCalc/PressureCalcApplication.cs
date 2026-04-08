@@ -9,7 +9,7 @@ namespace FractalPlatform.Examples.Applications.PressureCalc
             FirstDocOf("Params")
                 .OpenForm(result =>
                 {
-                    var ageAndWeight = result.Collection.GetFirstDoc().IntValues("{'Age':$,'Weight':$}");
+                    var ageAndWeight = result.Collection.IntValues("{'Age':$,'Weight':$}");
 
                     var sistolic = 108 + (0.5 * ageAndWeight[0]) + (0.1 * ageAndWeight[1]);
                     var distolic = 63 + (0.1 * ageAndWeight[0]) + (0.15 * ageAndWeight[1]);

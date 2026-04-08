@@ -32,8 +32,7 @@ namespace FractalPlatform.Seasons
 
             if (collection != null)
             {
-                filters = collection.GetFirstDoc()
-                                    .Values("{'Genre':$,'Year':$,'Country':$}");
+                filters = collection.Values("{'Genre':$,'Year':$,'Country':$}");
 
                 if (filters[0] != "Жанр") query = query.AndWhere("{'Genre':@Genre}", filters[0]);
                 if (filters[1] != "Рік") query = query.AndWhere("{'Year':@Year}", filters[1]);
@@ -233,7 +232,6 @@ namespace FractalPlatform.Seasons
                 case "LoginButton":
                     {
                         var loginAndPass = info.Collection
-                                                    .GetFirstDoc()
                                                     .Values("{'Login':$,'Password':$}");
 
                         if (TryLogin(loginAndPass[0], loginAndPass[1]))

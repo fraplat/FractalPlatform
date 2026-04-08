@@ -234,7 +234,6 @@ namespace FractalPlatform.Examples.Applications.DatingGame
                       {
                           //2. Get participant
                           _myParticipant = result.Collection
-                                             .GetFirstDoc()
                                              .SelectOne<Participant>();
 
                           if (_myParticipant.Questions.Count > MAX_GENDER_QUESTIONS)

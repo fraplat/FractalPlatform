@@ -64,7 +64,6 @@ namespace FractalPlatform.Diary
 			InputBox("Password", "Enter password", result =>
 			{
 				if (result.Collection
-						  .GetFirstDoc()
 						  .IsEquals("{'Password':$}", password))
 				{
 					Context.UrlTag = password;

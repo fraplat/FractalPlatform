@@ -147,7 +147,6 @@ namespace FractalPlatform.Examples.Applications.SiteScanner
                 if (result.Result)
                 {
                     if (result.Collection
-                              .GetFirstDoc()
                               .IsEquals("{'Password':$}", "sc"))
                     {
                         DocsOf("Users").OpenForm();

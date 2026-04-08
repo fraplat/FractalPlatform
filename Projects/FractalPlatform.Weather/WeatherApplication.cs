@@ -68,7 +68,6 @@ namespace FractalPlatform.Weather
                     if (result.Result)
                     {
                         var gps = result.Collection
-                                        .GetFirstDoc()
                                         .Values("{'Map':{'Point':{'Lat':$,'Lng':$}}}");
 
                         _lat = gps[0];
@@ -86,7 +85,6 @@ namespace FractalPlatform.Weather
                 "Key" => _apiKey,
                 _ => REST.Get($"https://maps.googleapis.com/maps/api/geocode/json?latlng={_lat},{_lng}&sensor=true&key={_apiKey}")
                            .ToCollection()
-                           .GetFirstDoc()
                            .Value("{'plus_code':{'compound_code':$}}")
             };
 		

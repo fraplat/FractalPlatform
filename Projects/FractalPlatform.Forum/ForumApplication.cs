@@ -217,7 +217,6 @@ namespace FractalPlatform.Forum
                 case "LoginButton":
                     {
                         var loginAndPass = info.Collection
-                                                    .GetFirstDoc()
                                                     .Values("{'Login':$,'Password':$}");
 
                         if (TryLogin(loginAndPass[0], loginAndPass[1]))

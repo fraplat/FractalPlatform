@@ -11,16 +11,13 @@ namespace FractalPlatform.Examples.Applications.Test
     {
         public override void OnStart()
         {
-            Client.SetDefaultCollection("Dashboard")
-                  .GetFirstDoc()
+            FirstDocOf("Dashboard")
                   .OpenForm();
         }
 
         public override bool OnEventDimension(EventInfo eventInfo)
         {
-            Client.SetDefaultCollection(eventInfo.Action)
-                  .GetFirstDoc()
-                  .WantModifyExistingDocuments()
+            FirstDocOf(eventInfo.Action)
                   .OpenForm();
 
             return true;
