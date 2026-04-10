@@ -14,7 +14,7 @@ Application demonstrates online theatre with series and episodes with next funct
 - User is available to search episodes by name in the search text box
 - User can view an episode in the web browser
 - User can move to the next episode by Next episode button
-- The site remember last episode to continue watching
+- The site remembers last episode to continue watching
 
 ## How it implemented
 

@@ -16,7 +16,7 @@ Application moderates a simple social network with next functionality:
 - Register user
 - Review and edit my user profile
 - Review other user profiles
-- Send Friend request to an user
+- Send Friend request to a user
 - Review Friend requests from other users, accept requests
 - Create a post in Newsline
 - Review in Newsline my posts and posts from my friends

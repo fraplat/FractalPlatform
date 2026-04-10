@@ -8,7 +8,7 @@
 ## Functionality
 
 Application BTC Rate based on REST api call.
-Also in case of exceed limits it sends message to telegram
+Also in case of exceeding limits it sends a message to Telegram
 
 ## How it implemented
 

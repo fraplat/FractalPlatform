@@ -8,7 +8,7 @@
 ## Functionality
 
 Filaments application
-- Scapping web site with filaments
+- Scraping web site with filaments
 - Filter by Color, by Shop
 - View grid of filament products
 

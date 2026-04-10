@@ -11,7 +11,7 @@ Trainer for high school students to learn multiplication table.
 On first stage we should provide settings for trainer: 
    Range of numbers, Shuffle, Amount formulas on each page
 On second stage the student should provide results for formulas
-   If answer is wrong it should be highlited and wrong answer
+   If answer is wrong it should be highlighted and wrong answer
 On third stage if all answers are right 
    should be showed message box that all answers are right
 

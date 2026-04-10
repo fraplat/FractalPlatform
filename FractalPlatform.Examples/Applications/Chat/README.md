@@ -7,7 +7,7 @@
 
 ## Functionality
 
-Application moderates anonimous chat where users can send messages
+Application moderates anonymous chat where users can send messages
 
 ## How it implemented
 

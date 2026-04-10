@@ -7,7 +7,7 @@
 
 ## Functionality
 
-Application moderates the simple backet of supermarket.
+Application moderates the simple basket of supermarket.
 User can login or register in the Supermarket.
 Supermarket stock contains list of products with quantity and prices.
 User can create order with list of products.

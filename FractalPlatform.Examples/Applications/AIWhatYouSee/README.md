@@ -7,7 +7,7 @@
 
 ## Functionality
 
-AI try identify details by the photo
+AI tries to identify details by the photo
 
 ## How it implemented
 

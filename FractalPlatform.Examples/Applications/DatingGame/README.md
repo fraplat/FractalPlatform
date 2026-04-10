@@ -18,7 +18,7 @@ Application moderates multiplayer dating game between boys and girls.
 Details of implementation
 - Server can start infinity parallel games
 - Game is started when we have 3 boys (at least 1) and 3 girls (at least 1)
-- If an user don't want continue game, the game will be continued with rest of participants by timeout (3 minutes)
+- If a user doesn't want to continue the game, the game will be continued with rest of participants by timeout (3 minutes)
 
 ## How it implemented
 

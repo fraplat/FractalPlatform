@@ -8,7 +8,7 @@
 
 ## Functionality
 
-Application creates as wizard with onboarding course 
+Application creates a wizard with onboarding course
 for new users with next functionality:
 
 - Learn basics of Fractal Platform

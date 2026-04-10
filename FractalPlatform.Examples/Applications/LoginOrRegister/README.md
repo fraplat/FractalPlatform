@@ -7,7 +7,7 @@
 
 ## Functionality
 
-Application demonstrates how to works with user credentials
+Application demonstrates how to work with user credentials
 
 ## How it implemented
 

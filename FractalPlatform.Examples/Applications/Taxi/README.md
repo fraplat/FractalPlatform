@@ -13,7 +13,7 @@ Application demonstrates the simple platform for Taxi company with next function
 - Manager can add new taxi routes to dashboard from clients
   Taxi route contains: From point, To point, Price for the trip.
 - A taxi driver can review list of available orders on the dashboard.
-- If a order is interested by place and price, the taxi driver can pick up it.
+- If an order is interesting by place and price, the taxi driver can pick up it.
 - When the order is finished a taxi driver mark this route as completed.
 
 ## How it implemented
