@@ -54,6 +54,14 @@ namespace FractalPlatform.Sandbox
                                  string filter = null,
                                  Action<FormResult> handleResult = null)
         {
+            //auto-close top-level form with the same name (replaces CloseIfOpenedForm pattern)
+            if (HasForms &&
+                ActiveForm.Collection.Name == collection.Name &&
+                ActiveFormParentAttrPath.IsEmpty)
+            {
+                CloseForm();
+            }
+
             bool resultEvent;
 
             if (!_isFormOpening) //avoid recursion in the event. Event can open form
