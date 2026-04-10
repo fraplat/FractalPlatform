@@ -23,8 +23,7 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
                                   .GetWhere(info.AttrPath)
                                   .Value("{'ViewPosts':[{'Who':$}]}");
 
-                var query = DocsWhere("Users", "{'Posts':[{'UID':@UID}]}", uid)
-                                  .WantModifyExistingDocuments();
+                var query = DocsWhere("Users", "{'Posts':[{'UID':@UID}]}", uid);
 
                 if (User.Name == who)
                 {
