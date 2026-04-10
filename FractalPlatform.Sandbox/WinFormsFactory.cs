@@ -53,7 +53,7 @@ namespace FractalPlatform.Sandbox
             }
         }
 
-        public IForm OpenForm(Context context,
+        public bool OpenForm(Context context,
                                  string formName,
                                  string groupBoxName,
                                  Collection collection,
@@ -161,11 +161,11 @@ namespace FractalPlatform.Sandbox
                     }
                 }
 
-                return form.DomForm;
+                return true;
             }
             else
             {
-                return null;
+                return false;
             }
         }
 
