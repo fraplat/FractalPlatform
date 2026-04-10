@@ -260,13 +260,15 @@ namespace FractalPlatform.RealWorld
 
 			var user = DocsWhere("Users", "{'Name':@Name}", userName).ToStorage();
 
-			return FirstDocOf("Profile")
+			FirstDocOf("Profile")
 					.ToCollection()
 					.ExtendDocument(DQL("{'Who':@Who}", userName))
 					.ExtendDocument(user.ToJson())
 					.MergeToArrayPath(posts, "Posts")
 					.SetDimension(DimensionType.Pagination, "{'Posts':{'Page':{'Size':10}}}")
 					.OpenForm();
+
+			return true;
 		}
 
 		private bool Dashboard()
@@ -304,12 +306,14 @@ namespace FractalPlatform.RealWorld
 									 .Take(10)
 									 .Select(x => x.Tag);
 
-			return FirstDocOf("Dashboard")
+			FirstDocOf("Dashboard")
 					.ToCollection()
 					.MergeToArrayPath(posts, "Posts")
 					.MergeToArrayPath(popularTags, "PopularTags")
 					.SetDimension(DimensionType.Pagination, "{'Posts':{'Page':{'Size':10}}}")
 					.OpenForm();
+
+			return true;
 		}
 
 		public override void OnStart()

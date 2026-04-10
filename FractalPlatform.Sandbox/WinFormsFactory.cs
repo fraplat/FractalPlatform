@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using FractalPlatform.Client.App;
 using FractalPlatform.Client.UI.DOM;
 using FractalPlatform.Common.Enums;
-using FractalPlatform.Database.Dimensions.Auth;
 using FractalPlatform.Database.Dimensions.Sync;
 using FractalPlatform.Database.Engine;
 using FractalPlatform.Database.Engine.Info;
@@ -29,7 +27,17 @@ namespace FractalPlatform.Sandbox
 
         private DOMForm ActiveForm => ActiveMainForm?.DomForm;
 
-        public Action<FormResult> ActiveHandleResult => ActiveMainForm.HandleResult;
+        public Action<FormResult> ActiveHandleResult
+        {
+            get
+            { 
+                return ActiveMainForm.HandleResult;
+            }
+            set
+            {
+                ActiveMainForm.HandleResult = value;
+            }
+        }
 
         public Collection ActiveCollection => ActiveForm?.Collection;
 
@@ -45,7 +53,7 @@ namespace FractalPlatform.Sandbox
             }
         }
 
-        public bool OpenForm(Context context,
+        public IForm OpenForm(Context context,
                                  string formName,
                                  string groupBoxName,
                                  Collection collection,
@@ -153,11 +161,11 @@ namespace FractalPlatform.Sandbox
                     }
                 }
 
-                return true;
+                return form.DomForm;
             }
             else
             {
-                return false;
+                return null;
             }
         }
 

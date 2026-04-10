@@ -75,11 +75,15 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
                 DocsWhere("Users", docID)
                       .Update("{'Friends':[Add,{'Name':@UserName,'Approved':false}]}");
 
-                return MessageBox("You have sent friend request.");
+                MessageBox("You have sent friend request.");
+
+                return true;
             }
             else
             {
-                return MessageBox("Your have already sent friend request.");
+                MessageBox("Your have already sent friend request.");
+
+                return false;
             }
         }
 

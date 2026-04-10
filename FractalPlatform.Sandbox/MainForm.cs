@@ -20,7 +20,7 @@ namespace FractalPlatform.Sandbox
 	{
 		public DOMForm DomForm { get; }
 
-		public Action<FormResult> HandleResult { get; }
+		public Action<FormResult> HandleResult { get; set; }
 
 		public MainForm(DOMForm domForm, Action<FormResult> handleResult)
 		{
