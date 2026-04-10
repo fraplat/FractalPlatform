@@ -77,8 +77,6 @@ namespace FractalPlatform.CoffeePoints
 
         private void Dashboard(Storage filter = null)
         {
-            CloseIfOpenedForm("Dashboard");
-
             Storage friends;
             Storage points;
 

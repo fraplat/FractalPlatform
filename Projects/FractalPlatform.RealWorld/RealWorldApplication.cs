@@ -253,8 +253,6 @@ namespace FractalPlatform.RealWorld
 
 		private bool Profile()
 		{
-			CloseIfOpenedForm("Profile");
-
 			var userName = Context.UrlTag;
 
 			var posts = _profileTag == "MyPosts" ? DocsWhere("Articles", "{'Who':@Name}", userName).ToStorage() :
@@ -273,8 +271,6 @@ namespace FractalPlatform.RealWorld
 
 		private bool Dashboard()
 		{
-			CloseIfOpenedForm("Dashboard");
-
 			var globalFeed = DocsOf("Articles")
 									.Select<Article>()
 									.OrderByDescending(x => x.OnDate);

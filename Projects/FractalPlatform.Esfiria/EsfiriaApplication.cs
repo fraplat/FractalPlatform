@@ -117,8 +117,6 @@ namespace FractalPlatform.Esfiria
 
                                         DocsWhere("Requests", info.AttrPath)
                                             .Update("{'IsBooked':true}");
-
-                                        CloseIfOpenedForm("Requests");
                                     }
                                 });
                             }

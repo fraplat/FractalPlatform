@@ -14,8 +14,6 @@ namespace FractalPlatform.Forum
 
         private void Dashboard()
         {
-            CloseIfOpenedForm("Dashboard");
-
             var categories = DocsOf("Categories").ToStorage("{'Title':$,'Description':$,'CountMessages':$,'CountTopics':$,'LastMessage':{'Who':$,'OnDate':$}}");
 
             FirstDocOf("Dashboard")
@@ -27,8 +25,6 @@ namespace FractalPlatform.Forum
 
         private void CategoryDashboard()
         {
-            CloseIfOpenedForm("CategoryDashboard");
-
             var topics = DocsWhere("Topics", "{'Category':@Category}", _category).ToStorage();
 
             FirstDocOf("CategoryDashboard")
@@ -40,8 +36,6 @@ namespace FractalPlatform.Forum
 
         private void TopicDashboard()
         {
-            CloseIfOpenedForm("TopicDashboard");
-
             DocsWhere("Topics", _topicID).Update("{'CountViews':Add(1)}");
 
             var topic = DocsWhere("Topics", _topicID).ToStorage();

@@ -12,8 +12,6 @@ namespace FractalPlatform.Seasons
     {
         private void Dashboard(Collection collection = null)
         {
-            CloseIfOpenedForm("Dashboard");
-
             var query = DocsOf("Movies");
 
             if (Context.HasUrlTag)
@@ -50,8 +48,6 @@ namespace FractalPlatform.Seasons
 
         private void UsersDashboard(string movie = null)
         {
-            CloseIfOpenedForm("UsersDashboard");
-
             Storage users;
 
             if (movie != null)
@@ -73,8 +69,6 @@ namespace FractalPlatform.Seasons
 
         private void MovieDashboard(string name)
         {
-            CloseIfOpenedForm("MovieDashboard");
-
             DocsWhere("Movies", "{'Name':@Name}", name).Update("{'Views':Add(1)}");
 
             var movie = DocsWhere("Movies", "{'Name':@Name}", name).ToStorage();
@@ -100,8 +94,6 @@ namespace FractalPlatform.Seasons
 
         private void ViewUser(string name)
         {
-            CloseIfOpenedForm("User");
-
             DocsWhere("Users", "{'Name':@Name}", name)
             .SetDimension(DimensionType.UI, "{'Layout':'User','IsRawPage':true}")
             .OpenForm();

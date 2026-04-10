@@ -137,16 +137,12 @@ namespace FractalPlatform.Cartouche {
         
         private void OpenPost(uint docID)
         {
-	        CloseIfOpenedForm("Posts");
-
-            DocsWhere("Posts", docID)
+	        DocsWhere("Posts", docID)
                 .OpenForm(result => Dashboard());
         }
 
         private void Dashboard()
         {
-	        CloseIfOpenedForm("Dashboard");
-
 	        //var following = DocsWhere("Users", "{'Name':@UserName}")
 	        //    .Values("{'Following':[$]}");
 

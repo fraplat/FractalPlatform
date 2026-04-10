@@ -14,8 +14,6 @@ namespace FractalPlatform.UTube
     {
         private void Dashboard(string filter = "")
         {
-            CloseIfOpenedForm("Dashboard");
-
             const int topVideos = 8;
 
             var collection = DocsWhere("Channels", "{'IsLocked':false}").ToCollection();
@@ -86,8 +84,6 @@ namespace FractalPlatform.UTube
         
         private void OpenVideo(string uid)
         {
-            CloseIfOpenedForm("VideoDashboard");
-
             Context.UrlTag = uid;
 
             if (!Context.User.IsGuest)
