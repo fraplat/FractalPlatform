@@ -214,78 +214,75 @@ namespace FractalPlatform.Examples.Applications.DatingGame
         {
             //1. Register participant
             FirstDocOf("NewParticipant")
-                  .OpenForm(result =>
+                  .OpenForm(onSave: result =>
                   {
-                      if (result.Result)
+                      //2. Get participant
+                      _myParticipant = result.Collection
+                                         .SelectOne<Participant>();
+
+                      if (_myParticipant.Questions.Count > MAX_GENDER_QUESTIONS)
                       {
-                          //2. Get participant
-                          _myParticipant = result.Collection
-                                             .SelectOne<Participant>();
+                          MessageBox($"You have to ask not more than {MAX_GENDER_QUESTIONS} questions in the game.");
 
-                          if (_myParticipant.Questions.Count > MAX_GENDER_QUESTIONS)
-                          {
-                              MessageBox($"You have to ask not more than {MAX_GENDER_QUESTIONS} questions in the game.");
-
-                              return;
-                          }
-
-                          //3. Try find Pending game
-                          Game[] games;
-
-                          while (true)
-                          {
-                              games = DocsWhere("Games", "{'Status':@Status}", GameStatus.Pending)
-                                            .Select<Game>();
-
-                              foreach (var game in games)
-                              {
-                                  if (game.ExpiredParticipants < DateTime.Now)
-                                  {
-                                      DocsWhere("Games", "{'ID':@ID}", _gameID)
-                                            .Update("{'Status':'Finished'}");
-
-                                      continue;
-                                  }
-                                  else if ((_myParticipant.Gender == GenderType.Boy &&
-                                            game.Boys.Count < MAX_GENDER_PARTICIPANTS) ||
-                                          (_myParticipant.Gender == GenderType.Girl &&
-                                            game.Girls.Count < MAX_GENDER_PARTICIPANTS))
-                                  {
-                                      //game is not full
-                                      _gameID = game.ID;
-
-                                      break;
-                                  }
-                              }
-
-                              if (_gameID > 0)
-                                  break;
-
-                              var newDocID = DocsOf("Games")
-                                                .Count() + 1;
-
-                              //3. Create new game
-                              AddDoc("Games",
-                                    new Game
-                                    {
-                                        ID = newDocID,
-                                        Status = GameStatus.Pending,
-                                        StartDate = DateTime.Now,
-                                        ExpiredParticipants = DateTime.Now.AddMinutes(5),
-                                        ExpiredAnswers = DateTime.Now.AddMinutes(10),
-                                        ExpiredChooses = DateTime.Now.AddMinutes(15),
-                                    });
-                          }
-
-                          //4. Add participant to game
-                          DocsWhere("Games", "{'ID':@ID}", _gameID)
-                                .Update("{@Gender:[Add,@Participant]}",
-                                            _myParticipant.GenderGroup,
-                                            _myParticipant);
-
-                          //5. Check 3+3 participants
-                          StartGame(result);
+                          return;
                       }
+
+                      //3. Try find Pending game
+                      Game[] games;
+
+                      while (true)
+                      {
+                          games = DocsWhere("Games", "{'Status':@Status}", GameStatus.Pending)
+                                        .Select<Game>();
+
+                          foreach (var game in games)
+                          {
+                              if (game.ExpiredParticipants < DateTime.Now)
+                              {
+                                  DocsWhere("Games", "{'ID':@ID}", _gameID)
+                                        .Update("{'Status':'Finished'}");
+
+                                  continue;
+                              }
+                              else if ((_myParticipant.Gender == GenderType.Boy &&
+                                        game.Boys.Count < MAX_GENDER_PARTICIPANTS) ||
+                                      (_myParticipant.Gender == GenderType.Girl &&
+                                        game.Girls.Count < MAX_GENDER_PARTICIPANTS))
+                              {
+                                  //game is not full
+                                  _gameID = game.ID;
+
+                                  break;
+                              }
+                          }
+
+                          if (_gameID > 0)
+                              break;
+
+                          var newDocID = DocsOf("Games")
+                                            .Count() + 1;
+
+                          //3. Create new game
+                          AddDoc("Games",
+                                new Game
+                                {
+                                    ID = newDocID,
+                                    Status = GameStatus.Pending,
+                                    StartDate = DateTime.Now,
+                                    ExpiredParticipants = DateTime.Now.AddMinutes(5),
+                                    ExpiredAnswers = DateTime.Now.AddMinutes(10),
+                                    ExpiredChooses = DateTime.Now.AddMinutes(15),
+                                });
+                      }
+
+                      //4. Add participant to game
+                      DocsWhere("Games", "{'ID':@ID}", _gameID)
+                            .Update("{@Gender:[Add,@Participant]}",
+                                        _myParticipant.GenderGroup,
+                                        _myParticipant);
+
+                      //5. Check 3+3 participants
+                      StartGame(result);
                   });
         }
     }

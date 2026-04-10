@@ -132,7 +132,7 @@ namespace FractalPlatform.Cartouche
         private void OpenPost(uint docID)
         {
             DocsWhere("Posts", docID)
-                .OpenForm(result => Dashboard());
+                .OpenForm(onClose: result => Dashboard());
         }
 
         private void Dashboard()
@@ -411,7 +411,7 @@ namespace FractalPlatform.Cartouche
 
                             DocsWhere("Posts", docID)
                                 .ExtendUIDimension("{'Style':'Save:Update','IsRawPage':false,'Layout':'','Visible':false,'Text':{'Visible':true},'Picture':{'Visible':true}}")
-                                .OpenForm(result => Dashboard());
+                                .OpenForm(onClose: result => Dashboard());
 
                         }
                         else
@@ -467,7 +467,7 @@ namespace FractalPlatform.Cartouche
                                         .GetFirstID();
 
                         DocsWhere("Posts", docID)
-                            .OpenForm(result => Dashboard());
+                            .OpenForm(onClose: result => Dashboard());
 
                         break;
                     }

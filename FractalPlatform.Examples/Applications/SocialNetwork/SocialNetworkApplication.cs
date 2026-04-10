@@ -63,7 +63,7 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
                               .GetFirstID();
 
             return CreateNewDocForArray("NewPost", "Users", "{'Posts':[$]}", docID)
-                    .OpenForm(result => Dashboard());
+                    .OpenForm(onClose: result => Dashboard());
         }
 
         public bool RequestFriend(uint docID)

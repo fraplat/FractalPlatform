@@ -11,7 +11,7 @@ namespace FractalPlatform.Examples.Applications.Filament
     public class FilamentApplication : BaseApplication
     {
         public override void OnStart() =>
-            DocsOf("Shops").OpenForm(result => {
+            DocsOf("Shops").OpenForm(onClose: result => {
                 var attrs = result.Collection.ToAttrList();
                 var shops = attrs.Where(x => x.Key.FirstPath == "Shop" && x.Value.GetBoolValue()).Select(x => x.Key.LastPath);
                 var colors = attrs.Where(x => x.Key.FirstPath == "Color" && x.Value.GetBoolValue()).Select(x => x.Key.LastPath);

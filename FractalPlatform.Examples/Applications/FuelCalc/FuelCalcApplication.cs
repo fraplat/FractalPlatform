@@ -16,7 +16,7 @@ namespace FractalPlatform.Examples.Applications.FuelCalc
 
         public override void OnStart() =>
             FirstDocOf("Fuel")
-                .OpenForm(result =>
+                .OpenForm(onClose: result =>
                 {
                     var prms = result.Collection.SelectOne<Params>();
                     var pricePerKm = prms.ConsumptionPer100Km * prms.PricePerLitter / 100;

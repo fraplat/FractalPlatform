@@ -31,7 +31,7 @@ namespace FractalPlatform.Forum
                 .ToCollection()
                 .RemovePartDocument("{'Topics':$}")
                 .MergeToArrayPath(topics, "Topics", Constants.FIRST_DOC_ID, true)
-                .OpenForm(result => Dashboard());
+                .OpenForm(onClose: result => Dashboard());
         }
 
         private void TopicDashboard()
@@ -44,7 +44,7 @@ namespace FractalPlatform.Forum
                   .ToCollection()
                   .RemovePartDocument("{'Messages':$}")
                   .MergeToPath(topic, _topicID)
-                  .OpenForm(result => CategoryDashboard());
+                  .OpenForm(onClose: result => CategoryDashboard());
         }
 
         public override bool OnOpenForm(FormInfo info)
@@ -186,19 +186,19 @@ namespace FractalPlatform.Forum
                     }
                 case "EditCategories":
                     {
-                        DocsOf("Categories").OpenForm(result => Dashboard());
+                        DocsOf("Categories").OpenForm(onClose: result => Dashboard());
 
                         return true;
                     }
                 case "EditTopics":
                     {
-                        DocsWhere("Topics", "{'Category':@Category}", _category).OpenForm(result => CategoryDashboard());
+                        DocsWhere("Topics", "{'Category':@Category}", _category).OpenForm(onClose: result => CategoryDashboard());
 
                         return true;
                     }
                 case "EditTopic":
                     {
-                        DocsWhere("Topics", _topicID).OpenForm(result => TopicDashboard());
+                        DocsWhere("Topics", _topicID).OpenForm(onClose: result => TopicDashboard());
 
                         return true;
                     }
@@ -269,7 +269,7 @@ namespace FractalPlatform.Forum
 
                         CreateNewDocForArray("NewMessage", "Topics", "{'Messages':[$]}", _topicID)
                               .ExtendDocument("{'Message':@Message}", $"[QUOTE={whoAndMessage[0]}]{whoAndMessage[1]}[/QUOTE]")
-                              .OpenForm(result => TopicDashboard());
+                              .OpenForm(onClose: result => TopicDashboard());
 
                         return true;
                     }

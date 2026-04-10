@@ -150,7 +150,7 @@ namespace FractalPlatform.RealWorld
                 case "Logout":
                     return Logout();
                 case "AddArticle":
-                    return CreateNewDocFor("Post", "Articles").OpenForm(result => Dashboard());
+                    return CreateNewDocFor("Post", "Articles").OpenForm(onClose: result => Dashboard());
                 case "Settings":
                     return DocsWhere("Users", "{'Name':@UserName}").OpenForm();
                 case "AddLike":
@@ -187,7 +187,7 @@ namespace FractalPlatform.RealWorld
                     {
                         return DocsWhere("Articles", info.DocID)
                                 .ExtendUIDimension("{'Layout':'Post'}")
-                                .OpenForm(result => OpenArticle(info.Collection, info.AttrPath));
+                                .OpenForm(onClose: result => OpenArticle(info.Collection, info.AttrPath));
                     }
                 case "RemoveArticle":
                     return DocsWhere("Articles", info.DocID).Remove();

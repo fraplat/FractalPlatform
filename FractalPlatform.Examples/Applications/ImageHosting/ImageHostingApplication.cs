@@ -30,7 +30,7 @@ namespace FractalPlatform.Examples.Applications.ImageHosting
                 .ToCollection(string.Empty)
                 .SetUIDimension("{'Style':'Save:Upload;Cancel:false','Title':{'ControlType':'Label'},'Image':{'ControlType':'UploadFile'},'Captcha':{'Style':'Type:Captcha'}}")
                 .SetDimension(DimensionType.Validation, "{'Image':{'IsRequired':true}}")
-                .OpenForm(result =>
+                .OpenForm(onSave: result =>
                 {
                     Context.UrlTag = result.FindFirstValue("Image");
 

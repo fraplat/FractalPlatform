@@ -75,7 +75,7 @@ namespace FractalPlatform.Examples.Applications.MultTable
 
                       new Collection("Collection", sbDoc.ToString())
                           .SetDimension(DimensionType.Validation, sbVal.ToString())
-                          .OpenForm(handleResult =>
+                          .OpenForm(onClose: handleResult =>
                           {
                               MessageBox("All answers are successful !", "Result");
                           });

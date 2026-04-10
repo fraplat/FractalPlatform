@@ -139,7 +139,7 @@ namespace FractalPlatform.Examples.Applications.RealWorldComparator
 		public override void OnStart()
 		{
 			FirstDocOf("Compare")
-				.OpenForm(result =>
+				.OpenForm(onSave: result =>
 			{
 				var frontend = result.FindFirstValue("Frontend");
 				var backend = result.FindFirstValue("Backend");

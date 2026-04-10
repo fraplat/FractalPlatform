@@ -7,7 +7,7 @@ namespace FractalPlatform.Examples.Applications.Uezjunyka
     {
         public override void OnStart() =>
             CreateNewDocFor("NewUezjunyka", "Uezjunyka")
-                  .OpenForm(result => {
+                  .OpenForm(onClose: result => {
                         MessageBox("Спасибо, Вы зарегестрированы !", "Регистрация",
                                    MessageBoxButtonType.Ok,
                                    result => DocsOf("Uezjunyka").OpenForm());

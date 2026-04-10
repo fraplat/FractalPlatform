@@ -9,20 +9,16 @@ namespace FractalPlatform.Examples.Applications.Chat
     {
         public override void OnStart() =>
             FirstDocOf("Chats")
-                .OpenForm(result =>
-                   {
-                       if (result.Result)
-                       {
-                           FirstDocOf("Chats")
-                                 .Update("{'Messages':[Add,{'OnDate':@Now,'Who':@Who,'Message':@Message}]}",
-                                         result.Collection
-                                               .Values("{'Who':$,'Message':$}")
-                                               .Select(x => x.Replace("<", "&lt;").Replace(">", "&gt;"))
-                                               .ToArray());
-                       }
-
-                       OnStart();
-                   });
+                .OpenForm(onSave: result =>
+                          {
+                              FirstDocOf("Chats")
+                                    .Update("{'Messages':[Add,{'OnDate':@Now,'Who':@Who,'Message':@Message}]}",
+                                            result.Collection
+                                                  .Values("{'Who':$,'Message':$}")
+                                                  .Select(x => x.Replace("<", "&lt;").Replace(">", "&gt;"))
+                                                  .ToArray());
+                          },
+                          onClose: result => OnStart());
         
         public override BaseRenderForm CreateRenderForm(DOMForm form) => new RenderForm(this, form);
     }

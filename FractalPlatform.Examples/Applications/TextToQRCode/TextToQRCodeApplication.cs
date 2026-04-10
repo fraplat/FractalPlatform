@@ -8,7 +8,7 @@ namespace FractalPlatform.Examples.Applications.TextToQRCode
     {
         public override void OnStart() =>
             FirstDocOf("Dashboard")
-                  .OpenForm(result =>
+                  .OpenForm(onSave: result =>
                   {
                       new
                       {

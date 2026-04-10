@@ -66,7 +66,7 @@ namespace FractalPlatform.Examples.Applications.TableToJson
 
         public override void OnStart() =>
             FirstDocOf("Dashboard")
-                  .OpenForm(result =>
+                  .OpenForm(onSave: result =>
                   {
                       var fileName = result.FindFirstValue("Table");
 

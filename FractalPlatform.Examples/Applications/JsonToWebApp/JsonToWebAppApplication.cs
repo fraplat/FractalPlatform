@@ -20,7 +20,7 @@ namespace FractalPlatform.Examples.Applications.JsonToWebApp
 
         public override void OnStart() =>
             FirstDocOf("Dashboard")
-                  .OpenForm(result =>
+                  .OpenForm(onSave: result =>
                   {
                       var json = result.FindFirstValue("JSON");
 
@@ -30,10 +30,10 @@ namespace FractalPlatform.Examples.Applications.JsonToWebApp
                       }
                       .ToCollection(string.Empty)
                       .SetUIDimension("{'Image':{'ControlType':'Picture','Style':'Save:Do Magic !;Cancel:false'}}")
-                      .OpenForm(result => {
+                      .OpenForm(onClose: result => {
                           json.ToCollection()
                               .SetDimension(DimensionType.Theme, "{'DefaultTheme':'LightBlue'}")
-                              .OpenForm(result => OnStart());
+                              .OpenForm(onClose: result => OnStart());
                       });
                   });
     }

@@ -13,7 +13,7 @@ namespace FractalPlatform.Examples.Applications.BTCRate
                 .ToCollection()
                 .SetUIDimension("{'ReadOnly':true,'Style':'Cancel:Refresh'}")
                 .SetDimension(DimensionType.Theme, "{'DefaultTheme':'White'}")
-                .OpenForm(result => Rate());
+                .OpenForm(onClose: result => Rate());
         }
 
         public override void OnStart() => Rate();

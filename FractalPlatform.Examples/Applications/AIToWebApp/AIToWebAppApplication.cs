@@ -50,7 +50,7 @@ namespace FractalPlatform.Examples.Applications.AIToWebApp
                   .ToCollection()
                   .ExtendDocument("{'AppName':@AppName,'Question':@Question}", appName, question)
                   .SetThemeDimension(ThemeType.LightGreen)
-                  .OpenForm(result =>
+                  .OpenForm(onClose: result =>
                   {
                       uint docID;
 

@@ -8,7 +8,7 @@ namespace FractalPlatform.Examples.Applications.PhotoAlbum
     {
         public override void OnStart() => 
             CreateNewDocForArray("NewPhoto", "Photos", "{'Photos':[$]}")
-                .OpenForm(result => FirstDocOf("Photos").OpenForm());
+                .OpenForm(onClose: result => FirstDocOf("Photos").OpenForm());
         
         public override BaseRenderForm CreateRenderForm(DOMForm form) => new RenderForm(this, form);
     }
