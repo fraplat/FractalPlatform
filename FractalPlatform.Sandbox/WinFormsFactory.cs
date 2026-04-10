@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using FractalPlatform.Client.UI;
 using FractalPlatform.Client.UI.DOM;
 using FractalPlatform.Common.Enums;
 using FractalPlatform.Database.Dimensions.Sync;
@@ -60,8 +61,12 @@ namespace FractalPlatform.Sandbox
                                  KeyMap parentKey,
                                  uint docID,
                                  string filter = null,
-                                 Action<FormResult> handleResult = null)
+                                 Action<FormResult> onClose = null,
+                                 Action<FormResult> onSave = null,
+                                 Action<FormResult> onCancel = null)
         {
+            var handleResult = Helpers.GetHandleResult(onClose, onSave, onCancel);
+
             //auto-close top-level form with the same name (replaces CloseIfOpenedForm pattern)
             if (HasForms &&
                 ActiveForm.Collection.Name == collection.Name &&
