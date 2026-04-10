@@ -6,31 +6,37 @@ using System;
 using System.Globalization;
 using System.Linq;
 
-namespace FractalPlatform.BowlingScores {
-    public class BowlingScoresApplication: BaseApplication {
+namespace FractalPlatform.BowlingScores
+{
+    public class BowlingScoresApplication : BaseApplication
+    {
 
         public override void OnStart() => FirstDocOf("Dashboard").OpenForm();
 
-        public override bool OnEventDimension(EventInfo info) {
-            switch (info.AttrPath.ToString()) {
+        public override bool OnEventDimension(EventInfo info)
+        {
+            switch (info.AttrPath.ToString())
+            {
                 case @"Score\NewScore":
-                    FirstDocOf("NewScore").OpenForm(result => {
-                        if (result.Result) {
-                            var data = new {
-                                OnDate = DateTime.Now,
-                                    Image = result.FindFirstValue("Image"),
-                                    Viacheslav = new {
-                                        Points = result.IntValue("{'Scores':{'Viacheslav':{'Points':$}}}"),
-                                            Strikes = result.IntValue("{'Scores':{'Viacheslav':{'Strikes':$}}}")
-                                    },
-                                    Julia = new {
-                                        Points = result.IntValue("{'Scores':{'Julia':{'Points':$}}}"),
-                                            Strikes = result.IntValue("{'Scores':{'Julia':{'Strikes':$}}}")
-                                    }
-                            };
+                    FirstDocOf("NewScore").OpenForm(onSave: result =>
+                    {
+                        var data = new
+                        {
+                            OnDate = DateTime.Now,
+                            Image = result.FindFirstValue("Image"),
+                            Viacheslav = new
+                            {
+                                Points = result.IntValue("{'Scores':{'Viacheslav':{'Points':$}}}"),
+                                Strikes = result.IntValue("{'Scores':{'Viacheslav':{'Strikes':$}}}")
+                            },
+                            Julia = new
+                            {
+                                Points = result.IntValue("{'Scores':{'Julia':{'Points':$}}}"),
+                                Strikes = result.IntValue("{'Scores':{'Julia':{'Strikes':$}}}")
+                            }
+                        };
 
-                            this.AddDoc("Scores", data);
-                        }
+                        AddDoc("Scores", data);
                     });
                     break;
                 case @"Score\Scores":
@@ -47,7 +53,7 @@ namespace FractalPlatform.BowlingScores {
             }
             return true;
         }
-        
+
         private void Report(string type)
         {
             var janeScores = DocsOf("Scores")
@@ -78,7 +84,7 @@ namespace FractalPlatform.BowlingScores {
                     Columns = janeScores.Union(bobScores).ToList()
                 }
             };
-            
+
             chartData.ToCollection("Bowling " + type)
                      .SetUIDimension("{'ReadOnly':true,'Control':{'ControlType':'Chart','Style':'Type:Bar'}}")
                      .OpenForm();

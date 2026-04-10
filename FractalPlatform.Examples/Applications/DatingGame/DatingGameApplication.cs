@@ -26,28 +26,23 @@ namespace FractalPlatform.Examples.Applications.DatingGame
 
             var choosedParticipant = participants.FirstOrDefault(x => x.Name == _myParticipant.Choose);
 
-            if (choosedParticipant != null && 
+            if (choosedParticipant != null &&
                 choosedParticipant.Choose == _myParticipant.Name)
             {
                 //Match !
                 MessageBox("Congratulations, you have MATCH ! Click Ok to show details of your choose",
                            "Match",
                            MessageBoxButtonType.OkCancel,
-                           result => 
+                           onSave: result =>
                            {
-                               if (result.Result)
-                               {
-                                   DocsWhere("Games", "{'ID':@ID,@Gender:[{'Name':@Name}]}",
+                               DocsWhere("Games", "{'ID':@ID,@Gender:[{'Name':@Name}]}",
                                                        _gameID,
                                                        choosedParticipant.GenderGroup,
                                                        choosedParticipant.Name)
                                          .OpenForm(DQL("{@Gender:[!$]}", choosedParticipant.GenderGroup), "Match");
-                               }
-                               else
-                               {
-                                   MessageBox("Game is finished.");
-                               }
-                           });
+                               
+                           },
+                           onCancel: result => MessageBox("Game is finished."));
             }
             else
             {
@@ -100,20 +95,17 @@ namespace FractalPlatform.Examples.Applications.DatingGame
                   .SetDimension(DimensionType.Enum, "{'Choose':{'Items':[@Participants]}}", chooseParticipants)
                   .ExtendDocument("{'Choose':'NoBody'}", _gameID)
                   .OpenForm("{'AnswerQuestions':[{'To':$,'Question':$,'Answer':$}]}",
-                            result =>
+                            onSave: result =>
                             {
-                               if (result.Result)
-                               {
-                                   _myParticipant.Choose = result.Collection
-                                                                 .GetDoc(_gameID)
-                                                                 .Value("{'Choose':$}");
+                                _myParticipant.Choose = result.Collection
+                                                              .GetDoc(_gameID)
+                                                              .Value("{'Choose':$}");
 
-                                   DocsWhere("Games", "{'ID':@ID,@Gender:[{'Name':@Name}]}", _gameID, _myParticipant.GenderGroup, _myParticipant.Name)
-                                         .Update("{@Gender:[{'Choose':@Choose}]}", _myParticipant.GenderGroup, _myParticipant.Choose);
+                                DocsWhere("Games", "{'ID':@ID,@Gender:[{'Name':@Name}]}", _gameID, _myParticipant.GenderGroup, _myParticipant.Name)
+                                      .Update("{@Gender:[{'Choose':@Choose}]}", _myParticipant.GenderGroup, _myParticipant.Choose);
 
-                                   //8. Update choose
-                                   WaitChooses();
-                               }
+                                //8. Update choose
+                                WaitChooses();
                             });
         }
 
@@ -145,13 +137,7 @@ namespace FractalPlatform.Examples.Applications.DatingGame
                   .SetUIDimension("{'Style':'Add:false;Del:false','AnswerQuestions':[{'From':{'Enabled':false},'Question':{'Enabled':false}}]}")
                   .SetDimension(DimensionType.Validation, "{'AnswerQuestions':[{'Answer':{'IsRequired':true}}]}")
                   .OpenForm("{'AnswerQuestions':[{'From':$,'Question':$,'Answer':$}]}",
-                            result =>
-                            {
-                                if (result.Result)
-                                {
-                                    WaitAnswers();
-                                }
-                            });
+                            onSave: result => WaitAnswers());
         }
 
         private void AddQuestion(Participant from, string question, Participant to)

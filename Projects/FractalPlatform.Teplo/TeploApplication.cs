@@ -13,90 +13,84 @@ namespace FractalPlatform.Teplo
     {
         public class Indicator
         {
-            public string Рік {get; set;}
-            public string Місяць {get; set;}
-            public string Квартира {get; set;}
-            public string Показник {get; set;}
+            public string Рік { get; set; }
+            public string Місяць { get; set; }
+            public string Квартира { get; set; }
+            public string Показник { get; set; }
         }
-        
+
         public class Accounts
         {
-            public List<Indicator> Показники {get; set;}
+            public List<Indicator> Показники { get; set; }
         }
-        
+
         public override void OnStart() =>
             UsePassword("c22", () => FirstDocOf("Dashboard")
-                                        .OpenForm(result =>
+                                        .OpenForm(onSave: result =>
                                         {
                                             var year = DateTime.Now.Year;
                                             var month = DateTime.Now.ToString("MMMM", new CultureInfo("uk-UA"));
                                             var apartment = result.Collection.FindFirstValue("Квартира");
                                             var value = result.Collection.FindFirstValue("Показник");
-                                            
+
                                             Log(apartment);
-                                            
-                                            if(result.Result)
+
+                                            var query = DocsWhere("Accounts",
+                                                                 "{'Показники':[{'Рік':@Year,'Місяць':@Month,'Квартира':@Apartment}]}",
+                                                                  year, month, apartment);
+
+                                            if (query.Any())
                                             {
-                                                var query = DocsWhere("Accounts",
-                                                                     "{'Показники':[{'Рік':@Year,'Місяць':@Month,'Квартира':@Apartment}]}",
-                                                                      year, month, apartment);
-                                                             
-                                                if(query.Any())
-                                                {
-                                                    query.Update("{'Показники':[{'Показник':@Value}]}", value);
-                                                    
-                                                    MessageBox("Дякуємо, Ваші показники оновлено !", "Внесення показників", MessageBoxButtonType.Ok);
-                                                }
-                                                else
-                                                {
-                                                    FirstDocOf("Accounts")
-                                                        .Update("{'Показники':[Add,{'Рік':@Year,'Місяць':@Month,'Квартира':@Apartment,'Показник':@Value}]}",
-                                                                 year, month, apartment, value);
-                                                    
-                                                    MessageBox("Дякуємо, Ваші показники внесено !", "Внесення показників", MessageBoxButtonType.Ok);
-                                                }
+                                                query.Update("{'Показники':[{'Показник':@Value}]}", value);
+
+                                                MessageBox("Дякуємо, Ваші показники оновлено !", "Внесення показників", MessageBoxButtonType.Ok);
+                                            }
+                                            else
+                                            {
+                                                FirstDocOf("Accounts")
+                                                    .Update("{'Показники':[Add,{'Рік':@Year,'Місяць':@Month,'Квартира':@Apartment,'Показник':@Value}]}",
+                                                             year, month, apartment, value);
+
+                                                MessageBox("Дякуємо, Ваші показники внесено !", "Внесення показників", MessageBoxButtonType.Ok);
                                             }
                                         }));
-    
+
         private void History()
         {
             FirstDocOf("FilterHistory")
-                .OpenForm(result => 
+                .OpenForm(onSave: result =>
                 {
-                    if(result.Result)
+                    var year = result.FindFirstValue("Рік");
+                    var month = result.FindFirstValue("Місяць");
+                    var apartment = result.FindFirstValue("Квартира");
+
+                    var accounts = FirstDocOf("Accounts")
+                                    .SelectOne<Accounts>();
+
+                    if (accounts.Показники.Any())
                     {
-                        var year = result.FindFirstValue("Рік");
-                        var month = result.FindFirstValue("Місяць");
-                        var apartment = result.FindFirstValue("Квартира");
-                                                            
-                        var accounts = FirstDocOf("Accounts")
-                                        .SelectOne<Accounts>();
-                                                
-                        if(accounts.Показники.Any())
+                        new
                         {
-                            new 
-                            {
-                                Показники = accounts.Показники
-                                                .Where(x => (year == "ВСІ" || x.Рік == year) &&
-                                                 (month == "ВСІ" || x.Місяць == month) &&
-                                                 (apartment == "ВСІ" || x.Квартира == apartment))
-                                                .Select(x => x)
-                            }
-                            .ToCollection("Показники")
-                            .SetUIDimension("{'ReadOnly':true,'Style':'Cancel:Закрити;HasLabel:false;Hide:Number'}")
-                            .OpenForm();
+                            Показники = accounts.Показники
+                                            .Where(x => (year == "ВСІ" || x.Рік == year) &&
+                                             (month == "ВСІ" || x.Місяць == month) &&
+                                             (apartment == "ВСІ" || x.Квартира == apartment))
+                                            .Select(x => x)
                         }
-                        else
-                        {
-                            MessageBox("Немає данних для відображення.",
-                                       "Отримання данних",
-                                       MessageBoxButtonType.Ok,
-                                       result => History());
-                        }
+                        .ToCollection("Показники")
+                        .SetUIDimension("{'ReadOnly':true,'Style':'Cancel:Закрити;HasLabel:false;Hide:Number'}")
+                        .OpenForm();
+                    }
+                    else
+                    {
+                        MessageBox("Немає данних для відображення.",
+                                   "Отримання данних",
+                                   MessageBoxButtonType.Ok,
+                                   result => History());
                     }
                 });
         }
-        
+
         private void NoApartmentsInMonth()
         {
             var year = DateTime.Now.Year;
@@ -115,32 +109,32 @@ namespace FractalPlatform.Teplo
                 MessageBoxButtonType.Ok
             );
         }
-        
+
         public override bool OnEventDimension(EventInfo info)
         {
             var path = info.AttrPath.ToString();
 
-            switch(path)
+            switch (path)
             {
                 case @"History":
-                {
-                    History();
+                    {
+                        History();
 
-                    break;
-                }
+                        break;
+                    }
                 case @"NoApartmentsInMonth":
-                {
-                    NoApartmentsInMonth();
+                    {
+                        NoApartmentsInMonth();
 
-                    break;
-                }
+                        break;
+                    }
                 default:
-                {
-                    return base.OnEventDimension(info);
-                }
+                    {
+                        return base.OnEventDimension(info);
+                    }
             }
 
-             return true;
+            return true;
         }
     }
 }

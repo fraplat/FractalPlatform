@@ -68,58 +68,52 @@ namespace FractalPlatform.Esfiria
                         .ToCollection("Choose a tour")
                         .SetDimension(DimensionType.Enum, "{'Title':{'Items':[@Items]}}", tours)
                         .SetUIDimension("{'Style':'Save:Choose'}")
-                        .OpenForm(result =>
+                        .OpenForm(onSave: result =>
                         {
-                            if (result.Result)
+                            var title = result.FindFirstValue("Title");
+
+                            var tour = DocsWhere("Tours", "{'Title':@Title}", title)
+                                            .SelectOne<Tour>();
+
+                            var periods = tour.Periods.Select(x => $"[{x.FromDate}] - [{x.ToDate}]");
+
+                            new
                             {
-                                var title = result.FindFirstValue("Title");
-
-                                var tour = DocsWhere("Tours", "{'Title':@Title}", title)
-                                                .SelectOne<Tour>();
-
-                                var periods = tour.Periods.Select(x => $"[{x.FromDate}] - [{x.ToDate}]");
-
-                                new
-                                {
-                                    Title = title,
-                                    Period = periods.First(),
-                                }
-                                .ToCollection("Choose a period")
-                                .SetDimension(DimensionType.Enum, "{'Period':{'Items':[@Items]}}", periods)
-                                .SetUIDimension("{'Style':'Save:Book'}")
-                                .OpenForm(result =>
-                                {
-                                    if (result.Result)
-                                    {
-                                        var period = result.FindFirstValue("Period");
-
-                                        var name = info.FindFirstValue("Name");
-                                        var phone = info.FindFirstValue("Phone");
-                                        var email = info.FindFirstValue("Email");
-                                        var description = info.FindFirstValue("Description");
-
-                                        var book = new
-                                        {
-                                            OnDate = DateTime.Now,
-                                            Name = name,
-                                            Phone = phone,
-                                            Email = email,
-                                            Description = description,
-                                            Tour = new
-                                            {
-                                                Code = tour.Code,
-                                                Title = title,
-                                                Period = period,
-                                            }
-                                        };
-
-                                        AddDoc("Booked", book);
-
-                                        DocsWhere("Requests", info.AttrPath)
-                                            .Update("{'IsBooked':true}");
-                                    }
-                                });
+                                Title = title,
+                                Period = periods.First(),
                             }
+                            .ToCollection("Choose a period")
+                            .SetDimension(DimensionType.Enum, "{'Period':{'Items':[@Items]}}", periods)
+                            .SetUIDimension("{'Style':'Save:Book'}")
+                            .OpenForm(onSave: result =>
+                            {
+                                var period = result.FindFirstValue("Period");
+
+                                var name = info.FindFirstValue("Name");
+                                var phone = info.FindFirstValue("Phone");
+                                var email = info.FindFirstValue("Email");
+                                var description = info.FindFirstValue("Description");
+
+                                var book = new
+                                {
+                                    OnDate = DateTime.Now,
+                                    Name = name,
+                                    Phone = phone,
+                                    Email = email,
+                                    Description = description,
+                                    Tour = new
+                                    {
+                                        Code = tour.Code,
+                                        Title = title,
+                                        Period = period,
+                                    }
+                                };
+
+                                AddDoc("Booked", book);
+
+                                DocsWhere("Requests", info.AttrPath)
+                                    .Update("{'IsBooked':true}");
+                            });
                         });
 
                         return true;
@@ -163,26 +157,23 @@ namespace FractalPlatform.Esfiria
                     return true;
                 case "Send":
                     CreateNewDocFor("NewRequest", "Requests")
-                        .OpenForm(result =>
+                        .OpenForm(onSave: result =>
                         {
-                            if (result.Result)
-                            {
-                                var receiver = DocsWhere("Users", "{'Name':'Admin'}")
-                                                .Value("{'Telegram':$}");
+                            var receiver = DocsWhere("Users", "{'Name':'Admin'}")
+                                            .Value("{'Telegram':$}");
 
-                                var description = result.FindFirstValue("Description");
+                            var description = result.FindFirstValue("Description");
 
-                                DocsWhere("Users", "{'Name':'Admin'}")
-                                .Update(@"{'TextMessages':[Add,
+                            DocsWhere("Users", "{'Name':'Admin'}")
+                            .Update(@"{'TextMessages':[Add,
                                             {'Provider':'Telegram',
                                              'Receiver':@Receiver,
                                              'Message':@Message,
                                              'IsSent':false}]}",
-                                        receiver,
-                                        $"You have new request of trip: {description}.");
+                                    receiver,
+                                    $"You have new request of trip: {description}.");
 
-                                MessageBox("Спасибо, Ваш запрос принят в обработку");
-                            }
+                            MessageBox("Спасибо, Ваш запрос принят в обработку");
                         });
                     return true;
                 default:
@@ -204,20 +195,17 @@ namespace FractalPlatform.Esfiria
         {
             if (Context.UrlTag == "admin")
             {
-                InputBox("Password", "Enter password", result =>
+                InputBox("Password", "Enter password", onSave: result =>
                 {
-                    if (result.Result)
-                    {
-                        var currPassword = result.FindFirstValue("Password");
+                    var currPassword = result.FindFirstValue("Password");
 
-                        if (currPassword == "123")
-                        {
-                            AdminDashboard();
-                        }
-                        else
-                        {
-                            MessageBox("Wrong credentials.");
-                        }
+                    if (currPassword == "123")
+                    {
+                        AdminDashboard();
+                    }
+                    else
+                    {
+                        MessageBox("Wrong credentials.");
                     }
                 });
             }

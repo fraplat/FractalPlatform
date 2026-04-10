@@ -7,160 +7,158 @@ using FractalPlatform.Common.Enums;
 
 namespace FractalPlatform.Diary
 {
-	public class DiaryApplication : BaseApplication
-	{
-		private int Calculate(uint docID, Collection collection)
-		{
-			var points = DocsOf("Points")
-							.ToCollection();
+    public class DiaryApplication : BaseApplication
+    {
+        private int Calculate(uint docID, Collection collection)
+        {
+            var points = DocsOf("Points")
+                            .ToCollection();
 
-			var sumPoints = 0;
+            var sumPoints = 0;
 
-			var storage = collection.GetStorage(DimensionType.LifeTime);
+            var storage = collection.GetStorage(DimensionType.LifeTime);
 
-			collection
-				.ResetDimension(DimensionType.LifeTime)
-				.ScanKeysAndValues((attrPath, attrValue) =>
-			{
-				if (attrValue.GetBoolValue())
-				{
-					var currAttrPath = attrPath.Clone();
+            collection
+                .ResetDimension(DimensionType.LifeTime)
+                .ScanKeysAndValues((attrPath, attrValue) =>
+            {
+                if (attrValue.GetBoolValue())
+                {
+                    var currAttrPath = attrPath.Clone();
 
-					currAttrPath.DocID = Constants.FIRST_DOC_ID;
+                    currAttrPath.DocID = Constants.FIRST_DOC_ID;
 
-					sumPoints += points.GetValueByPath(currAttrPath).GetIntValue();
-				}
+                    sumPoints += points.GetValueByPath(currAttrPath).GetIntValue();
+                }
 
-				return true;
-			},
-			docID);
+                return true;
+            },
+            docID);
 
-			collection.SetDimension(DimensionType.LifeTime, storage);
+            collection.SetDimension(DimensionType.LifeTime, storage);
 
-			return sumPoints;
-		}
+            return sumPoints;
+        }
 
-		public override object OnComputedDimension(ComputedInfo info) =>
-			info.Variable switch
-			{
-				"Points" => Calculate(info.DocID, info.Collection),
-				_ => base.OnComputedDimension(info)
-			};
+        public override object OnComputedDimension(ComputedInfo info) =>
+            info.Variable switch
+            {
+                "Points" => Calculate(info.DocID, info.Collection),
+                _ => base.OnComputedDimension(info)
+            };
 
 
-		private void Dashboard() => FirstDocOf("Dashboard").OpenForm();
+        private void Dashboard() => FirstDocOf("Dashboard").OpenForm();
 
-		public override void OnStart()
-		{
-			const string password = "77";
+        public override void OnStart()
+        {
+            const string password = "77";
 
-			if (Context.UrlTag == password)
-			{
-				Dashboard();
+            if (Context.UrlTag == password)
+            {
+                Dashboard();
 
-				return;
-			}
+                return;
+            }
 
-			InputBox("Password", "Enter password", result =>
-			{
-				if (result.Collection
-						  .IsEquals("{'Password':$}", password))
-				{
-					Context.UrlTag = password;
+            InputBox("Password", "Enter password", result =>
+            {
+                if (result.Collection
+                          .IsEquals("{'Password':$}", password))
+                {
+                    Context.UrlTag = password;
 
-					Dashboard();
-				}
-				else
-				{
-					MessageBox("Wrong password");
-				}
-			});
-		}
+                    Dashboard();
+                }
+                else
+                {
+                    MessageBox("Wrong password");
+                }
+            });
+        }
 
-		public override bool OnEventDimension(EventInfo info)
-		{
+        public override bool OnEventDimension(EventInfo info)
+        {
 
-			var path = info.AttrPath.ToString();
+            var path = info.AttrPath.ToString();
 
-			switch (path)
-			{
-				case @"Days":
-					{
-						DocsOf("Days").OpenForm();
+            switch (path)
+            {
+                case @"Days":
+                    {
+                        DocsOf("Days").OpenForm();
 
-						break;
-					}
-				case @"NewDay":
-					{
-						CreateNewDocFor("NewDay", "Days")
-									.OpenForm(result =>
-									{
-										if (result.Result)
-										{
-											var points = Calculate(result.DocID, result.Collection);
+                        break;
+                    }
+                case @"NewDay":
+                    {
+                        CreateNewDocFor("NewDay", "Days")
+                                    .OpenForm(onSave: result =>
+                                    {
+                                        var points = Calculate(result.DocID, result.Collection);
 
-											MessageBox($"Today you have {points} points.", MessageBoxButtonType.Ok);
-										}
-									});
+                                        MessageBox($"Today you have {points} points.", MessageBoxButtonType.Ok);
+                                    });
 
-						break;
-					}
-				case @"Points":
-					{
-						DocsOf("Points").OpenForm();
+                        break;
+                    }
+                case @"Points":
+                    {
+                        DocsOf("Points").OpenForm();
 
-						break;
-					}
-				case @"Report":
-					{
-						var number = 0;
+                        break;
+                    }
+                case @"Report":
+                    {
+                        var number = 0;
 
-						var points = DocsOf("Days")
-									.Values("{'Points':$}")
-									.Select(val => new {
-										X = ++number,
-										Y = double.Parse(val)
-									})
-									.GroupBy(x => x.X / 7,
-											 (k, g) => new 
-											 { 
-												 X = k,
-												 Y = g.Average(x => x.Y)
-											 })
-									.ToList();
-						new
-						{
-							Control = new
-							{
-								Title = new
-								{
-									Name = "My Points",
-									X = "DocID",
-									Y = "Points"
-								},
-								Lines = new[]
-								{
-								new
-								{
-									Name = "Weeks",
-									Points = points
-								}
-							}
-							}
-						}
-						.ToCollection("Report")
-						.SetUIDimension("{'ReadOnly':true,'Control':{'ControlType':'Chart','Style':'Type:LineGraphs'}}")
-						.OpenForm();
+                        var points = DocsOf("Days")
+                                    .Values("{'Points':$}")
+                                    .Select(val => new
+                                    {
+                                        X = ++number,
+                                        Y = double.Parse(val)
+                                    })
+                                    .GroupBy(x => x.X / 7,
+                                             (k, g) => new
+                                             {
+                                                 X = k,
+                                                 Y = g.Average(x => x.Y)
+                                             })
+                                    .ToList();
+                        new
+                        {
+                            Control = new
+                            {
+                                Title = new
+                                {
+                                    Name = "My Points",
+                                    X = "DocID",
+                                    Y = "Points"
+                                },
+                                Lines = new[]
+                                {
+                                new
+                                {
+                                    Name = "Weeks",
+                                    Points = points
+                                }
+                            }
+                            }
+                        }
+                        .ToCollection("Report")
+                        .SetUIDimension("{'ReadOnly':true,'Control':{'ControlType':'Chart','Style':'Type:LineGraphs'}}")
+                        .OpenForm();
 
-						break;
-					}
-				default:
-					{
-						return base.OnEventDimension(info);
-					}
-			}
+                        break;
+                    }
+                default:
+                    {
+                        return base.OnEventDimension(info);
+                    }
+            }
 
-			return true;
-		}
-	}
+            return true;
+        }
+    }
 }

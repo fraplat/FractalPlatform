@@ -13,26 +13,14 @@ namespace FractalPlatform.CoffeePoints
             switch (info.Action)
             {
                 case "Find":
-                    FirstDocOf("Find").OpenForm(result =>
-                    {
-                        if (result.Result)
-                        {
-                            Dashboard(result.Collection.DocumentStorage);
-                        }
-                    });
+                    FirstDocOf("Find").OpenForm(onSave: result => Dashboard(result.Collection.DocumentStorage));
                     return true;
                 case "Propose":
                     CreateNewDocFor("NewPropose", "Proposes")
-                        .OpenForm(result =>
-                        {
-                            if (result.Result)
-                            {
-                                MessageBox("Thank you, we added your proposition.",
-                                       "Information",
-                                       MessageBoxButtonType.Ok,
-                                       result => Dashboard());
-                            }
-                        });
+                        .OpenForm(onSave: result => MessageBox("Thank you, we added your proposition.",
+                                                                "Information",
+                                                                MessageBoxButtonType.Ok,
+                                                                result => Dashboard()));
                     return true;
                 default:
                     return base.OnEventDimension(info);

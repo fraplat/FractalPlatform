@@ -107,41 +107,38 @@ namespace FractalPlatform.Examples.Applications.OnlineShop
 
         public void Filter(FormResult result)
         {
-            if (result.Result)
+            var category = result.Collection
+                                 .Value("{'Header':{'Category':$}}");
+
+            var filters = result.Collection
+                                 .GetWhere("{'Filters':[{'Checked':true}]}")
+                                 .Values("{'Filters':[{'Query':$}]}");
+
+            Storage products;
+
+            if (filters.Count > 0)
             {
-                var category = result.Collection
-                                     .Value("{'Header':{'Category':$}}");
+                var orQuery = DocsWhere("Products", filters[0]);
 
-                var filters = result.Collection
-                                     .GetWhere("{'Filters':[{'Checked':true}]}")
-                                     .Values("{'Filters':[{'Query':$}]}");
-
-                Storage products;
-
-                if (filters.Count > 0)
+                for (int i = 1; i < filters.Count; i++)
                 {
-                    var orQuery = DocsWhere("Products", filters[0]);
-
-                    for (int i = 1; i < filters.Count; i++)
-                    {
-                        orQuery.OrWhere(filters[i]);
-                    }
-
-                    products = DocsWhere("Products", "{'Categories':[Any,@Category]}", category)
-                                     .AndWhere(orQuery)
-                                     .ToStorage();
-                }
-                else
-                {
-                    products = DocsWhere("Products", "{'Categories':[Any,@Category]}", category)
-                                     .ToStorage();
+                    orQuery.OrWhere(filters[i]);
                 }
 
-                result.Collection
-                      .DeleteByParent("Products")
-                      .MergeToArrayPath(products, "Products")
-                      .OpenForm(Filter);
+                products = DocsWhere("Products", "{'Categories':[Any,@Category]}", category)
+                                 .AndWhere(orQuery)
+                                 .ToStorage();
             }
+            else
+            {
+                products = DocsWhere("Products", "{'Categories':[Any,@Category]}", category)
+                                 .ToStorage();
+            }
+
+            result.Collection
+                  .DeleteByParent("Products")
+                  .MergeToArrayPath(products, "Products")
+                  .OpenForm(onSave: Filter);
         }
 
         public void OpenCategory(string category)
@@ -155,11 +152,11 @@ namespace FractalPlatform.Examples.Applications.OnlineShop
                                .ToStorage("{'Filters':[$]}");
 
             collection.MergeToPath(filter)
-                      .OpenForm(Filter);
+                      .OpenForm(onSave: Filter);
         }
 
         public override void OnStart() => OpenCategory("Cars");
-        
+
         public override BaseRenderForm CreateRenderForm(DOMForm form) => new RenderForm(this, form);
     }
 }

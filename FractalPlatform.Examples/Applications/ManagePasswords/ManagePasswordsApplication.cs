@@ -10,31 +10,26 @@ namespace FractalPlatform.Examples.Applications.ManagePasswords
     {
         public override void OnStart() =>
             this.InputBox("EncryptPassword",
-                          null,
-                          result =>
+                          onSave: result =>
                           {
-                              if (result.Result)
+                              var password = result.FindFirstValue("EncryptPassword");
+
+                              if (password?.Length >= 6)
                               {
-                                  var password = result.FindFirstValue("EncryptPassword");
+                                  Client.SetDefaultCollection("Passwords")
+                                        .SetDefaultDimension(DimensionType.Encryption)
+                                        .GetBaseDoc()
+                                        .Update("{'EncryptPassword':@Password}", password);
 
-                                  if (password?.Length >= 6)
-                                  {
-                                      Client.SetDefaultCollection("Passwords")
-                                            .SetDefaultDimension(DimensionType.Encryption)
-                                            .GetBaseDoc()
-                                            .Update("{'EncryptPassword':@Password}", password);
-
-                                      FirstDocOf("Passwords")
-                                            .OpenForm();
-                                  }
-                                  else
-                                  {
-                                      MessageBox("Password should be more than 6 symbols.",
-                                                 "Wrong password length",
-                                                 MessageBoxButtonType.Cancel,
-                                                 result => OnStart());
-                                  }
-
+                                  FirstDocOf("Passwords")
+                                        .OpenForm();
+                              }
+                              else
+                              {
+                                  MessageBox("Password should be more than 6 symbols.",
+                                             "Wrong password length",
+                                             MessageBoxButtonType.Cancel,
+                                             result => OnStart());
                               }
                           });
 

@@ -64,17 +64,15 @@ namespace FractalPlatform.Weather
             {
                 FirstDocOf("ChooseLocation")
                 .ExtendDocument("{'Map':{'Center':{'Lat':@Lat,'Lng':@Lng},'Point':{'Lat':@Lat,'Lng':@Lng}}}", _lat, _lng)
-                .OpenForm(result => {
-                    if (result.Result)
-                    {
-                        var gps = result.Collection
-                                        .Values("{'Map':{'Point':{'Lat':$,'Lng':$}}}");
+                .OpenForm(onSave: result =>
+                {
+                    var gps = result.Collection
+                                    .Values("{'Map':{'Point':{'Lat':$,'Lng':$}}}");
 
-                        _lat = gps[0];
-                        _lng = gps[1];
+                    _lat = gps[0];
+                    _lng = gps[1];
 
-                        Weather();
-                    }
+                    Weather();
                 });
             });
         }
@@ -87,7 +85,7 @@ namespace FractalPlatform.Weather
                            .ToCollection()
                            .Value("{'plus_code':{'compound_code':$}}")
             };
-		
-		public override void OnStart() => Weather();
+
+        public override void OnStart() => Weather();
     }
 }

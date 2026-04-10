@@ -142,16 +142,15 @@ namespace FractalPlatform.Examples.Applications.SiteScanner
         }
 
         public override void OnStart() =>
-            InputBox("Password", "Enter password", result =>
-            {
-                if (result.Result)
-                {
-                    if (result.Collection
-                              .IsEquals("{'Password':$}", "sc"))
-                    {
-                        DocsOf("Users").OpenForm();
-                    }
-                }
-            });
+            InputBox("Password",
+                     "Enter password",
+                     onSave: result =>
+                            {
+                                if (result.Collection
+                                          .IsEquals("{'Password':$}", "sc"))
+                                {
+                                    DocsOf("Users").OpenForm();
+                                }
+                            });
     }
 }

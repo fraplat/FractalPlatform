@@ -24,8 +24,8 @@ namespace FractalPlatform.UTube
             var allChannels = collection.GetAll().Select<ChannelInfo>();
 
             IEnumerable<VideoInfo> newVideos;
-			IEnumerable<VideoInfo> subscribes;
-			IEnumerable<VideoInfo> recommendations;
+            IEnumerable<VideoInfo> subscribes;
+            IEnumerable<VideoInfo> recommendations;
 
             if (!Context.User.IsGuest)
             {
@@ -79,9 +79,9 @@ namespace FractalPlatform.UTube
         }
 
         public override void OnLogin(FormResult result) => Dashboard();
-        
+
         public override void OnRegister(FormResult result) => Dashboard();
-        
+
         private void OpenVideo(string uid)
         {
             Context.UrlTag = uid;
@@ -105,7 +105,7 @@ namespace FractalPlatform.UTube
             var query = DocsWhere("Channels", "{'Videos':[{'UID':@UID}]}", uid);
             var channel = query.ToStorage("{'Name':$,'Photo':$}");
             var video = query.ToStorage("{'Videos':[!$]}");
-            
+
             FirstDocOf("VideoDashboard")
                 .ToCollection()
                 .MergeToPath(video)
@@ -188,7 +188,7 @@ namespace FractalPlatform.UTube
                     {
                         return Context.User.Name.ToUpper().Substring(0, 2);
                     }
-                case "CountLikes": 
+                case "CountLikes":
                     {
                         return DocsWhere("Channels", info.AttrPath).Count("{'Videos':[{'Likes':[$]}]}") - 1;
                     }
@@ -286,13 +286,7 @@ namespace FractalPlatform.UTube
                 case "NewChannel":
                     {
                         CreateNewDocFor("NewChannel", "Channels")
-                        .OpenForm(result =>
-                        {
-                            if (result.Result)
-                            {
-                                MessageBox("Thank you ! New channel created.");
-                            }
-                        });
+                        .OpenForm(onSave: result => MessageBox("Thank you ! New channel created."));
 
                         return true;
                     }
@@ -323,14 +317,12 @@ namespace FractalPlatform.UTube
                         MessageBox("Are you sure to clear history?",
                                    "Clear history",
                                    MessageBoxButtonType.YesNo,
-                                   result => {
-                                       if (result.Result)
-                                       {
-                                           DocsWhere("Users", "{'Name':@UserName}")
-                                           .Delete("{'History':[$]}");
+                                   onSave: result =>
+                                   {
+                                       DocsWhere("Users", "{'Name':@UserName}")
+                                       .Delete("{'History':[$]}");
 
-                                           Dashboard();
-                                       }
+                                       Dashboard();
                                    });
 
                         return true;
@@ -386,7 +378,7 @@ namespace FractalPlatform.UTube
                     {
                         var uid = info.FindFirstValue("UID");
 
-                        if(!DocsWhere("Channels", "{'Videos':[{'UID':@UID,'Likes':[Any,@UserName]}]}", uid).Any())
+                        if (!DocsWhere("Channels", "{'Videos':[{'UID':@UID,'Likes':[Any,@UserName]}]}", uid).Any())
                         {
                             DocsWhere("Channels", "{'Videos':[{'UID':@UID}]}", uid)
                                 .Update("{'Videos':[{'Likes':[Add,@UserName]}]}");

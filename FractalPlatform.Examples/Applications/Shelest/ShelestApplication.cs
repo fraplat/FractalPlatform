@@ -105,14 +105,11 @@ namespace FractalPlatform.Examples.Applications.Shelest
             .SetDimension(DimensionType.Enum, "{'Adults':{'Items':[1,2,3]},'Nights':{'Items':[1,2,3,4,5,6,7]}}")
             .SetDimension(DimensionType.Validation, "{'ScanDays':{'MinValue':1,'MaxValue':30}}")
             .SetThemeDimension(ThemeType.LightGreen)
-            .OpenForm(result => 
+            .OpenForm(onSave: result =>
             {
-                if (result.Result)
-                {
-                    var vals = result.FindFirstValues("Nights", "Adults", "ScanDays");
-                    
-                    Dashboard(int.Parse(vals[0]), int.Parse(vals[1]), int.Parse(vals[2]));
-                }
+                var vals = result.FindFirstValues("Nights", "Adults", "ScanDays");
+
+                Dashboard(int.Parse(vals[0]), int.Parse(vals[1]), int.Parse(vals[2]));
             });
         }
 

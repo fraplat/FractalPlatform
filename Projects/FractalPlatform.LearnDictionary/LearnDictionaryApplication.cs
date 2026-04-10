@@ -51,7 +51,7 @@ namespace FractalPlatform.LearnDictionary
 
                         var answer = AI.Generate($"Create a micro text with 3-4 simple sentences with phrase: {word}. These sentences should be imagined about me and my life: {aboutMe}", AIModel.GPT4oMini);
                         var text = answer.Text;
-                        
+
                         //test
 
                         text = text.Replace(word, $"<b>{word}</b>");
@@ -65,13 +65,10 @@ namespace FractalPlatform.LearnDictionary
                         MessageBox("Are you sure you want to reset learned words?",
                                    "Reset",
                                    MessageBoxButtonType.YesNo,
-                                   result =>
+                                   onSave: result =>
                         {
-                            if (result.Result)
-                            {
-                                DocsWhere("Words", "{'Words':[{'IsLearned':true,'IsArchived':false}]}")
-                                    .Update("{'Words':[{'IsLearned':false}]}");
-                            }
+                            DocsWhere("Words", "{'Words':[{'IsLearned':true,'IsArchived':false}]}")
+                                .Update("{'Words':[{'IsLearned':false}]}");
                         });
 
                         break;
@@ -95,13 +92,10 @@ namespace FractalPlatform.LearnDictionary
                         MessageBox("Are you sure you want to archive learned words?",
                                    "Reset",
                                    MessageBoxButtonType.YesNo,
-                                   result =>
+                                   onSave: result =>
                         {
-                            if (result.Result)
-                            {
                                 DocsWhere("Words", "{'Words':[{'IsLearned':true}]}")
                                     .Update("{'Words':[{'IsArchived':true}]}");
-                            }
                         });
 
                         break;

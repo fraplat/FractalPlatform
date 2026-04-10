@@ -56,17 +56,14 @@ namespace FractalPlatform.Examples.Applications.Electricity
             switch (info.Action)
             {
                 case "NewLocation":
-                    CreateNewDocFor("NewLocation", "Locations").OpenForm(result =>
+                    CreateNewDocFor("NewLocation", "Locations").OpenForm(onSave: result =>
                     {
-                        if (result.Result)
-                        {
-                            var gps = result.Collection
-                                            .Values("{'Lat':$,'Lng':$}");
+                        var gps = result.Collection
+                                        .Values("{'Lat':$,'Lng':$}");
 
-                            FirstDocOf("Dashboard").Update("{'Map':{'Points':[Add,{'Lat':@Lat,'Lng':@Lng}]}}", gps[0], gps[1]);
+                        FirstDocOf("Dashboard").Update("{'Map':{'Points':[Add,{'Lat':@Lat,'Lng':@Lng}]}}", gps[0], gps[1]);
 
-                            result.NeedReloadData = true;
-                        }
+                        result.NeedReloadData = true;
                     });
                     return true;
                 case "Locations":

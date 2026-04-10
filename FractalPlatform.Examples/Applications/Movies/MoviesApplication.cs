@@ -95,13 +95,7 @@ namespace FractalPlatform.Examples.Applications.Movies
             {
                 FirstDocOf("Series")
                   .ExtendDocument(obj.ToJson())
-                  .OpenForm(result =>
-                  {
-                      if (!result.Result)
-                      {
-                          _lastEpisode = null;
-                      }
-                  });
+                  .OpenForm(onCancel: result => _lastEpisode = null);
             }
         }
 

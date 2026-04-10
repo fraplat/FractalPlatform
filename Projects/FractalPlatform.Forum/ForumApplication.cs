@@ -232,15 +232,13 @@ namespace FractalPlatform.Forum
                 case "NewTopic":
                     {
                         CreateNewDocFor("NewTopic", "Topics")
-                              .OpenForm(result => {
-                                  if (result.Result)
-                                  {
-                                      Client.SetDefaultCollection("Categories")
-                                            .GetWhere("{'Title':@Title}", _category)
-                                            .Update("{'LastMessage':{'Who':@UserName,'OnDate':@Now},'CountTopics':Add(1)}");
+                              .OpenForm(onSave: result =>
+                              {
+                                  Client.SetDefaultCollection("Categories")
+                                        .GetWhere("{'Title':@Title}", _category)
+                                        .Update("{'LastMessage':{'Who':@UserName,'OnDate':@Now},'CountTopics':Add(1)}");
 
-                                      CategoryDashboard();
-                                  }
+                                  CategoryDashboard();
                               });
 
                         return true;
@@ -248,19 +246,17 @@ namespace FractalPlatform.Forum
                 case "NewMessage":
                     {
                         CreateNewDocForArray("NewMessage", "Topics", "{'Messages':[$]}", _topicID)
-                              .OpenForm(result => {
-                                  if (result.Result)
-                                  {
-                                      Client.SetDefaultCollection("Categories")
-                                            .GetWhere("{'Title':@Title}", _category)
-                                            .Update("{'LastMessage':{'Who':@UserName,'OnDate':@Now},'CountMessages':Add(1)}");
+                              .OpenForm(onSave: result =>
+                              {
+                                  Client.SetDefaultCollection("Categories")
+                                        .GetWhere("{'Title':@Title}", _category)
+                                        .Update("{'LastMessage':{'Who':@UserName,'OnDate':@Now},'CountMessages':Add(1)}");
 
-                                      Client.SetDefaultCollection("Topics")
-                                            .GetDoc(_topicID)
-                                            .Update("{'LastMessage':{'Who':@UserName,'OnDate':@Now},'CountMessages':Add(1)}");
+                                  Client.SetDefaultCollection("Topics")
+                                        .GetDoc(_topicID)
+                                        .Update("{'LastMessage':{'Who':@UserName,'OnDate':@Now},'CountMessages':Add(1)}");
 
-                                      TopicDashboard();
-                                  }
+                                  TopicDashboard();
                               });
 
                         return true;

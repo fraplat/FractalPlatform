@@ -10,7 +10,8 @@ using FractalPlatform.Client.UI;
 using FractalPlatform.Common.Clients;
 using FractalPlatform.Common.Enums;
 
-namespace FractalPlatform.Cartouche {
+namespace FractalPlatform.Cartouche
+{
     public class CartoucheApplication : DashboardApplication
     {
         public class Comment
@@ -75,7 +76,7 @@ namespace FractalPlatform.Cartouche {
                 get;
                 set;
             }
-            
+
             public string EditPost
             {
                 get;
@@ -124,90 +125,83 @@ namespace FractalPlatform.Cartouche {
         private void NewPost()
         {
             CreateNewDocFor("NewPost", "Posts")
-                        .OpenForm(result =>
-                        {
-                            if (result.Result)
-                            {
-                                ProcessBots(result.TargetDocID);
-                            }
-
-                            Dashboard();
-                        });
+                        .OpenForm(onSave: result => ProcessBots(result.TargetDocID),
+                                  onClose: result => Dashboard());
         }
-        
+
         private void OpenPost(uint docID)
         {
-	        DocsWhere("Posts", docID)
+            DocsWhere("Posts", docID)
                 .OpenForm(result => Dashboard());
         }
 
         private void Dashboard()
         {
-	        //var following = DocsWhere("Users", "{'Name':@UserName}")
-	        //    .Values("{'Following':[$]}");
+            //var following = DocsWhere("Users", "{'Name':@UserName}")
+            //    .Values("{'Following':[$]}");
 
-	        //following.Add(Context.User.Name);
+            //following.Add(Context.User.Name);
 
-	        var pageSize = 30U;
+            var pageSize = 30U;
 
-	        var lastDocID = DocsOf("Posts").GetLastID();
+            var lastDocID = DocsOf("Posts").GetLastID();
 
-	        var skip = 0U;
+            var skip = 0U;
 
-	        if (lastDocID > pageSize)
-	        {
-		        skip = lastDocID - pageSize;
-	        }
+            if (lastDocID > pageSize)
+            {
+                skip = lastDocID - pageSize;
+            }
 
             var page = 0U;
 
-            if(Context.HasUrlTag)
+            if (Context.HasUrlTag)
             {
                 page = uint.Parse(Context.UrlTag) - 1;
             }
-            
-            if(skip >= page * pageSize)
+
+            if (skip >= page * pageSize)
             {
                 skip -= page * pageSize;
             }
 
-	        //var posts = DocsWhere("Posts", "{'Name':Any(@Following)}", following)
-	        var posts = DocsOf("Posts")
-		        .Skip(skip)
-		        .Take(pageSize)
-		        .Select<Post>()
-		        .Select(x => new
-		        {
-			        Name = x.Name,
-			        FullName = x.FullName,
-			        Text = x.Text,
-			        Picture = x.Picture,
-			        Avatar = x.Avatar,
-			        OnDate = x.OnDate,
-			        LikePost = x.LikePost,
-			        EditPost = x.Name == Context.User.Name ? "Edit Post" : null,
-			        Likes = x.Likes.Count,
-			        Comments = x.Comments.Count
-		        })
-		        .Reverse()
-		        .ToList();
+            //var posts = DocsWhere("Posts", "{'Name':Any(@Following)}", following)
+            var posts = DocsOf("Posts")
+                .Skip(skip)
+                .Take(pageSize)
+                .Select<Post>()
+                .Select(x => new
+                {
+                    Name = x.Name,
+                    FullName = x.FullName,
+                    Text = x.Text,
+                    Picture = x.Picture,
+                    Avatar = x.Avatar,
+                    OnDate = x.OnDate,
+                    LikePost = x.LikePost,
+                    EditPost = x.Name == Context.User.Name ? "Edit Post" : null,
+                    Likes = x.Likes.Count,
+                    Comments = x.Comments.Count
+                })
+                .Reverse()
+                .ToList();
 
-	        if (!posts.Any())
-	        {
-		        NewPost();
+            if (!posts.Any())
+            {
+                NewPost();
 
-		        return;
-	        }
+                return;
+            }
 
-	        var values = DocsWhere("Users", "{'Name':@UserName}")
-			        		.Values("{'FullName':$,'Avatar':$}");
+            var values = DocsWhere("Users", "{'Name':@UserName}")
+                            .Values("{'FullName':$,'Avatar':$}");
 
-	        FirstDocOf("Dashboard")
-		        .ToCollection()
-		        .DeleteByParent("Posts")
-		        .ExtendDocument("{'FullName':@FullName,'Avatar':@Avatar}", values[0], values[1])
-		        .MergeToArrayPath(posts, "Posts", Constants.FIRST_DOC_ID, true)
-		        .OpenForm();
+            FirstDocOf("Dashboard")
+                .ToCollection()
+                .DeleteByParent("Posts")
+                .ExtendDocument("{'FullName':@FullName,'Avatar':@Avatar}", values[0], values[1])
+                .MergeToArrayPath(posts, "Posts", Constants.FIRST_DOC_ID, true)
+                .OpenForm();
         }
 
         public override void OnStart()
@@ -237,36 +231,20 @@ namespace FractalPlatform.Cartouche {
                 case @"Register":
                     {
                         CreateNewDocFor("NewUser", "Users")
-                            .OpenForm(result =>
-                            {
-                                if (result.Result)
-                                {
-                                    MessageBox("You are registered !", MessageBoxButtonType.Ok, result => Login());
-                                }
-                                else
-                                {
-                                    Login();
-                                }
-                            });
+                            .OpenForm(onSave: result => MessageBox("You are registered !", MessageBoxButtonType.Ok, result => Login()),
+                                      onCancel: result => Login());
 
                         break;
                     }
                 case @"EditUser":
                     {
                         DocsWhere("Users", "{'Name':@UserName}")
-                            .OpenForm(result =>
-                            {
-                                if (result.Result)
-                                {
-                                    Context.User.Avatar = result.FindFirstValue("Avatar");
-                                }
-                            });
+                            .OpenForm(onSave: result => Context.User.Avatar = result.FindFirstValue("Avatar"));
 
                         break;
                     }
                 case @"SignOut":
                     {
-
                         Logout();
 
                         break;
@@ -291,20 +269,8 @@ namespace FractalPlatform.Cartouche {
                         CreateNewDocFor("NewUser", "Users")
                             .ExtendDocument("{'IsBot':true}")
                             .ExtendUIDimension("{'Style':'Save:Create;CollLabel:New bot','Category':{'Visible':true},'Prompt':{'Visible':true},'Settings':{'Visible':true},'Password':{'Visible':false}}")
-                            .OpenForm(result =>
-                            {
-                                if (result.Result)
-                                {
-                                    MessageBox("You are added new bot !",
-                                               MessageBoxButtonType.Ok,
-                                               result => Dashboard());
-                                }
-                                else
-                                {
-                                    Dashboard();
-                                }
-                            });
-
+                            .OpenForm(onSave: result => MessageBox("You are added new bot !", MessageBoxButtonType.Ok, result => Dashboard()),
+                                      onCancel: result => Dashboard());
                         break;
                     }
                 case @"NewComment":
@@ -366,7 +332,7 @@ namespace FractalPlatform.Cartouche {
                         }
 
                         OpenPost(info.DocID);
-                        
+
                         break;
                     }
                 case @"Reply":
@@ -433,7 +399,7 @@ namespace FractalPlatform.Cartouche {
                 case @"EditPost":
                     {
                         uint docID;
-                        
+
                         if (info.Collection.Name == "Dashboard")
                         {
                             var nameAndOnDate = info.Collection
@@ -442,7 +408,7 @@ namespace FractalPlatform.Cartouche {
 
                             docID = DocsWhere("Posts", "{'Name':@Name,'OnDate':@OnDate}", nameAndOnDate[0], nameAndOnDate[1])
                                     .GetFirstID();
-                                    
+
                             DocsWhere("Posts", docID)
                                 .ExtendUIDimension("{'Style':'Save:Update','IsRawPage':false,'Layout':'','Visible':false,'Text':{'Visible':true},'Picture':{'Visible':true}}")
                                 .OpenForm(result => Dashboard());
@@ -451,12 +417,12 @@ namespace FractalPlatform.Cartouche {
                         else
                         {
                             docID = info.DocID;
-                            
+
                             DocsWhere("Posts", docID)
                                 .ExtendUIDimension("{'Style':'Save:Update','IsRawPage':false,'Layout':'','Visible':false,'Text':{'Visible':true},'Picture':{'Visible':true}}")
                                 .OpenForm();
                         }
-                        
+
                         DocsWhere("Posts", docID)
                             .Update("{'OnDate':@Now}");
 
@@ -470,26 +436,23 @@ namespace FractalPlatform.Cartouche {
                         FirstDocOf("NewComment")
                             .ExtendDocument("{'Text':@Text}", text)
                             .ExtendUIDimension("{'Style':'CollLabel:Update comment;Save:Update'}")
-                            .OpenForm(result => 
+                            .OpenForm(onSave: result =>
                             {
-                                if(result.Result) 
+                                var text = result.FindFirstValue("Text");
+                                var picture = result.FindFirstValue("Picture");
+
+                                if (string.IsNullOrEmpty(picture))
                                 {
-                                    var text = result.FindFirstValue("Text");
-                                    var picture = result.FindFirstValue("Picture");
-
-                                    if (string.IsNullOrEmpty(picture))
-                                    {
-                                        DocsWhere("Posts", info.AttrPath)
-                                            .Update("{'Comments':[{'Text':@Text}]}", text);
-                                    }
-                                    else
-                                    {
-                                        DocsWhere("Posts", info.AttrPath)
-                                            .Update("{'Comments':[{'Text':@Text,'Picture':@Picture}]}", text, picture);
-                                    }
-
-                                    result.NeedReloadData = true;
+                                    DocsWhere("Posts", info.AttrPath)
+                                        .Update("{'Comments':[{'Text':@Text}]}", text);
                                 }
+                                else
+                                {
+                                    DocsWhere("Posts", info.AttrPath)
+                                        .Update("{'Comments':[{'Text':@Text,'Picture':@Picture}]}", text, picture);
+                                }
+
+                                result.NeedReloadData = true;
                             });
 
                         break;
@@ -548,9 +511,9 @@ namespace FractalPlatform.Cartouche {
                     {
                         var name = DocsWhere("Posts", info.AttrPath)
                                         .Value("{'Name':$}");
-                                        
+
                         result = (name == Context.User.Name);
-                        
+
                         break;
                     }
                 default:
@@ -606,53 +569,53 @@ namespace FractalPlatform.Cartouche {
             switch (info.Variable)
             {
                 case @"ValidatePostName":
-                {
-                    result = DocsWhere("Users", "{'Name':@Name}", info.AttrValue)
-                                .Any();
-            
-                    break;
-                }
-                case @"ValidateCommentName":
-                {
-                    result = DocsWhere("Users", "{'Name':@Name}", info.AttrValue)
-                                .Any();
-            
-                    break;
-                }
-                case @"ValidateLikePost":
-                {
-                    result = DocsWhere("Users", "{'Name':@Name}", info.AttrValue).Any() &&
-                            !DocsWhere("Posts", info.AttrPath.DocID)
-                                .AndWhere("{'Likes':[Any,@Name]}", info.AttrValue)
-                                .Any();
-                    
-                    break;
-                }
-                case @"ValidateFollowUser":
-                {
-                    result = DocsWhere("Users", "{'Name':@Name}", info.AttrValue).Any() &&
-                            !DocsWhere("Users", info.AttrPath.DocID)
-                            .AndWhere("{'Following':[Any,@Name]}", info.AttrValue)
-                            .Any();
+                    {
+                        result = DocsWhere("Users", "{'Name':@Name}", info.AttrValue)
+                                    .Any();
 
-                    break;
-                }
+                        break;
+                    }
+                case @"ValidateCommentName":
+                    {
+                        result = DocsWhere("Users", "{'Name':@Name}", info.AttrValue)
+                                    .Any();
+
+                        break;
+                    }
+                case @"ValidateLikePost":
+                    {
+                        result = DocsWhere("Users", "{'Name':@Name}", info.AttrValue).Any() &&
+                                !DocsWhere("Posts", info.AttrPath.DocID)
+                                    .AndWhere("{'Likes':[Any,@Name]}", info.AttrValue)
+                                    .Any();
+
+                        break;
+                    }
+                case @"ValidateFollowUser":
+                    {
+                        result = DocsWhere("Users", "{'Name':@Name}", info.AttrValue).Any() &&
+                                !DocsWhere("Users", info.AttrPath.DocID)
+                                .AndWhere("{'Following':[Any,@Name]}", info.AttrValue)
+                                .Any();
+
+                        break;
+                    }
                 case @"Text":
                     {
-                        var text =  System.Net.WebUtility.HtmlEncode(info.AttrValue.ToString());
-                        
+                        var text = System.Net.WebUtility.HtmlEncode(info.AttrValue.ToString());
+
                         text = text.Replace(((char)13).ToString() + ((char)10).ToString(), "<br>")
                                    .Replace(((char)10).ToString(), "<br>");
 
                         string picture;
-                        
-                        if(info.Collection.Name == "Dashboard")
+
+                        if (info.Collection.Name == "Dashboard")
                         {
                             picture = info.Collection
                                           .GetWhere(info.AttrPath)
                                           .Value("{'Posts':[{'Picture':$}]}");
                         }
-                        else if(info.AttrPath.FirstPath != "Comments")
+                        else if (info.AttrPath.FirstPath != "Comments")
                         {
                             picture = info.Collection
                                           .GetWhere(info.AttrPath)
@@ -664,14 +627,14 @@ namespace FractalPlatform.Cartouche {
                                           .GetWhere(info.AttrPath)
                                           .Value("{'Comments':[{'Picture':$}]}");
                         }
-                        
+
                         if (!string.IsNullOrEmpty(picture) && picture != "null")
                         {
                             text += $"<br><br><img style='max-width:400px; max-height:300px' src='{GetFileUrl(picture)}'/>";
                         }
 
                         result = text;
-                        
+
                         break;
                     }
                 case @"OnDate":
@@ -732,11 +695,11 @@ namespace FractalPlatform.Cartouche {
                         var name = DocsWhere("Posts", info.AttrPath)
                                        .Value("{'Comments':[{'Name':$}]}");
 
-                        if(name == User.Name)
+                        if (name == User.Name)
                         {
-                            result = "Edit Comment";    
+                            result = "Edit Comment";
                         }
-                        else 
+                        else
                         {
                             result = null;
                         }
@@ -763,7 +726,7 @@ namespace FractalPlatform.Cartouche {
 
                         break;
                     }
-                    case @"Pagination":
+                case @"Pagination":
                     {
                         var activePage = 1U;
 
@@ -775,10 +738,10 @@ namespace FractalPlatform.Cartouche {
                         var sb = new StringBuilder();
 
                         uint currPage;
-                        
+
                         var startPage = (activePage - 1) / 10 * 10 + 1;
 
-                        if(startPage > 1)
+                        if (startPage > 1)
                         {
                             sb.AppendLine($"<a href='{Context.InstanceUrl}/{Name}/?tag={startPage - 1}' class='pagination-button pagination-next'>Prev</a>");
                         }
@@ -801,7 +764,7 @@ namespace FractalPlatform.Cartouche {
 
                         break;
                     }
-                    default:
+                default:
                     {
                         return base.OnComputedDimension(info);
                     }

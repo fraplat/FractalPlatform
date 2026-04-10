@@ -12,7 +12,7 @@ namespace FractalPlatform.Examples.Applications.FreelanceResponse
         public TaskInfo GetTask(uint docID) => DocsWhere("Tasks", docID).SelectOne<TaskInfo>();
 
         private string GetDemoWho(AttrPath attrPath) => DocsWhere("Tasks", attrPath).Value("{'Demos':[{'Who':$}]}");
-        
+
         private uint GetCustomerUserID(uint docID)
         {
             var task = GetTask(docID);
@@ -92,7 +92,7 @@ namespace FractalPlatform.Examples.Applications.FreelanceResponse
 
                         return task.Accepts.Any(x => x.Who == Context.User.Name) &&
                                !task.Demos.Any(x => x.Who == Context.User.Name) &&
-                               (task.TenderModel == TenerModelType.TheBestDemo || 
+                               (task.TenderModel == TenerModelType.TheBestDemo ||
                                 (task.TenderModel == TenerModelType.TheBestDeveloper && task.Developer == Context.User.Name)) &&
                                (task.Status == StatusType.New || task.Status == StatusType.InProgress);
                     }
@@ -183,13 +183,7 @@ namespace FractalPlatform.Examples.Applications.FreelanceResponse
                 case "NewTask":
                     {
                         CreateNewDocFor("NewTask", "Tasks")
-                              .OpenForm(result =>
-                              {
-                                  if (result.Result)
-                                  {
-                                      MessageBox("Thank you. Your task is created.", MessageBoxButtonType.Ok);
-                                  }
-                              });
+                              .OpenForm(onSave: result => MessageBox("Thank you. Your task is created.", MessageBoxButtonType.Ok));
 
                         break;
                     }
@@ -212,13 +206,7 @@ namespace FractalPlatform.Examples.Applications.FreelanceResponse
                                                  "{'Rates':[$]}",
                                                  userID)
                                   .ExtendDocument("{'TaskNumber':@TaskNumber}", task.TaskNumber)
-                                  .OpenForm(result =>
-                                  {
-                                      if (result.Result)
-                                      {
-                                          MessageBox("Thank you. Customer was rated.", MessageBoxButtonType.Ok);
-                                      }
-                                  });
+                                  .OpenForm(onSave: result => MessageBox("Thank you. Customer was rated.", MessageBoxButtonType.Ok));
                         }
 
                         break;
@@ -239,13 +227,7 @@ namespace FractalPlatform.Examples.Applications.FreelanceResponse
                         {
                             CreateNewDocForArray("NewRate", "Users", "{'Rates':[$]}", userID)
                                   .ExtendDocument("{'TaskNumber':@TaskNumber}", task.TaskNumber)
-                                  .OpenForm(result =>
-                                  {
-                                      if (result.Result)
-                                      {
-                                          MessageBox("Thank you. Developer was rated.", MessageBoxButtonType.Ok);
-                                      }
-                                  });
+                                  .OpenForm(onSave: result => MessageBox("Thank you. Developer was rated.", MessageBoxButtonType.Ok));
                         }
 
                         break;
@@ -256,14 +238,11 @@ namespace FractalPlatform.Examples.Applications.FreelanceResponse
 
                         CreateNewDocForArray("NewAccept", "Tasks", "{'Accepts':[$]}", info.DocID)
                               .ExtendDocument("{'MinPrice':@MinPrice}", task.MinPrice)
-                              .OpenForm(result =>
+                              .OpenForm(onSave: result =>
                               {
-                                  if (result.Result)
-                                  {
-                                      MessageBox("Thank you. Customer will review your accept.", MessageBoxButtonType.Ok);
+                                  MessageBox("Thank you. Customer will review your accept.", MessageBoxButtonType.Ok);
 
-                                      info.Collection.ReloadData();
-                                  }
+                                  info.Collection.ReloadData();
                               });
 
                         break;
@@ -271,14 +250,11 @@ namespace FractalPlatform.Examples.Applications.FreelanceResponse
                 case "NewDemo":
                     {
                         CreateNewDocForArray("NewDemo", "Tasks", "{'Demos':[$]}", info.DocID)
-                              .OpenForm(result =>
+                              .OpenForm(onSave: result =>
                               {
-                                  if (result.Result)
-                                  {
-                                      MessageBox("Thank you. Your demo is added.", MessageBoxButtonType.Ok);
+                                  MessageBox("Thank you. Your demo is added.", MessageBoxButtonType.Ok);
 
-                                      info.Collection.ReloadData();
-                                  }
+                                  info.Collection.ReloadData();
                               });
 
                         break;
@@ -288,16 +264,13 @@ namespace FractalPlatform.Examples.Applications.FreelanceResponse
                         MessageBox("Are you sure that you want to reject the Task ? It would decrease your rating.",
                                    "Reject task",
                                    MessageBoxButtonType.YesNo,
-                                   result =>
+                                   onSave: result =>
                                    {
-                                       if (result.Result)
-                                       {
-                                           RejectTask(info.DocID);
+                                       RejectTask(info.DocID);
 
-                                           MessageBox("Task was rejected.", MessageBoxButtonType.Ok);
+                                       MessageBox("Task was rejected.", MessageBoxButtonType.Ok);
 
-                                           info.Collection.ReloadData();
-                                       }
+                                       info.Collection.ReloadData();
                                    });
                         break;
                     }

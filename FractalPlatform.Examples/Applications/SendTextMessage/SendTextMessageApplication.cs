@@ -7,16 +7,13 @@ namespace FractalPlatform.Examples.Applications.SendTextMessage
     {
         public override void OnStart() =>
             FirstDocOf("Dashboard")
-                  .OpenForm(result =>
+                  .OpenForm(onSave: result =>
                   {
-                      if (result.Result)
-                      {
                           FirstDocOf("Dashboard")
                                 .Update("{'TextMessages':[Add,{'Provider':'Telegram','Receiver':@Receiver,'Message':@Message,'IsSent':false}]}",
                                         result.Collection
                                               .Values("{'Receiver':$,'Message':$}")
                                               .ToArray());
-                      }
                   });
     }
 }

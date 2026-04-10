@@ -29,32 +29,29 @@ namespace FractalPlatform.Examples.Applications.Supermarket
         }
 
         public bool ViewStock() => DocsOf("Stock").OpenForm();
-        
+
         public bool ViewOrders() => DocsOf("Orders").OpenForm();
 
         public bool NewOrder() =>
             CreateNewDocFor("NewOrder", "Orders")
-                  .OpenForm(result => 
+                  .OpenForm(onSave: result =>
                   {
-                      if (result.Result)
+                      var cart = result.Collection
+                                       .GetDoc(result.DocID)
+                                       .SelectOne<Cart>();
+
+                      Client.BeginTran(TranType.RepeatableRead);
+
+                      foreach (var product in cart.Products)
                       {
-                          var cart = result.Collection
-                                           .GetDoc(result.DocID)
-                                           .SelectOne<Cart>();
+                          FirstDocOf("Stock").AndWhere("{'Products':[{'Product':@Product}]}", product.Product)
+                                             .Update("{'Products':[{'Count':Sub(@Count)}]}", product.Count);
 
-                          Client.BeginTran(TranType.RepeatableRead);
-
-                          foreach(var product in cart.Products)
-                          {
-                              FirstDocOf("Stock").AndWhere("{'Products':[{'Product':@Product}]}", product.Product)
-                                                 .Update("{'Products':[{'Count':Sub(@Count)}]}", product.Count);
-
-                          }
-
-                          Client.CommitTran();
                       }
+
+                      Client.CommitTran();
                   });
-        
+
         public override bool OnMenuDimension(MenuInfo info)
         {
             switch (info.Action)
@@ -105,9 +102,9 @@ namespace FractalPlatform.Examples.Applications.Supermarket
                 "Orders" => ViewOrders(),
                 _ => base.OnEventDimension(info)
             };
-        
+
         public override void OnStart() => Login("Bob", "Bob");
-        
+
         public override void OnLogin(FormResult result) => FirstDocOf("Dashboard").OpenForm();
     }
 }

@@ -7,12 +7,6 @@ namespace FractalPlatform.Examples.Applications.Vote
     {
         public override void OnStart() =>
              MergeDocFor("Questionary", "Report")
-                  .OpenForm(result =>
-                  {
-                      if (result.Result)
-                      {
-                          FirstDocOf("Report").OpenForm();
-                      }
-                  });
+                  .OpenForm(onSave: result => FirstDocOf("Report").OpenForm());
     }
 }

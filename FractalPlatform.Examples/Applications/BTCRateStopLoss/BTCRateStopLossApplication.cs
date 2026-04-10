@@ -52,18 +52,8 @@ namespace FractalPlatform.Examples.Applications.BTCRateStopLoss
             }
             .ToCollection()
             .SetUIDimension("{'Style':'Save:Config;Cancel:Refresh'}")
-            .OpenForm(result =>
-            {
-                if (result.Result)
-                {
-                    FirstDocOf("Config")
-                          .OpenForm(result => Rate());
-                }
-                else
-                {
-                    Rate();
-                }
-            });
+            .OpenForm(onSave: result => FirstDocOf("Config").OpenForm(result => Rate()),
+                      onCancel: result => Rate());
         }
 
         public override void OnStart() => Rate();

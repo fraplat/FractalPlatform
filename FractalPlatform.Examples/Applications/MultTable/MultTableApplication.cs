@@ -41,47 +41,44 @@ namespace FractalPlatform.Examples.Applications.MultTable
 
         public override void OnStart() =>
             FirstDocOf("Setting")
-                  .OpenForm(null, null, result =>
+                  .OpenForm(onSave: result =>
                   {
-                      if (result.Result)
+                      var setting = result.Collection
+                                          .SelectOne<Setting>();
+
+                      var sbDoc = new StringBuilder();
+                      var sbVal = new StringBuilder();
+
+                      sbDoc.Append('{');
+                      sbVal.Append('{');
+
+                      foreach (var i in GetArray(setting.From, setting.To, setting.Shuffle))
                       {
-                          var setting = result.Collection
-                                              .SelectOne<Setting>();
-
-                          var sbDoc = new StringBuilder();
-                          var sbVal = new StringBuilder();
-
-                          sbDoc.Append('{');
-                          sbVal.Append('{');
-
-                          foreach (var i in GetArray(setting.From, setting.To, setting.Shuffle))
+                          foreach (var j in GetArray(0, 9, setting.Shuffle))
                           {
-                              foreach (var j in GetArray(0, 9, setting.Shuffle))
+                              if (j > 0 && i % j == 0)
                               {
-                                  if (j > 0 && i % j == 0)
+                                  if (sbDoc.Length > 1)
                                   {
-                                      if (sbDoc.Length > 1)
-                                      {
-                                          sbDoc.AppendLine(",");
-                                          sbVal.AppendLine(",");
-                                      }
-
-                                      sbDoc.Append($"'{i} : {j} =':''");
-                                      sbVal.Append($"'{i} : {j} =':").Append("{'Formula':'@Value = " + (i / j).ToString() + "'}");
+                                      sbDoc.AppendLine(",");
+                                      sbVal.AppendLine(",");
                                   }
+
+                                  sbDoc.Append($"'{i} : {j} =':''");
+                                  sbVal.Append($"'{i} : {j} =':").Append("{'Formula':'@Value = " + (i / j).ToString() + "'}");
                               }
                           }
-
-                          sbDoc.Append('}');
-                          sbVal.Append('}');
-
-                          new Collection("Collection", sbDoc.ToString())
-                              .SetDimension(DimensionType.Validation, sbVal.ToString())
-                              .OpenForm(handleResult =>
-                              {
-                                  MessageBox("All answers are successful !", "Result");
-                              });
                       }
+
+                      sbDoc.Append('}');
+                      sbVal.Append('}');
+
+                      new Collection("Collection", sbDoc.ToString())
+                          .SetDimension(DimensionType.Validation, sbVal.ToString())
+                          .OpenForm(handleResult =>
+                          {
+                              MessageBox("All answers are successful !", "Result");
+                          });
                   });
     }
 }
