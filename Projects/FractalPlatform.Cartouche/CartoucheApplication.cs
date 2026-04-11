@@ -122,20 +122,22 @@ namespace FractalPlatform.Cartouche
             }
         }
 
-        private void NewPost()
+        private bool NewPost()
         {
             CreateNewDocFor("NewPost", "Posts")
                         .OpenForm(onSave: result => ProcessBots(result.TargetDocID),
                                   onClose: result => Dashboard());
+            return true;
         }
 
-        private void OpenPost(uint docID)
+        private bool OpenPost(uint docID)
         {
             DocsWhere("Posts", docID)
                 .OpenForm(onClose: result => Dashboard());
+            return true;
         }
 
-        private void Dashboard()
+        private bool Dashboard()
         {
             //var following = DocsWhere("Users", "{'Name':@UserName}")
             //    .Values("{'Following':[$]}");
@@ -190,7 +192,7 @@ namespace FractalPlatform.Cartouche
             {
                 NewPost();
 
-                return;
+                return true;
             }
 
             var values = DocsWhere("Users", "{'Name':@UserName}")
@@ -202,6 +204,8 @@ namespace FractalPlatform.Cartouche
                 .ExtendDocument("{'FullName':@FullName,'Avatar':@Avatar}", values[0], values[1])
                 .MergeToArrayPath(posts, "Posts", Constants.FIRST_DOC_ID, true)
                 .OpenForm();
+
+            return true;
         }
 
         public override void OnStart()
@@ -221,309 +225,214 @@ namespace FractalPlatform.Cartouche
 
         public override void OnLogin(FormResult result) => Dashboard();
 
-        public override bool OnEventDimension(EventInfo info)
+        private bool RegisterUser()
         {
+            CreateNewDocFor("NewUser", "Users")
+                .OpenForm(onSave: result => MessageBox("You are registered !", MessageBoxButtonType.Ok, result => Login()),
+                          onCancel: result => Login());
+            return true;
+        }
 
-            var action = info.Action;
+        private bool Follow(EventInfo info)
+        {
+            var name = DocsWhere("Posts", info.AttrPath).Value("{'Name':$}");
+            DocsWhere("Users", "{'Name':@UserName}").Update("{'Following':[Add,@Name]}", name);
+            return true;
+        }
 
-            switch (action)
+        private bool FollowUser(EventInfo info)
+        {
+            var name = DocsWhere("Users", info.AttrPath).Value("{'Name':$}");
+            if (!DocsWhere("Users", "{'Name':@UserName,'Following':[Any,@name]}", name).Any())
             {
-                case @"Register":
-                    {
-                        CreateNewDocFor("NewUser", "Users")
-                            .OpenForm(onSave: result => MessageBox("You are registered !", MessageBoxButtonType.Ok, result => Login()),
-                                      onCancel: result => Login());
+                DocsWhere("Users", "{'Name':@UserName}").Update("{'Following':[Add,@Name]}", name);
+            }
+            return true;
+        }
 
-                        break;
-                    }
-                case @"EditUser":
-                    {
-                        DocsWhere("Users", "{'Name':@UserName}")
-                            .OpenForm(onSave: result => Context.User.Avatar = result.FindFirstValue("Avatar"));
+        private bool Unfollow(EventInfo info)
+        {
+            var name = DocsWhere("Posts", info.AttrPath).Value("{'Name':$}");
+            DocsWhere("Users", "{'Name':@UserName}").Delete("{'Following':[@Name]}", name);
+            return true;
+        }
 
-                        break;
-                    }
-                case @"SignOut":
-                    {
-                        Logout();
+        private bool LikeComment(EventInfo info)
+        {
+            var query = DocsWhere("Posts", info.AttrPath)
+                            .AndWhere("{'Comments':[{'Likes':[Any,@UserName]}]}");
 
-                        break;
-                    }
-                case @"NewPost":
-                    {
-                        NewPost();
+            if (!query.Any())
+                DocsWhere("Posts", info.AttrPath).Update("{'Comments':[{'Likes':[Add,@UserName]}]}");
+            else
+                DocsWhere("Posts", info.AttrPath).Delete("{'Comments':[{'Likes':[@UserName]}]}");
 
-                        break;
-                    }
-                case @"EditBots":
-                    {
-                        DocsWhere("Users", "{'IsBot':true}")
-                            .SetDimension(DimensionType.Filter, "{}")
-                            .ExtendUIDimension("{'Settings':{'Visible':true},'Following':{'Visible':true,'ReadOnly':true}}")
-                            .OpenForm();
+            OpenPost(info.DocID);
+            return true;
+        }
 
-                        break;
-                    }
-                case @"NewBot":
-                    {
-                        CreateNewDocFor("NewUser", "Users")
-                            .ExtendDocument("{'IsBot':true}")
-                            .ExtendUIDimension("{'Style':'Save:Create;CollLabel:New bot','Category':{'Visible':true},'Prompt':{'Visible':true},'Settings':{'Visible':true},'Password':{'Visible':false}}")
-                            .OpenForm(onSave: result => MessageBox("You are added new bot !", MessageBoxButtonType.Ok, result => Dashboard()),
-                                      onCancel: result => Dashboard());
-                        break;
-                    }
-                case @"NewComment":
-                    {
-                        CreateNewDocForArray("NewComment", "Posts", "{'Comments':[$]}", info.DocID)
-                            .OpenForm();
+        private bool ReplyComment(EventInfo info)
+        {
+            var name = DocsWhere("Posts", info.AttrPath).Value("{'Comments':[{'Name':$}]}");
 
-                        break;
-                    }
-                case @"Follow":
-                    {
-                        var name = DocsWhere("Posts", info.AttrPath)
-                                        .Value("{'Name':$}");
+            CreateNewDocForArray("NewComment", "Posts", "{'Comments':[$]}", info.DocID)
+                .ExtendDocument("{'Text':@Text}", name)
+                .OpenForm();
+            return true;
+        }
 
-                        DocsWhere("Users", "{'Name':@UserName}")
-                            .Update("{'Following':[Add,@Name]}", name);
+        private bool LikePost(EventInfo info)
+        {
+            if (info.Collection.Name == "Dashboard")
+            {
+                var nameAndOnDate = info.Collection
+                                        .GetWhere(info.AttrPath)
+                                        .Values("{'Posts':[{'Name':$,'OnDate':$}]}");
 
-                        break;
-                    }
-                case @"FollowUser":
-                    {
-                        var name = DocsWhere("Users", info.AttrPath)
-                                        .Value("{'Name':$}");
+                var docID = DocsWhere("Posts", "{'Name':@Name,'OnDate':@OnDate}", nameAndOnDate[0], nameAndOnDate[1])
+                                .GetFirstID();
 
-                        if (!DocsWhere("Users", "{'Name':@UserName,'Following':[Any,@name]}", name)
-                            .Any())
-                        {
-                            DocsWhere("Users", "{'Name':@UserName}")
-                                .Update("{'Following':[Add,@Name]}", name);
-                        }
+                var query = DocsWhere("Posts", docID).AndWhere("{'Likes':[Any,@UserName]}");
 
-                        break;
-                    }
-                case @"Unfollow":
-                    {
-                        var name = DocsWhere("Posts", info.AttrPath)
-                                        .Value("{'Name':$}");
+                if (!query.Any())
+                    DocsWhere("Posts", docID).Update("{'Likes':[Add,@UserName]}");
+                else
+                    DocsWhere("Posts", docID).Delete("{'Likes':[@UserName]}");
 
-                        DocsWhere("Users", "{'Name':@UserName}")
-                            .Delete("{'Following':[@Name]}", name);
+                Dashboard();
+            }
+            else
+            {
+                var query = DocsWhere("Posts", info.DocID).AndWhere("{'Likes':[Any,@UserName]}");
 
-                        break;
-                    }
-                case @"LikeComment":
-                    {
+                if (!query.Any())
+                    DocsWhere("Posts", info.DocID).Update("{'Likes':[Add,@UserName]}");
+                else
+                    DocsWhere("Posts", info.DocID).Delete("{'Likes':[@UserName]}");
 
-                        var query = DocsWhere("Posts", info.AttrPath)
-                                        .AndWhere("{'Comments':[{'Likes':[Any,@UserName]}]}");
-
-                        if (!query.Any())
-                        {
-                            DocsWhere("Posts", info.AttrPath)
-                                .Update("{'Comments':[{'Likes':[Add,@UserName]}]}");
-                        }
-                        else
-                        {
-                            DocsWhere("Posts", info.AttrPath)
-                                .Delete("{'Comments':[{'Likes':[@UserName]}]}");
-                        }
-
-                        OpenPost(info.DocID);
-
-                        break;
-                    }
-                case @"Reply":
-                    {
-
-                        var name = DocsWhere("Posts", info.AttrPath)
-                                      .Value("{'Comments':[{'Name':$}]}");
-
-                        CreateNewDocForArray("NewComment", "Posts", "{'Comments':[$]}", info.DocID)
-                            .ExtendDocument("{'Text':@Text}", name)
-                            .OpenForm();
-
-                        break;
-                    }
-                case @"LikePost":
-                    {
-
-                        if (info.Collection.Name == "Dashboard")
-                        {
-                            var nameAndOnDate = info.Collection
-                                                    .GetWhere(info.AttrPath)
-                                                    .Values("{'Posts':[{'Name':$,'OnDate':$}]}");
-
-                            var docID = DocsWhere("Posts", "{'Name':@Name,'OnDate':@OnDate}", nameAndOnDate[0], nameAndOnDate[1])
-                                            .GetFirstID();
-
-                            var query = DocsWhere("Posts", docID)
-                                            .AndWhere("{'Likes':[Any,@UserName]}");
-
-                            if (!query.Any())
-                            {
-                                DocsWhere("Posts", docID)
-                                    .Update("{'Likes':[Add,@UserName]}");
-                            }
-                            else
-                            {
-                                DocsWhere("Posts", docID)
-                                    .Delete("{'Likes':[@UserName]}");
-                            }
-
-                            Dashboard();
-                        }
-                        else
-                        {
-                            var query = DocsWhere("Posts", info.DocID)
-                                        .AndWhere("{'Likes':[Any,@UserName]}");
-
-                            if (!query.Any())
-                            {
-                                DocsWhere("Posts", info.DocID)
-                                    .Update("{'Likes':[Add,@UserName]}");
-                            }
-                            else
-                            {
-                                DocsWhere("Posts", info.DocID)
-                                    .Delete("{'Likes':[@UserName]}");
-                            }
-
-                            OpenPost(info.DocID);
-                        }
-
-                        break;
-                    }
-                case @"EditPost":
-                    {
-                        uint docID;
-
-                        if (info.Collection.Name == "Dashboard")
-                        {
-                            var nameAndOnDate = info.Collection
-                                                    .GetWhere(info.AttrPath)
-                                                    .Values("{'Posts':[{'Name':$,'OnDate':$}]}");
-
-                            docID = DocsWhere("Posts", "{'Name':@Name,'OnDate':@OnDate}", nameAndOnDate[0], nameAndOnDate[1])
-                                    .GetFirstID();
-
-                            DocsWhere("Posts", docID)
-                                .ExtendUIDimension("{'Style':'Save:Update','IsRawPage':false,'Layout':'','Visible':false,'Text':{'Visible':true},'Picture':{'Visible':true}}")
-                                .OpenForm(onClose: result => Dashboard());
-
-                        }
-                        else
-                        {
-                            docID = info.DocID;
-
-                            DocsWhere("Posts", docID)
-                                .ExtendUIDimension("{'Style':'Save:Update','IsRawPage':false,'Layout':'','Visible':false,'Text':{'Visible':true},'Picture':{'Visible':true}}")
-                                .OpenForm();
-                        }
-
-                        DocsWhere("Posts", docID)
-                            .Update("{'OnDate':@Now}");
-
-                        break;
-                    }
-                case @"EditComment":
-                    {
-                        var text = DocsWhere("Posts", info.AttrPath)
-                                    .Values("{'Comments':[{'Text':$}]}");
-
-                        FirstDocOf("NewComment")
-                            .ExtendDocument("{'Text':@Text}", text)
-                            .ExtendUIDimension("{'Style':'CollLabel:Update comment;Save:Update'}")
-                            .OpenForm(onSave: result =>
-                            {
-                                var text = result.FindFirstValue("Text");
-                                var picture = result.FindFirstValue("Picture");
-
-                                if (string.IsNullOrEmpty(picture))
-                                {
-                                    DocsWhere("Posts", info.AttrPath)
-                                        .Update("{'Comments':[{'Text':@Text}]}", text);
-                                }
-                                else
-                                {
-                                    DocsWhere("Posts", info.AttrPath)
-                                        .Update("{'Comments':[{'Text':@Text,'Picture':@Picture}]}", text, picture);
-                                }
-
-                                result.NeedReloadData = true;
-                            });
-
-                        break;
-                    }
-                case @"Comments":
-                    {
-                        var nameAndOnDate = info.Collection
-                                                .GetWhere(info.AttrPath)
-                                                .Values("{'Posts':[{'Name':$,'OnDate':$}]}");
-
-                        var docID = DocsWhere("Posts", "{'Name':@Name,'OnDate':@OnDate}", nameAndOnDate[0], nameAndOnDate[1])
-                                        .GetFirstID();
-
-                        DocsWhere("Posts", docID)
-                            .OpenForm(onClose: result => Dashboard());
-
-                        break;
-                    }
-                default:
-                    {
-                        return base.OnEventDimension(info);
-                    }
+                OpenPost(info.DocID);
             }
 
             return true;
         }
 
-        public override bool OnSecurityDimension(SecurityInfo info)
+        private bool EditPost(EventInfo info)
         {
-            var result = false;
+            uint docID;
 
-            switch (info.Variable)
+            if (info.Collection.Name == "Dashboard")
             {
-                case @"Follow":
-                    {
-                        var name = DocsWhere("Posts", info.AttrPath)
-                                        .Value("{'Name':$}");
+                var nameAndOnDate = info.Collection
+                                        .GetWhere(info.AttrPath)
+                                        .Values("{'Posts':[{'Name':$,'OnDate':$}]}");
 
-                        result = (!DocsWhere("Users", "{'Name':@UserName}")
-                                    .AndWhere("{'Following':[Any,@Name]}", name)
-                                    .Any()) && Context.User.Name != name;
-                        break;
-                    }
-                case @"Unfollow":
-                    {
-                        var name = DocsWhere("Posts", info.AttrPath)
-                                        .Value("{'Name':$}");
+                docID = DocsWhere("Posts", "{'Name':@Name,'OnDate':@OnDate}", nameAndOnDate[0], nameAndOnDate[1])
+                        .GetFirstID();
 
-                        result = DocsWhere("Users", "{'Name':@UserName}")
-                                    .AndWhere("{'Following':[Any,@Name]}", name)
-                                    .Any() && Context.User.Name != name; ;
+                DocsWhere("Posts", docID)
+                    .ExtendUIDimension("{'Style':'Save:Update','IsRawPage':false,'Layout':'','Visible':false,'Text':{'Visible':true},'Picture':{'Visible':true}}")
+                    .OpenForm(onClose: result => Dashboard());
+            }
+            else
+            {
+                docID = info.DocID;
 
-                        break;
-                    }
-                case @"EditPost":
-                    {
-                        var name = DocsWhere("Posts", info.AttrPath)
-                                        .Value("{'Name':$}");
-
-                        result = (name == Context.User.Name);
-
-                        break;
-                    }
-                default:
-                    {
-                        return base.OnSecurityDimension(info);
-                    }
+                DocsWhere("Posts", docID)
+                    .ExtendUIDimension("{'Style':'Save:Update','IsRawPage':false,'Layout':'','Visible':false,'Text':{'Visible':true},'Picture':{'Visible':true}}")
+                    .OpenForm();
             }
 
-            return result;
+            DocsWhere("Posts", docID).Update("{'OnDate':@Now}");
+
+            return true;
         }
+
+        private bool EditComment(EventInfo info)
+        {
+            var text = DocsWhere("Posts", info.AttrPath)
+                        .Values("{'Comments':[{'Text':$}]}");
+
+            FirstDocOf("NewComment")
+                .ExtendDocument("{'Text':@Text}", text)
+                .ExtendUIDimension("{'Style':'CollLabel:Update comment;Save:Update'}")
+                .OpenForm(onSave: result =>
+                {
+                    var text = result.FindFirstValue("Text");
+                    var picture = result.FindFirstValue("Picture");
+
+                    if (string.IsNullOrEmpty(picture))
+                    {
+                        DocsWhere("Posts", info.AttrPath)
+                            .Update("{'Comments':[{'Text':@Text}]}", text);
+                    }
+                    else
+                    {
+                        DocsWhere("Posts", info.AttrPath)
+                            .Update("{'Comments':[{'Text':@Text,'Picture':@Picture}]}", text, picture);
+                    }
+
+                    result.NeedReloadData = true;
+                });
+
+            return true;
+        }
+
+        private bool OpenComments(EventInfo info)
+        {
+            var nameAndOnDate = info.Collection
+                                    .GetWhere(info.AttrPath)
+                                    .Values("{'Posts':[{'Name':$,'OnDate':$}]}");
+
+            var docID = DocsWhere("Posts", "{'Name':@Name,'OnDate':@OnDate}", nameAndOnDate[0], nameAndOnDate[1])
+                            .GetFirstID();
+
+            DocsWhere("Posts", docID).OpenForm(onClose: result => Dashboard());
+
+            return true;
+        }
+
+        public override bool OnEventDimension(EventInfo info) =>
+            info.Action switch
+            {
+                "Register"    => RegisterUser(),
+                "EditUser"    => DocsWhere("Users", "{'Name':@UserName}").OpenForm(onSave: result => Context.User.Avatar = result.FindFirstValue("Avatar")),
+                "SignOut"      => Logout(),
+                "NewPost"     => NewPost(),
+                "EditBots"    => DocsWhere("Users", "{'IsBot':true}").SetDimension(DimensionType.Filter, "{}").ExtendUIDimension("{'Settings':{'Visible':true},'Following':{'Visible':true,'ReadOnly':true}}").OpenForm(),
+                "NewBot"      => CreateNewDocFor("NewUser", "Users").ExtendDocument("{'IsBot':true}").ExtendUIDimension("{'Style':'Save:Create;CollLabel:New bot','Category':{'Visible':true},'Prompt':{'Visible':true},'Settings':{'Visible':true},'Password':{'Visible':false}}").OpenForm(onSave: result => MessageBox("You are added new bot !", MessageBoxButtonType.Ok, result => Dashboard()), onCancel: result => Dashboard()),
+                "NewComment"  => CreateNewDocForArray("NewComment", "Posts", "{'Comments':[$]}", info.DocID).OpenForm(),
+                "Follow"      => Follow(info),
+                "FollowUser"  => FollowUser(info),
+                "Unfollow"    => Unfollow(info),
+                "LikeComment" => LikeComment(info),
+                "Reply"       => ReplyComment(info),
+                "LikePost"    => LikePost(info),
+                "EditPost"    => EditPost(info),
+                "EditComment" => EditComment(info),
+                "Comments"    => OpenComments(info),
+                _ => base.OnEventDimension(info)
+            };
+
+        private bool SecurityFollow(SecurityInfo info)
+        {
+            var name = DocsWhere("Posts", info.AttrPath).Value("{'Name':$}");
+            return (!DocsWhere("Users", "{'Name':@UserName}").AndWhere("{'Following':[Any,@Name]}", name).Any()) && Context.User.Name != name;
+        }
+
+        private bool SecurityUnfollow(SecurityInfo info)
+        {
+            var name = DocsWhere("Posts", info.AttrPath).Value("{'Name':$}");
+            return DocsWhere("Users", "{'Name':@UserName}").AndWhere("{'Following':[Any,@Name]}", name).Any() && Context.User.Name != name;
+        }
+
+        public override bool OnSecurityDimension(SecurityInfo info) =>
+            info.Variable switch
+            {
+                "Follow"   => SecurityFollow(info),
+                "Unfollow" => SecurityUnfollow(info),
+                "EditPost" => DocsWhere("Posts", info.AttrPath).Value("{'Name':$}") == Context.User.Name,
+                _ => base.OnSecurityDimension(info)
+            };
 
         public void ProcessBots(uint docID)
         {
@@ -562,215 +471,134 @@ namespace FractalPlatform.Cartouche
             }
         }
 
-        public override object OnComputedDimension(ComputedInfo info)
+        private object ComputeText(ComputedInfo info)
         {
-            object result = null;
+            var text = System.Net.WebUtility.HtmlEncode(info.AttrValue.ToString());
 
-            switch (info.Variable)
+            text = text.Replace(((char)13).ToString() + ((char)10).ToString(), "<br>")
+                       .Replace(((char)10).ToString(), "<br>");
+
+            string picture;
+
+            if (info.Collection.Name == "Dashboard")
             {
-                case @"ValidatePostName":
-                    {
-                        result = DocsWhere("Users", "{'Name':@Name}", info.AttrValue)
-                                    .Any();
-
-                        break;
-                    }
-                case @"ValidateCommentName":
-                    {
-                        result = DocsWhere("Users", "{'Name':@Name}", info.AttrValue)
-                                    .Any();
-
-                        break;
-                    }
-                case @"ValidateLikePost":
-                    {
-                        result = DocsWhere("Users", "{'Name':@Name}", info.AttrValue).Any() &&
-                                !DocsWhere("Posts", info.AttrPath.DocID)
-                                    .AndWhere("{'Likes':[Any,@Name]}", info.AttrValue)
-                                    .Any();
-
-                        break;
-                    }
-                case @"ValidateFollowUser":
-                    {
-                        result = DocsWhere("Users", "{'Name':@Name}", info.AttrValue).Any() &&
-                                !DocsWhere("Users", info.AttrPath.DocID)
-                                .AndWhere("{'Following':[Any,@Name]}", info.AttrValue)
-                                .Any();
-
-                        break;
-                    }
-                case @"Text":
-                    {
-                        var text = System.Net.WebUtility.HtmlEncode(info.AttrValue.ToString());
-
-                        text = text.Replace(((char)13).ToString() + ((char)10).ToString(), "<br>")
-                                   .Replace(((char)10).ToString(), "<br>");
-
-                        string picture;
-
-                        if (info.Collection.Name == "Dashboard")
-                        {
-                            picture = info.Collection
-                                          .GetWhere(info.AttrPath)
-                                          .Value("{'Posts':[{'Picture':$}]}");
-                        }
-                        else if (info.AttrPath.FirstPath != "Comments")
-                        {
-                            picture = info.Collection
-                                          .GetWhere(info.AttrPath)
-                                          .Value("{'Picture':$}");
-                        }
-                        else
-                        {
-                            picture = info.Collection
-                                          .GetWhere(info.AttrPath)
-                                          .Value("{'Comments':[{'Picture':$}]}");
-                        }
-
-                        if (!string.IsNullOrEmpty(picture) && picture != "null")
-                        {
-                            text += $"<br><br><img style='max-width:400px; max-height:300px' src='{GetFileUrl(picture)}'/>";
-                        }
-
-                        result = text;
-
-                        break;
-                    }
-                case @"OnDate":
-                    {
-                        var dt = info.AttrValue.ToString();
-
-                        var culture = CultureInfo.InvariantCulture;
-                        var ts = DateTime.Now.Subtract(DateTime.Parse(dt, culture));
-
-                        if ((int)ts.TotalDays / 365 > 0)
-                        {
-                            result = "год назад";
-                        }
-                        else if ((int)ts.TotalDays / 30 > 0)
-                        {
-                            result = $"{(int)ts.TotalDays / 30} месяцев назад";
-                        }
-                        else if ((int)ts.TotalDays > 0)
-                        {
-                            result = $"{(int)ts.TotalDays} дней назад";
-                        }
-                        else if ((int)ts.TotalHours > 0)
-                        {
-                            result = $"{(int)ts.TotalHours} часов назад";
-                        }
-                        else if ((int)ts.TotalMinutes > 0)
-                        {
-                            result = $"{(int)ts.TotalMinutes} минут назад";
-                        }
-                        else
-                        {
-                            result = $"{(int)ts.TotalSeconds} секунд назад";
-                        }
-                        break;
-                    }
-                case @"Avatar":
-                    {
-                        string name;
-
-                        if (info.AttrPath.Count == 1)
-                        {
-                            name = DocsWhere("Posts", info.AttrPath)
-                                       .Value("{'Name':$}");
-                        }
-                        else
-                        {
-                            name = DocsWhere("Posts", info.AttrPath)
-                                       .Value("{'Comments':[{'Name':$}]}");
-                        }
-
-                        result = DocsWhere("Users", "{'Name':@Name}", name)
-                                    .Value("{'Avatar':$}");
-
-                        break;
-                    }
-                case @"EditComment":
-                    {
-                        var name = DocsWhere("Posts", info.AttrPath)
-                                       .Value("{'Comments':[{'Name':$}]}");
-
-                        if (name == User.Name)
-                        {
-                            result = "Edit Comment";
-                        }
-                        else
-                        {
-                            result = null;
-                        }
-
-                        break;
-                    }
-                case @"FullName":
-                    {
-                        string name;
-
-                        if (info.AttrPath.Count == 1)
-                        {
-                            name = DocsWhere("Posts", info.AttrPath)
-                                       .Value("{'Name':$}");
-                        }
-                        else
-                        {
-                            name = DocsWhere("Posts", info.AttrPath)
-                                       .Value("{'Comments':[{'Name':$}]}");
-                        }
-
-                        result = DocsWhere("Users", "{'Name':@Name}", name)
-                                    .Value("{'FullName':$}");
-
-                        break;
-                    }
-                case @"Pagination":
-                    {
-                        var activePage = 1U;
-
-                        if (Context.HasUrlTag)
-                        {
-                            activePage = uint.Parse(Context.UrlTag);
-                        }
-
-                        var sb = new StringBuilder();
-
-                        uint currPage;
-
-                        var startPage = (activePage - 1) / 10 * 10 + 1;
-
-                        if (startPage > 1)
-                        {
-                            sb.AppendLine($"<a href='{Context.InstanceUrl}/{Name}/?tag={startPage - 1}' class='pagination-button pagination-next'>Prev</a>");
-                        }
-
-                        for (currPage = startPage; currPage < startPage + 10; currPage++)
-                        {
-                            if (activePage == currPage)
-                            {
-                                sb.AppendLine($"<a href='{Context.InstanceUrl}/{Name}/?tag={currPage}' class='pagination-button active'>{currPage}</a>");
-                            }
-                            else
-                            {
-                                sb.AppendLine($"<a href='{Context.InstanceUrl}/{Name}/?tag={currPage}' class='pagination-button'>{currPage}</a>");
-                            }
-                        }
-
-                        sb.AppendLine($"<a href='{Context.InstanceUrl}/{Name}/?tag={currPage}' class='pagination-button pagination-next'>Next</a>");
-
-                        result = sb.ToString();
-
-                        break;
-                    }
-                default:
-                    {
-                        return base.OnComputedDimension(info);
-                    }
+                picture = info.Collection
+                              .GetWhere(info.AttrPath)
+                              .Value("{'Posts':[{'Picture':$}]}");
+            }
+            else if (info.AttrPath.FirstPath != "Comments")
+            {
+                picture = info.Collection
+                              .GetWhere(info.AttrPath)
+                              .Value("{'Picture':$}");
+            }
+            else
+            {
+                picture = info.Collection
+                              .GetWhere(info.AttrPath)
+                              .Value("{'Comments':[{'Picture':$}]}");
             }
 
-            return result;
+            if (!string.IsNullOrEmpty(picture) && picture != "null")
+            {
+                text += $"<br><br><img style='max-width:400px; max-height:300px' src='{GetFileUrl(picture)}'/>";
+            }
+
+            return text;
         }
+
+        private object ComputeOnDate(ComputedInfo info)
+        {
+            var dt = info.AttrValue.ToString();
+
+            var culture = CultureInfo.InvariantCulture;
+            var ts = DateTime.Now.Subtract(DateTime.Parse(dt, culture));
+
+            if ((int)ts.TotalDays / 365 > 0) return "год назад";
+            if ((int)ts.TotalDays / 30 > 0) return $"{(int)ts.TotalDays / 30} месяцев назад";
+            if ((int)ts.TotalDays > 0) return $"{(int)ts.TotalDays} дней назад";
+            if ((int)ts.TotalHours > 0) return $"{(int)ts.TotalHours} часов назад";
+            if ((int)ts.TotalMinutes > 0) return $"{(int)ts.TotalMinutes} минут назад";
+            return $"{(int)ts.TotalSeconds} секунд назад";
+        }
+
+        private object ComputeAvatar(ComputedInfo info)
+        {
+            string name;
+
+            if (info.AttrPath.Count == 1)
+                name = DocsWhere("Posts", info.AttrPath).Value("{'Name':$}");
+            else
+                name = DocsWhere("Posts", info.AttrPath).Value("{'Comments':[{'Name':$}]}");
+
+            return DocsWhere("Users", "{'Name':@Name}", name).Value("{'Avatar':$}");
+        }
+
+        private object ComputeFullName(ComputedInfo info)
+        {
+            string name;
+
+            if (info.AttrPath.Count == 1)
+                name = DocsWhere("Posts", info.AttrPath).Value("{'Name':$}");
+            else
+                name = DocsWhere("Posts", info.AttrPath).Value("{'Comments':[{'Name':$}]}");
+
+            return DocsWhere("Users", "{'Name':@Name}", name).Value("{'FullName':$}");
+        }
+
+        private object ComputePagination(ComputedInfo info)
+        {
+            var activePage = 1U;
+
+            if (Context.HasUrlTag)
+            {
+                activePage = uint.Parse(Context.UrlTag);
+            }
+
+            var sb = new StringBuilder();
+
+            uint currPage;
+
+            var startPage = (activePage - 1) / 10 * 10 + 1;
+
+            if (startPage > 1)
+            {
+                sb.AppendLine($"<a href='{Context.InstanceUrl}/{Name}/?tag={startPage - 1}' class='pagination-button pagination-next'>Prev</a>");
+            }
+
+            for (currPage = startPage; currPage < startPage + 10; currPage++)
+            {
+                if (activePage == currPage)
+                {
+                    sb.AppendLine($"<a href='{Context.InstanceUrl}/{Name}/?tag={currPage}' class='pagination-button active'>{currPage}</a>");
+                }
+                else
+                {
+                    sb.AppendLine($"<a href='{Context.InstanceUrl}/{Name}/?tag={currPage}' class='pagination-button'>{currPage}</a>");
+                }
+            }
+
+            sb.AppendLine($"<a href='{Context.InstanceUrl}/{Name}/?tag={currPage}' class='pagination-button pagination-next'>Next</a>");
+
+            return sb.ToString();
+        }
+
+        public override object OnComputedDimension(ComputedInfo info) =>
+            info.Variable switch
+            {
+                "ValidatePostName"    => DocsWhere("Users", "{'Name':@Name}", info.AttrValue).Any(),
+                "ValidateCommentName" => DocsWhere("Users", "{'Name':@Name}", info.AttrValue).Any(),
+                "ValidateLikePost"    => DocsWhere("Users", "{'Name':@Name}", info.AttrValue).Any() &&
+                                         !DocsWhere("Posts", info.AttrPath.DocID).AndWhere("{'Likes':[Any,@Name]}", info.AttrValue).Any(),
+                "ValidateFollowUser"  => DocsWhere("Users", "{'Name':@Name}", info.AttrValue).Any() &&
+                                         !DocsWhere("Users", info.AttrPath.DocID).AndWhere("{'Following':[Any,@Name]}", info.AttrValue).Any(),
+                "Text"                => ComputeText(info),
+                "OnDate"              => ComputeOnDate(info),
+                "Avatar"              => ComputeAvatar(info),
+                "EditComment"         => DocsWhere("Posts", info.AttrPath).Value("{'Comments':[{'Name':$}]}") == User.Name ? "Edit Comment" : null,
+                "FullName"            => ComputeFullName(info),
+                "Pagination"          => ComputePagination(info),
+                _ => base.OnComputedDimension(info)
+            };
     }
 }

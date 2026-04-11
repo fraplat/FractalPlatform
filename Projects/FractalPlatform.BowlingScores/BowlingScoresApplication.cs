@@ -13,48 +13,39 @@ namespace FractalPlatform.BowlingScores
 
         public override void OnStart() => FirstDocOf("Dashboard").OpenForm();
 
-        public override bool OnEventDimension(EventInfo info)
-        {
-            switch (info.AttrPath.ToString())
+        private bool NewScore() =>
+            FirstDocOf("NewScore").OpenForm(onSave: result =>
             {
-                case @"Score\NewScore":
-                    FirstDocOf("NewScore").OpenForm(onSave: result =>
+                var data = new
+                {
+                    OnDate = DateTime.Now,
+                    Image = result.FindFirstValue("Image"),
+                    Viacheslav = new
                     {
-                        var data = new
-                        {
-                            OnDate = DateTime.Now,
-                            Image = result.FindFirstValue("Image"),
-                            Viacheslav = new
-                            {
-                                Points = result.IntValue("{'Scores':{'Viacheslav':{'Points':$}}}"),
-                                Strikes = result.IntValue("{'Scores':{'Viacheslav':{'Strikes':$}}}")
-                            },
-                            Julia = new
-                            {
-                                Points = result.IntValue("{'Scores':{'Julia':{'Points':$}}}"),
-                                Strikes = result.IntValue("{'Scores':{'Julia':{'Strikes':$}}}")
-                            }
-                        };
+                        Points = result.IntValue("{'Scores':{'Viacheslav':{'Points':$}}}"),
+                        Strikes = result.IntValue("{'Scores':{'Viacheslav':{'Strikes':$}}}")
+                    },
+                    Julia = new
+                    {
+                        Points = result.IntValue("{'Scores':{'Julia':{'Points':$}}}"),
+                        Strikes = result.IntValue("{'Scores':{'Julia':{'Strikes':$}}}")
+                    }
+                };
 
-                        AddDoc("Scores", data);
-                    });
-                    break;
-                case @"Score\Scores":
-                    DocsOf("Scores").OpenForm();
-                    break;
-                case @"Report\Points":
-                    Report("Points");
-                    break;
-                case @"Report\Strikes":
-                    Report("Strikes");
-                    break;
-                default:
-                    return base.OnEventDimension(info);
-            }
-            return true;
-        }
+                AddDoc("Scores", data);
+            });
 
-        private void Report(string type)
+        public override bool OnEventDimension(EventInfo info) =>
+            info.AttrPath.ToString() switch
+            {
+                @"Score\NewScore"  => NewScore(),
+                @"Score\Scores"    => DocsOf("Scores").OpenForm(),
+                @"Report\Points"   => Report("Points"),
+                @"Report\Strikes"  => Report("Strikes"),
+                _ => base.OnEventDimension(info)
+            };
+
+        private bool Report(string type)
         {
             var janeScores = DocsOf("Scores")
                                 .SelectValues("{'OnDate':$,'Jane':{@Type:$}}", type)
@@ -88,6 +79,8 @@ namespace FractalPlatform.BowlingScores
             chartData.ToCollection("Bowling " + type)
                      .SetUIDimension("{'ReadOnly':true,'Control':{'ControlType':'Chart','Style':'Type:Bar'}}")
                      .OpenForm();
+
+            return true;
         }
     }
 }

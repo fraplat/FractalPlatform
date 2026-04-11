@@ -10,87 +10,55 @@ namespace FractalPlatform.Examples.Applications.OnlineShop
 {
     public class OnlineShopApplication : BaseApplication
     {
-        public override bool OnEventDimension(EventInfo info)
+        private bool OpenProduct(EventInfo info)
         {
-            switch (info.Action)
-            {
-                case "Categories":
-                    {
-                        DocsOf("Categories")
-                              .OpenForm();
+            var name = info.Collection
+                                .GetWhere(info.AttrPath.Parent)
+                                .Value("{'Products':[{'Name':$}]}");
 
-                        return true;
-                    }
-                case "Products":
-                    {
-                        DocsOf("Products")
-                              .OpenForm();
+            var categories = info.Collection
+                                .GetWhere(info.AttrPath.Parent)
+                                .Values("{'Products':[{'Categories':[$]}]}");
 
-                        return true;
-                    }
-                case "NewCategory":
-                    {
-                        CreateNewDocFor("NewCategory", "Categories")
-                              .OpenForm();
-
-                        return true;
-                    }
-                case "NewProduct":
-                    {
-                        CreateNewDocFor("NewProduct", "Products")
-                              .OpenForm();
-
-                        return true;
-                    }
-                case "Category":
-                    {
-                        OpenCategory(info.AttrValue.ToString());
-
-                        return true;
-                    }
-                case "OpenButton":
-                    {
-                        var name = info.Collection
-                                            .GetWhere(info.AttrPath.Parent)
-                                            .Value("{'Products':[{'Name':$}]}");
-
-                        var categories = info.Collection
-                                            .GetWhere(info.AttrPath.Parent)
-                                            .Values("{'Products':[{'Categories':[$]}]}");
-
-                        DocsWhere("Products", "{'Name':@Name,'Categories':[In,@Categories]}", name, categories)
-                              .ExtendUIDimension("{'ReadOnly':true}")
-                              .OpenForm();
-
-                        return true;
-                    }
-                case "SearchButton":
-                    {
-                        var searchText = info.Collection
-                                                  .Value("{'Header':{'SearchText':$}}");
-
-                        var categories = DocsWhere("Products", "{'Name':@SearchText}", searchText)
-                                               .ToStorage("{'Categories':[$]}")
-                                               .ToAttrList()
-                                               .Select(x => x.Value.ToString())
-                                               .Distinct()
-                                               .Select(x => new { Category = x });
-
-                        var products = DocsWhere("Products", "{'Name':@Name}", searchText).ToStorage();
-
-                        info.Collection
-                                 .DeleteByParent("Filters")
-                                 .DeleteByParent("Products")
-                                 .MergeToArrayPath(categories, "Filters")
-                                 .MergeToArrayPath(products, "Products")
-                                 .OpenForm();
-
-                        return true;
-                    }
-                default:
-                    return base.OnEventDimension(info);
-            }
+            return DocsWhere("Products", "{'Name':@Name,'Categories':[In,@Categories]}", name, categories)
+                      .ExtendUIDimension("{'ReadOnly':true}")
+                      .OpenForm();
         }
+
+        private bool SearchProducts(EventInfo info)
+        {
+            var searchText = info.Collection
+                                      .Value("{'Header':{'SearchText':$}}");
+
+            var categories = DocsWhere("Products", "{'Name':@SearchText}", searchText)
+                                   .ToStorage("{'Categories':[$]}")
+                                   .ToAttrList()
+                                   .Select(x => x.Value.ToString())
+                                   .Distinct()
+                                   .Select(x => new { Category = x });
+
+            var products = DocsWhere("Products", "{'Name':@Name}", searchText).ToStorage();
+
+            return info.Collection
+                     .DeleteByParent("Filters")
+                     .DeleteByParent("Products")
+                     .MergeToArrayPath(categories, "Filters")
+                     .MergeToArrayPath(products, "Products")
+                     .OpenForm();
+        }
+
+        public override bool OnEventDimension(EventInfo info) =>
+            info.Action switch
+            {
+                "Categories"   => DocsOf("Categories").OpenForm(),
+                "Products"     => DocsOf("Products").OpenForm(),
+                "NewCategory"  => CreateNewDocFor("NewCategory", "Categories").OpenForm(),
+                "NewProduct"   => CreateNewDocFor("NewProduct", "Products").OpenForm(),
+                "Category"     => OpenCategory(info.AttrValue.ToString()),
+                "OpenButton"   => OpenProduct(info),
+                "SearchButton" => SearchProducts(info),
+                _ => base.OnEventDimension(info)
+            };
 
         public override List<string> OnEnumDimension(EnumInfo info)
         {
@@ -141,7 +109,7 @@ namespace FractalPlatform.Examples.Applications.OnlineShop
                   .OpenForm(onSave: Filter);
         }
 
-        public void OpenCategory(string category)
+        public bool OpenCategory(string category)
         {
             var collection = FirstDocOf("Dashboard")
                                    .ToCollection();
@@ -153,6 +121,8 @@ namespace FractalPlatform.Examples.Applications.OnlineShop
 
             collection.MergeToPath(filter)
                       .OpenForm(onSave: Filter);
+
+            return true;
         }
 
         public override void OnStart() => OpenCategory("Cars");

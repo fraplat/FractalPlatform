@@ -77,88 +77,68 @@ namespace FractalPlatform.Diary
             });
         }
 
-        public override bool OnEventDimension(EventInfo info)
+        private bool NewDay() =>
+            CreateNewDocFor("NewDay", "Days")
+                .OpenForm(onSave: result =>
+                {
+                    var points = Calculate(result.DocID, result.Collection);
+
+                    MessageBox($"Today you have {points} points.", MessageBoxButtonType.Ok);
+                });
+
+        private bool Report()
         {
+            var number = 0;
 
-            var path = info.AttrPath.ToString();
-
-            switch (path)
-            {
-                case @"Days":
-                    {
-                        DocsOf("Days").OpenForm();
-
-                        break;
-                    }
-                case @"NewDay":
-                    {
-                        CreateNewDocFor("NewDay", "Days")
-                                    .OpenForm(onSave: result =>
-                                    {
-                                        var points = Calculate(result.DocID, result.Collection);
-
-                                        MessageBox($"Today you have {points} points.", MessageBoxButtonType.Ok);
-                                    });
-
-                        break;
-                    }
-                case @"Points":
-                    {
-                        DocsOf("Points").OpenForm();
-
-                        break;
-                    }
-                case @"Report":
-                    {
-                        var number = 0;
-
-                        var points = DocsOf("Days")
-                                    .Values("{'Points':$}")
-                                    .Select(val => new
-                                    {
-                                        X = ++number,
-                                        Y = double.Parse(val)
-                                    })
-                                    .GroupBy(x => x.X / 7,
-                                             (k, g) => new
-                                             {
-                                                 X = k,
-                                                 Y = g.Average(x => x.Y)
-                                             })
-                                    .ToList();
-                        new
+            var points = DocsOf("Days")
+                        .Values("{'Points':$}")
+                        .Select(val => new
                         {
-                            Control = new
-                            {
-                                Title = new
-                                {
-                                    Name = "My Points",
-                                    X = "DocID",
-                                    Y = "Points"
-                                },
-                                Lines = new[]
-                                {
-                                new
-                                {
-                                    Name = "Weeks",
-                                    Points = points
-                                }
-                            }
-                            }
-                        }
-                        .ToCollection("Report")
-                        .SetUIDimension("{'ReadOnly':true,'Control':{'ControlType':'Chart','Style':'Type:LineGraphs'}}")
-                        .OpenForm();
-
-                        break;
-                    }
-                default:
+                            X = ++number,
+                            Y = double.Parse(val)
+                        })
+                        .GroupBy(x => x.X / 7,
+                                 (k, g) => new
+                                 {
+                                     X = k,
+                                     Y = g.Average(x => x.Y)
+                                 })
+                        .ToList();
+            new
+            {
+                Control = new
+                {
+                    Title = new
                     {
-                        return base.OnEventDimension(info);
+                        Name = "My Points",
+                        X = "DocID",
+                        Y = "Points"
+                    },
+                    Lines = new[]
+                    {
+                    new
+                    {
+                        Name = "Weeks",
+                        Points = points
                     }
+                }
+                }
             }
+            .ToCollection("Report")
+            .SetUIDimension("{'ReadOnly':true,'Control':{'ControlType':'Chart','Style':'Type:LineGraphs'}}")
+            .OpenForm();
 
             return true;
         }
+
+        public override bool OnEventDimension(EventInfo info) =>
+            info.AttrPath.ToString() switch
+            {
+                "Days"   => DocsOf("Days").OpenForm(),
+                "NewDay" => NewDay(),
+                "Points" => DocsOf("Points").OpenForm(),
+                "Report" => Report(),
+                _ => base.OnEventDimension(info)
+            };
     }
 }

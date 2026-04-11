@@ -10,7 +10,7 @@ namespace FractalPlatform.Seasons
 {
     public class SeasonsApplication : DashboardApplication
     {
-        private void Dashboard(Collection collection = null)
+        private bool Dashboard(Collection collection = null)
         {
             var query = DocsOf("Movies");
 
@@ -44,9 +44,10 @@ namespace FractalPlatform.Seasons
                                    .IfTrue(collection != null, c => c.ExtendDocument("{'Genre':@Genre,'Year':@Year,'Country':@Country}", filters[0], filters[1], filters[2]))
                                    .MergeToArrayPath(movies, "Movies")
                                    .OpenForm();
-        }
 
-        private void UsersDashboard(string movie = null)
+            return true;
+        }
+        private bool UsersDashboard(string movie = null)
         {
             Storage users;
 
@@ -65,6 +66,8 @@ namespace FractalPlatform.Seasons
             .ToCollection()
             .MergeToArrayPath(users, "Users")
             .OpenForm();
+
+            return true;
         }
 
         private void MovieDashboard(string name)
@@ -92,11 +95,13 @@ namespace FractalPlatform.Seasons
             ViewUser(name);
         }
 
-        private void ViewUser(string name)
+        private bool ViewUser(string name)
         {
             DocsWhere("Users", "{'Name':@Name}", name)
             .SetDimension(DimensionType.UI, "{'Layout':'User','IsRawPage':true}")
             .OpenForm();
+
+            return true;
         }
 
         public override bool OnOpenForm(FormInfo info)
@@ -171,280 +176,238 @@ namespace FractalPlatform.Seasons
             return true;
         }
 
-        public override object OnComputedDimension(ComputedInfo info)
+        private object CommentsCount(ComputedInfo info)
         {
-            switch (info.Variable)
-            {
-                case "CountUsers":
-                    return DocsOf("Users").Count();
-                case "CountMovies":
-                    return DocsOf("Movies").Count();
-                case "CurrentFilms":
-                    return !Context.HasUrlTag || Context.UrlTag == "films" ? "current" : "";
-                case "CurrentSeries":
-                    return Context.UrlTag == "series" ? "current" : "";
-                case "CurrentCartoons":
-                    return Context.UrlTag == "cartoons" ? "current" : "";
-                case "PlayListCount":
-                    return DocsWhere("Users", info.AttrPath).Count("{'PlayList':[{'Name':$}]}");
-                case "BestMoviesCount":
-                    return DocsWhere("Users", info.AttrPath).Count("{'BestMovies':[{'Name':$}]}");
-                case "CommentsCount":
-                    var user = DocsWhere("Users", info.AttrPath).Value("{'Name':$}");
+            var user = DocsWhere("Users", info.AttrPath).Value("{'Name':$}");
 
-                    return DocsWhere("Movies", "{'Comments':[{'Name':@User}]}", user)
-                           .Count("{'Comments':[{'Name':$}]}");
-                case "OnDateLabel":
-                    var dateAgo = DateTime.Now.Subtract(info.Collection
-                                                                    .GetWhere(info.AttrPath)
-                                                                    .DateTimeValue("{'PlayList':[{'OnDate':$}]}"));
-
-                    if (dateAgo.Days > 0) return $"{dateAgo.Days} днів тому";
-                    if (dateAgo.Hours > 0) return $"{dateAgo.Hours} годин тому";
-                    if (dateAgo.Minutes > 0) return $"{dateAgo.Minutes} хвилин тому";
-                    else return $"{dateAgo.Seconds} секунд тому";
-                default:
-                    return base.OnComputedDimension(info);
-            }
+            return DocsWhere("Movies", "{'Comments':[{'Name':@User}]}", user)
+                   .Count("{'Comments':[{'Name':$}]}");
         }
 
-        public override bool OnEventDimension(EventInfo info)
+        private object OnDateLabel(ComputedInfo info)
         {
-            switch (info.Action)
-            {
-                case "Genre":
-                case "Country":
-                case "Year":
-                case "ChangeType":
-                    {
-                        Dashboard(info.Collection);
+            var dateAgo = DateTime.Now.Subtract(info.Collection
+                                                                .GetWhere(info.AttrPath)
+                                                                .DateTimeValue("{'PlayList':[{'OnDate':$}]}"));
 
-                        return true;
-                    }
-                case "LoginButton":
-                    {
-                        var loginAndPass = info.Collection
-                                                    .Values("{'Login':$,'Password':$}");
-
-                        if (TryLogin(loginAndPass[0], loginAndPass[1]))
-                        {
-                            Dashboard();
-                        }
-                        else
-                        {
-                            MessageBox("Wrong credentials");
-                        }
-
-                        return true;
-                    }
-                case "RegisterButton":
-                    {
-                        Register();
-
-                        return true;
-                    }
-                case "MyUser":
-                    {
-                        ViewUser(Context.User.Name);
-
-                        return true;
-                    }
-                case "ViewUser":
-                    {
-                        var name = info.Collection
-                                            .GetWhere(info.AttrPath)
-                                            .Value("{'Comments':[{'Name':$}]}");
-
-                        ViewUser(name);
-
-                        return true;
-                    }
-                case "NewMovie":
-                    {
-                        CreateNewDocFor("NewMovie", "Movies").OpenForm();
-
-                        return true;
-                    }
-                case "AddComment":
-                    {
-                        var movie = info.FindFirstValue("Name");
-
-                        var text = info.FindFirstValue("Comment");
-
-                        DocsWhere("Movies", "{'Name':@Name}", movie)
-                        .Update("{'Comments':[Add,{'Name':@Name,'Avatar':@Avatar,'Text':@Text, 'ViewUser':'View User'}]}", Context.User.Name, Context.User.Avatar, text);
-
-                        MovieDashboard(movie); //reload movie dashboard
-
-                        return true;
-                    }
-                case "EditMovies":
-                    {
-                        DocsOf("Movies")
-                        .ExtendUIDimension("{'Layout':'','IsRawPage':false}")
-                        .OpenForm();
-
-                        return true;
-                    }
-                case "EditActors":
-                    {
-                        DocsOf("Actors").OpenForm();
-
-                        return true;
-                    }
-                case "EditUsers":
-                    {
-                        DocsOf("Users")
-                        .ExtendUIDimension("{'Layout':'','IsRawPage':false}")
-                        .OpenForm();
-
-                        return true;
-                    }
-                case "EditUser":
-                    {
-                        DocsWhere("Users", "{'Name':@Name}", Context.User.Name)
-                        .ExtendUIDimension("{'Layout':'','IsRawPage':false,'PlayList':{'Visible':false},'BestMovies':{'Visible':false},'GoodMovies':{'Visible':false}}")
-                        .OpenForm(result => result.NeedReloadData = true);
-
-                        return true;
-                    }
-                case "AllUsers":
-                    {
-                        UsersDashboard();
-
-                        return true;
-                    }
-                case "AddToPlayList":
-                case "ViewUsers":
-                    {
-                        string name;
-
-                        if (info.Collection.Name == "MovieDashboard")
-                        {
-                            if (info.AttrPath.FirstPath == "Recommends")
-                            {
-                                name = info.Collection
-                                                .GetWhere(info.AttrPath)
-                                                .Value("{'Recommends':[{'Name':$}]}");
-                            }
-                            else
-                            {
-                                name = info.Collection
-                                                .GetWhere(info.AttrPath)
-                                                .Value("{'Name':$}");
-                            }
-                        }
-                        else
-                        {
-                            name = info.Collection
-                                            .GetWhere(info.AttrPath)
-                                            .Value("{'Movies':[{'Name':$}]}");
-                        }
-
-                        if (info.Action == "AddToPlayList")
-                        {
-                            if (Client.SetDefaultCollection("Users")
-                                       .GetWhere("{'Name':@UserName,'PlayList':[Any,{'Name':@Name}]}", name)
-                                       .Any() ||
-                                Client.SetDefaultCollection("Users")
-                                       .GetWhere("{'Name':@UserName,'BestMovies':[Any,{'Name':@Name}]}", name)
-                                       .Any() ||
-                                Client.SetDefaultCollection("Users")
-                                       .GetWhere("{'Name':@UserName,'GoodMovies':[Any,{'Name':@Name}]}", name)
-                                       .Any())
-                            {
-                                MessageBox($"Фільм {name} вже є в вашому списку перегляду.", MessageBoxButtonType.Ok);
-                            }
-                            else
-                            {
-                                DocsWhere("Users", "{'Name':@UserName}")
-                                .Update("{'PlayList':[Add,{'Name':@Name,'OnDate':@Now,'BestMovie':'Best Movie','GoodMovie':'Good Movie','Remove':'Remove','OnDateLabel':''}]}", name);
-
-                                MessageBox($"Фільм {name} додано до вашого списку перегляду.", MessageBoxButtonType.Ok);
-                            }
-                        }
-                        else //ViewUsers
-                        {
-                            UsersDashboard(name);
-                        }
-
-                        return true;
-                    }
-                case "Remove":
-                    {
-                        if (info.AttrPath.FirstPath == "PlayList")
-                        {
-                            DocsWhere("Users", info.AttrPath)
-                            .Delete("{'PlayList':[$]}");
-                        }
-                        else if (info.AttrPath.FirstPath == "BestMovies")
-                        {
-                            DocsWhere("Users", info.AttrPath)
-                            .Delete("{'BestMovies':[$]}");
-                        }
-                        else if (info.AttrPath.FirstPath == "GoodMovies")
-                        {
-                            DocsWhere("Users", info.AttrPath)
-                            .Delete("{'GoodMovies':[$]}");
-                        }
-
-                        ViewUser(info.AttrPath);
-
-                        return true;
-                    }
-                case "Share":
-                    {
-                        string movie;
-
-                        if (info.AttrPath.FirstPath == "BestMovies")
-                        {
-                            movie = DocsWhere("Users", info.AttrPath)
-                                       .Value("{'BestMovies':[{'Name':$}]}");
-                        }
-                        else //if (info.AttrPath.FirstPath == "GoodMovies")
-                        {
-                            movie = DocsWhere("Users", info.AttrPath)
-                                       .Value("{'GoodMovies':[{'Name':$}]}");
-                        }
-
-                        new
-                        {
-                            Link = "https://fraplat.tech/jupiter/Seasons/?tag=Movie:" + movie
-                        }
-                        .ToCollection("Share link")
-                        .SetUIDimension("{'ControlType':'Link','ReadOnly':true}")
-                        .OpenForm();
-
-                        return true;
-                    }
-                case "BestMovie":
-                case "GoodMovie":
-                    {
-                        var movie = DocsWhere("Users", info.AttrPath)
-                                    .Value("{'PlayList':[{'Name':$}]}");
-
-                        if (info.Action == "BestMovie")
-                        {
-                            DocsWhere("Users", info.AttrPath)
-                            .Update("{'BestMovies':[Add,{'Name':@Movie,'OnDate':@Now,'Share':'Share','Remove':'Remove'}]}", movie);
-                        }
-                        else //GoodMovie
-                        {
-                            DocsWhere("Users", info.AttrPath)
-                            .Update("{'GoodMovies':[Add,{'Name':@Movie,'OnDate':@Now,'Share':'Share','Remove':'Remove'}]}", movie);
-                        }
-
-                        DocsWhere("Users", info.AttrPath)
-                        .Delete("{'PlayList':[$]}");
-
-                        ViewUser(info.AttrPath);
-
-                        return true;
-                    }
-                default:
-                    return base.OnEventDimension(info);
-            }
+            if (dateAgo.Days > 0) return $"{dateAgo.Days} днів тому";
+            if (dateAgo.Hours > 0) return $"{dateAgo.Hours} годин тому";
+            if (dateAgo.Minutes > 0) return $"{dateAgo.Minutes} хвилин тому";
+            else return $"{dateAgo.Seconds} секунд тому";
         }
+
+        public override object OnComputedDimension(ComputedInfo info) =>
+            info.Variable switch
+            {
+                "CountUsers"      => DocsOf("Users").Count(),
+                "CountMovies"     => DocsOf("Movies").Count(),
+                "CurrentFilms"    => !Context.HasUrlTag || Context.UrlTag == "films" ? "current" : "",
+                "CurrentSeries"   => Context.UrlTag == "series" ? "current" : "",
+                "CurrentCartoons" => Context.UrlTag == "cartoons" ? "current" : "",
+                "PlayListCount"   => DocsWhere("Users", info.AttrPath).Count("{'PlayList':[{'Name':$}]}"),
+                "BestMoviesCount" => DocsWhere("Users", info.AttrPath).Count("{'BestMovies':[{'Name':$}]}"),
+                "CommentsCount"   => CommentsCount(info),
+                "OnDateLabel"     => OnDateLabel(info),
+                _ => base.OnComputedDimension(info)
+            };
+
+        private bool LoginButton(EventInfo info)
+        {
+            var loginAndPass = info.Collection
+                                        .Values("{'Login':$,'Password':$}");
+
+            if (TryLogin(loginAndPass[0], loginAndPass[1]))
+            {
+                Dashboard();
+            }
+            else
+            {
+                MessageBox("Wrong credentials");
+            }
+
+            return true;
+        }
+
+        private bool ViewCommentUser(EventInfo info)
+        {
+            var name = info.Collection
+                                .GetWhere(info.AttrPath)
+                                .Value("{'Comments':[{'Name':$}]}");
+
+            ViewUser(name);
+
+            return true;
+        }
+
+        private bool AddComment(EventInfo info)
+        {
+            var movie = info.FindFirstValue("Name");
+
+            var text = info.FindFirstValue("Comment");
+
+            DocsWhere("Movies", "{'Name':@Name}", movie)
+            .Update("{'Comments':[Add,{'Name':@Name,'Avatar':@Avatar,'Text':@Text, 'ViewUser':'View User'}]}", Context.User.Name, Context.User.Avatar, text);
+
+            MovieDashboard(movie);
+
+            return true;
+        }
+
+        private bool AddToPlayListOrViewUsers(EventInfo info)
+        {
+            string name;
+
+            if (info.Collection.Name == "MovieDashboard")
+            {
+                if (info.AttrPath.FirstPath == "Recommends")
+                {
+                    name = info.Collection
+                                    .GetWhere(info.AttrPath)
+                                    .Value("{'Recommends':[{'Name':$}]}");
+                }
+                else
+                {
+                    name = info.Collection
+                                    .GetWhere(info.AttrPath)
+                                    .Value("{'Name':$}");
+                }
+            }
+            else
+            {
+                name = info.Collection
+                                .GetWhere(info.AttrPath)
+                                .Value("{'Movies':[{'Name':$}]}");
+            }
+
+            if (info.Action == "AddToPlayList")
+            {
+                if (Client.SetDefaultCollection("Users")
+                           .GetWhere("{'Name':@UserName,'PlayList':[Any,{'Name':@Name}]}", name)
+                           .Any() ||
+                    Client.SetDefaultCollection("Users")
+                           .GetWhere("{'Name':@UserName,'BestMovies':[Any,{'Name':@Name}]}", name)
+                           .Any() ||
+                    Client.SetDefaultCollection("Users")
+                           .GetWhere("{'Name':@UserName,'GoodMovies':[Any,{'Name':@Name}]}", name)
+                           .Any())
+                {
+                    MessageBox($"Фільм {name} вже є в вашому списку перегляду.", MessageBoxButtonType.Ok);
+                }
+                else
+                {
+                    DocsWhere("Users", "{'Name':@UserName}")
+                    .Update("{'PlayList':[Add,{'Name':@Name,'OnDate':@Now,'BestMovie':'Best Movie','GoodMovie':'Good Movie','Remove':'Remove','OnDateLabel':''}]}", name);
+
+                    MessageBox($"Фільм {name} додано до вашого списку перегляду.", MessageBoxButtonType.Ok);
+                }
+            }
+            else //ViewUsers
+            {
+                UsersDashboard(name);
+            }
+
+            return true;
+        }
+
+        private bool RemoveFromList(EventInfo info)
+        {
+            if (info.AttrPath.FirstPath == "PlayList")
+            {
+                DocsWhere("Users", info.AttrPath)
+                .Delete("{'PlayList':[$]}");
+            }
+            else if (info.AttrPath.FirstPath == "BestMovies")
+            {
+                DocsWhere("Users", info.AttrPath)
+                .Delete("{'BestMovies':[$]}");
+            }
+            else if (info.AttrPath.FirstPath == "GoodMovies")
+            {
+                DocsWhere("Users", info.AttrPath)
+                .Delete("{'GoodMovies':[$]}");
+            }
+
+            ViewUser(info.AttrPath);
+
+            return true;
+        }
+
+        private bool ShareMovie(EventInfo info)
+        {
+            string movie;
+
+            if (info.AttrPath.FirstPath == "BestMovies")
+            {
+                movie = DocsWhere("Users", info.AttrPath)
+                           .Value("{'BestMovies':[{'Name':$}]}");
+            }
+            else
+            {
+                movie = DocsWhere("Users", info.AttrPath)
+                           .Value("{'GoodMovies':[{'Name':$}]}");
+            }
+
+            new
+            {
+                Link = "https://fraplat.tech/jupiter/Seasons/?tag=Movie:" + movie
+            }
+            .ToCollection("Share link")
+            .SetUIDimension("{'ControlType':'Link','ReadOnly':true}")
+            .OpenForm();
+
+            return true;
+        }
+
+        private bool RateMovie(EventInfo info)
+        {
+            var movie = DocsWhere("Users", info.AttrPath)
+                        .Value("{'PlayList':[{'Name':$}]}");
+
+            if (info.Action == "BestMovie")
+            {
+                DocsWhere("Users", info.AttrPath)
+                .Update("{'BestMovies':[Add,{'Name':@Movie,'OnDate':@Now,'Share':'Share','Remove':'Remove'}]}", movie);
+            }
+            else //GoodMovie
+            {
+                DocsWhere("Users", info.AttrPath)
+                .Update("{'GoodMovies':[Add,{'Name':@Movie,'OnDate':@Now,'Share':'Share','Remove':'Remove'}]}", movie);
+            }
+
+            DocsWhere("Users", info.AttrPath)
+            .Delete("{'PlayList':[$]}");
+
+            ViewUser(info.AttrPath);
+
+            return true;
+        }
+
+        public override bool OnEventDimension(EventInfo info) =>
+            info.Action switch
+            {
+                "Genre" or "Country" or "Year" or "ChangeType"
+                                => Dashboard(info.Collection),
+                "LoginButton"   => LoginButton(info),
+                "RegisterButton" => Register(),
+                "MyUser"        => ViewUser(Context.User.Name),
+                "ViewUser"      => ViewCommentUser(info),
+                "NewMovie"      => CreateNewDocFor("NewMovie", "Movies").OpenForm(),
+                "AddComment"    => AddComment(info),
+                "EditMovies"    => DocsOf("Movies").ExtendUIDimension("{'Layout':'','IsRawPage':false}").OpenForm(),
+                "EditActors"    => DocsOf("Actors").OpenForm(),
+                "EditUsers"     => DocsOf("Users").ExtendUIDimension("{'Layout':'','IsRawPage':false}").OpenForm(),
+                "EditUser"      => DocsWhere("Users", "{'Name':@Name}", Context.User.Name)
+                                    .ExtendUIDimension("{'Layout':'','IsRawPage':false,'PlayList':{'Visible':false},'BestMovies':{'Visible':false},'GoodMovies':{'Visible':false}}")
+                                    .OpenForm(onClose: result => result.NeedReloadData = true),
+                "AllUsers"      => UsersDashboard(),
+                "AddToPlayList" or "ViewUsers"
+                                => AddToPlayListOrViewUsers(info),
+                "Remove"        => RemoveFromList(info),
+                "Share"         => ShareMovie(info),
+                "BestMovie" or "GoodMovie"
+                                => RateMovie(info),
+                _ => base.OnEventDimension(info)
+            };
 
         public override bool OnSecurityDimension(SecurityInfo info) => info.FindFirstValue("Name") == Context.User.Name; //@MyProfile variable
 

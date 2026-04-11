@@ -149,69 +149,38 @@ namespace FractalPlatform.UTube
                    .Exists();
         }
 
+        private object OnDateLabel(ComputedInfo info)
+        {
+            var dateAgo = DateTime.Now.Subtract(info.Collection
+                                                                .GetWhere(info.AttrPath)
+                                                                .DateTimeValue("{'Videos':[{'OnDate':$}]}"));
+
+            if (dateAgo.Days / 365 > 0) return $"{dateAgo.Days / 365} years ago";
+            if (dateAgo.Days / 30 > 0) return $"{dateAgo.Days / 30} months ago";
+            if (dateAgo.Days > 0) return $"{dateAgo.Days} days ago";
+            if (dateAgo.Hours > 0) return $"{dateAgo.Hours} hours ago";
+            if (dateAgo.Minutes > 0) return $"{dateAgo.Minutes} minutes ago";
+            else return $"{dateAgo.Seconds} seconds ago";
+        }
+
         public override object OnComputedDimension(ComputedInfo info)
         {
             var owner = DocsWhere("Channels", info.GrandDocID)
                         .Value("{'Owner':$}");
 
-            switch (info.Variable)
+            return info.Variable switch
             {
-                case "Subscribe":
-                    {
-                        return !HasSubscription(info.GrandDocID) &&
-                                Context.User.Name != owner &&
-                                !Context.User.IsGuest;
-                    }
-                case "Unsubscribe":
-                    {
-                        return HasSubscription(info.GrandDocID) &&
-                               Context.User.Name != owner &&
-                               !Context.User.IsGuest;
-                    }
-                case "NewVideo":
-                    {
-                        return owner == Context.User.Name;
-                    }
-                case "Avatar":
-                    {
-                        return Context.User.GetDefaultAvatar("Guest.png");
-                    }
-                case "Preview":
-                    {
-                        var video = info.Collection
-                                                .GetWhere(info.AttrPath)
-                                                .Value("{'Videos':[{'Video':$}]}");
-
-                        return video.Replace(".mp4", ".jpg");
-                    }
-                case "MyUserLabel":
-                    {
-                        return Context.User.Name.ToUpper().Substring(0, 2);
-                    }
-                case "CountLikes":
-                    {
-                        return DocsWhere("Channels", info.AttrPath).Count("{'Videos':[{'Likes':[$]}]}") - 1;
-                    }
-                case "CountComments":
-                    {
-                        return DocsWhere("Channels", info.AttrPath).Count("{'Videos':[{'Comments':[{'Who':$}]}]}");
-                    }
-                case "OnDateLabel":
-                    var dateAgo = DateTime.Now.Subtract(info.Collection
-                                                                    .GetWhere(info.AttrPath)
-                                                                    .DateTimeValue("{'Videos':[{'OnDate':$}]}"));
-
-                    if (dateAgo.Days / 365 > 0) return $"{dateAgo.Days / 365} years ago";
-                    if (dateAgo.Days / 30 > 0) return $"{dateAgo.Days / 30} months ago";
-                    if (dateAgo.Days > 0) return $"{dateAgo.Days} days ago";
-                    if (dateAgo.Hours > 0) return $"{dateAgo.Hours} hours ago";
-                    if (dateAgo.Minutes > 0) return $"{dateAgo.Minutes} minutes ago";
-                    else return $"{dateAgo.Seconds} seconds ago";
-                default:
-                    {
-                        return base.OnComputedDimension(info);
-                    }
-            }
+                "Subscribe"     => !HasSubscription(info.GrandDocID) && Context.User.Name != owner && !Context.User.IsGuest,
+                "Unsubscribe"   => HasSubscription(info.GrandDocID) && Context.User.Name != owner && !Context.User.IsGuest,
+                "NewVideo"      => owner == Context.User.Name,
+                "Avatar"        => Context.User.GetDefaultAvatar("Guest.png"),
+                "Preview"       => info.Collection.GetWhere(info.AttrPath).Value("{'Videos':[{'Video':$}]}").Replace(".mp4", ".jpg"),
+                "MyUserLabel"   => Context.User.Name.ToUpper().Substring(0, 2),
+                "CountLikes"    => DocsWhere("Channels", info.AttrPath).Count("{'Videos':[{'Likes':[$]}]}") - 1,
+                "CountComments" => DocsWhere("Channels", info.AttrPath).Count("{'Videos':[{'Comments':[{'Who':$}]}]}"),
+                "OnDateLabel"   => OnDateLabel(info),
+                _ => base.OnComputedDimension(info)
+            };
         }
 
         public override bool OnSecurityDimension(SecurityInfo info)
@@ -246,160 +215,116 @@ namespace FractalPlatform.UTube
             }
         }
 
-        public override bool OnEventDimension(EventInfo info)
+        private bool ClearHistory()
         {
-            switch (info.Action)
-            {
-                case "Login":
-                    {
-                        Login();
+            MessageBox("Are you sure to clear history?",
+                       "Clear history",
+                       MessageBoxButtonType.YesNo,
+                       onSave: result =>
+                       {
+                           DocsWhere("Users", "{'Name':@UserName}")
+                           .Delete("{'History':[$]}");
 
-                        return true;
-                    }
-                case "Logout":
-                    {
-                        Logout();
+                           Dashboard();
+                       });
 
-                        return true;
-                    }
-                case "Register":
-                    {
-                        Register();
-
-                        return true;
-                    }
-                case "MyUser":
-                    {
-                        DocsWhere("Users", "{'Name':@UserName}")
-                        .OpenForm();
-
-                        return true;
-                    }
-
-                case "Users":
-                    {
-                        DocsOf("Users")
-                        .OpenForm();
-
-                        return true;
-                    }
-                case "NewChannel":
-                    {
-                        CreateNewDocFor("NewChannel", "Channels")
-                        .OpenForm(onSave: result => MessageBox("Thank you ! New channel created."));
-
-                        return true;
-                    }
-                case "MyChannels":
-                    {
-                        DocsWhere("Channels", "{'Owner':@UserName,'IsLocked':false}")
-                        .OpenForm();
-
-                        return true;
-                    }
-                case "Channels":
-                    {
-                        DocsWhere("Channels", "{'IsLocked':false}")
-                        .OpenForm();
-
-                        return true;
-                    }
-                case "History":
-                    {
-                        DocsWhere("Users", "{'Name':@UserName}")
-                        .ExtendUIDimension("{'ReadOnly':true,'History':{'Visible':true,'UID':{'Visible':false}}}")
-                        .OpenForm("{'History':[$]}");
-
-                        return true;
-                    }
-                case "ClearHistory":
-                    {
-                        MessageBox("Are you sure to clear history?",
-                                   "Clear history",
-                                   MessageBoxButtonType.YesNo,
-                                   onSave: result =>
-                                   {
-                                       DocsWhere("Users", "{'Name':@UserName}")
-                                       .Delete("{'History':[$]}");
-
-                                       Dashboard();
-                                   });
-
-                        return true;
-                    }
-                case "NewVideo":
-                    {
-                        var docID = DocsWhere("Channels", info.AttrPath)
-                                    .GetFirstID();
-
-                        CreateNewDocForArray("NewVideo", "Channels", "{'Videos':[$]}", docID)
-                        .OpenForm();
-
-                        return true;
-                    }
-                case "Subscribe":
-                    {
-                        var channel = DocsWhere("Channels", info.AttrPath)
-                                      .Value("{'Name':$}");
-
-                        DocsWhere("Users", "{'Name':@UserName}")
-                        .Update("{'Subscribes':[Add,@Channel]}", channel);
-
-                        MessageBox("Thank you. You are subscribed on the channel.", MessageBoxButtonType.Ok);
-
-                        return true;
-                    }
-                case "Unsubscribe":
-                    {
-                        var channel = DocsWhere("Channels", info.AttrPath)
-                                      .Value("{'Name':$}");
-
-                        DocsWhere("Users", "{'Name':@UserName}")
-                        .Delete("{'Subscribes':[@Channel]}", channel);
-
-                        MessageBox("You are unsubscribed from the channel.", MessageBoxButtonType.Ok);
-
-                        return true;
-                    }
-                case "NewComment":
-                    {
-                        var uid = info.FindFirstValue("UID");
-                        var comment = info.FindFirstValue("Comment");
-
-                        DocsWhere("Channels", "{'Videos':[{'UID':@UID}]}", uid)
-                            .Update("{'Videos':[{'Comments':[Add,{'Who':@UserName,'OnDate':@Now,'Avatar':@Avatar,'Text':@Comment}]}]}",
-                                     Context.User.GetDefaultAvatar("Guest.png"), comment);
-
-                        OpenVideo(uid);
-
-                        return true;
-                    }
-                case "NewLike":
-                    {
-                        var uid = info.FindFirstValue("UID");
-
-                        if (!DocsWhere("Channels", "{'Videos':[{'UID':@UID,'Likes':[Any,@UserName]}]}", uid).Any())
-                        {
-                            DocsWhere("Channels", "{'Videos':[{'UID':@UID}]}", uid)
-                                .Update("{'Videos':[{'Likes':[Add,@UserName]}]}");
-                        }
-
-                        OpenVideo(uid);
-
-                        return true;
-                    }
-                case "Filter":
-                    {
-                        var filter = info.FindFirstValue("FilterText");
-
-                        Dashboard(filter);
-
-                        return true;
-                    }
-                default:
-                    return base.OnEventDimension(info);
-            }
+            return true;
         }
+
+        private bool NewVideo(EventInfo info)
+        {
+            var docID = DocsWhere("Channels", info.AttrPath)
+                        .GetFirstID();
+
+            CreateNewDocForArray("NewVideo", "Channels", "{'Videos':[$]}", docID)
+            .OpenForm();
+
+            return true;
+        }
+
+        private bool Subscribe(EventInfo info)
+        {
+            var channel = DocsWhere("Channels", info.AttrPath)
+                          .Value("{'Name':$}");
+
+            DocsWhere("Users", "{'Name':@UserName}")
+            .Update("{'Subscribes':[Add,@Channel]}", channel);
+
+            MessageBox("Thank you. You are subscribed on the channel.", MessageBoxButtonType.Ok);
+
+            return true;
+        }
+
+        private bool Unsubscribe(EventInfo info)
+        {
+            var channel = DocsWhere("Channels", info.AttrPath)
+                          .Value("{'Name':$}");
+
+            DocsWhere("Users", "{'Name':@UserName}")
+            .Delete("{'Subscribes':[@Channel]}", channel);
+
+            MessageBox("You are unsubscribed from the channel.", MessageBoxButtonType.Ok);
+
+            return true;
+        }
+
+        private bool NewComment(EventInfo info)
+        {
+            var uid = info.FindFirstValue("UID");
+            var comment = info.FindFirstValue("Comment");
+
+            DocsWhere("Channels", "{'Videos':[{'UID':@UID}]}", uid)
+                .Update("{'Videos':[{'Comments':[Add,{'Who':@UserName,'OnDate':@Now,'Avatar':@Avatar,'Text':@Comment}]}]}",
+                         Context.User.GetDefaultAvatar("Guest.png"), comment);
+
+            OpenVideo(uid);
+
+            return true;
+        }
+
+        private bool NewLike(EventInfo info)
+        {
+            var uid = info.FindFirstValue("UID");
+
+            if (!DocsWhere("Channels", "{'Videos':[{'UID':@UID,'Likes':[Any,@UserName]}]}", uid).Any())
+            {
+                DocsWhere("Channels", "{'Videos':[{'UID':@UID}]}", uid)
+                    .Update("{'Videos':[{'Likes':[Add,@UserName]}]}");
+            }
+
+            OpenVideo(uid);
+
+            return true;
+        }
+
+        private bool FilterVideos(EventInfo info)
+        {
+            Dashboard(info.FindFirstValue("FilterText"));
+
+            return true;
+        }
+
+        public override bool OnEventDimension(EventInfo info) =>
+            info.Action switch
+            {
+                "Login"        => Login(),
+                "Logout"       => Logout(),
+                "Register"     => Register(),
+                "MyUser"       => DocsWhere("Users", "{'Name':@UserName}").OpenForm(),
+                "Users"        => DocsOf("Users").OpenForm(),
+                "NewChannel"   => CreateNewDocFor("NewChannel", "Channels").OpenForm(onSave: result => MessageBox("Thank you ! New channel created.")),
+                "MyChannels"   => DocsWhere("Channels", "{'Owner':@UserName,'IsLocked':false}").OpenForm(),
+                "Channels"     => DocsWhere("Channels", "{'IsLocked':false}").OpenForm(),
+                "History"      => DocsWhere("Users", "{'Name':@UserName}").ExtendUIDimension("{'ReadOnly':true,'History':{'Visible':true,'UID':{'Visible':false}}}").OpenForm("{'History':[$]}"),
+                "ClearHistory" => ClearHistory(),
+                "NewVideo"     => NewVideo(info),
+                "Subscribe"    => Subscribe(info),
+                "Unsubscribe"  => Unsubscribe(info),
+                "NewComment"   => NewComment(info),
+                "NewLike"      => NewLike(info),
+                "Filter"       => FilterVideos(info),
+                _ => base.OnEventDimension(info)
+            };
 
         public override void OnStart()
         {

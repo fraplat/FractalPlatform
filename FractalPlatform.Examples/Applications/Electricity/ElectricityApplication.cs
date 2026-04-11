@@ -51,28 +51,24 @@ namespace FractalPlatform.Examples.Applications.Electricity
             return true;
         }
 
-        public override bool OnEventDimension(EventInfo info)
-        {
-            switch (info.Action)
+        private bool NewLocation() =>
+            CreateNewDocFor("NewLocation", "Locations").OpenForm(onSave: result =>
             {
-                case "NewLocation":
-                    CreateNewDocFor("NewLocation", "Locations").OpenForm(onSave: result =>
-                    {
-                        var gps = result.Collection
-                                        .Values("{'Lat':$,'Lng':$}");
+                var gps = result.Collection
+                                .Values("{'Lat':$,'Lng':$}");
 
-                        FirstDocOf("Dashboard").Update("{'Map':{'Points':[Add,{'Lat':@Lat,'Lng':@Lng}]}}", gps[0], gps[1]);
+                FirstDocOf("Dashboard").Update("{'Map':{'Points':[Add,{'Lat':@Lat,'Lng':@Lng}]}}", gps[0], gps[1]);
 
-                        result.NeedReloadData = true;
-                    });
-                    return true;
-                case "Locations":
-                    DocsOf("Locations").OpenForm();
-                    return true;
-                default:
-                    return base.OnEventDimension(info);
-            }
-        }
+                result.NeedReloadData = true;
+            });
+
+        public override bool OnEventDimension(EventInfo info) =>
+            info.Action switch
+            {
+                "NewLocation" => NewLocation(),
+                "Locations"   => DocsOf("Locations").OpenForm(),
+                _ => base.OnEventDimension(info)
+            };
 
         public override void OnStart() => FirstDocOf("Dashboard").OpenForm();
     }

@@ -8,39 +8,20 @@ namespace FractalPlatform.Notepad
     {
         public override void OnStart() => FirstDocOf("Notes").OpenForm();
     
-        public override bool OnEventDimension(EventInfo info)
+        private bool SaveAndClose()
         {
-            var path = info.Action;
-
-            switch(path)
-            {
-                case @"Cancel":
-                {
-                    SaveForm();
-                    
-                    CloseForm();
-
-                    break;
-                }
-                case @"Save":
-                {
-                    SaveForm();
-
-                    break;
-                }
-                case @"Refresh":
-                {
-                    RefreshForm();
-
-                    break;
-                }
-                default:
-                {
-                    return base.OnEventDimension(info);
-                }
-            }
-
+            SaveForm();
+            CloseForm();
             return true;
         }
+
+        public override bool OnEventDimension(EventInfo info) =>
+            info.Action switch
+            {
+                "Cancel"  => SaveAndClose(),
+                "Save"    => SaveForm(),
+                "Refresh" => RefreshForm(),
+                _ => base.OnEventDimension(info)
+            };
     }
 }

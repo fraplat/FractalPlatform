@@ -87,203 +87,142 @@ namespace FractalPlatform.Forum
             return message;
         }
 
-        public override object OnComputedDimension(ComputedInfo info)
+        private object DescriptionShort(ComputedInfo info)
         {
-            switch (info.Variable)
-            {
-                case "WhoCountMessages":
-                    {
-                        return DocsWhere("Users", "{'Name':@Name}",
-                                         info.Collection
-                                                     .GetWhere(info.AttrPath)
-                                                     .Value("{'Who':{'Name':$}}")).Value("{'CountMessages':$}");
-                    }
-                case "WhoRegistered":
-                    {
-                        return DocsWhere("Users", "{'Name':@Name}",
-                                         info.Collection
-                                                     .GetWhere(info.AttrPath)
-                                                     .Value("{'Who':{'Name':$}}")).Value("{'Registered':$}");
-                    }
-                case "UserMessageCountMessages":
-                    {
-                        return DocsWhere("Users", "{'Name':@Name}",
-                                         info.Collection
-                                                     .GetWhere(info.AttrPath)
-                                                     .Value("{'Messages':[{'Who':$}]}")).Value("{'CountMessages':$}");
-                    }
-                case "UserMessageRegistered":
-                    {
-                        return DocsWhere("Users", "{'Name':@Name}",
-                                         info.Collection
-                                                     .GetWhere(info.AttrPath)
-                                                     .Value("{'Messages':[{'Who':$}]}")).Value("{'Registered':$}");
-                    }
-                case "UserCountMessages":
-                    {
-                        return DocsWhere("Topics", "{'Messages':[{'Who':@User}]}",
-                                         info.Collection
-                                                     .GetWhere(info.AttrPath)
-                                                     .Value("{'Name':$}")).Count("{'Messages':[{'Who':$}]}");
-                    }
-                case "Category":
-                    {
-                        return _category;
-                    }
-                case "Title":
-                    {
-                        return info.Collection
-                                           .GetWhere(info.AttrPath)
-                                           .Value("{'Title':$}");
-                    }
-                case "DescriptionShort":
-                    {
-                        var description = info.Collection
-                                                      .GetWhere(info.AttrPath)
-                                                      .Value("{'Description':$}") ?? string.Empty;
+            var description = info.Collection
+                                          .GetWhere(info.AttrPath)
+                                          .Value("{'Description':$}") ?? string.Empty;
 
-                        return description.Contains("\n") ? description.Substring(0, description.IndexOf("\n")) : description;
-                    }
-                case "DescriptionHtml":
-                    {
-                        var description = info.Collection
-                                                      .GetWhere(info.AttrPath)
-                                                      .Value("{'Description':$}") ?? string.Empty;
-
-                        description = description.Replace("\n", "<br>");
-
-                        description = ReplaceUrls(description);
-
-                        return description;
-                    }
-                case "MessageHtml":
-                    {
-                        var message = info.Collection
-                                                  .GetWhere(info.AttrPath)
-                                                  .Value("{'Messages':[{'Message':$}]}") ?? string.Empty;
-
-                        message = message.Replace("<", "&lt;").Replace(">", "&gt;").Replace("\n", "<br>");
-
-                        message = ReplaceUrls(message);
-
-                        return Regex.Replace(message, "\\[QUOTE=(?<Name>[a-zA-Z0-9]+)\\]", m => $"<div style='border-style:ridge;'>{m.Groups["Name"].Value} writes:<br/>")
-                                    .Replace("[/QUOTE]", "</div>");
-                    }
-                default:
-                    return base.OnComputedDimension(info);
-            }
+            return description.Contains("\n") ? description.Substring(0, description.IndexOf("\n")) : description;
         }
 
-        public override bool OnEventDimension(EventInfo info)
+        private object DescriptionHtml(ComputedInfo info)
         {
-            switch (info.Action)
-            {
-                case "Users":
-                    {
-                        DocsOf("Users").OpenForm();
+            var description = info.Collection
+                                          .GetWhere(info.AttrPath)
+                                          .Value("{'Description':$}") ?? string.Empty;
 
-                        return true;
-                    }
-                case "EditCategories":
-                    {
-                        DocsOf("Categories").OpenForm(onClose: result => Dashboard());
+            description = description.Replace("\n", "<br>");
 
-                        return true;
-                    }
-                case "EditTopics":
-                    {
-                        DocsWhere("Topics", "{'Category':@Category}", _category).OpenForm(onClose: result => CategoryDashboard());
+            description = ReplaceUrls(description);
 
-                        return true;
-                    }
-                case "EditTopic":
-                    {
-                        DocsWhere("Topics", _topicID).OpenForm(onClose: result => TopicDashboard());
-
-                        return true;
-                    }
-                case "Register":
-                    {
-                        Register();
-
-                        return true;
-                    }
-                case "LoginButton":
-                    {
-                        var loginAndPass = info.Collection
-                                                    .Values("{'Login':$,'Password':$}");
-
-                        if (TryLogin(loginAndPass[0], loginAndPass[1]))
-                        {
-                            if (info.Collection.Name == "CategoryDashboard")
-                                CategoryDashboard();
-                            else if (info.Collection.Name == "TopicDashboard")
-                                TopicDashboard();
-                            else
-                                Dashboard();
-                        }
-                        else
-                        {
-                            MessageBox("Wrong credentials");
-                        }
-
-                        return true;
-                    }
-                case "NewTopic":
-                    {
-                        CreateNewDocFor("NewTopic", "Topics")
-                              .OpenForm(onSave: result =>
-                              {
-                                  Client.SetDefaultCollection("Categories")
-                                        .GetWhere("{'Title':@Title}", _category)
-                                        .Update("{'LastMessage':{'Who':@UserName,'OnDate':@Now},'CountTopics':Add(1)}");
-
-                                  CategoryDashboard();
-                              });
-
-                        return true;
-                    }
-                case "NewMessage":
-                    {
-                        CreateNewDocForArray("NewMessage", "Topics", "{'Messages':[$]}", _topicID)
-                              .OpenForm(onSave: result =>
-                              {
-                                  Client.SetDefaultCollection("Categories")
-                                        .GetWhere("{'Title':@Title}", _category)
-                                        .Update("{'LastMessage':{'Who':@UserName,'OnDate':@Now},'CountMessages':Add(1)}");
-
-                                  Client.SetDefaultCollection("Topics")
-                                        .GetDoc(_topicID)
-                                        .Update("{'LastMessage':{'Who':@UserName,'OnDate':@Now},'CountMessages':Add(1)}");
-
-                                  TopicDashboard();
-                              });
-
-                        return true;
-                    }
-                case "NewQuoteMessage":
-                    {
-                        var whoAndMessage = info.Collection
-                                                     .GetWhere(info.AttrPath)
-                                                     .Values("{'Messages':[{'Who':$,'Message':$}]}");
-
-                        CreateNewDocForArray("NewMessage", "Topics", "{'Messages':[$]}", _topicID)
-                              .ExtendDocument("{'Message':@Message}", $"[QUOTE={whoAndMessage[0]}]{whoAndMessage[1]}[/QUOTE]")
-                              .OpenForm(onClose: result => TopicDashboard());
-
-                        return true;
-                    }
-                case "Who":
-                case "Name":
-                    {
-                        DocsWhere("Users", "{'Name':@Name}", info.AttrValue).OpenForm();
-
-                        return true;
-                    }
-                default:
-                    return base.OnEventDimension(info);
-            }
+            return description;
         }
+
+        private object MessageHtml(ComputedInfo info)
+        {
+            var message = info.Collection
+                                      .GetWhere(info.AttrPath)
+                                      .Value("{'Messages':[{'Message':$}]}") ?? string.Empty;
+
+            message = message.Replace("<", "&lt;").Replace(">", "&gt;").Replace("\n", "<br>");
+
+            message = ReplaceUrls(message);
+
+            return Regex.Replace(message, "\\[QUOTE=(?<Name>[a-zA-Z0-9]+)\\]", m => $"<div style='border-style:ridge;'>{m.Groups["Name"].Value} writes:<br/>")
+                        .Replace("[/QUOTE]", "</div>");
+        }
+
+        public override object OnComputedDimension(ComputedInfo info) =>
+            info.Variable switch
+            {
+                "WhoCountMessages"        => DocsWhere("Users", "{'Name':@Name}", info.Collection.GetWhere(info.AttrPath).Value("{'Who':{'Name':$}}")).Value("{'CountMessages':$}"),
+                "WhoRegistered"           => DocsWhere("Users", "{'Name':@Name}", info.Collection.GetWhere(info.AttrPath).Value("{'Who':{'Name':$}}")).Value("{'Registered':$}"),
+                "UserMessageCountMessages" => DocsWhere("Users", "{'Name':@Name}", info.Collection.GetWhere(info.AttrPath).Value("{'Messages':[{'Who':$}]}")).Value("{'CountMessages':$}"),
+                "UserMessageRegistered"   => DocsWhere("Users", "{'Name':@Name}", info.Collection.GetWhere(info.AttrPath).Value("{'Messages':[{'Who':$}]}")).Value("{'Registered':$}"),
+                "UserCountMessages"       => DocsWhere("Topics", "{'Messages':[{'Who':@User}]}", info.Collection.GetWhere(info.AttrPath).Value("{'Name':$}")).Count("{'Messages':[{'Who':$}]}"),
+                "Category"                => _category,
+                "Title"                   => info.Collection.GetWhere(info.AttrPath).Value("{'Title':$}"),
+                "DescriptionShort"        => DescriptionShort(info),
+                "DescriptionHtml"         => DescriptionHtml(info),
+                "MessageHtml"             => MessageHtml(info),
+                _ => base.OnComputedDimension(info)
+            };
+
+        private bool LoginButton(EventInfo info)
+        {
+            var loginAndPass = info.Collection
+                                        .Values("{'Login':$,'Password':$}");
+
+            if (TryLogin(loginAndPass[0], loginAndPass[1]))
+            {
+                if (info.Collection.Name == "CategoryDashboard")
+                    CategoryDashboard();
+                else if (info.Collection.Name == "TopicDashboard")
+                    TopicDashboard();
+                else
+                    Dashboard();
+            }
+            else
+            {
+                MessageBox("Wrong credentials");
+            }
+
+            return true;
+        }
+
+        private bool NewTopic()
+        {
+            CreateNewDocFor("NewTopic", "Topics")
+                  .OpenForm(onSave: result =>
+                  {
+                      Client.SetDefaultCollection("Categories")
+                            .GetWhere("{'Title':@Title}", _category)
+                            .Update("{'LastMessage':{'Who':@UserName,'OnDate':@Now},'CountTopics':Add(1)}");
+
+                      CategoryDashboard();
+                  });
+
+            return true;
+        }
+
+        private bool NewMessage()
+        {
+            CreateNewDocForArray("NewMessage", "Topics", "{'Messages':[$]}", _topicID)
+                  .OpenForm(onSave: result =>
+                  {
+                      Client.SetDefaultCollection("Categories")
+                            .GetWhere("{'Title':@Title}", _category)
+                            .Update("{'LastMessage':{'Who':@UserName,'OnDate':@Now},'CountMessages':Add(1)}");
+
+                      Client.SetDefaultCollection("Topics")
+                            .GetDoc(_topicID)
+                            .Update("{'LastMessage':{'Who':@UserName,'OnDate':@Now},'CountMessages':Add(1)}");
+
+                      TopicDashboard();
+                  });
+
+            return true;
+        }
+
+        private bool NewQuoteMessage(EventInfo info)
+        {
+            var whoAndMessage = info.Collection
+                                         .GetWhere(info.AttrPath)
+                                         .Values("{'Messages':[{'Who':$,'Message':$}]}");
+
+            CreateNewDocForArray("NewMessage", "Topics", "{'Messages':[$]}", _topicID)
+                  .ExtendDocument("{'Message':@Message}", $"[QUOTE={whoAndMessage[0]}]{whoAndMessage[1]}[/QUOTE]")
+                  .OpenForm(onClose: result => TopicDashboard());
+
+            return true;
+        }
+
+        public override bool OnEventDimension(EventInfo info) =>
+            info.Action switch
+            {
+                "Users"          => DocsOf("Users").OpenForm(),
+                "EditCategories" => DocsOf("Categories").OpenForm(onClose: result => Dashboard()),
+                "EditTopics"     => DocsWhere("Topics", "{'Category':@Category}", _category).OpenForm(onClose: result => CategoryDashboard()),
+                "EditTopic"      => DocsWhere("Topics", _topicID).OpenForm(onClose: result => TopicDashboard()),
+                "Register"       => Register(),
+                "LoginButton"    => LoginButton(info),
+                "NewTopic"       => NewTopic(),
+                "NewMessage"     => NewMessage(),
+                "NewQuoteMessage" => NewQuoteMessage(info),
+                "Who" or "Name"  => DocsWhere("Users", "{'Name':@Name}", info.AttrValue).OpenForm(),
+                _ => base.OnEventDimension(info)
+            };
 
         public override void OnStart()
         {

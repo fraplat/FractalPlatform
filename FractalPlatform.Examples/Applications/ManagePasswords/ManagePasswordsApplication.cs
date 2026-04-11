@@ -33,29 +33,20 @@ namespace FractalPlatform.Examples.Applications.ManagePasswords
                               }
                           });
 
-        public override bool OnMenuDimension(MenuInfo info)
+        private bool GetPassword(MenuInfo info)
         {
-            switch (info.Action)
-            {
-                case "CopyPassword":
-                    {
-                        var password = DocsWhere("Passwords", info.AttrPath)
-                                         .Value("{'Passwords':[{'Password':$}]}");
-
-                        break;
-                    }
-                case "TypePassword":
-                    {
-                        var password = DocsWhere("Passwords", info.AttrPath)
-                                         .Value("{'Passwords':[{'Password':$}]}");
-
-                        break;
-                    }
-                default:
-                    throw new NotImplementedException();
-            }
+            var password = DocsWhere("Passwords", info.AttrPath)
+                             .Value("{'Passwords':[{'Password':$}]}");
 
             return true;
         }
+
+        public override bool OnMenuDimension(MenuInfo info) =>
+            info.Action switch
+            {
+                "CopyPassword" => GetPassword(info),
+                "TypePassword" => GetPassword(info),
+                _ => throw new NotImplementedException()
+            };
     }
 }

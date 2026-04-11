@@ -52,47 +52,46 @@ namespace FractalPlatform.Examples.Applications.Supermarket
                       Client.CommitTran();
                   });
 
-        public override bool OnMenuDimension(MenuInfo info)
+        private bool AddToCart(MenuInfo info)
         {
-            switch (info.Action)
+            var coll = info.Collection;
+
+            //read entities
+            var stock = coll.GetWhere(info.AttrPath).SelectOne<Stock>();
+
+            var cart = coll.GetDoc(info.DocID).SelectOne<Cart>();
+
+            var stockProduct = stock.StockProducts[0];
+
+            //add to cart
+            var product = cart.Products.FirstOrDefault(x => x.Product == stockProduct.Product);
+
+            if (product != null)
             {
-                case "AddToCart":
-                    {
-                        var coll = info.Collection;
+                product.Count++;
 
-                        //read entities
-                        var stock = coll.GetWhere(info.AttrPath).SelectOne<Stock>();
-
-                        var cart = coll.GetDoc(info.DocID).SelectOne<Cart>();
-
-                        var stockProduct = stock.StockProducts[0];
-
-                        //add to cart
-                        var product = cart.Products.FirstOrDefault(x => x.Product == stockProduct.Product);
-
-                        if (product != null)
-                        {
-                            product.Count++;
-
-                            product.Price = product.Count * stockProduct.Price;
-                        }
-                        else
-                        {
-                            stockProduct.Count = 1;
-
-                            cart.Products.Add(stockProduct);
-                        }
-
-                        //save
-                        coll.GetDoc(info.DocID)
-                            .UpdateByObject(cart);
-
-                        return false; //do not reload data
-                    }
-                default:
-                    throw new NotImplementedException();
+                product.Price = product.Count * stockProduct.Price;
             }
+            else
+            {
+                stockProduct.Count = 1;
+
+                cart.Products.Add(stockProduct);
+            }
+
+            //save
+            coll.GetDoc(info.DocID)
+                .UpdateByObject(cart);
+
+            return false; //do not reload data
         }
+
+        public override bool OnMenuDimension(MenuInfo info) =>
+            info.Action switch
+            {
+                "AddToCart" => AddToCart(info),
+                _ => throw new NotImplementedException()
+            };
 
         public override bool OnEventDimension(EventInfo info) =>
             info.Action switch

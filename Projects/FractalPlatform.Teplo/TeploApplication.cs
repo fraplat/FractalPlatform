@@ -55,7 +55,7 @@ namespace FractalPlatform.Teplo
                                             }
                                         }));
 
-        private void History()
+        private bool History()
         {
             FirstDocOf("FilterHistory")
                 .OpenForm(onSave: result =>
@@ -89,9 +89,11 @@ namespace FractalPlatform.Teplo
                                    result => History());
                     }
                 });
+
+            return true;
         }
 
-        private void NoApartmentsInMonth()
+        private bool NoApartmentsInMonth()
         {
             var year = DateTime.Now.Year;
             var month = DateTime.Now.ToString("MMMM", new CultureInfo("uk-UA"));
@@ -108,33 +110,16 @@ namespace FractalPlatform.Teplo
                 "Список квартир що не подали показники",
                 MessageBoxButtonType.Ok
             );
-        }
-
-        public override bool OnEventDimension(EventInfo info)
-        {
-            var path = info.AttrPath.ToString();
-
-            switch (path)
-            {
-                case @"History":
-                    {
-                        History();
-
-                        break;
-                    }
-                case @"NoApartmentsInMonth":
-                    {
-                        NoApartmentsInMonth();
-
-                        break;
-                    }
-                default:
-                    {
-                        return base.OnEventDimension(info);
-                    }
-            }
 
             return true;
         }
+
+        public override bool OnEventDimension(EventInfo info) =>
+            info.AttrPath.ToString() switch
+            {
+                "History"             => History(),
+                "NoApartmentsInMonth" => NoApartmentsInMonth(),
+                _ => base.OnEventDimension(info)
+            };
     }
 }

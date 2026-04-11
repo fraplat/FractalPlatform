@@ -8,24 +8,17 @@ namespace FractalPlatform.CoffeePoints
 {
     public class CoffeePointsApplication : BaseApplication
     {
-        public override bool OnEventDimension(EventInfo info)
-        {
-            switch (info.Action)
+        public override bool OnEventDimension(EventInfo info) =>
+            info.Action switch
             {
-                case "Find":
-                    FirstDocOf("Find").OpenForm(onSave: result => Dashboard(result.Collection.DocumentStorage));
-                    return true;
-                case "Propose":
-                    CreateNewDocFor("NewPropose", "Proposes")
-                        .OpenForm(onSave: result => MessageBox("Thank you, we added your proposition.",
-                                                                "Information",
-                                                                MessageBoxButtonType.Ok,
-                                                                result => Dashboard()));
-                    return true;
-                default:
-                    return base.OnEventDimension(info);
-            }
-        }
+                "Find"    => FirstDocOf("Find").OpenForm(onSave: result => Dashboard(result.Collection.DocumentStorage)),
+                "Propose" => CreateNewDocFor("NewPropose", "Proposes")
+                                .OpenForm(onSave: result => MessageBox("Thank you, we added your proposition.",
+                                                                        "Information",
+                                                                        MessageBoxButtonType.Ok,
+                                                                        result => Dashboard())),
+                _ => base.OnEventDimension(info)
+            };
 
         public override bool OnOpenForm(FormInfo info)
         {

@@ -102,131 +102,104 @@ namespace FractalPlatform.RealWorld
             };
         }
 
-        public override object OnComputedDimension(ComputedInfo info)
+        private object CountFollowers(ComputedInfo info)
         {
-            switch (info.Variable)
-            {
-                case "CountLikes":
-                    return DocsWhere("Articles", info.DocID).Values("{'Likes':[$]}").Count;
-                case "CountFollowers":
-                    {
-                        var who = info.Collection.GetDoc(info.DocID).Value("{'Who':$}");
+            var who = info.Collection.GetDoc(info.DocID).Value("{'Who':$}");
 
-                        return DocsWhere("Users", "{'Name':@Name}", who).Values("{'Followers':[$]}").Count;
-                    }
-                case "GlobalFeedActive":
-                    return string.IsNullOrEmpty(_dashboardTag) || _dashboardTag == "Global" ? "active" : "";
-                case "YourFeedActive":
-                    return _dashboardTag == "Your" ? "active" : "";
-                case "MyPostsActive":
-                    return string.IsNullOrEmpty(_profileTag) || _profileTag == "MyPosts" ? "active" : "";
-                case "LikedPostsActive":
-                    return _profileTag == "LikedPosts" ? "active" : "";
-                case "TagFeedVisible":
-                    return string.IsNullOrEmpty(_dashboardTag) || _dashboardTag == "Global" || _dashboardTag == "Your" ? "style='display:none'" : "";
-                case "TagFeedValue":
-                    return _dashboardTag;
-                default:
-                    return base.OnComputedDimension(info);
-            }
+            return DocsWhere("Users", "{'Name':@Name}", who).Values("{'Followers':[$]}").Count;
         }
 
-        public override bool OnEventDimension(EventInfo info)
-        {
-            switch (info.Action)
+        public override object OnComputedDimension(ComputedInfo info) =>
+            info.Variable switch
             {
-                case "Register":
-                    return CreateNewDocFor("Register", "Users")
-                        .OpenForm(onSave: result =>
-                        {
-                            var nameAndPass = result.FindFirstValues("Name", "Password");
+                "CountLikes"      => DocsWhere("Articles", info.DocID).Values("{'Likes':[$]}").Count,
+                "CountFollowers"  => CountFollowers(info),
+                "GlobalFeedActive" => string.IsNullOrEmpty(_dashboardTag) || _dashboardTag == "Global" ? "active" : "",
+                "YourFeedActive"   => _dashboardTag == "Your" ? "active" : "",
+                "MyPostsActive"    => string.IsNullOrEmpty(_profileTag) || _profileTag == "MyPosts" ? "active" : "",
+                "LikedPostsActive" => _profileTag == "LikedPosts" ? "active" : "",
+                "TagFeedVisible"   => string.IsNullOrEmpty(_dashboardTag) || _dashboardTag == "Global" || _dashboardTag == "Your" ? "style='display:none'" : "",
+                "TagFeedValue"     => _dashboardTag,
+                _ => base.OnComputedDimension(info)
+            };
 
-                            TryLogin(nameAndPass[0], nameAndPass[1]);
+        private bool RegisterUser() =>
+            CreateNewDocFor("Register", "Users")
+                .OpenForm(onSave: result =>
+                {
+                    var nameAndPass = result.FindFirstValues("Name", "Password");
 
-                            Dashboard();
-                        });
-                case "Login":
-                    return Login();
-                case "Logout":
-                    return Logout();
-                case "AddArticle":
-                    return CreateNewDocFor("Post", "Articles").OpenForm(onClose: result => Dashboard());
-                case "Settings":
-                    return DocsWhere("Users", "{'Name':@UserName}").OpenForm();
-                case "AddLike":
-                    return DocsWhere("Articles", info.DocID).Update("{'Likes':[Add,@UserName]}");
-                case "RemoveLike":
-                    return DocsWhere("Articles", info.DocID).Delete("{'Likes':[@UserName]}");
-                case "FollowUser":
-                    {
-                        var who = info.FindFirstValue("Who");
+                    TryLogin(nameAndPass[0], nameAndPass[1]);
 
-                        return DocsWhere("Users", "{'Name':@Who}", who)
-                                .Update("{'Followers':[Add,@UserName]}");
-                    }
-                case "UnfollowUser":
-                    {
-                        var who = info.FindFirstValue("Who");
+                    Dashboard();
+                });
 
-                        return DocsWhere("Users", "{'Name':@Who}", who)
-                                .Delete("{'Followers':[@UserName]}");
-                    }
-                case "AddComment":
-                    {
-                        var comment = info.FindFirstValue("Comment");
+        private bool FollowUser(EventInfo info) =>
+            DocsWhere("Users", "{'Name':@Who}", info.FindFirstValue("Who"))
+                .Update("{'Followers':[Add,@UserName]}");
 
-                        return DocsWhere("Articles", info.DocID)
-                                .Update("{'Comments':[Add,{'Who':@UserName,'Avatar':@UserAvatar,'OnDate':@Now,'Text':@Text,'RemoveComment':''}]}", comment);
-                    }
-                case "RemoveComment":
-                    {
-                        return DocsWhere("Articles", info.AttrPath)
-                                .Delete("{'Comments':[$]}");
-                    }
-                case "EditArticle":
-                    {
-                        return DocsWhere("Articles", info.DocID)
-                                .ExtendUIDimension("{'Layout':'Post'}")
-                                .OpenForm(onClose: result => OpenArticle(info.Collection, info.AttrPath));
-                    }
-                case "RemoveArticle":
-                    return DocsWhere("Articles", info.DocID).Remove();
-                case "GlobalFeed":
-                    {
-                        _dashboardTag = "Global";
+        private bool UnfollowUser(EventInfo info) =>
+            DocsWhere("Users", "{'Name':@Who}", info.FindFirstValue("Who"))
+                .Delete("{'Followers':[@UserName]}");
 
-                        return Dashboard();
-                    }
-                case "YourFeed":
-                    {
-                        _dashboardTag = "Your";
+        private bool AddComment(EventInfo info) =>
+            DocsWhere("Articles", info.DocID)
+                .Update("{'Comments':[Add,{'Who':@UserName,'Avatar':@UserAvatar,'OnDate':@Now,'Text':@Text,'RemoveComment':''}]}", info.FindFirstValue("Comment"));
 
-                        return Dashboard();
-                    }
-                case "Who":
-                    {
-                        Context.UrlTag = info.AttrValue.ToString();
-
-                        _profileTag = "MyPosts";
-
-                        return Profile();
-                    }
-                case "MyPosts":
-                    {
-                        _profileTag = "MyPosts";
-
-                        return Profile();
-                    }
-                case "LikedPosts":
-                    {
-                        _profileTag = "LikedPosts";
-
-                        return Profile();
-                    }
-                default:
-                    return base.OnEventDimension(info);
-            }
+        private bool GlobalFeed()
+        {
+            _dashboardTag = "Global";
+            return Dashboard();
         }
+
+        private bool YourFeed()
+        {
+            _dashboardTag = "Your";
+            return Dashboard();
+        }
+
+        private bool ViewWho(EventInfo info)
+        {
+            Context.UrlTag = info.AttrValue.ToString();
+            _profileTag = "MyPosts";
+            return Profile();
+        }
+
+        private bool MyPosts()
+        {
+            _profileTag = "MyPosts";
+            return Profile();
+        }
+
+        private bool LikedPosts()
+        {
+            _profileTag = "LikedPosts";
+            return Profile();
+        }
+
+        public override bool OnEventDimension(EventInfo info) =>
+            info.Action switch
+            {
+                "Register"      => RegisterUser(),
+                "Login"         => Login(),
+                "Logout"        => Logout(),
+                "AddArticle"    => CreateNewDocFor("Post", "Articles").OpenForm(onClose: result => Dashboard()),
+                "Settings"      => DocsWhere("Users", "{'Name':@UserName}").OpenForm(),
+                "AddLike"       => DocsWhere("Articles", info.DocID).Update("{'Likes':[Add,@UserName]}"),
+                "RemoveLike"    => DocsWhere("Articles", info.DocID).Delete("{'Likes':[@UserName]}"),
+                "FollowUser"    => FollowUser(info),
+                "UnfollowUser"  => UnfollowUser(info),
+                "AddComment"    => AddComment(info),
+                "RemoveComment" => DocsWhere("Articles", info.AttrPath).Delete("{'Comments':[$]}"),
+                "EditArticle"   => DocsWhere("Articles", info.DocID).ExtendUIDimension("{'Layout':'Post'}").OpenForm(onClose: result => OpenArticle(info.Collection, info.AttrPath)),
+                "RemoveArticle" => DocsWhere("Articles", info.DocID).Remove(),
+                "GlobalFeed"    => GlobalFeed(),
+                "YourFeed"      => YourFeed(),
+                "Who"           => ViewWho(info),
+                "MyPosts"       => MyPosts(),
+                "LikedPosts"    => LikedPosts(),
+                _ => base.OnEventDimension(info)
+            };
 
         private bool Login()
         {
