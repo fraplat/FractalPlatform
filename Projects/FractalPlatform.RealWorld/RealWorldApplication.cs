@@ -12,7 +12,6 @@ namespace FractalPlatform.RealWorld
     public class RealWorldApplication : DashboardApplication
     {
         private string _dashboardTag;
-
         private string _profileTag;
 
         private class Article
@@ -64,29 +63,21 @@ namespace FractalPlatform.RealWorld
         public override bool OnSecurityDimension(SecurityInfo info)
         {
             if (Context.User.IsGuest)
-            {
                 return false;
-            }
-
+            
             if (info.OperationType != OperationType.Read)
-            {
                 return true;
-            }
-
+            
             var who = info.Collection.GetDoc(info.DocID).Value("{'Who':$}");
 
             if (string.IsNullOrEmpty(who))
-            {
                 return true;
-            }
-
+            
             return info.Variable switch
             {
-                "FollowUser" => !DocsWhere("Users", "{'Name':@Who}", who)
-                                    .AndWhere("{'Followers':[Any,@UserName]}")
+                "FollowUser" => !DocsWhere("Users", "{'Name':@Who,'Followers':[Any,@UserName]}", who)
                                     .Any() && who != Context.User.Name,
-                "UnfollowUser" => DocsWhere("Users", "{'Name':@Who}", who)
-                                    .AndWhere("{'Followers':[Any,@UserName]}")
+                "UnfollowUser" => DocsWhere("Users", "{'Name':@Who,'Followers':[Any,@UserName]}", who)
                                     .Any() && who != Context.User.Name,
                 "AddLike" => !DocsWhere("Articles", info.DocID)
                                  .AndWhere("{'Likes':[Any,@UserName]}")
@@ -106,13 +97,13 @@ namespace FractalPlatform.RealWorld
         {
             var who = info.Collection.GetDoc(info.DocID).Value("{'Who':$}");
 
-            return DocsWhere("Users", "{'Name':@Name}", who).Values("{'Followers':[$]}").Count;
+            return DocsWhere("Users", "{'Name':@Name}", who).Count("{'Followers':[$]}");
         }
 
         public override object OnComputedDimension(ComputedInfo info) =>
             info.Variable switch
             {
-                "CountLikes"      => DocsWhere("Articles", info.DocID).Values("{'Likes':[$]}").Count,
+                "CountLikes"      => DocsWhere("Articles", info.DocID).Count("{'Likes':[$]}"),
                 "CountFollowers"  => CountFollowers(info),
                 "GlobalFeedActive" => string.IsNullOrEmpty(_dashboardTag) || _dashboardTag == "Global" ? "active" : "",
                 "YourFeedActive"   => _dashboardTag == "Your" ? "active" : "",
@@ -123,16 +114,7 @@ namespace FractalPlatform.RealWorld
                 _ => base.OnComputedDimension(info)
             };
 
-        private bool RegisterUser() =>
-            CreateNewDocFor("Register", "Users")
-                .OpenForm(onSave: result =>
-                {
-                    var nameAndPass = result.FindFirstValues("Name", "Password");
-
-                    TryLogin(nameAndPass[0], nameAndPass[1]);
-
-                    Dashboard();
-                });
+        public override void OnLogin(FormResult result) => Dashboard();
 
         private bool FollowUser(EventInfo info) =>
             DocsWhere("Users", "{'Name':@Who}", info.FindFirstValue("Who"))
@@ -180,7 +162,7 @@ namespace FractalPlatform.RealWorld
         public override bool OnEventDimension(EventInfo info) =>
             info.Action switch
             {
-                "Register"      => RegisterUser(),
+                "Register"      => Register(),
                 "Login"         => Login(),
                 "Logout"        => Logout(),
                 "AddArticle"    => CreateNewDocFor("Post", "Articles").OpenForm(onClose: result => Dashboard()),
@@ -201,23 +183,6 @@ namespace FractalPlatform.RealWorld
                 _ => base.OnEventDimension(info)
             };
 
-        private bool Login()
-        {
-            return FirstDocOf("Login").OpenForm(onSave: result =>
-            {
-                var nameAndPass = result.FindFirstValues("Name", "Password");
-
-                if (TryLogin(nameAndPass[0], nameAndPass[1]))
-                {
-                    Dashboard();
-                }
-                else
-                {
-                    MessageBox("Wrong credentials.", "Login", MessageBoxButtonType.Ok, result => Login());
-                }
-            });
-        }
-
         private bool Profile()
         {
             var userName = Context.UrlTag;
@@ -229,7 +194,7 @@ namespace FractalPlatform.RealWorld
 
             FirstDocOf("Profile")
                     .ToCollection()
-                    .ExtendDocument(DQL("{'Who':@Who}", userName))
+                    .ExtendDocument("{'Who':@Who}", userName)
                     .ExtendDocument(user.ToJson())
                     .MergeToArrayPath(posts, "Posts")
                     .SetDimension(DimensionType.Pagination, "{'Posts':{'Page':{'Size':10}}}")
