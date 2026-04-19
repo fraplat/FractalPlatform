@@ -68,13 +68,10 @@ namespace FractalPlatform.UTube
 
             FirstDocOf("Dashboard")
                       .ToCollection()
-                      .DeleteByParent("NewVideos")
-                      .DeleteByParent("Subscribes")
-                      .DeleteByParent("Recommendations")
                       .ExtendDocument("{'FilterText':@Filter}", filter)
-                      .MergeToArrayPath(newVideos, "NewVideos")
-                      .MergeToArrayPath(subscribes, "Subscribes")
-                      .MergeToArrayPath(recommendations, "Recommendations")
+                      .SetToArrayPath(newVideos, "NewVideos")
+                      .SetToArrayPath(subscribes, "Subscribes")
+                      .SetToArrayPath(recommendations, "Recommendations")
                       .OpenForm();
         }
 

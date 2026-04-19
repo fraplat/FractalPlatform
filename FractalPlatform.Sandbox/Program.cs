@@ -190,7 +190,9 @@ namespace FractalPlatform.Sandbox
                 {
                     var sessionID = Guid.NewGuid();
 
-                    var formFactory = new WinFormsFactory();
+                    var windowID = Guid.NewGuid();
+
+					var formFactory = new WinFormsFactory();
 
                     var serviceBus = new ServiceBus();
 
@@ -199,6 +201,7 @@ namespace FractalPlatform.Sandbox
                     Console.WriteLine($"Init {options.AppName} application ...");
 
                     app.Init(sessionID,
+                             windowID,
                              workingFolder,
                              null,
                              null,

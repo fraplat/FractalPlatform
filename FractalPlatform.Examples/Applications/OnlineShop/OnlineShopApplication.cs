@@ -40,10 +40,8 @@ namespace FractalPlatform.Examples.Applications.OnlineShop
             var products = DocsWhere("Products", "{'Name':@Name}", searchText).ToStorage();
 
             return info.Collection
-                     .DeleteByParent("Filters")
-                     .DeleteByParent("Products")
-                     .MergeToArrayPath(categories, "Filters")
-                     .MergeToArrayPath(products, "Products")
+                     .SetToArrayPath(categories, "Filters")
+                     .SetToArrayPath(products, "Products")
                      .OpenForm();
         }
 
@@ -104,8 +102,7 @@ namespace FractalPlatform.Examples.Applications.OnlineShop
             }
 
             result.Collection
-                  .DeleteByParent("Products")
-                  .MergeToArrayPath(products, "Products")
+                  .SetToArrayPath(products, "Products")
                   .OpenForm(onSave: Filter);
         }
 
