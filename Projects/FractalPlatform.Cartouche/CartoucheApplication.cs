@@ -200,9 +200,8 @@ namespace FractalPlatform.Cartouche
 
             FirstDocOf("Dashboard")
                 .ToCollection()
-                .DeleteByParent("Posts")
                 .ExtendDocument("{'FullName':@FullName,'Avatar':@Avatar}", values[0], values[1])
-                .MergeToArrayPath(posts, "Posts", Constants.FIRST_DOC_ID, true)
+                .SetToArrayPath(posts, "Posts", Constants.FIRST_DOC_ID, true)
                 .OpenForm();
 
             return true;

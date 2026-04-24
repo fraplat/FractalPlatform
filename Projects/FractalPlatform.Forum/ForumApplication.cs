@@ -18,8 +18,7 @@ namespace FractalPlatform.Forum
 
             FirstDocOf("Dashboard")
                 .ToCollection()
-                .RemovePartDocument("{'Categories':$}")
-                .MergeToArrayPath(categories, "Categories")
+                .SetToArrayPath(categories, "Categories")
                 .OpenForm();
         }
 
@@ -29,8 +28,7 @@ namespace FractalPlatform.Forum
 
             FirstDocOf("CategoryDashboard")
                 .ToCollection()
-                .RemovePartDocument("{'Topics':$}")
-                .MergeToArrayPath(topics, "Topics", Constants.FIRST_DOC_ID, true)
+                .SetToArrayPath(topics, "Topics", Constants.FIRST_DOC_ID, true)
                 .OpenForm(onClose: result => Dashboard());
         }
 
