@@ -11,15 +11,15 @@ Application moderates anonymous chat where users can send messages
 
 ## How it implemented
 
-- [EN UTube Video](https://fraplat.tech/jupiter/UTube?tag=106)
-- [UA UTube Video](https://fraplat.tech/jupiter/UTube?tag=206)
+- [EN UTube Video](https://booben.com/jupiter/UTube?tag=106)
+- [UA UTube Video](https://booben.com/jupiter/UTube?tag=206)
 
 ## Web Link
 
-[Chat](https://fraplat.tech/jupiter/Chat)
+[Chat](https://booben.com/jupiter/Chat)
 
 ## Open app in Fractal Studio
 
-[Play with Chat in sandbox](https://fraplat.tech/mars/FractalStudio/?tag=Chat+template)
+[Play with Chat in sandbox](https://booben.com/mars/FractalStudio/?tag=Chat+template)
 
 

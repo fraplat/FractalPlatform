@@ -15,10 +15,10 @@ AI tries to identify details by the photo
 
 ## Web Link
 
-[AIWhatYouSee](https://fraplat.tech/jupiter/AIWhatYouSee)
+[AIWhatYouSee](https://booben.com/jupiter/AIWhatYouSee)
 
 ## Open app in Fractal Studio
 
-[Play with AIWhatYouSee in sandbox](https://fraplat.tech/mars/FractalStudio/?tag=AIWhatYouSee+template)
+[Play with AIWhatYouSee in sandbox](https://booben.com/mars/FractalStudio/?tag=AIWhatYouSee+template)
 
 

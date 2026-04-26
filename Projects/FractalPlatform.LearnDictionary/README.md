@@ -24,7 +24,7 @@ Convenient trainer for learning foreign language vocabulary.
 
 ## Web Link
 
-[LearnDictionary](https://fraplat.tech/mars/LearnDictionary)
+[LearnDictionary](https://booben.com/mars/LearnDictionary)
 
 ## Contacts
 
