@@ -182,6 +182,14 @@ namespace FractalPlatform.Sandbox
             }
         }
 
+        public void NeedReloadData()
+        {
+            if (HasForms)
+            {
+                ActiveMainForm.DomForm.NeedReloadData = true;
+            }
+        }
+
         public void RefreshForm()
         {
             ActiveForm.Context.TryRaiseError();
