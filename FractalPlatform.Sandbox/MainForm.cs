@@ -246,7 +246,7 @@ namespace FractalPlatform.Sandbox
 
 		public void ReloadData()
 		{
-			if (DomForm.NeedReloadForm)
+			if (DomForm.NeedReloadData)
 			{
 				DomForm.ReloadData();
 			}
