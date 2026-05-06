@@ -13,15 +13,15 @@ In current case application shows BTC price in USD/EUR currencies from cryptocom
 
 **Video explanation**
 
-- [EN UTube Video](https://fraplat.tech/jupiter/UTube?tag=110)
-- [UA UTube Video](https://fraplat.tech/jupiter/UTube?tag=210)
+- [EN UTube Video](https://booben.com/jupiter/UTube?tag=110)
+- [UA UTube Video](https://booben.com/jupiter/UTube?tag=210)
 
 ## Web Link
 
-[BTCRate](https://fraplat.tech/jupiter/BTCRate)
+[BTCRate](https://booben.com/jupiter/BTCRate)
 
 ## Open app in Fractal Studio
 
-[Play with BTCRate in sandbox](https://fraplat.tech/mars/FractalStudio/?tag=BTCRate+template)
+[Play with BTCRate in sandbox](https://booben.com/mars/FractalStudio/?tag=BTCRate+template)
 
 

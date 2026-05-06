@@ -14,10 +14,10 @@ Anonymous upload images on the server and share url among internet users
 
 ## Web Link
 
-[ImageHosting](https://fraplat.tech/jupiter/ImageHosting)
+[ImageHosting](https://booben.com/jupiter/ImageHosting)
 
 ## Open app in Fractal Studio
 
-[Play with ImageHosting in sandbox](https://fraplat.tech/mars/FractalStudio/?tag=ImageHosting+template)
+[Play with ImageHosting in sandbox](https://booben.com/mars/FractalStudio/?tag=ImageHosting+template)
 
 

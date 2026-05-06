@@ -17,10 +17,10 @@ Full list of implementations you can find here: https://codebase.show/projects/r
 
 ## Web Link
 
-[RealWordComparator](https://fraplat.tech/jupiter/RealWorldComparator)
+[RealWordComparator](https://booben.com/jupiter/RealWorldComparator)
 
 ## Open app in Fractal Studio
 
-[Play with RealWordComparator in sandbox](https://fraplat.tech/mars/FractalStudio/?tag=RealWordComparator+template)
+[Play with RealWordComparator in sandbox](https://booben.com/mars/FractalStudio/?tag=RealWordComparator+template)
 
 

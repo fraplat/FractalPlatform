@@ -22,7 +22,7 @@ Application helps strangers to meet each other on the map for short meetings wit
 
 ## Web Link
 
-[CoffeePoints](https://fraplat.tech/jupiter/CoffeePoints)
+[CoffeePoints](https://booben.com/jupiter/CoffeePoints)
 
 ## Screenshots
 
