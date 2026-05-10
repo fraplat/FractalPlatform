@@ -16,8 +16,8 @@ Monitor electricity in my location.
 
 ## Web Link
 
-[MyElectro](https://booben.com/jupiter/MyElectro)
+[MyElectro](https://fraplat.dev/jupiter/MyElectro)
 
 ## Open app in Fractal Studio
 
-[Play with MyElectro in sandbox](https://booben.com/mars/FractalStudio/?tag=MyElectro+template)
+[Play with MyElectro in sandbox](https://fraplat.dev/mars/FractalStudio/?tag=MyElectro+template)

@@ -15,10 +15,10 @@ Convert excel table to json
 
 ## Web Link
 
-[TableToJson](https://booben.com/jupiter/TableToJson)
+[TableToJson](https://fraplat.dev/jupiter/TableToJson)
 
 ## Open app in Fractal Studio
 
-[Play with TableToJson in sandbox](https://booben.com/mars/FractalStudio/?tag=TableToJson+template)
+[Play with TableToJson in sandbox](https://fraplat.dev/mars/FractalStudio/?tag=TableToJson+template)
 
 

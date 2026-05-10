@@ -22,10 +22,10 @@ Application demonstrates online theatre with series and episodes with next funct
 
 ## Web Link
 
-[Movies](https://booben.com/jupiter/Movies)
+[Movies](https://fraplat.dev/jupiter/Movies)
 
 ## Open app in Fractal Studio
 
-[Play with Movies in sandbox](https://booben.com/mars/FractalStudio/?tag=Movies+template)
+[Play with Movies in sandbox](https://fraplat.dev/mars/FractalStudio/?tag=Movies+template)
 
 

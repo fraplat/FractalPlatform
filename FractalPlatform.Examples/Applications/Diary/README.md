@@ -18,8 +18,8 @@ Application makes simple life result tracker
 
 ## Web Link
 
-[Diary](https://booben.com/jupiter/Diary)
+[Diary](https://fraplat.dev/jupiter/Diary)
 
 ## Open app in Fractal Studio
 
-[Play with Diary in sandbox](https://booben.com/mars/FractalStudio/?tag=Diary+template)
+[Play with Diary in sandbox](https://fraplat.dev/mars/FractalStudio/?tag=Diary+template)

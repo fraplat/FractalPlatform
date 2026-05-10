@@ -18,13 +18,13 @@ Application demonstrates ToDo list with categories with next functionality:
 
 ## How it implemented
 
-- [EN UTube Video](https://booben.com/jupiter/UTube?tag=103)
-- [UA UTube Video](https://booben.com/jupiter/UTube?tag=203)
+- [EN UTube Video](https://fraplat.dev/jupiter/UTube?tag=103)
+- [UA UTube Video](https://fraplat.dev/jupiter/UTube?tag=203)
 
 ## Web Link
 
-[ToDoWithCategories](https://booben.com/jupiter/ToDoWithCategories)
+[ToDoWithCategories](https://fraplat.dev/jupiter/ToDoWithCategories)
 
 ## Open app in Fractal Studio
 
-[Play with ToDoWithCategories in sandbox](https://booben.com/mars/FractalStudio/?tag=ToDoWithCategories+template)
+[Play with ToDoWithCategories in sandbox](https://fraplat.dev/mars/FractalStudio/?tag=ToDoWithCategories+template)

@@ -21,7 +21,7 @@ GPS coordianates can be selected on the map.
 
 ## Web Link
 
-[Weather](https://booben.com/jupiter/Weather)
+[Weather](https://fraplat.dev/jupiter/Weather)
 
 ## Screenshots
 

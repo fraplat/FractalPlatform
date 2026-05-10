@@ -26,7 +26,7 @@ Twitter like social network
 
 ## Web Link
 
-[Cartouche](https://booben.com/mars/Cartouche)
+[Cartouche](https://fraplat.dev/mars/Cartouche)
 
 ## Contacts
 

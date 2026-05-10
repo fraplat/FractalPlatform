@@ -15,10 +15,10 @@ Encode text to QR code
 
 ## Web Link
 
-[TextToQRCode](https://booben.com/jupiter/TextToQRCode)
+[TextToQRCode](https://fraplat.dev/jupiter/TextToQRCode)
 
 ## Open app in Fractal Studio
 
-[Play with TextToQRCode in sandbox](https://booben.com/mars/FractalStudio/?tag=TextToQRCode+template)
+[Play with TextToQRCode in sandbox](https://fraplat.dev/mars/FractalStudio/?tag=TextToQRCode+template)
 
 

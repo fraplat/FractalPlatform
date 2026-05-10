@@ -21,15 +21,15 @@ Application implements freelance exchange market with next functionality:
 
 ## How it implemented
 
-- [EN UTube Video](https://booben.com/jupiter/UTube?tag=112)
-- [UA UTube Video](https://booben.com/jupiter/UTube?tag=212)
+- [EN UTube Video](https://fraplat.dev/jupiter/UTube?tag=112)
+- [UA UTube Video](https://fraplat.dev/jupiter/UTube?tag=212)
 
 ## Web Link
 
-[FreelanceResponse](https://booben.com/jupiter/FreelanceResponse)
+[FreelanceResponse](https://fraplat.dev/jupiter/FreelanceResponse)
 
 ## Open app in Fractal Studio
 
-[Play with FreelanceResponse in sandbox](https://booben.com/mars/FractalStudio/?tag=FreelanceResponse+template)
+[Play with FreelanceResponse in sandbox](https://fraplat.dev/mars/FractalStudio/?tag=FreelanceResponse+template)
 
 

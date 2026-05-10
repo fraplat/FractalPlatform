@@ -23,13 +23,13 @@ Additional functionality
 
 ## How it implemented
 
-- [EN UTube Video](https://booben.com/jupiter/UTube?tag=116)
-- [UA UTube Video](https://booben.com/jupiter/UTube?tag=216)
+- [EN UTube Video](https://fraplat.dev/jupiter/UTube?tag=116)
+- [UA UTube Video](https://fraplat.dev/jupiter/UTube?tag=216)
 
 ## Web Link
 
-[OnlineShop](https://booben.com/jupiter/OnlineShop)
+[OnlineShop](https://fraplat.dev/jupiter/OnlineShop)
 
 ## Open app in Fractal Studio
 
-[Play with OnlineShop in sandbox](https://booben.com/mars/FractalStudio/?tag=OnlineShop+template)
+[Play with OnlineShop in sandbox](https://fraplat.dev/mars/FractalStudio/?tag=OnlineShop+template)

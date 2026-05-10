@@ -22,7 +22,7 @@ Track your personal bowling scores with photos and reports.
 
 ## Web Link
 
-[BowlingScores](https://booben.com/jupiter/BowlingScores)
+[BowlingScores](https://fraplat.dev/jupiter/BowlingScores)
 
 ## Screenshots
 

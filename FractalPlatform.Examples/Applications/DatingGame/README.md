@@ -26,10 +26,10 @@ Details of implementation
 
 ## Web Link
 
-[DatingGame](https://booben.com/jupiter/DatingGame)
+[DatingGame](https://fraplat.dev/jupiter/DatingGame)
 
 ## Open app in Fractal Studio
 
-[Play with DatingGame in sandbox](https://booben.com/mars/FractalStudio/?tag=DatingGame+template)
+[Play with DatingGame in sandbox](https://fraplat.dev/mars/FractalStudio/?tag=DatingGame+template)
 
 

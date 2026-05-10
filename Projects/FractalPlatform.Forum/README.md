@@ -47,7 +47,7 @@ For Guest, User and Admin
 
 ## Web Link
 
-[Forum](https://booben.com/jupiter/Forum)
+[Forum](https://fraplat.dev/jupiter/Forum)
 
 ## Screenshots
 
